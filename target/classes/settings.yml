@@ -1,0 +1,35 @@
+#
+#
+#               FlowerCore made by Emmiesa | Settings.yml
+#
+#
+server-name: eu-hub-1
+server-region: EU
+chat-format:
+  enabled: true
+  format: "&a%player%&7: &f%message%"
+op-format:
+  enabled: true
+  format: "&7[&4Operator&7] &r&4%player%&7: &f%message%"
+on-join:
+  clear-inventory: false
+  set-gamemode:
+    enabled: false
+    gamemode: "SURVIVAL" #You can use SURVIVAL, CREATIVE, ADVENTURE or SPECTATOR.
+announce:
+  enabled: true
+  disabled: "&fNot enabled."
+  bungee: true
+  cooldown: 15
+  command: "play eu-hub-1"
+  hover: "&aClick to join!"
+  announced-message: "&aYou've announced the game!"
+  format: '&b&l%server_name% &7» &b%player_display_name% &fwants you to play! &a(Join)'
+socials:
+  discord: discord.emmiesa.dev
+  website: www.emmiesa.dev
+  store: store.emmiesa.dev
+  teamspeak: ts.emmiesa.dev
+  tiktok: tiktok.com/emmiesadev
+  twitter: twitter.com/emmiesadev
+  youtube: youtube.com/emmiesadev

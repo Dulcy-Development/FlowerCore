@@ -1,0 +1,23 @@
+name: FlowerCore
+version: '${project.version}'
+main: me.emmiesa.flowercore.FlowerCore
+softdepend: [PlaceholderAPI]
+loadbefore:
+  - AquaCore
+  - Core
+  - cCore
+  - eCore
+  - FlowerHub
+  - iCore
+  - mCore
+  - nCore
+  - Phoenix
+  - pxCore
+  - Synth
+  - SharkCore
+  - xCore
+  - zoom
+  - zoot
+author: Emmiesa
+description: '${project.description}'
+website: https://dsg.gg/emmiesa
