@@ -7,9 +7,6 @@ public class Lang {
     private static final FileConfiguration defaultConfig = FlowerCore.getInstance().getConfigHandler().getDefaultConfig();
     private static final FileConfiguration databaseConfig = FlowerCore.getInstance().getConfigHandler().getDatabaseConfig();
     private static final FileConfiguration extrasConfig = FlowerCore.getInstance().getConfigHandler().getExtrasConfig();
-
-    //kasndgks dkmh test test
-
     private static final FileConfiguration messagesConfig = FlowerCore.getInstance().getConfigHandler().getMessagesConfig();
     private static final FileConfiguration permissionsConfig = FlowerCore.getInstance().getConfigHandler().getPermissionsConfig();
     private static final FileConfiguration ranksConfig = FlowerCore.getInstance().getConfigHandler().getRanksConfig();
