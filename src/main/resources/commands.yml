@@ -9,5 +9,3 @@ plugin:
   permission:
     perm-off: false #Does not require the perm if 'true'
     perm: flower.cmd.plugin
-
-    #test
