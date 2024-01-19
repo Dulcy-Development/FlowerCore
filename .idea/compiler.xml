@@ -9,8 +9,5 @@
         <module name="flowercore" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="basic" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
