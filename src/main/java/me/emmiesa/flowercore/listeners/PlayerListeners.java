@@ -11,6 +11,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 import java.util.List;
+import java.util.UUID;
 
 public class PlayerListeners implements Listener {
 
@@ -23,6 +24,13 @@ public class PlayerListeners implements Listener {
     @EventHandler(priority = EventPriority.HIGH)
     public void onJoin(PlayerJoinEvent event) {
         Player joinedPlayer = event.getPlayer();
+        UUID playerUUID = joinedPlayer.getUniqueId();
+
+        if (plugin.getRanksManager().getDefaultRank() != null) {
+            plugin.getPlayerManager().setupPlayer(playerUUID);
+        } else {
+            joinedPlayer.sendMessage(CC.translate("&cDefault rank isn't set!"));
+        }
 
         if (plugin.getConfig("messages.yml").getBoolean("on-join.messages.welcome-message.enabled")) {
             List<String> welcomeMessages = plugin.getConfig("messages.yml").getStringList("on-join.messages.welcome-message.message");
