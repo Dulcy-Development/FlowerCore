@@ -20,7 +20,7 @@ import me.emmiesa.flowercore.utils.command.CommandFramework;
 import java.io.File;
 
 @Getter @Setter
-public class FlowerCore extends JavaPlugin {
+public class FlowerCore extends JavaPlugin { //a
 
     @Getter public static FlowerCore instance;
 
