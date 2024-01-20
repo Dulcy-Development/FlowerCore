@@ -45,6 +45,7 @@ rank:
   created: "&aSuccessfully created the &r%rank% &arank!"
   does-not-exist: "&cThe %rank% &crank does not exist!"
   set-displayname: "&aSuccessfully set &r%display-name% &aas display name of the &r%rank% &arank!"
+  addperm: "&aSuccessfully added the &r%perm% &apermission to the &r%rank% &arank!"
 clear-chat: "&aThe chat has been cleared by %player%."
 clear-chat-staff: "&7[&8%server%&7] Cleared the chat by &8%player%&7."
 socials:

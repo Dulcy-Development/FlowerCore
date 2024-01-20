@@ -47,6 +47,7 @@ me\emmiesa\flowercore\menus\settings\SettingsMenu.class
 me\emmiesa\flowercore\commands\global\PluginCommand.class
 me\emmiesa\flowercore\Lang.class
 me\emmiesa\flowercore\utils\menu\button\BackButton.class
+me\emmiesa\flowercore\commands\admin\rank\SubCommands\RankAddPermissionsCommand.class
 me\emmiesa\flowercore\menus\settings\button\SettingsButton.class
 me\emmiesa\flowercore\profile\Profile.class
 me\emmiesa\flowercore\utils\menu\Button$1.class
