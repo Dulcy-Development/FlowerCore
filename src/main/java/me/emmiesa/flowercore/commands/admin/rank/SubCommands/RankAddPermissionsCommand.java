@@ -9,24 +9,26 @@ import me.emmiesa.flowercore.utils.command.Command;
 import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.entity.Player;
 
-public class RankSetPrefixCommand extends BaseCommand {
+import java.util.List;
 
-    @Command(name = "rank.setprefix", aliases = "setrankprefix", permission = "flowercore.staff")
+public class RankAddPermissionsCommand extends BaseCommand {
+
+    @Command(name = "rank.addpermissions", aliases = {"addrankperms"}, permission = "flowercore.staff")
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
 
         if (args.length() < 2) {
-            player.sendMessage(CC.translate("&cUsage: /rank setPrefix (rank-name) (prefix)"));
+            player.sendMessage(CC.translate("&cUsage: /rank addpermissions (rank-name) (permission)"));
             return;
         }
 
         String rankName = args.getArgs(0);
-        String prefix = args.getArgs(1);
+        String permission = args.getArgs(1);
 
-        setPrefix(player, rankName, prefix);
+        addPermission(player, rankName, permission);
     }
 
-    public void setPrefix(Player player, String rankName, String prefix) {
+    public void addPermission(Player player, String rankName, String permission) {
         Rank rank = FlowerCore.instance.getRanksManager().getRank(rankName);
 
         if (rank == null) {
@@ -34,7 +36,9 @@ public class RankSetPrefixCommand extends BaseCommand {
             return;
         }
 
-        rank.setPrefix(prefix);
-        player.sendMessage(CC.translate("&aSuccessfully set prefix!"));
+        List<String> permissions = rank.getPermissions();
+        permissions.add(permission);
+        rank.setPermissions(permissions);
+        player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("rank.addperm").replace("%rank%", rankName).replace("%perm%", permission)));
     }
 }

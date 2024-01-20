@@ -6,6 +6,7 @@ import me.emmiesa.flowercore.commands.admin.gamemode.gmcCommand;
 import me.emmiesa.flowercore.commands.admin.gamemode.gmsCommand;
 import me.emmiesa.flowercore.commands.admin.gamemode.gmspCommand;
 import me.emmiesa.flowercore.commands.admin.rank.RankCommand;
+import me.emmiesa.flowercore.commands.admin.rank.SubCommands.RankAddPermissionsCommand;
 import me.emmiesa.flowercore.commands.admin.rank.SubCommands.RankCreateCommand;
 import me.emmiesa.flowercore.commands.admin.rank.SubCommands.RankSetDisplayCommand;
 import me.emmiesa.flowercore.commands.admin.rank.SubCommands.RankSetPrefixCommand;
@@ -80,6 +81,7 @@ public class register {
         new RankCreateCommand();
         new RankSetPrefixCommand();
         new RankSetDisplayCommand();
+        new RankAddPermissionsCommand();
 
         new AlertCommand(FlowerCore.instance);
         new GodModeCommand(FlowerCore.instance);
