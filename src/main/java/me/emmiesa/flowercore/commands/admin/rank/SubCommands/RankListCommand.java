@@ -1,6 +1,7 @@
 package me.emmiesa.flowercore.commands.admin.rank.SubCommands;
 
 import me.emmiesa.flowercore.FlowerCore;
+import me.emmiesa.flowercore.menus.ranklist.RankListMenu;
 import me.emmiesa.flowercore.ranks.Rank;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.chat.StringUtil;
@@ -14,13 +15,20 @@ import java.util.List;
 
 public class RankListCommand extends BaseCommand {
 
-    @Command(name = "rank.list", aliases = {"ranklist"}, permission = "flowercore.staff")
+    @Command(name = "rank.list", aliases = {"ranklist", "listranks"}, permission = "flowercore.staff")
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
 
         if (FlowerCore.instance.getConfig("settings.yml").getBoolean("rank-settings.list.send-as-message")) {
             sendasmessage(player);
         }
+        if (FlowerCore.instance.getConfig("settings.yml").getBoolean("rank-settings.list.open-menu")) {
+            openlistmenu(player);
+        }
+    }
+
+    public void openlistmenu(Player player) {
+        new RankListMenu().openMenu(player);
     }
 
     public void sendasmessage(Player player) {
@@ -32,11 +40,11 @@ public class RankListCommand extends BaseCommand {
                 .orElse(0);
 
         player.sendMessage(CC.FLOWER_BAR);
-        player.sendMessage(CC.translate("  &b&lRank list"));
+        player.sendMessage(CC.translate("   &b&lRank list"));
 
         for (Rank rank : ranks) {
             String paddedName = StringUtil.padRight(rank.getDisplayName(), maxLength);
-            String rankLine = "  &f┃ " + paddedName;
+            String rankLine = "    &f┃ " + paddedName;
             player.sendMessage(CC.translate(rankLine));
         }
 

@@ -5,9 +5,8 @@
 #
 server-name: eu-hub-1
 server-region: EU
-chat:
-  # Available placeholders %prefix%, %player%, %message%, %suffix%
-  format: "%prefix% %player%&7: %message%"
+chat: # Available placeholders %prefix%, %player%, %message%, %suffix%
+  format: "%prefix%%player%&7: &f%message%"
 #chat-format:
 #  enabled: true
 #  format: "&a%player%&7: &f%message%"
@@ -21,8 +20,8 @@ on-join:
     gamemode: "SURVIVAL" #You can use SURVIVAL, CREATIVE, ADVENTURE or SPECTATOR.
 rank-settings:
   list:
-    send-as-message: true
-    open-menu: false
+    send-as-message: false
+    open-menu: true
 announce:
   enabled: true
   disabled: "&fNot enabled."
