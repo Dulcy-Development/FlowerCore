@@ -11,7 +11,6 @@ me\emmiesa\flowercore\commands\global\TwitterCommand.class
 me\emmiesa\flowercore\commands\global\SettingsCommand.class
 me\emmiesa\flowercore\utils\chat\JSONMessage$MessageEvent.class
 me\emmiesa\flowercore\commands\donator\AnnounceCommand.class
-me\emmiesa\flowercore\commands\admin\rank\SubCommands\GrantCommand.class
 me\emmiesa\flowercore\utils\others\NumberUtils.class
 me\emmiesa\flowercore\extras\scoreboard\assemble\AssembleStyle.class
 me\emmiesa\flowercore\commands\admin\essential\FlyCommand.class
@@ -32,6 +31,7 @@ me\emmiesa\flowercore\commands\admin\teleport\TeleportPositionCommand.class
 me\emmiesa\flowercore\utils\chat\CC.class
 me\emmiesa\flowercore\utils\command\Command.class
 me\emmiesa\flowercore\commands\global\WebsiteCommand.class
+me\emmiesa\flowercore\commands\admin\rank\GrantCommand.class
 me\emmiesa\flowercore\extras\scoreboard\assemble\board\AssembleBoardEntry.class
 me\emmiesa\flowercore\plugin\register.class
 me\emmiesa\flowercore\ranks\Rank.class
