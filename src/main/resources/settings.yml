@@ -16,6 +16,10 @@ on-join:
   set-gamemode:
     enabled: false
     gamemode: "SURVIVAL" #You can use SURVIVAL, CREATIVE, ADVENTURE or SPECTATOR.
+rank-settings:
+  list:
+    send-as-message: true
+    open-menu: false
 announce:
   enabled: true
   disabled: "&fNot enabled."

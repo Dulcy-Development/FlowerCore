@@ -6,10 +6,7 @@ import me.emmiesa.flowercore.commands.admin.gamemode.gmcCommand;
 import me.emmiesa.flowercore.commands.admin.gamemode.gmsCommand;
 import me.emmiesa.flowercore.commands.admin.gamemode.gmspCommand;
 import me.emmiesa.flowercore.commands.admin.rank.RankCommand;
-import me.emmiesa.flowercore.commands.admin.rank.SubCommands.RankAddPermissionsCommand;
-import me.emmiesa.flowercore.commands.admin.rank.SubCommands.RankCreateCommand;
-import me.emmiesa.flowercore.commands.admin.rank.SubCommands.RankSetDisplayCommand;
-import me.emmiesa.flowercore.commands.admin.rank.SubCommands.RankSetPrefixCommand;
+import me.emmiesa.flowercore.commands.admin.rank.SubCommands.*;
 import me.emmiesa.flowercore.commands.global.*;
 import me.emmiesa.flowercore.commands.global.PluginCommand;
 import me.emmiesa.flowercore.commands.admin.administration.AlertCommand;
@@ -78,9 +75,15 @@ public class register {
         new TeleportPositionCommand();
 
         new RankCommand();
+        new RankListCommand();
         new RankCreateCommand();
+        new RankSetStaffCommand();
+        new RankSetSuffixCommand();
         new RankSetPrefixCommand();
         new RankSetDisplayCommand();
+        new RankSetDefaultCommand();
+        new RankSetMaterialCommand();
+        new RankSetPriorityCommand();
         new RankAddPermissionsCommand();
 
         new AlertCommand(FlowerCore.instance);
