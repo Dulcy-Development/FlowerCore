@@ -10,14 +10,14 @@ import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
-public class RankSetMaterialCommand extends BaseCommand {
+public class RankSetIconCommand extends BaseCommand {
 
-    @Command(name = "rank.setmaterial", aliases = {"setrankmaterial"}, permission = "flowercore.staff")
+    @Command(name = "rank.seticon", aliases = {"setrankicon"}, permission = "flowercore.staff")
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
 
         if (args.length() < 1) {
-            player.sendMessage(CC.translate("&cUsage: /rank setMaterial (rank-name)"));
+            player.sendMessage(CC.translate("&cUsage: /rank setIcon (rank-name)"));
             return;
         }
 
@@ -35,7 +35,7 @@ public class RankSetMaterialCommand extends BaseCommand {
         }
 
         if (player.getItemInHand().getType().equals(Material.AIR)) {
-            player.sendMessage(CC.translate("&4ERROR &8| &cYou need to be holding an item!"));
+            player.sendMessage(CC.translate("&cYou need to be holding an item!"));
             return;
         }
 

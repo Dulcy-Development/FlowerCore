@@ -12,7 +12,20 @@ import java.util.UUID;
 
 public class ChatListener implements Listener {
 
-    @EventHandler(priority = EventPriority.HIGH)
+    @EventHandler
+    public void onPlayerChat(AsyncPlayerChatEvent event) {
+        Player player = event.getPlayer();
+        UUID playerUUID = player.getUniqueId();
+
+        event.setFormat(CC.translate(FlowerCore.instance.getConfig("settings.yml").getString("chat.format")
+                .replace("%prefix%", FlowerCore.instance.getPlayerManager().getRank(playerUUID).getPrefix())
+                .replace("%player%", player.getName())
+                .replace("%message%", event.getMessage())
+                .replace("%suffix%", FlowerCore.instance.getPlayerManager().getRank(playerUUID).getSuffix())));
+    }
+}
+
+    /*@EventHandler(priority = EventPriority.HIGH)
     public void onChat(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
         UUID playerUUID = player.getUniqueId();
@@ -68,4 +81,4 @@ public class ChatListener implements Listener {
             }
         }
     }
-}
+}*/

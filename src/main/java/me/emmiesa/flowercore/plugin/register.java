@@ -5,6 +5,7 @@ import me.emmiesa.flowercore.commands.admin.gamemode.gmaCommand;
 import me.emmiesa.flowercore.commands.admin.gamemode.gmcCommand;
 import me.emmiesa.flowercore.commands.admin.gamemode.gmsCommand;
 import me.emmiesa.flowercore.commands.admin.gamemode.gmspCommand;
+import me.emmiesa.flowercore.commands.admin.rank.GrantCommand;
 import me.emmiesa.flowercore.commands.admin.rank.RankCommand;
 import me.emmiesa.flowercore.commands.admin.rank.SubCommands.*;
 import me.emmiesa.flowercore.commands.global.*;
@@ -75,6 +76,7 @@ public class register {
         new TeleportPositionCommand();
 
         new RankCommand();
+        new GrantCommand();
         new RankListCommand();
         new RankCreateCommand();
         new RankSetStaffCommand();
@@ -82,7 +84,7 @@ public class register {
         new RankSetPrefixCommand();
         new RankSetDisplayCommand();
         new RankSetDefaultCommand();
-        new RankSetMaterialCommand();
+        new RankSetIconCommand();
         new RankSetPriorityCommand();
         new RankAddPermissionsCommand();
 

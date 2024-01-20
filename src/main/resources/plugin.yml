@@ -2,6 +2,9 @@ name: FlowerCore
 version: '${project.version}'
 main: me.emmiesa.flowercore.FlowerCore
 softdepend: [PlaceholderAPI]
+author: Emmiesa
+description: '${project.description}'
+website: https://dsg.gg/emmiesa
 loadbefore:
   - AquaCore
   - Core
@@ -18,6 +21,3 @@ loadbefore:
   - xCore
   - zoom
   - zoot
-author: Emmiesa
-description: '${project.description}'
-website: https://dsg.gg/emmiesa
