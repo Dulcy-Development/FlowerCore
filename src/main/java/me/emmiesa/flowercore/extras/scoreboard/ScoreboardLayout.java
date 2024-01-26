@@ -25,13 +25,10 @@ public class ScoreboardLayout implements AssembleAdapter {
 
 		List<String> originalLines = plugin.getConfig("extras.yml").getStringList("scoreboard.lines");
 		for (String line : originalLines) {
-			// Replace placeholders in each line
 			line = line.replace("%online-players%", String.valueOf(Bukkit.getOnlinePlayers().size()))
 					.replace("%server-name%", Lang.SERVER_NAME)
 					.replace("%server-region%", Lang.SERVER_REGION)
 					.replace("%username%", player.getName());
-
-			// Add the modified line to the list
 			lines.add(CC.translate(line));
 		}
 

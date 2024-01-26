@@ -12,13 +12,14 @@ public class Lang {
     private static final FileConfiguration ranksConfig = FlowerCore.getInstance().getConfigHandler().getRanksConfig();
     private static final FileConfiguration settingsConfig = FlowerCore.getInstance().getConfigHandler().getSettingsConfig();
 
-    public static String RANK_NOT_FOUND = messagesConfig.getString("rank.does-not-exist");
+    public static String DEBUG = "&7(Debug) This is not being handled yet.";
     public static String NO_PERM = messagesConfig.getString("no-perms");
 
+    public static String RANK_NOT_FOUND = messagesConfig.getString("rank.does-not-exist");
+    public static String RANK_NOT_SET = "&c(Error) Your rank was not set.";
 
     public static String SERVER_NAME = settingsConfig.getString("server-name");
     public static String SERVER_REGION = settingsConfig.getString("server-region");
-
 
     public static String DISCORD = settingsConfig.getString("socials.discord");
     public static String STORE = settingsConfig.getString("socials.store");

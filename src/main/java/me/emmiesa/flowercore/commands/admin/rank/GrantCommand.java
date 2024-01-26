@@ -1,7 +1,6 @@
 package me.emmiesa.flowercore.commands.admin.rank;
 
-import me.emmiesa.flowercore.menus.grant.grant.GrantMenu;
-import me.emmiesa.flowercore.ranks.Rank;
+import me.emmiesa.flowercore.menus.grant.GrantMenu;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
@@ -27,6 +26,6 @@ public class GrantCommand extends BaseCommand {
             return;
         }
 
-        new GrantMenu().openMenu(player);
+        new GrantMenu(playerName).openMenu(player);
     }
 }

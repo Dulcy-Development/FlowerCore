@@ -45,7 +45,7 @@ public class FlowerCore extends JavaPlugin {
         registerManagers();
         registerScoreboard();
         register.commands();
-        //register.handlers();
+        register.handlers();
         register.listeners();
         register.done();
 
