@@ -6,7 +6,7 @@
 server-name: eu-hub-1
 server-region: EU
 chat: # Available placeholders %prefix%, %player%, %message%, %suffix%
-  format: "%prefix% %player%&7: %message%"
+  format: "%prefix%%player%&7: &f%message%"
 #chat-format:
 #  enabled: true
 #  format: "&a%player%&7: &f%message%"

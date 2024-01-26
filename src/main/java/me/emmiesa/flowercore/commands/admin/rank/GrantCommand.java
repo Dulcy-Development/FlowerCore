@@ -22,7 +22,7 @@ public class GrantCommand extends BaseCommand {
         String playerName = args.getArgs(0);
         Player target = Bukkit.getPlayer(playerName);
         if (target == null) {
-            player.sendMessage(CC.translate("&cNo player matching" + playerName + " &cis connected to this server."));
+            player.sendMessage(CC.translate("&cNo player matching &4" + playerName + " &cis connected to this server."));
             return;
         }
 
