@@ -15,7 +15,7 @@ import java.util.List;
 
 public class RankListCommand extends BaseCommand {
 
-    @Command(name = "rank.list", aliases = {"ranklist", "listranks"}, permission = "flowercore.staff")
+    @Command(name = "rank.list", aliases = {"ranks", "ranklist", "listranks"}, permission = "flowercore.staff")
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
 
