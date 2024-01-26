@@ -78,6 +78,7 @@ public class register {
         new RankCommand();
         new GrantCommand();
         new RankListCommand();
+        new RankSaveCommand();
         new RankCreateCommand();
         new RankSetStaffCommand();
         new RankSetSuffixCommand();

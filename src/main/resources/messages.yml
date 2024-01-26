@@ -43,6 +43,8 @@ broadcast:
     #- "%bars%"
 rank:
   created: "&aSuccessfully created the &r%rank% &arank!"
+  saving: "&7Saving all ranks..."
+  saved: "&aSuccessfully saved all ranks!"
   does-not-exist: "&cThe %rank% &crank does not exist!"
   set-displayname: "&aSuccessfully set &r%display-name% &aas display name of the &r%rank% &arank!"
   addperm: "&aSuccessfully added the &r%perm% &apermission to the &r%rank% &arank!"

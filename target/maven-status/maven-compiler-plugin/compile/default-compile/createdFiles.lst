@@ -98,6 +98,7 @@ me\emmiesa\flowercore\extras\scoreboard\assemble\events\AssembleBoardCreatedEven
 me\emmiesa\flowercore\extras\scoreboard\assemble\exception\AssembleException.class
 me\emmiesa\flowercore\extras\scoreboard\assemble\listener\AssembleListener.class
 me\emmiesa\flowercore\commands\global\StoreCommand.class
+me\emmiesa\flowercore\commands\admin\rank\SubCommands\RankSaveCommand.class
 me\emmiesa\flowercore\utils\item\ItemBuilder.class
 me\emmiesa\flowercore\utils\chat\JSONMessage$MessagePart.class
 me\emmiesa\flowercore\extras\scoreboard\assemble\board\AssembleBoard.class

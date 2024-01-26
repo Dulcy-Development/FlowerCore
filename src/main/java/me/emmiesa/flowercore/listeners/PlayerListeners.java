@@ -72,7 +72,7 @@ public class PlayerListeners implements Listener {
         if (joinMessage != null && server != null) {
             for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
                 if (onlinePlayer.hasPermission("flowercore.staff") && joinedPlayer.hasPermission("flowercore.staff")) {
-                    onlinePlayer.sendMessage(CC.translate(joinMessage.replace("%prefix%", FlowerCore.instance.getPlayerManager().getRank(playerUUID).getPrefix()).replace("%player%", joinedPlayer.getDisplayName()).replace("%server%", server)/*.replace("%bars%", plugin.getConfig("messages.yml").getString("on-join.messages.bars-format"))*/));
+                    onlinePlayer.sendMessage(CC.translate(joinMessage.replace("%prefix%", plugin.getPlayerManager().getRank(playerUUID).getPrefix()).replace("%player%", joinedPlayer.getDisplayName()).replace("%server%", server)/*.replace("%bars%", plugin.getConfig("messages.yml").getString("on-join.messages.bars-format"))*/));
                 }
             }
         } else {
@@ -91,7 +91,7 @@ public class PlayerListeners implements Listener {
         if (leaveMessage != null && server != null) {
             for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
                 if (onlinePlayer.hasPermission("flowercore.staff") && disconnectedPlayer.hasPermission("flowercore.staff")) {
-                    onlinePlayer.sendMessage(CC.translate(leaveMessage.replace("%prefix%", FlowerCore.instance.getPlayerManager().getRank(playerUUID).getPrefix()).replace("%player%", disconnectedPlayer.getDisplayName()).replace("%server%", server)/*.replace("%bars%", plugin.getConfig("messages.yml").getString("on-join.messages.bars-format"))*/));
+                    onlinePlayer.sendMessage(CC.translate(leaveMessage.replace("%prefix%", plugin.getPlayerManager().getRank(playerUUID).getPrefix()).replace("%player%", disconnectedPlayer.getDisplayName()).replace("%server%", server)/*.replace("%bars%", plugin.getConfig("messages.yml").getString("on-join.messages.bars-format"))*/));
                 }
             }
         } else {

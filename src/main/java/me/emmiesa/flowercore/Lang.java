@@ -17,6 +17,8 @@ public class Lang {
 
     public static String RANK_NOT_FOUND = messagesConfig.getString("rank.does-not-exist");
     public static String RANK_NOT_SET = "&c(Error) Your rank was not set.";
+    public static String RANK_SAVED = messagesConfig.getString("rank.saved");
+    public static String RANK_SAVING = messagesConfig.getString("rank.saving");
 
     public static String SERVER_NAME = settingsConfig.getString("server-name");
     public static String SERVER_REGION = settingsConfig.getString("server-region");

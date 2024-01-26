@@ -30,5 +30,6 @@ public class RankCreateCommand extends BaseCommand {
         Rank rank = new Rank(rankName, "&7" + rankName, Material.IRON_INGOT, "&7" + rankName, "&7", 0, false, false, permissions);
         FlowerCore.instance.getRanksManager().getRanks().add(rank);
         player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("rank.created")).replace("%rank%", rankName));
+        player.sendMessage(CC.translate("&c(!) Don't forget to save you ranks by doing /rank save when you're done setting them up (!)"));
     }
 }
