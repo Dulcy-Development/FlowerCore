@@ -10,6 +10,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 import java.util.List;
 import java.util.UUID;
@@ -70,8 +71,27 @@ public class PlayerListeners implements Listener {
 
         if (joinMessage != null && server != null) {
             for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
-                if (onlinePlayer.hasPermission("flowercore.staff")) {
-                    onlinePlayer.sendMessage(CC.translate(joinMessage.replace("%player%", joinedPlayer.getName()).replace("%server%", server)/*.replace("%bars%", plugin.getConfig("messages.yml").getString("on-join.messages.bars-format"))*/));
+                if (onlinePlayer.hasPermission("flowercore.staff") && joinedPlayer.hasPermission("flowercore.staff")) {
+                    onlinePlayer.sendMessage(CC.translate(joinMessage.replace("%prefix%", FlowerCore.instance.getPlayerManager().getRank(playerUUID).getPrefix()).replace("%player%", joinedPlayer.getDisplayName()).replace("%server%", server)/*.replace("%bars%", plugin.getConfig("messages.yml").getString("on-join.messages.bars-format"))*/));
+                }
+            }
+        } else {
+            Bukkit.getConsoleSender().sendMessage(CC.translate("&4Warning: Join message or server name is null."));
+        }
+    }
+
+    @EventHandler
+    public void onPlayerLeave(PlayerQuitEvent event) {
+        Player disconnectedPlayer = event.getPlayer();
+        UUID playerUUID = disconnectedPlayer.getUniqueId();
+
+        String server = plugin.getConfig("settings.yml").getString("server-name");
+        String leaveMessage = plugin.getConfig("messages.yml").getString("on-leave.messages.staff.left-the-game");
+
+        if (leaveMessage != null && server != null) {
+            for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
+                if (onlinePlayer.hasPermission("flowercore.staff") && disconnectedPlayer.hasPermission("flowercore.staff")) {
+                    onlinePlayer.sendMessage(CC.translate(leaveMessage.replace("%prefix%", FlowerCore.instance.getPlayerManager().getRank(playerUUID).getPrefix()).replace("%player%", disconnectedPlayer.getDisplayName()).replace("%server%", server)/*.replace("%bars%", plugin.getConfig("messages.yml").getString("on-join.messages.bars-format"))*/));
                 }
             }
         } else {

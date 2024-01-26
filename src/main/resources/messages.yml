@@ -132,4 +132,8 @@ on-join:
         - " "
         #- "%bars%"
     staff:
-      joined-the-game: "&3[&bS&3] &b%player% &fhas joined &b%server%&f."
+      joined-the-game: "&3[&bS&3] &7(%server%) %prefix%%player% &ahas joined the server."
+on-leave:
+  messages:
+    staff:
+      left-the-game: "&3[&bS&3] &7(%server%) %prefix%%player% &chas left the server."

@@ -5,6 +5,7 @@ import lombok.Setter;
 import me.emmiesa.flowercore.FlowerCore;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,5 +70,9 @@ public class RanksManager {
         config.set(key + ".permissions", rank.getPermissions());
 
         getPlugin().getConfigHandler().saveConfig(getPlugin().getConfigHandler().getRanksConfigFile(), config);
+    }
+
+    public Rank getPlayerRank(Player player) {
+        return null;
     }
 }
