@@ -10,6 +10,10 @@ import me.emmiesa.flowercore.plugin.register;
 import me.emmiesa.flowercore.profile.PlayerManager;
 import me.emmiesa.flowercore.ranks.RanksManager;
 import me.emmiesa.flowercore.plugin.send;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.World;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import me.emmiesa.flowercore.handler.ConfigHandler;
 import me.emmiesa.flowercore.utils.others.Cooldown;
@@ -30,6 +34,7 @@ public class FlowerCore extends JavaPlugin {
     private MongoManager mongoManager;
     private RanksManager ranksManager;
     private PlayerManager playerManager;
+    private Location spawnLocation;
 
     public FileConfiguration messagesConfig, settingsConfig, commandsConfig, databaseConfig, extrasConfig, ranksConfig, permissionsConfig;
 
@@ -38,10 +43,13 @@ public class FlowerCore extends JavaPlugin {
         instance = this;
         long start = System.currentTimeMillis();
 
+        register.check();
+
         configHandler = new ConfigHandler();
         framework = new CommandFramework(this);
 
-        register.check();
+        saveDefaultConfig();
+        loadSpawnLocation();
         registerManagers();
         registerScoreboard();
         register.commands();
@@ -76,6 +84,52 @@ public class FlowerCore extends JavaPlugin {
         settingsConfig = getConfig("settings.yml");
         ranksConfig = getConfig("ranks.yml");
         permissionsConfig = getConfig("permissions.yml");
+    }
+
+    private void loadSpawnLocation() {
+        FileConfiguration config = getConfig();
+        boolean enableSpawnTeleport = config.getBoolean("on-join.teleport.enabled");
+
+        if (enableSpawnTeleport && config.contains("on-join.teleport.location.world")) {
+            World world = Bukkit.getWorld(config.getString("on-join.teleport.location.world"));
+            double x = config.getDouble("on-join.teleport.location.x");
+            double y = config.getDouble("on-join.teleport.location.y");
+            double z = config.getDouble("on-join.teleport.location.z");
+            float yaw = (float) config.getDouble("on-join.teleport.location.yaw");
+            float pitch = (float) config.getDouble("on-join.teleport.location.pitch");
+
+            spawnLocation = new Location(world, x, y, z, yaw, pitch);
+        }
+    }
+
+    public void teleportToSpawn(Player player) {
+        String worldName = getConfig().getString("on-join.teleport.location.world");
+        double x = getConfig().getDouble("on-join.teleport.location.x");
+        double y = getConfig().getDouble("on-join.teleport.location.y");
+        double z = getConfig().getDouble("on-join.teleport.location.z");
+        float yaw = (float) getConfig().getDouble("on-join.teleport.location.yaw");
+        float pitch = (float) getConfig().getDouble("on-join.teleport.location.pitch");
+
+        World world = Bukkit.getWorld(worldName);
+        if (world != null) {
+            Location spawnLocation = new Location(world, x, y, z, yaw, pitch);
+            player.teleport(spawnLocation);
+        } else {
+            Bukkit.getConsoleSender().sendMessage("(FlowerCore) The spawn world is not loaded.");
+        }
+    }
+
+    public void setSpawnLocation(Location location) {
+        this.spawnLocation = location;
+
+        getConfig().set("spawnLocation.world", location.getWorld().getName());
+        getConfig().set("spawnLocation.x", location.getX());
+        getConfig().set("spawnLocation.y", location.getY());
+        getConfig().set("spawnLocation.z", location.getZ());
+        getConfig().set("spawnLocation.yaw", location.getYaw());
+        getConfig().set("spawnLocation.pitch", location.getPitch());
+
+        saveConfig();
     }
 
     private void registerManagers() {

@@ -41,6 +41,10 @@ broadcast:
     - "&8[&dBroadcast&8] &f%text%"
     #- " "
     #- "%bars%"
+spawn-set: "&aSuccessfully set new join location!"
+spawn.not-set.reminder:
+  enabled: true #This also disables the console message if it's false!
+  message: "&c(Reminder) The join location was not set. Players won't be teleported! &8(TIP) &7&oYou can disable this message in the 'messages' config file."
 rank:
   created: "&aSuccessfully created the &r%rank% &arank!"
   saving: "&7Saving all ranks..."
@@ -95,6 +99,7 @@ teleport:
   #tpall: "&fTeleported all players to &f%player%"
   tp-pos: "&bTeleported you to the provided location &f(&b%x%x&f, &b%y%y&f, &b%z%z&f)."
   tp-up: "&bTeleported you to the top."
+  tp-spawn: "&aTeleported you to spawn!"
 fly:
   enabled: "Flight &aenabled"
   disabled: "Flight &cdisabled"

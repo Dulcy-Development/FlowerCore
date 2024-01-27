@@ -5,6 +5,7 @@ import me.emmiesa.flowercore.Lang;
 import me.emmiesa.flowercore.utils.chat.CC;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -27,6 +28,12 @@ public class PlayerListeners implements Listener {
     public void onJoin(PlayerJoinEvent event) {
         Player joinedPlayer = event.getPlayer();
         UUID playerUUID = joinedPlayer.getUniqueId();
+
+        Location spawnLocation = plugin.getSpawnLocation();
+
+        if (spawnLocation != null) {
+            event.getPlayer().teleport(spawnLocation);
+        }
 
         if (plugin.getRanksManager().getDefaultRank() != null) {
             plugin.getPlayerManager().setupPlayer(playerUUID);
