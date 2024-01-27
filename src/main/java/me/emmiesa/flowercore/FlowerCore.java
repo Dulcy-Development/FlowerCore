@@ -125,11 +125,11 @@ public class FlowerCore extends JavaPlugin {
         getConfig("settings.yml").set("spawnLocation.world", location.getWorld().getName());
         getConfig("settings.yml").set("spawnLocation.x", location.getX());
         getConfig("settings.yml").set("spawnLocation.y", location.getY());
-        getConfig"settings.yml"().set("spawnLocation.z", location.getZ());
+        getConfig("settings.yml").set("spawnLocation.z", location.getZ());
         getConfig("settings.yml").set("spawnLocation.yaw", location.getYaw());
         getConfig("settings.yml").set("spawnLocation.pitch", location.getPitch());
 
-        .getConfigHandler.save(FlowerCore.instance.getConfigHandler.getSettingsConfigFile(), FlowerCore.instance.getConfigHandler.getSettingsConfig());
+        getConfigHandler.save(FlowerCore.instance.getConfigHandler.getSettingsConfigFile(), FlowerCore.instance.getConfigHandler.getSettingsConfig());
     }
 
     private void registerManagers() {
