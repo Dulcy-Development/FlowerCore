@@ -34,7 +34,7 @@ public class PlayerListeners implements Listener {
             joinedPlayer.sendMessage(CC.translate(Lang.RANK_NOT_SET));
         }
 
-        if (plugin.getConfig("messages.yml").getBoolean("on-join.messages.welcome-message.enabled")) {
+        if (plugin.getConfig("messages.yml").getBoolean("on-join.messages.welcome-message.enabled", true)) {
             List<String> welcomeMessages = plugin.getConfig("messages.yml").getStringList("on-join.messages.welcome-message.message");
             sendWelcomeMessages(joinedPlayer, welcomeMessages);
         }
@@ -44,7 +44,7 @@ public class PlayerListeners implements Listener {
             joinedPlayer.getInventory().clear();
         }
 
-        if (plugin.getConfig("settings.yml").getBoolean("on-join.set-gamemode.enabled")) {
+        if (plugin.getConfig("settings.yml").getBoolean("on-join.set-gamemode.enabled", true)) {
             String gamemode = plugin.getConfig("settings.yml").getString("on-join.set-gamemode");
             if (gamemode != null) {
                 switch (gamemode.toUpperCase()) {
