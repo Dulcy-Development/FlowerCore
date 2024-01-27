@@ -122,14 +122,14 @@ public class FlowerCore extends JavaPlugin {
     public void setSpawnLocation(Location location) {
         this.spawnLocation = location;
 
-        getConfig().set("spawnLocation.world", location.getWorld().getName());
-        getConfig().set("spawnLocation.x", location.getX());
-        getConfig().set("spawnLocation.y", location.getY());
-        getConfig().set("spawnLocation.z", location.getZ());
-        getConfig().set("spawnLocation.yaw", location.getYaw());
-        getConfig().set("spawnLocation.pitch", location.getPitch());
+        getConfig("settings.yml").set("spawnLocation.world", location.getWorld().getName());
+        getConfig("settings.yml").set("spawnLocation.x", location.getX());
+        getConfig("settings.yml").set("spawnLocation.y", location.getY());
+        getConfig"settings.yml"().set("spawnLocation.z", location.getZ());
+        getConfig("settings.yml").set("spawnLocation.yaw", location.getYaw());
+        getConfig("settings.yml").set("spawnLocation.pitch", location.getPitch());
 
-        saveConfig();
+        .getConfigHandler.save(FlowerCore.instance.getConfigHandler.getSettingsConfigFile(), FlowerCore.instance.getConfigHandler.getSettingsConfig());
     }
 
     private void registerManagers() {
