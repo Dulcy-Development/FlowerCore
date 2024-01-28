@@ -87,7 +87,7 @@ public class FlowerCore extends JavaPlugin {
     }
 
     private void loadSpawnLocation() {
-        FileConfiguration config = getConfig();
+        FileConfiguration config = getConfig("settings.yml");
         boolean enableSpawnTeleport = config.getBoolean("on-join.teleport.enabled");
 
         if (enableSpawnTeleport && config.contains("on-join.teleport.location.world")) {
@@ -102,34 +102,17 @@ public class FlowerCore extends JavaPlugin {
         }
     }
 
-    public void teleportToSpawn(Player player) {
-        String worldName = getConfig().getString("on-join.teleport.location.world");
-        double x = getConfig().getDouble("on-join.teleport.location.x");
-        double y = getConfig().getDouble("on-join.teleport.location.y");
-        double z = getConfig().getDouble("on-join.teleport.location.z");
-        float yaw = (float) getConfig().getDouble("on-join.teleport.location.yaw");
-        float pitch = (float) getConfig().getDouble("on-join.teleport.location.pitch");
-
-        World world = Bukkit.getWorld(worldName);
-        if (world != null) {
-            Location spawnLocation = new Location(world, x, y, z, yaw, pitch);
-            player.teleport(spawnLocation);
-        } else {
-            Bukkit.getConsoleSender().sendMessage("(FlowerCore) The spawn world is not loaded.");
-        }
-    }
-
     public void setSpawnLocation(Location location) {
         this.spawnLocation = location;
 
-        getConfig("settings.yml").set("spawnLocation.world", location.getWorld().getName());
-        getConfig("settings.yml").set("spawnLocation.x", location.getX());
-        getConfig("settings.yml").set("spawnLocation.y", location.getY());
-        getConfig("settings.yml").set("spawnLocation.z", location.getZ());
-        getConfig("settings.yml").set("spawnLocation.yaw", location.getYaw());
-        getConfig("settings.yml").set("spawnLocation.pitch", location.getPitch());
+        getConfig("settings.yml").set("on-join.teleport.location.world", location.getWorld().getName());
+        getConfig("settings.yml").set("on-join.teleport.location.x", location.getX());
+        getConfig("settings.yml").set("on-join.teleport.location.y", location.getY());
+        getConfig("settings.yml").set("on-join.teleport.location.z", location.getZ());
+        getConfig("settings.yml").set("on-join.teleport.location.yaw", location.getYaw());
+        getConfig("settings.yml").set("on-join.teleport.location.pitch", location.getPitch());
 
-        getConfigHandler.save(FlowerCore.instance.getConfigHandler.getSettingsConfigFile(), FlowerCore.instance.getConfigHandler.getSettingsConfig());
+        getConfigHandler().saveConfig(FlowerCore.instance.getConfigHandler().getSettingsConfigFile(), FlowerCore.instance.getConfigHandler().getSettingsConfig());
     }
 
     private void registerManagers() {

@@ -3,13 +3,3 @@
 #               FlowerCore made by Emmiesa | Config.yml
 #
 #
-on-join:
-  teleport:
-    enabled: true
-    location:
-      world: world
-      x: 10
-      y: 10
-      z: 10
-      yaw: 0
-      pitch: 180

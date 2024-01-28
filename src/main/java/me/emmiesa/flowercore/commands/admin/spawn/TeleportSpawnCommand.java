@@ -13,9 +13,8 @@ public class TeleportSpawnCommand extends BaseCommand {
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
 
-        if (FlowerCore.instance.getConfig().getBoolean("on-join.teleport.enabled")) {
-            //FlowerCore.instance.teleportToSpawn(player);
-            player.teleport(FlowerCore.instance.getSpawnLocation(player.getLocation()))'
+        if (FlowerCore.instance.getConfig("settings.yml").getBoolean("on-join.teleport.enabled")) {
+            player.teleport(FlowerCore.instance.getSpawnLocation());
             player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("teleport.tp-spawn")));
         } else {
             player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("spawn.not-set.reminder.message")));
