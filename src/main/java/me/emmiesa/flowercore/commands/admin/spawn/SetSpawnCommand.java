@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 
 public class SetSpawnCommand extends BaseCommand {
 
-    @Command(name = "setspawn", permission = "flowercore.command.tphere", aliases = {"tphere", "s"})
+    @Command(name = "setjoinlocation", permission = "flowercore.command.tphere")
 
     @Override
     public void onCommand(CommandArgs cmd) {
