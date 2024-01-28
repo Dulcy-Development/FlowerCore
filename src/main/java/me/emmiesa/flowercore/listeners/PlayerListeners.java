@@ -33,7 +33,7 @@ public class PlayerListeners implements Listener {
 
         if (spawnLocation != null) {
             event.getPlayer().teleport(spawnLocation);
-        }//
+        }
 
         if (plugin.getRanksManager().getDefaultRank() != null) {
             plugin.getPlayerManager().setupPlayer(playerUUID);
