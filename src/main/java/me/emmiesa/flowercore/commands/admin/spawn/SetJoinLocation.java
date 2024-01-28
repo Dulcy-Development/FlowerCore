@@ -7,9 +7,9 @@ import me.emmiesa.flowercore.utils.command.Command;
 import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.entity.Player;
 
-public class SetSpawnCommand extends BaseCommand {
+public class SetJoinLocation extends BaseCommand {
 
-    @Command(name = "setjoinlocation", permission = "flowercore.command.tphere")
+    @Command(name = "setjoinlocation", permission = "flowercore.command.tphere", aliases = "setspawnlocation")
 
     @Override
     public void onCommand(CommandArgs cmd) {
