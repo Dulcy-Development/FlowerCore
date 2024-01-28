@@ -90,7 +90,7 @@ public class FlowerCore extends JavaPlugin {
         FileConfiguration config = getConfig("settings.yml");
         boolean enableSpawnTeleport = config.getBoolean("on-join.teleport.enabled");
 
-        if (enableSpawnTeleport && config.contains("on-join.teleport.location.world")) {
+        if (enableSpawnTeleport) {
             World world = Bukkit.getWorld(config.getString("on-join.teleport.location.world"));
             double x = config.getDouble("on-join.teleport.location.x");
             double y = config.getDouble("on-join.teleport.location.y");
