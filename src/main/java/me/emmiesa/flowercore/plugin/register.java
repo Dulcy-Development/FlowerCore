@@ -8,7 +8,7 @@ import me.emmiesa.flowercore.commands.admin.gamemode.gmspCommand;
 import me.emmiesa.flowercore.commands.admin.rank.GrantCommand;
 import me.emmiesa.flowercore.commands.admin.rank.RankCommand;
 import me.emmiesa.flowercore.commands.admin.rank.SubCommands.*;
-import me.emmiesa.flowercore.commands.admin.spawn.SetSpawnCommand;
+import me.emmiesa.flowercore.commands.admin.spawn.SetJoinLocation;
 import me.emmiesa.flowercore.commands.admin.spawn.TeleportSpawnCommand;
 import me.emmiesa.flowercore.commands.global.*;
 import me.emmiesa.flowercore.commands.global.PluginCommand;
@@ -71,7 +71,7 @@ public class register {
         new AnnounceCommand();
         new InstanceCommand();
         new TeleportCommand();
-        new SetSpawnCommand();
+        new SetJoinLocation();
         new ClearChatCommand();
         new TeleportUpCommand();
         new TeleportHereCommand();
