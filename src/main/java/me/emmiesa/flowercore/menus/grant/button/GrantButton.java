@@ -1,22 +1,25 @@
 package me.emmiesa.flowercore.menus.grant.button;
 
 import lombok.AllArgsConstructor;
+import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.Lang;
+import me.emmiesa.flowercore.menus.grantconfirm.GrantConfirmMenu;
 import me.emmiesa.flowercore.ranks.Rank;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.item.ItemBuilder;
 import me.emmiesa.flowercore.utils.menu.Button;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.Arrays;
+import java.util.UUID;
 
 @AllArgsConstructor
 public class GrantButton extends Button {
-
 	private final Rank rank;
-	private final String playerName;
+	private final String playerName; // Assuming this is the name of the player who will receive the rank
 
 	@Override
 	public ItemStack getButtonItem(Player player) {
@@ -36,7 +39,11 @@ public class GrantButton extends Button {
 
 	@Override
 	public void clicked(Player player, int slot, ClickType clickType, int hotbarSlot) {
-		//new ConfirmMenu(player, playerToGrantUUID, rank).updateMenu();
-		player.sendMessage(CC.translate(Lang.DEBUG));
+		UUID playerToGrantUUID = Bukkit.getPlayerExact(playerName).getUniqueId();
+		if (playerToGrantUUID != null) {
+			new GrantConfirmMenu(playerToGrantUUID, rank, playerName).openMenu(player);
+		} else {
+			player.sendMessage(CC.translate("&cTarget player must be online to grant a rank."));
+		}
 	}
 }
