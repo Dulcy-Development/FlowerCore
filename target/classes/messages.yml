@@ -4,7 +4,8 @@
 #
 #
 no-perms: "&cNo Permission."
-anti-syntax: "You are &cnot allowed &fto execute &f'&c%argument%&f'."
+anti-syntax: "&cNuh uh, you don't wanna do this... trust! &7(%argument%&f)"
+anti-syntax-bypass-perm: flowercore.staff
 reload:
   reloading:
     - "&r"

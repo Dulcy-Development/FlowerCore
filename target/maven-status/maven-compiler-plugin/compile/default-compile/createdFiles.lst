@@ -25,6 +25,7 @@ me\emmiesa\flowercore\commands\global\TeamSpeakCommand.class
 me\emmiesa\flowercore\listeners\ChatListener.class
 me\emmiesa\flowercore\utils\menu\MenuListener.class
 me\emmiesa\flowercore\commands\global\YouTubeCommand.class
+me\emmiesa\flowercore\commandblocker\CommandListener.class
 me\emmiesa\flowercore\utils\chat\JSONMessage$ClickEvent.class
 me\emmiesa\flowercore\commands\admin\gamemode\gmspCommand.class
 me\emmiesa\flowercore\commands\admin\essential\HealCommand.class

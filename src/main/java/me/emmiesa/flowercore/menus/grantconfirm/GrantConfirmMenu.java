@@ -5,6 +5,7 @@ import me.emmiesa.flowercore.ranks.Rank;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.menu.Button;
 import me.emmiesa.flowercore.utils.menu.Menu;
+import me.emmiesa.flowercore.utils.menu.button.RefillGlassButton;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
@@ -17,11 +18,13 @@ public class GrantConfirmMenu extends Menu {
     private final UUID playerToGrantUUID;
     private final Rank rank;
     private final String playerName;
+    private final RefillGlassButton refillGlassButton;
 
     public GrantConfirmMenu(UUID playerToGrantUUID, Rank rank, String playerName) {
         this.playerToGrantUUID = playerToGrantUUID;
         this.rank = rank;
         this.playerName = playerName;
+        this.refillGlassButton = new RefillGlassButton(Material.STAINED_GLASS_PANE, 15);
     }
 
     @Override
@@ -46,6 +49,12 @@ public class GrantConfirmMenu extends Menu {
                 "&cClick to cancel the grant!",
                 " "
         ), false));
+
+        for (int i = 0; i < getSize(); i++) {
+            if (!buttons.containsKey(i)) {
+                buttons.put(i, refillGlassButton);
+            }
+        }
 
         return buttons;
     }

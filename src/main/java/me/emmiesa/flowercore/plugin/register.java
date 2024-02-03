@@ -1,6 +1,7 @@
 package me.emmiesa.flowercore.plugin;
 
 import me.emmiesa.flowercore.FlowerCore;
+import me.emmiesa.flowercore.commandblocker.CommandListener;
 import me.emmiesa.flowercore.commands.admin.gamemode.gmaCommand;
 import me.emmiesa.flowercore.commands.admin.gamemode.gmcCommand;
 import me.emmiesa.flowercore.commands.admin.gamemode.gmsCommand;
@@ -115,6 +116,7 @@ public class register {
         FlowerCore.instance.getServer().getPluginManager().registerEvents(new MenuListener(), FlowerCore.instance);
         FlowerCore.instance.getServer().getPluginManager().registerEvents(new me.emmiesa.flowercore.listeners.PlayerListeners(FlowerCore.instance), FlowerCore.instance);
         FlowerCore.instance.getServer().getPluginManager().registerEvents(new me.emmiesa.flowercore.listeners.ChatListener(), FlowerCore.instance);
+        FlowerCore.instance.getServer().getPluginManager().registerEvents(new CommandListener(), FlowerCore.instance);
         FlowerCore.instance.getServer().getMessenger().registerOutgoingPluginChannel(FlowerCore.instance, "BungeeCord");
         long end = System.currentTimeMillis();
         long timeTaken = end - start;
