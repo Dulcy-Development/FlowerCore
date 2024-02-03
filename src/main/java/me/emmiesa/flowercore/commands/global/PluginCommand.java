@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 public class PluginCommand extends BaseCommand {
 
-    @Command(name = "serverplugins", aliases = {"plugininformation", "plugin", "pl", "plugins"}, inGameOnly = false)
+    @Command(name = "serverplugins", aliases = {"plugininformation", "listplugins", "pluginslist", "plugin", "pl", "plugins"}, inGameOnly = false)
     public void onCommand(CommandArgs args) {
         CommandSender sender = args.getSender();
         List<String> pluginNames = Arrays.stream(Bukkit.getPluginManager().getPlugins())

@@ -74,6 +74,7 @@ public class register {
         new TeleportCommand();
         new SetJoinLocation();
         new ClearChatCommand();
+        new TeamSpeakCommand();
         new TeleportUpCommand();
         new TeleportHereCommand();
         new TeleportSpawnCommand();
