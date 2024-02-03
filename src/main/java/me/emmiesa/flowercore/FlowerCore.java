@@ -35,7 +35,7 @@ public class FlowerCore extends JavaPlugin {
     private RanksManager ranksManager;
     private PlayerManager playerManager;
     private Location spawnLocation;
-
+// asf
     public FileConfiguration messagesConfig, settingsConfig, commandsConfig, databaseConfig, extrasConfig, ranksConfig, permissionsConfig;
 
     @Override
