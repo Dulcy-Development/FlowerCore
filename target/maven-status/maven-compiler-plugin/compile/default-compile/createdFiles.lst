@@ -66,6 +66,7 @@ me\emmiesa\flowercore\menus\ranklist\RankListMenu.class
 me\emmiesa\flowercore\database\MongoManager.class
 me\emmiesa\flowercore\commands\admin\gamemode\gmcCommand.class
 me\emmiesa\flowercore\listeners\PlayerListeners.class
+me\emmiesa\flowercore\menus\grantconfirm\GrantConfirmMenu.class
 me\emmiesa\flowercore\utils\chat\StringUtil.class
 me\emmiesa\flowercore\commands\admin\essential\TrollEverybodyCommand.class
 me\emmiesa\flowercore\menus\grant\button\GrantButton.class
@@ -84,6 +85,7 @@ me\emmiesa\flowercore\commands\admin\rank\SubCommands\RankCreateCommand.class
 me\emmiesa\flowercore\utils\menu\button\RefillGlassButton.class
 me\emmiesa\flowercore\commands\global\DiscordCommand.class
 me\emmiesa\flowercore\commands\global\TikTokCommand.class
+me\emmiesa\flowercore\menus\grantconfirm\button\GrantConfirmButton.class
 me\emmiesa\flowercore\utils\others\Cooldown.class
 me\emmiesa\flowercore\commands\admin\teleport\TeleportUpCommand.class
 me\emmiesa\flowercore\profile\Profile$ProfileBuilder.class

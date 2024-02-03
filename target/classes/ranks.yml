@@ -2,7 +2,7 @@ ranks:
   Owner:
     displayName: '&4Owner'
     icon: WOOL
-    prefix: '&8[&4Owner&8]'
+    prefix: '&7[&4Owner&7] &4'
     suffix: '&7'
     priority: 100
     default: false
