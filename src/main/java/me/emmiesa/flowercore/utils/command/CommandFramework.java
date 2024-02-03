@@ -195,7 +195,26 @@ public class CommandFramework implements CommandExecutor {
     }
 
     private void defaultCommand(CommandArgs args) {
-        //args.getSender().sendMessage(args.getLabel() + " is not handled! Oh noes!");
-        args.getSender().sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("anti-syntax").replace("%argument%", args.getLabel())));
+
+        String label = args.getLabel();
+        String[] parts = label.split(":");
+
+        if (parts.length > 1) {
+            String commandToExecute = parts[1];
+
+            StringBuilder commandBuilder = new StringBuilder(commandToExecute);
+            for (String arg : args.getArgs()) {
+                commandBuilder.append(" ").append(arg);
+            }
+            String command = commandBuilder.toString();
+
+            if (args.getSender() instanceof Player) {
+                ((Player) args.getSender()).performCommand(command);
+            } else {
+                args.getSender().getServer().dispatchCommand(args.getSender(), command);
+            }
+        } else {
+            args.getSender().sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("anti-syntax").replace("%argument%", args.getLabel())));
+        }
     }
 }

@@ -16,6 +16,7 @@ me\emmiesa\flowercore\utils\others\NumberUtils.class
 me\emmiesa\flowercore\extras\scoreboard\assemble\AssembleStyle.class
 me\emmiesa\flowercore\commands\admin\essential\FlyCommand.class
 me\emmiesa\flowercore\utils\menu\Button.class
+me\emmiesa\flowercore\commands\admin\spawn\SetJoinLocation.class
 me\emmiesa\flowercore\extras\scoreboard\assemble\thread\AssembleThread.class
 me\emmiesa\flowercore\commands\admin\rank\RankCommand.class
 me\emmiesa\flowercore\handler\ConfigHandler.class
@@ -44,7 +45,6 @@ me\emmiesa\flowercore\utils\chat\JSONMessage$ReflectionHelper.class
 me\emmiesa\flowercore\utils\chat\JSONMessage.class
 me\emmiesa\flowercore\commands\admin\administration\BroadcastCommand.class
 me\emmiesa\flowercore\utils\command\CommandFramework.class
-me\emmiesa\flowercore\commands\admin\spawn\SetSpawnCommand.class
 me\emmiesa\flowercore\ranks\RanksManager.class
 me\emmiesa\flowercore\extras\scoreboard\assemble\AssembleAdapter.class
 me\emmiesa\flowercore\utils\chat\JSONMessage$1.class
