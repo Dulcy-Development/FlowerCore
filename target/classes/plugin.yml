@@ -1,0 +1,23 @@
+name: FlowerCore
+version: '1.3.2-SNAPSHOT'
+main: me.emmiesa.flowercore.FlowerCore
+softdepend: [PlaceholderAPI]
+author: Emmiesa
+description: 'A custom server core'
+website: https://dsg.gg/emmiesa
+loadbefore:
+  - AquaCore
+  - Core
+  - cCore
+  - eCore
+  - FlowerHub
+  - iCore
+  - mCore
+  - nCore
+  - Phoenix
+  - pxCore
+  - Synth
+  - SharkCore
+  - xCore
+  - zoom
+  - zoot
