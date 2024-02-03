@@ -1,7 +1,7 @@
 package me.emmiesa.flowercore.listeners;
 
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.Lang;
+import me.emmiesa.flowercore.Locale;
 import me.emmiesa.flowercore.utils.chat.CC;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -38,7 +38,7 @@ public class PlayerListeners implements Listener {
         if (plugin.getRanksManager().getDefaultRank() != null) {
             plugin.getPlayerManager().setupPlayer(playerUUID);
         } else {
-            joinedPlayer.sendMessage(CC.translate(Lang.RANK_NOT_SET));
+            joinedPlayer.sendMessage(CC.translate(Locale.RANK_NOT_SET));
         }
 
         if (plugin.getConfig("messages.yml").getBoolean("on-join.messages.welcome-message.enabled", true)) {

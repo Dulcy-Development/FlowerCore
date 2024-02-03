@@ -2,14 +2,14 @@ package me.emmiesa.flowercore;
 
 import org.bukkit.configuration.file.FileConfiguration;
 
-public class Lang {
-    private static final FileConfiguration commandsConfig = FlowerCore.getInstance().getConfigHandler().getCommandsConfig();
+public class Locale {
+    /*private static final FileConfiguration commandsConfig = FlowerCore.getInstance().getConfigHandler().getCommandsConfig();
     private static final FileConfiguration defaultConfig = FlowerCore.getInstance().getConfigHandler().getDefaultConfig();
     private static final FileConfiguration databaseConfig = FlowerCore.getInstance().getConfigHandler().getDatabaseConfig();
     private static final FileConfiguration extrasConfig = FlowerCore.getInstance().getConfigHandler().getExtrasConfig();
-    private static final FileConfiguration messagesConfig = FlowerCore.getInstance().getConfigHandler().getMessagesConfig();
     private static final FileConfiguration permissionsConfig = FlowerCore.getInstance().getConfigHandler().getPermissionsConfig();
-    private static final FileConfiguration ranksConfig = FlowerCore.getInstance().getConfigHandler().getRanksConfig();
+    private static final FileConfiguration ranksConfig = FlowerCore.getInstance().getConfigHandler().getRanksConfig();*/
+    private static final FileConfiguration messagesConfig = FlowerCore.getInstance().getConfigHandler().getMessagesConfig();
     private static final FileConfiguration settingsConfig = FlowerCore.getInstance().getConfigHandler().getSettingsConfig();
 
     public static String DEBUG = "&7(Debug) This is not being handled yet.";

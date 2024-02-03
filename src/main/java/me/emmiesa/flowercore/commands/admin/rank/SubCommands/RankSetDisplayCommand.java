@@ -1,7 +1,7 @@
 package me.emmiesa.flowercore.commands.admin.rank.SubCommands;
 
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.Lang;
+import me.emmiesa.flowercore.Locale;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
@@ -26,7 +26,7 @@ public class RankSetDisplayCommand extends BaseCommand {
 
     private void setDisplayName(Player player, String rankName, String displayName) {
         if (FlowerCore.instance.getRanksManager().getRank(rankName) == null) {
-            player.sendMessage(CC.translate(Lang.RANK_NOT_FOUND).replace("%rank%", rankName));
+            player.sendMessage(CC.translate(Locale.RANK_NOT_FOUND).replace("%rank%", rankName));
             return;
         }
 

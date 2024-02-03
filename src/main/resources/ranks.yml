@@ -1,17 +1,38 @@
 ranks:
   Owner:
     displayName: '&4Owner'
-    icon: WOOL
+    icon: REDSTONE
     prefix: '&7[&4Owner&7] &4'
     suffix: '&7'
     priority: 100
     default: false
     staff: true
     permissions:
+      - '*'
+      - none
+  Admin:
+    displayName: '&cAdmin'
+    icon: APPLE
+    prefix: '&7[&cAdmin&7] &c'
+    suffix: '&7'
+    priority: 50
+    default: false
+    staff: true
+    permissions:
+      - none
+  MVP:
+    displayName: '&bMVP'
+    icon: DIAMOND
+    prefix: '&7[&b&l✹&7] &b'
+    suffix: '&7'
+    priority: 10
+    default: false
+    staff: false
+    permissions:
       - none
   Default:
     displayName: '&aDefault'
-    icon: WOOL
+    icon: GRASS
     prefix: '&a'
     suffix: '&7'
     priority: 1

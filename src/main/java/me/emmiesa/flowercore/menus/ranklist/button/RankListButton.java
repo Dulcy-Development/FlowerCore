@@ -1,7 +1,7 @@
 package me.emmiesa.flowercore.menus.ranklist.button;
 
 import lombok.AllArgsConstructor;
-import me.emmiesa.flowercore.Lang;
+import me.emmiesa.flowercore.Locale;
 import me.emmiesa.flowercore.ranks.Rank;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.item.ItemBuilder;
@@ -33,6 +33,6 @@ public class RankListButton extends Button {
 
 	@Override
 	public void clicked(Player player, int slot, ClickType clickType, int hotbarSlot) {
-		player.sendMessage(CC.translate(Lang.DEBUG));
+		player.sendMessage(CC.translate(Locale.DEBUG));
 	}
 }

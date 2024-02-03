@@ -1,7 +1,7 @@
 package me.emmiesa.flowercore.commands.global;
 
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.Lang;
+import me.emmiesa.flowercore.Locale;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
@@ -37,7 +37,7 @@ public class FlowerCoreCommand extends BaseCommand {
     private void noperm(CommandSender sender, CommandArgs args) {
         if (args.getArgs(0).equalsIgnoreCase("reload")) {
             if (!sender.hasPermission("flowercore.admin")) {
-                sender.sendMessage(CC.translate(Lang.NO_PERM));
+                sender.sendMessage(CC.translate(Locale.NO_PERM));
                 return;
             }
 

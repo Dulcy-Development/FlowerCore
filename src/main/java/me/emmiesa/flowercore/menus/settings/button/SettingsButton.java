@@ -1,7 +1,7 @@
 package me.emmiesa.flowercore.menus.settings.button;
 
 import lombok.AllArgsConstructor;
-import me.emmiesa.flowercore.Lang;
+import me.emmiesa.flowercore.Locale;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.item.ItemBuilder;
 import me.emmiesa.flowercore.utils.menu.Button;
@@ -46,7 +46,7 @@ public class SettingsButton extends Button {
 			if (!player.hasPermission("flowercore.donator")) {
 				playerClickSound(player);
 				player.closeInventory();
-				player.sendMessage(CC.translate(Lang.NO_PERM));
+				player.sendMessage(CC.translate(Locale.NO_PERM));
 			}
 		} else if (icon.name().contains("REDSTONE_BLOCK")) {
 			playerClickSound(player);
@@ -59,7 +59,7 @@ public class SettingsButton extends Button {
 			if (!player.hasPermission("flowercore.command.announce")) {
 				playerClickSound(player);
 				player.closeInventory();
-				player.sendMessage(CC.translate(Lang.NO_PERM));
+				player.sendMessage(CC.translate(Locale.NO_PERM));
 			}
 		} else {
 			player.sendMessage(CC.translate("&7&lClicked slot #" + slot));

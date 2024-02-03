@@ -39,6 +39,8 @@ public class CC {
     public static final String SB_BAR;
     public static final String TAB_BAR;
     public static final String FLOWER_BAR;
+    public static final String FLOWER_BAR_LONG;
+    public static final String FLOWER_BAR_VERY_LONG;
 
     static {
         MAP = new HashMap<>();
@@ -78,6 +80,8 @@ public class CC {
         TAB_BAR = ChatColor.GRAY.toString() + ChatColor.STRIKETHROUGH + "-----------------";
 
         FLOWER_BAR = translate("&b&lೋღ&b&l&m«-------&f&l&m-------&b&l&m-------»&r&b&lღೋ");
+        FLOWER_BAR_LONG = translate("&b&lೋღ&b&l&m«-------&f&l&m-----------------&b&l&m-------»&r&b&lღೋ");
+        FLOWER_BAR_VERY_LONG = translate("&b&lೋღ&b&l&m«-------&f&l&m----------------------------&b&l&m-------»&r&b&lღೋ");
     }
 
     public static void sendError(String message) {

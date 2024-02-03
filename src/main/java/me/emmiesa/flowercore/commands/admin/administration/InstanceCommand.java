@@ -1,6 +1,6 @@
 package me.emmiesa.flowercore.commands.admin.administration;
 
-import me.emmiesa.flowercore.Lang;
+import me.emmiesa.flowercore.Locale;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
@@ -26,7 +26,7 @@ public class InstanceCommand extends BaseCommand {
         sender.sendMessage(CC.translate("&b&lServer Info"));
         sender.sendMessage(" ");
         sender.sendMessage(CC.translate("&8 ┃ &7Server&f: &b"));
-        sender.sendMessage(CC.translate("  &b" + Lang.SERVER_NAME));
+        sender.sendMessage(CC.translate("  &b" + Locale.SERVER_NAME));
         sender.sendMessage(CC.translate("&8 ┃ &7Spigot&f:"));
         sender.sendMessage(CC.translate("  &b" + Bukkit.getServer().getVersion()));
         sender.sendMessage(CC.translate("&8 ┃ &7Players&f: "));

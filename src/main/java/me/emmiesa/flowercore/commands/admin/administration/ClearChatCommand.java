@@ -1,7 +1,7 @@
 package me.emmiesa.flowercore.commands.admin.administration;
 
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.Lang;
+import me.emmiesa.flowercore.Locale;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
@@ -26,7 +26,7 @@ public class ClearChatCommand extends BaseCommand {
             if (onlinePlayer.hasPermission("flowercore.command.staff")) {
                 String staffMessage = CC.translate(plugin.getConfig("messages.yml").getString("clear-chat-staff")
                         .replace("%player%", sender.getName())
-                        .replace("%server%", Lang.SERVER_NAME));
+                        .replace("%server%", Locale.SERVER_NAME));
                 onlinePlayer.sendMessage(staffMessage);
 
                 String regularMessage = CC.translate(plugin.getConfig("messages.yml").getString("clear-chat")
@@ -41,7 +41,7 @@ public class ClearChatCommand extends BaseCommand {
 
         String consoleMessage = CC.translate(plugin.getConfig("messages.yml").getString("clear-chat-staff")
                 .replace("%player%", sender.getName())
-                .replace("%server%", Lang.SERVER_NAME));
+                .replace("%server%", Locale.SERVER_NAME));
         Bukkit.getConsoleSender().sendMessage(consoleMessage);
 
         //I don't know how to send this to all bungee servers. I tryed, but.. :(

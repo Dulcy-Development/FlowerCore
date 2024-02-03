@@ -37,6 +37,7 @@ me\emmiesa\flowercore\commands\global\WebsiteCommand.class
 me\emmiesa\flowercore\commands\admin\rank\GrantCommand.class
 me\emmiesa\flowercore\extras\scoreboard\assemble\board\AssembleBoardEntry.class
 me\emmiesa\flowercore\plugin\register.class
+me\emmiesa\flowercore\Locale.class
 me\emmiesa\flowercore\ranks\Rank.class
 me\emmiesa\flowercore\commands\admin\administration\InstanceCommand.class
 me\emmiesa\flowercore\commands\admin\administration\AlertCommand.class
@@ -51,7 +52,6 @@ me\emmiesa\flowercore\extras\scoreboard\assemble\AssembleAdapter.class
 me\emmiesa\flowercore\utils\chat\JSONMessage$1.class
 me\emmiesa\flowercore\menus\settings\SettingsMenu.class
 me\emmiesa\flowercore\commands\global\PluginCommand.class
-me\emmiesa\flowercore\Lang.class
 me\emmiesa\flowercore\utils\menu\button\BackButton.class
 me\emmiesa\flowercore\commands\admin\rank\SubCommands\RankAddPermissionsCommand.class
 me\emmiesa\flowercore\menus\settings\button\SettingsButton.class

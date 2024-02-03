@@ -1,7 +1,7 @@
 package me.emmiesa.flowercore.utils.command;
 
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.Lang;
+import me.emmiesa.flowercore.Locale;
 import me.emmiesa.flowercore.utils.chat.CC;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -65,7 +65,7 @@ public class CommandFramework implements CommandExecutor {
                     return true;
                 }
                 if (!command.permission().equals("") && (!sender.hasPermission(command.permission()))) {
-                    sender.sendMessage(CC.translate(Lang.NO_PERM)); // TODO change
+                    sender.sendMessage(CC.translate(Locale.NO_PERM)); // TODO change
                     return true;
                 }
                 if (command.inGameOnly() && !(sender instanceof Player)) {

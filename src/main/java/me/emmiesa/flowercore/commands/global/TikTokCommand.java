@@ -1,7 +1,7 @@
 package me.emmiesa.flowercore.commands.global;
 
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.Lang;
+import me.emmiesa.flowercore.Locale;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
@@ -23,7 +23,7 @@ public class TikTokCommand extends BaseCommand {
 
             sender.sendMessage(CC.translate(disabledMessage));
         } else {
-            String link = FlowerCore.instance.getConfig("messages.yml").getString("socials." + commandName + ".enabled_message").replace("%link%", Lang.TIKTOK);
+            String link = FlowerCore.instance.getConfig("messages.yml").getString("socials." + commandName + ".enabled_message").replace("%link%", Locale.TIKTOK);
             sender.sendMessage(CC.translate(link));
         }
     }

@@ -1,7 +1,7 @@
 package me.emmiesa.flowercore.commands.global;
 
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.Lang;
+import me.emmiesa.flowercore.Locale;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
@@ -44,7 +44,7 @@ public class PluginCommand extends BaseCommand {
                 sender.sendMessage(CC.translate("&d&lೋღ&d&l&m«-------&f&l&m-------&d&l&m-------»&r&d&lღೋ"));
                 sender.sendMessage(" ");
             } else {
-                sender.sendMessage(CC.translate(Lang.NO_PERM));
+                sender.sendMessage(CC.translate(Locale.NO_PERM));
             }
         }
     }

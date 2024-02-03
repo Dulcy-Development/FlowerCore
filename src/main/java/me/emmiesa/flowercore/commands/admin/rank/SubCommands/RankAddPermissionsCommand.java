@@ -1,7 +1,7 @@
 package me.emmiesa.flowercore.commands.admin.rank.SubCommands;
 
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.Lang;
+import me.emmiesa.flowercore.Locale;
 import me.emmiesa.flowercore.ranks.Rank;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
@@ -13,7 +13,7 @@ import java.util.List;
 
 public class RankAddPermissionsCommand extends BaseCommand {
 
-    @Command(name = "rank.addpermissions", aliases = {"addrankperms"}, permission = "flowercore.staff")
+    @Command(name = "rank.addpermissions", aliases = {"addrankperms", "rank.addperm"}, permission = "flowercore.staff")
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
 
@@ -32,7 +32,7 @@ public class RankAddPermissionsCommand extends BaseCommand {
         Rank rank = FlowerCore.instance.getRanksManager().getRank(rankName);
 
         if (rank == null) {
-            player.sendMessage(CC.translate(Lang.RANK_NOT_FOUND).replace("%rank%", rankName));
+            player.sendMessage(CC.translate(Locale.RANK_NOT_FOUND).replace("%rank%", rankName));
             return;
         }
 

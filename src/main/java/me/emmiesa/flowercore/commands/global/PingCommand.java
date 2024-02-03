@@ -1,7 +1,7 @@
 package me.emmiesa.flowercore.commands.global;
 
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.Lang;
+import me.emmiesa.flowercore.Locale;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
@@ -26,7 +26,7 @@ public class PingCommand extends BaseCommand {
         final boolean requirePingPermission = FlowerCore.instance.getConfig("messages.yml").getBoolean("ping.require_permission", true);
 
         if (requirePingPermission && !player.hasPermission(getConfigMessage("ping.permission"))) {
-            player.sendMessage(CC.translate(Lang.NO_PERM));
+            player.sendMessage(CC.translate(Locale.NO_PERM));
             return;
         }
 
