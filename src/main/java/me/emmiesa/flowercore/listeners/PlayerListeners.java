@@ -2,6 +2,7 @@ package me.emmiesa.flowercore.listeners;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.Locale;
+import me.emmiesa.flowercore.database.MongoManager;
 import me.emmiesa.flowercore.utils.chat.CC;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -95,6 +96,7 @@ public class PlayerListeners implements Listener {
         String server = plugin.getConfig("settings.yml").getString("server-name");
         String leaveMessage = plugin.getConfig("messages.yml").getString("on-leave.messages.staff.left-the-game");
 
+
         if (leaveMessage != null && server != null) {
             for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
                 if (onlinePlayer.hasPermission("flowercore.staff") && disconnectedPlayer.hasPermission("flowercore.staff")) {
@@ -104,6 +106,8 @@ public class PlayerListeners implements Listener {
         } else {
             Bukkit.getConsoleSender().sendMessage(CC.translate("&4Warning: Join message or server name is null."));
         }
+
+        FlowerCore.instance.getMongoManager().saveProfile(playerUUID);
     }
 
     private void sendWelcomeMessages(Player player, List<String> messages) {
