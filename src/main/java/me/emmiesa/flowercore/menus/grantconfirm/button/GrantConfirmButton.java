@@ -49,7 +49,7 @@ public class GrantConfirmButton extends Button {
             Player targetPlayer = Bukkit.getServer().getPlayer(playerToGrantUUID);
             if (targetPlayer != null) {
                 player.sendMessage(CC.translate("&aYou have successfully granted " + playerName + " &athe " + rank.getDisplayName() + " &arank!"));
-                targetPlayer.sendMessage(CC.translate("&aYour rank has been set to " + rank.getDisplayName() + " &aby " + FlowerCore.instance.getPlayerManager().getRank(playerUUID).getPrefix() + player.getDisplayName()));
+                targetPlayer.sendMessage(CC.translate("&aYour rank has been set to " + rank.getDisplayName() + " &aby " + FlowerCore.instance.getPlayerManager().getRank(playerUUID).getPrefix() + player.getDisplayName() + "&a."));
                 Button.playSuccess(player);
                 player.closeInventory();
 
@@ -76,7 +76,7 @@ public class GrantConfirmButton extends Button {
                 }
             }
         } else if (material.name().contains("PAPER")) {
-            player.sendMessage(CC.translate("&eChoose another rank for " + playerName + " &e..."));
+            player.sendMessage(CC.translate("&eChoose another rank for " + playerName + "&e..."));
             player.performCommand("grant " + playerName);
         } else {
             player.closeInventory();

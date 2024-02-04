@@ -12,7 +12,7 @@ grant-settings:
     enabled: true
     message:
       - " "
-      - "&7[&cGRANT&7] &a%granted-player%'s rank has been set to %rank% &aby %granted-by%&a."
+      - "&b%granted-player%'s rank has been set to %rank% &bby %granted-by%&a."
       - " "
 rank-settings:
   list:
