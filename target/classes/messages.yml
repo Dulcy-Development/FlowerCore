@@ -28,6 +28,10 @@ troll-everybody:
     - "&r"
     - "&fEverybody on the server got trolled by &b%troller%&f!"
     - "&r "
+speed-set:
+  fly: "&aYou've set your &bflying &aspeed to &b%value%&a."
+  walk: "&aYou've set your &bwalking &aspeed to &b%value%&a."
+  reset: "&aYou've set your &bwalking &aand &bflying &aspeed to &bdefault&a."
 alert:
   bars-format: "&r "
   message:

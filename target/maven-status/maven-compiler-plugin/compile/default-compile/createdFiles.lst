@@ -22,9 +22,11 @@ me\emmiesa\flowercore\commands\admin\rank\RankCommand.class
 me\emmiesa\flowercore\handler\ConfigHandler.class
 me\emmiesa\flowercore\commands\admin\essential\FeedCommand.class
 me\emmiesa\flowercore\commands\global\TeamSpeakCommand.class
+me\emmiesa\flowercore\commands\admin\essential\SpeedResetCommand.class
 me\emmiesa\flowercore\listeners\ChatListener.class
 me\emmiesa\flowercore\utils\menu\MenuListener.class
 me\emmiesa\flowercore\commands\global\YouTubeCommand.class
+me\emmiesa\flowercore\commands\admin\essential\SpeedCommand.class
 me\emmiesa\flowercore\commandblocker\CommandListener.class
 me\emmiesa\flowercore\utils\chat\JSONMessage$ClickEvent.class
 me\emmiesa\flowercore\commands\admin\gamemode\gmspCommand.class
@@ -98,6 +100,7 @@ me\emmiesa\flowercore\extras\scoreboard\assemble\events\AssembleBoardDestroyEven
 me\emmiesa\flowercore\commands\admin\rank\SubCommands\RankListCommand.class
 me\emmiesa\flowercore\utils\Utils.class
 me\emmiesa\flowercore\commands\admin\essential\TrollCommand.class
+me\emmiesa\flowercore\punishments\PunishTypes.class
 me\emmiesa\flowercore\profile\PlayerManager.class
 me\emmiesa\flowercore\extras\scoreboard\assemble\events\AssembleBoardCreatedEvent.class
 me\emmiesa\flowercore\extras\scoreboard\assemble\exception\AssembleException.class

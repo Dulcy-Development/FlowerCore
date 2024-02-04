@@ -8,7 +8,12 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+/*
+ * Credit: Zoom core
+ */
+
 public class MoreCommand extends BaseCommand {
+
     @Command(name = "more", permission = "flower.command.more", aliases = {"stackitem"})
 
     @Override

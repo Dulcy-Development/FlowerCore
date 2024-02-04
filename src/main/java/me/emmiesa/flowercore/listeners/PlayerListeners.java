@@ -30,6 +30,9 @@ public class PlayerListeners implements Listener {
         Player joinedPlayer = event.getPlayer();
         UUID playerUUID = joinedPlayer.getUniqueId();
 
+        joinedPlayer.setFlySpeed(1 * 0.1F);
+        joinedPlayer.setWalkSpeed(2 * 0.1F);
+
         Location spawnLocation = plugin.getSpawnLocation();
 
         if (spawnLocation != null) {

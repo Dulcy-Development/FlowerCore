@@ -61,6 +61,7 @@ public class register {
         new MoreCommand();
         new TrollCommand();
         new StoreCommand();
+        new SpeedCommand();
         new TikTokCommand();
         new YouTubeCommand();
         new DiscordCommand();
@@ -76,6 +77,7 @@ public class register {
         new ClearChatCommand();
         new TeamSpeakCommand();
         new TeleportUpCommand();
+        new SpeedResetCommand();
         new TeleportHereCommand();
         new TeleportSpawnCommand();
         new TrollEverybodyCommand();
@@ -86,12 +88,12 @@ public class register {
         new RankListCommand();
         new RankSaveCommand();
         new RankCreateCommand();
+        new RankSetIconCommand();
         new RankSetStaffCommand();
         new RankSetSuffixCommand();
         new RankSetPrefixCommand();
         new RankSetDisplayCommand();
         new RankSetDefaultCommand();
-        new RankSetIconCommand();
         new RankSetPriorityCommand();
         new RankAddPermissionsCommand();
 

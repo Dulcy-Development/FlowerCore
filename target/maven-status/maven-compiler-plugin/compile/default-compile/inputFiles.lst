@@ -30,6 +30,7 @@ C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\e
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\utils\menu\button\BackButton.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\menus\ranklist\button\RankListButton.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\commands\admin\essential\FeedCommand.java
+C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\punishments\PunishTypes.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\menus\settings\SettingsMenu.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\menus\ranklist\RankListMenu.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\commands\global\StoreCommand.java
@@ -89,6 +90,7 @@ C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\e
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\utils\menu\MenuListener.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\menus\settings\button\SettingsButton.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\commands\admin\essential\GodModeCommand.java
+C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\commands\admin\essential\SpeedCommand.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\commands\global\WebsiteCommand.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\extras\scoreboard\assemble\exception\AssembleException.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\menus\grantconfirm\GrantConfirmMenu.java
