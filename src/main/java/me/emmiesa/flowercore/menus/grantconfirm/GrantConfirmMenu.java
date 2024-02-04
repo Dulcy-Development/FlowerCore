@@ -36,7 +36,7 @@ public class GrantConfirmMenu extends Menu {
     public Map<Integer, Button> getButtons(Player player) {
         Map<Integer, Button> buttons = new HashMap<>();
 
-        buttons.put(11, new GrantConfirmButton(playerToGrantUUID, rank, Material.DIAMOND_BLOCK, "&b&lConfirm", Arrays.asList(
+        buttons.put(11, new GrantConfirmButton(playerName, playerToGrantUUID, rank, Material.DIAMOND_BLOCK, "&b&lConfirm", Arrays.asList(
                 " &fTo be granted Player &b" + playerName,
                 " &fTo be granted Rank: &b" + rank.getDisplayName(),
                 rank.isStaff() ? " &fRank Type: &bStaff" : " &fRank Type: &bNon-Staff/Donator",
@@ -44,9 +44,15 @@ public class GrantConfirmMenu extends Menu {
                 "&bClick to confirm the grant!"
         ), true));
 
-        buttons.put(15, new GrantConfirmButton(playerToGrantUUID, rank, Material.REDSTONE_BLOCK, "&c&lCancel", Arrays.asList(
+        buttons.put(15, new GrantConfirmButton(playerName, playerToGrantUUID, rank, Material.REDSTONE_BLOCK, "&c&lCancel", Arrays.asList(
                 " ",
                 "&cClick to cancel the grant!",
+                " "
+        ), false));
+
+        buttons.put(22, new GrantConfirmButton(playerName, playerToGrantUUID, rank, Material.PAPER, "&e&lChanged your mind?", Arrays.asList(
+                " ",
+                "&eClick to select another rank for " + playerName + "&e!",
                 " "
         ), false));
 

@@ -17,7 +17,7 @@ import java.util.UUID;
 @AllArgsConstructor
 public class GrantButton extends Button {
 	private final Rank rank;
-	private final String playerName; // Assuming this is the name of the player who will receive the rank
+	private final String playerName;
 
 	@Override
 	public ItemStack getButtonItem(Player player) {
