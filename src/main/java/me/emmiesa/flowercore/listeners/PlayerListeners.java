@@ -2,7 +2,6 @@ package me.emmiesa.flowercore.listeners;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.Locale;
-import me.emmiesa.flowercore.database.MongoManager;
 import me.emmiesa.flowercore.utils.chat.CC;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -142,6 +141,7 @@ public class PlayerListeners implements Listener {
                 .replace("%tiktok%", tiktok)
                 .replace("%twitter%", twitter)
                 .replace("%youtube%", youtube)
+                .replace("%flowerbar%", CC.FLOWER_BAR)
                 ;
 
         return replacedMessage;

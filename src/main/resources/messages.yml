@@ -129,22 +129,28 @@ on-join:
     bars-format: "&8&m-----------------------------------"
     welcome-message:
       enabled: true
+      # ---->>
+      # Some cool symbols which you can use in your welcome message: ➥, ●, •, », ►,
+      # Available Placeholders: %bars% (Getting it from 'bars-format' string above); %flowerbar%; %store%, %tiktok%, ect..;
+      # ---->>
       message:
         #- "%bars%"
+        - "%flowerbar%"
         - " "
         - "&fWelcome to the server, &b%player%&f! &7(&c%health%&4❤&7)"
         - " "
-        - " ➥ Website: &b%website%"
-        - " ➥ Store: &b%store%"
-        - " ➥ Discord: &b%discord%"
-        - " ➥ TeamSpeak: &b%teamspeak%"
-        - " ➥ TikTok: &b%tiktok%"
-        - " ➥ Twitter: &b%twitter%"
-        - " ➥ YouTube: &b%youtube%"
+        - " ● Store: &b%store%"
+        - " ● TikTok: &b%tiktok%"
+        - " ● Website: &b%website%"
+        - " ● Discord: &b%discord%"
+        - " ● Twitter: &b%twitter%"
+        - " ● YouTube: &b%youtube%"
+        - " ● TeamSpeak: &b%teamspeak%"
         - " "
+        - "%flowerbar%"
         #- "%bars%"
     staff:
-      joined-the-game: "&3[&bS&3] &7(%server%) %prefix%%player% &ahas joined the server."
+      joined-the-game: "&5[&dSTAFF&5] &3(%server%) %prefix%%player% &ahas joined the server."
 on-leave:
   messages:
     staff:
