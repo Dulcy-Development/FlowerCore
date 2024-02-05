@@ -141,7 +141,7 @@ public class PlayerListeners implements Listener {
                 .replace("%tiktok%", tiktok)
                 .replace("%twitter%", twitter)
                 .replace("%youtube%", youtube)
-                .replace("%flowerbar%", CC.FLOWER_BAR)
+                .replace("%flowerbar%", CC.FLOWER_BAR_LONG)
                 ;
 
         return replacedMessage;

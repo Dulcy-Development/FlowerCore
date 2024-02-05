@@ -134,23 +134,25 @@ on-join:
       # Available Placeholders: %bars% (Getting it from 'bars-format' string above); %flowerbar%; %store%, %tiktok%, ect..;
       # ---->>
       message:
+        - " "
         #- "%bars%"
         - "%flowerbar%"
         - " "
-        - "&fWelcome to the server, &b%player%&f! &7(&c%health%&4❤&7)"
+        - "  &fWelcome to the server, &b%player%&f! &7(&c%health%&4❤&7)"
         - " "
-        - " ● Store: &b%store%"
-        - " ● TikTok: &b%tiktok%"
-        - " ● Website: &b%website%"
-        - " ● Discord: &b%discord%"
-        - " ● Twitter: &b%twitter%"
-        - " ● YouTube: &b%youtube%"
-        - " ● TeamSpeak: &b%teamspeak%"
+        - "   ● Website: &b%website%"
+        - "   ● Discord: &b%discord%"
+        - "   ● YouTube: &b%youtube%"
+        - "   ● Twitter: &b%twitter%"
+        - "   ● TikTok: &b%tiktok%"
+        - "   ● Store: &b%store%"
+        #- "   ● TeamSpeak: &b%teamspeak%"
         - " "
         - "%flowerbar%"
         #- "%bars%"
+        - " "
     staff:
-      joined-the-game: "&5[&dSTAFF&5] &3(%server%) %prefix%%player% &ahas joined the server."
+      joined-the-game: "&3[&bS&3] &r%prefix%%player% &bhas joined &3%server%&b."
 on-leave:
   messages:
     staff:
