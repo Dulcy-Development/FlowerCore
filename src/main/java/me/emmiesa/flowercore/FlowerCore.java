@@ -6,6 +6,7 @@ import me.emmiesa.flowercore.extras.scoreboard.assemble.AssembleStyle;
 import lombok.Getter;
 import lombok.Setter;
 import me.emmiesa.flowercore.extras.scoreboard.ScoreboardLayout;
+import me.emmiesa.flowercore.papi.ProfilePlaceholders;
 import me.emmiesa.flowercore.plugin.register;
 import me.emmiesa.flowercore.profile.PlayerManager;
 import me.emmiesa.flowercore.ranks.RanksManager;
@@ -46,6 +47,10 @@ public class FlowerCore extends JavaPlugin {
 
         configHandler = new ConfigHandler();
         framework = new CommandFramework(this);
+
+        if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")){
+            new ProfilePlaceholders().register();
+        }
 
         saveDefaultConfig();
         loadSpawnLocation();

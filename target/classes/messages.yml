@@ -134,6 +134,7 @@ on-join:
       # Available Placeholders: %bars% (Getting it from 'bars-format' string above); %flowerbar%; %store%, %tiktok%, ect..;
       # ---->>
       message:
+        - " "
         #- "%bars%"
         - "%flowerbar%"
         - " "
@@ -149,6 +150,7 @@ on-join:
         - " "
         - "%flowerbar%"
         #- "%bars%"
+        - " "
     staff:
       joined-the-game: "&3[&bS&3] &r%prefix%%player% &bhas joined &3%server%&b."
 on-leave:
