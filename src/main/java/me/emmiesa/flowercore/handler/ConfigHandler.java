@@ -15,8 +15,8 @@ public class ConfigHandler {
 
     FlowerCore plugin = FlowerCore.getInstance();
 
-    private File defaultConfigFile, settingsConfigFile, messagesConfigFile, commandsConfigFile, databaseConfigFile, extrasConfigFile, ranksConfigFile, permissionsConfigFile;
-    private FileConfiguration defaultConfig, settingsConfig, messagesConfig, commandsConfig, databaseConfig, extrasConfig, ranksConfig, permissionsConfig;
+    private File defaultConfigFile, settingsConfigFile, messagesConfigFile, commandsConfigFile, databaseConfigFile, extrasConfigFile, ranksConfigFile, permissionsConfigFile, placeholdersConfigFile;
+    private FileConfiguration defaultConfig, settingsConfig, messagesConfig, commandsConfig, databaseConfig, extrasConfig, ranksConfig, permissionsConfig, placeholdersConfig;
 
     public ConfigHandler() {
         defaultConfigFile = new File(plugin.getDataFolder(), "config.yml");
@@ -89,7 +89,16 @@ public class ConfigHandler {
         }
         permissionsConfig = YamlConfiguration.loadConfiguration(permissionsConfigFile);
 
-        //ranks ^
+        //permissions ^
+
+        placeholdersConfigFile = new File(plugin.getDataFolder(), "placeholders.yml");
+        if (!placeholdersConfigFile.exists()) {
+            placeholdersConfigFile.getParentFile().mkdirs();
+            plugin.saveResource("placeholders.yml", false);
+        }
+        placeholdersConfig = YamlConfiguration.loadConfiguration(placeholdersConfigFile);
+
+        //placeholders ^
     }
 
     public void saveConfig(File config, FileConfiguration fileConfiguration) {

@@ -36,7 +36,7 @@ public class FlowerCore extends JavaPlugin {
     private PlayerManager playerManager;
     private Location spawnLocation;
 
-    public FileConfiguration messagesConfig, settingsConfig, commandsConfig, databaseConfig, extrasConfig, ranksConfig, permissionsConfig;
+    public FileConfiguration messagesConfig, settingsConfig, commandsConfig, databaseConfig, extrasConfig, ranksConfig, permissionsConfig, placeholdersConfig;
 
     @Override
     public void onEnable() {
@@ -88,6 +88,7 @@ public class FlowerCore extends JavaPlugin {
         settingsConfig = getConfig("settings.yml");
         ranksConfig = getConfig("ranks.yml");
         permissionsConfig = getConfig("permissions.yml");
+        placeholdersConfig = getConfig("placeholder.yml");
     }
 
     private void loadSpawnLocation() {

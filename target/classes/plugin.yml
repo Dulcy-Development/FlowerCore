@@ -20,6 +20,7 @@ loadbefore:
   - Synth
   - SharkCore
   - Volcano
+  - Voltic
   - xCore
   - zoom
   - zoot

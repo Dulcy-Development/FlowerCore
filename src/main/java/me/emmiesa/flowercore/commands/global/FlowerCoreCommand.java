@@ -6,19 +6,31 @@ import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
 import me.emmiesa.flowercore.utils.command.CommandArgs;
+import me.emmiesa.flowercore.utils.command.Completer;
 import org.bukkit.command.CommandSender;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class FlowerCoreCommand extends BaseCommand {
 
     private final FlowerCore plugin = FlowerCore.get();
 
-    @Command(name = "flowercore", aliases = {"flower", "core"})
+    @Completer(name = "flower", aliases = {"flowercore", "core"})
+    public List<String> flowerCompleter(CommandArgs args) {
+        List<String> add = new ArrayList<>();
+        if (args.length() == 1) {
+            add.add("reload");
+        }
+        return add;
+    }
+
+    @Command(name = "flowercore", aliases = {"flower", "core"}, inGameOnly = false)
     public void onCommand(CommandArgs args) {
         CommandSender sender = args.getSender();
 
         if (args.length() == 0) {
             sender.sendMessage(" ");
-            //sender.sendMessage(CC.translate("&b&lೋღ&b&l&m«-------&f&l&m-------&b&l&m-------»&r&b&lღೋ"));
             sender.sendMessage(CC.FLOWER_BAR);
             sender.sendMessage(CC.translate("  &b&l   FlowerCore"));
             sender.sendMessage(CC.translate("      &f┃ Author: &b" + plugin.getDescription().getAuthors().get(0)));
@@ -27,7 +39,6 @@ public class FlowerCoreCommand extends BaseCommand {
             sender.sendMessage(CC.translate("  &b&l   Description:"));
             sender.sendMessage(CC.translate("      &f┃ " + plugin.getDescription().getDescription()));
             sender.sendMessage(CC.FLOWER_BAR);
-            //sender.sendMessage(CC.translate("&b&lೋღ&b&l&m«-------&f&l&m-------&b&l&m-------»&r&b&lღೋ"));
             sender.sendMessage(" ");
         } else if (args.length() >= 1) {
             noperm(sender, args);

@@ -1,0 +1,9 @@
+#
+#
+#               FlowerCore made by Emmiesa | Placeholders.yml
+#
+#
+# --->> Here you can configure how specific placeholders look.
+flower_player_rank_isstaff:
+  true: "&aTrue"
+  false: "&cFalse"

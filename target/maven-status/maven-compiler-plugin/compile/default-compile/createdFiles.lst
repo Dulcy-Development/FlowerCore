@@ -65,6 +65,7 @@ me\emmiesa\flowercore\commands\admin\essential\MoreCommand.class
 me\emmiesa\flowercore\commands\admin\gamemode\gmsCommand.class
 me\emmiesa\flowercore\commands\admin\rank\SubCommands\RankSetPrefixCommand.class
 me\emmiesa\flowercore\extras\scoreboard\assemble\Assemble.class
+me\emmiesa\flowercore\papi\ProfilePlaceholders.class
 me\emmiesa\flowercore\menus\ranklist\RankListMenu.class
 me\emmiesa\flowercore\database\MongoManager.class
 me\emmiesa\flowercore\commands\admin\gamemode\gmcCommand.class
