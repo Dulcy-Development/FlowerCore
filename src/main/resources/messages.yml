@@ -106,11 +106,11 @@ teleport:
   tp-up: "&bTeleported you to the top."
   tp-spawn: "&aTeleported you to spawn!"
 fly:
-  enabled: "Flight &aenabled"
-  disabled: "Flight &cdisabled"
+  enabled: "&bYou've &aenabled &bflight."
+  disabled: "&bYou've &cdisabled &bflight."
 forcefly:
-  enabled: "&aenabled &fflight &bforcefully"
-  disabled: "&cdisabled &fflight &bforcefully"
+  enabled: "&bYou've &aenabled &bflight forcefully."
+  disabled: "&bYou've &cdisabled &bflight forcefully."
 gamemode:
   creative:
     is_already: "&cYour gamemode is already creative!"

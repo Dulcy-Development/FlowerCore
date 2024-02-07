@@ -15,7 +15,7 @@ public class FlyCommand extends BaseCommand {
     public void onCommand(CommandArgs cmd) {
         Player player = cmd.getPlayer();
 
-        if (player.getGameMode() == GameMode.SURVIVAL) {
+        if (player.getGameMode() == GameMode.SURVIVAL || player.getGameMode() == GameMode.ADVENTURE) {
             player.setAllowFlight(!player.getAllowFlight());
 
             if (player.getAllowFlight()) {
@@ -24,7 +24,7 @@ public class FlyCommand extends BaseCommand {
                 player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("fly.disabled")));
             }
         } else {
-            player.sendMessage(CC.translate("&8[&7Consider using this only in gamemode survival to avoid issues&8]"));
+            player.sendMessage(CC.translate("&bToggling flight in gamemode creative or spectator might cause issues..!"));
             player.setAllowFlight(!player.getAllowFlight());
         }
     }
