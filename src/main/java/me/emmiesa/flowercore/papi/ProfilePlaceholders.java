@@ -4,7 +4,6 @@ import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.utils.chat.CC;
 import org.bukkit.entity.Player;
-import org.intellij.lang.annotations.Flow;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.UUID;
@@ -29,8 +28,10 @@ public class ProfilePlaceholders extends PlaceholderExpansion {
     @Override
     public String onPlaceholderRequest(Player player, @NotNull String params) {
         UUID playerUUID = player.getUniqueId();
-        if (params.equalsIgnoreCase("player_rank")) {
-            FlowerCore.getInstance().getPlayerManager().getRank(playerUUID);
+        if (params.equalsIgnoreCase("player_rankname")) {
+            return FlowerCore.instance.getPlayerManager().getRank(playerUUID).getDisplayName();
+        } else if (params.equalsIgnoreCase("player_rankname_raw")) {
+            return FlowerCore.instance.getPlayerManager().getRank(playerUUID).getName();
         } else if (params.equalsIgnoreCase("rank_isstaff")) {
             if (FlowerCore.instance.getPlayerManager().getRank(playerUUID).isStaff()) {
                 return CC.translate(FlowerCore.instance.getConfig("placeholders.yml").getString("flower_player_rank_isstaff.true"));
