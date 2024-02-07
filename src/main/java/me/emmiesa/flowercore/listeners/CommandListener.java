@@ -1,4 +1,4 @@
-package me.emmiesa.flowercore.commandblocker;
+package me.emmiesa.flowercore.listeners;
 
 import me.emmiesa.flowercore.FlowerCore;
 import org.bukkit.event.EventHandler;

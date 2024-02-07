@@ -1,7 +1,7 @@
 package me.emmiesa.flowercore.plugin;
 
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.commandblocker.CommandListener;
+import me.emmiesa.flowercore.listeners.CommandListener;
 import me.emmiesa.flowercore.commands.admin.gamemode.gmaCommand;
 import me.emmiesa.flowercore.commands.admin.gamemode.gmcCommand;
 import me.emmiesa.flowercore.commands.admin.gamemode.gmsCommand;
