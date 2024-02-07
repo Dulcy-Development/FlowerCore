@@ -22,6 +22,7 @@ public class Locale {
 
     public static String SERVER_NAME = settingsConfig.getString("server-name");
     public static String SERVER_REGION = settingsConfig.getString("server-region");
+    public static String PREFIX = settingsConfig.getString("&7[&bFlowerCore&7] ");
 
     public static String DISCORD = settingsConfig.getString("socials.discord");
     public static String STORE = settingsConfig.getString("socials.store");
