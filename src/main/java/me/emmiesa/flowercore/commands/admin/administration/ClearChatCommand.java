@@ -43,8 +43,5 @@ public class ClearChatCommand extends BaseCommand {
                 .replace("%player%", sender.getName())
                 .replace("%server%", Locale.SERVER_NAME));
         Bukkit.getConsoleSender().sendMessage(consoleMessage);
-
-        //I don't know how to send this to all bungee servers. I tryed, but.. :(
-
     }
 }

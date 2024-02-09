@@ -1,13 +1,16 @@
 name: FlowerCore
 version: '${project.version}'
 main: me.emmiesa.flowercore.FlowerCore
-softdepend: [PlaceholderAPI]
 author: Emmiesa
 description: '${project.description}'
 website: https://dsg.gg/emmiesa
+softdepend:
+  - PlaceholderAPI
 loadbefore:
   - Aspirin
   - AquaCore
+  - Basic
+  - Clubs
   - Core
   - cCore
   - eCore

@@ -1,6 +1,8 @@
 package me.emmiesa.flowercore.plugin;
 
 import me.emmiesa.flowercore.FlowerCore;
+import me.emmiesa.flowercore.commands.admin.speed.SpeedCommand;
+import me.emmiesa.flowercore.commands.admin.speed.SpeedResetCommand;
 import me.emmiesa.flowercore.listeners.CommandListener;
 import me.emmiesa.flowercore.commands.admin.gamemode.gmaCommand;
 import me.emmiesa.flowercore.commands.admin.gamemode.gmcCommand;

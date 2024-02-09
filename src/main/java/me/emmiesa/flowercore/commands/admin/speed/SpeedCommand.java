@@ -1,4 +1,4 @@
-package me.emmiesa.flowercore.commands.admin.essential;
+package me.emmiesa.flowercore.commands.admin.speed;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.utils.chat.CC;
@@ -24,7 +24,6 @@ public class SpeedCommand extends BaseCommand {
         if (args.length() == 1) {
             add.add("fly");
             add.add("walk");
-            add.add("reset");
         }
         return add;
     }
@@ -37,7 +36,7 @@ public class SpeedCommand extends BaseCommand {
         String[] args = cmd.getArgs();
 
         if (args.length == 0) {
-            player.sendMessage(CC.translate("&cUsage: /speed fly &4┃ &cwalk &4┃ &creset (value)"));
+            player.sendMessage(CC.translate("&cUsage: /speed fly &4┃ &cwalk (value). To reset, do /defaultspeed."));
             return;
         }
 

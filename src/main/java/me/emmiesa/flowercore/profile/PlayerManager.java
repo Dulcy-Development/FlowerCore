@@ -56,7 +56,7 @@ public class PlayerManager {
         for (String permission : rank.getPermissions()) {
             attachment.setPermission(permission, true);
         }
-        CC.sendError(attachment.getPermissions().toString());
+        /*CC.sendError(attachment.getPermissions().toString());*/
     }
 }
 

@@ -3,8 +3,8 @@
 #               FlowerCore made by Emmiesa | Messages.yml
 #
 #
-no-perms: "&cNo Permission."
-anti-syntax: "&cNuh uh, you don't wanna do this... trust! &7(%argument%&f)"
+no-perms: "&cNo permission."
+anti-syntax: "&cExcuse me? I can see that you're not a staff member. I've blocked '%argument%' for your safety!"
 anti-syntax-bypass-perm: flowercore.staff
 reload:
   reloading:

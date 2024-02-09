@@ -29,6 +29,13 @@ public class PlayerListeners implements Listener {
         Player joinedPlayer = event.getPlayer();
         UUID playerUUID = joinedPlayer.getUniqueId();
 
+        if (plugin.getConfig("settings.yml").getBoolean("on-join.clear-chat.enabled")) {
+            int linesToClear = plugin.getConfig("settings.yml").getInt("on-join.clear-chat.lines");
+            for (int i = 0; i < linesToClear; i++) {
+                joinedPlayer.sendMessage(plugin.getConfig("settings.yml").getString("on-join.clear-chat.text"));
+            }
+        }
+
         joinedPlayer.setFlySpeed(1 * 0.1F);
         joinedPlayer.setWalkSpeed(2 * 0.1F);
 

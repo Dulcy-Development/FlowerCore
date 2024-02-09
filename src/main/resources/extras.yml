@@ -16,7 +16,7 @@ scoreboard:
     - "&b&lInfo:"
     - "&f&l ┃ &rRegion: &b%server-region%"
     - " "
-    - "&b&o emmiesa.dev"
+    - "&b&o flower.club"
     - "&7&m-----------------------"
 tablist: #not done
   enabled: false

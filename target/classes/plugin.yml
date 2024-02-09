@@ -1,13 +1,16 @@
 name: FlowerCore
 version: '1.3.5-SNAPSHOT'
 main: me.emmiesa.flowercore.FlowerCore
-softdepend: [PlaceholderAPI]
 author: Emmiesa
 description: 'A custom server core'
 website: https://dsg.gg/emmiesa
+softdepend:
+  - PlaceholderAPI
 loadbefore:
   - Aspirin
   - AquaCore
+  - Basic
+  - Clubs
   - Core
   - cCore
   - eCore

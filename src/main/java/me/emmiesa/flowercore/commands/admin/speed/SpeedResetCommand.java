@@ -1,4 +1,4 @@
-package me.emmiesa.flowercore.commands.admin.essential;
+package me.emmiesa.flowercore.commands.admin.speed;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.utils.chat.CC;
@@ -8,7 +8,7 @@ import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.entity.Player;
 
 public class SpeedResetCommand extends BaseCommand {
-    @Command(name = "speed.reset", aliases = {"speedreset", "resetspeed"}, permission = "flowercore.cmd.speed")
+    @Command(name = "defaultspeed", aliases = {"speedreset", "resetspeed"}, permission = "flowercore.cmd.speed")
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
         player.setFlySpeed(0.1F);

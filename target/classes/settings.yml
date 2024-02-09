@@ -19,6 +19,11 @@ rank-settings:
     send-as-message: false
     open-menu: true
 on-join:
+  clear-chat:
+    enabled: false
+    #This text should always be empty (" "), but let's make it customizable :)
+    text: " "
+    lines: 500
   teleport:
     enabled: true
     location:
