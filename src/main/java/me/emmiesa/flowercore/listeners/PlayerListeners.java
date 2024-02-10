@@ -90,6 +90,7 @@ public class PlayerListeners implements Listener {
             for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
                 if (onlinePlayer.hasPermission("flowercore.staff") && joinedPlayer.hasPermission("flowercore.staff")) {
                     onlinePlayer.sendMessage(CC.translate(joinMessage.replace("%prefix%", plugin.getPlayerManager().getRank(playerUUID).getPrefix()).replace("%player%", joinedPlayer.getDisplayName()).replace("%server%", server)/*.replace("%bars%", plugin.getConfig("messages.yml").getString("on-join.messages.bars-format"))*/));
+                    Bukkit.getConsoleSender().sendMessage(CC.translate(joinMessage.replace("%prefix%", plugin.getPlayerManager().getRank(playerUUID).getPrefix()).replace("%player%", joinedPlayer.getDisplayName()).replace("%server%", server)));
                 }
             }
         } else {
@@ -110,6 +111,7 @@ public class PlayerListeners implements Listener {
             for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
                 if (onlinePlayer.hasPermission("flowercore.staff") && disconnectedPlayer.hasPermission("flowercore.staff")) {
                     onlinePlayer.sendMessage(CC.translate(leaveMessage.replace("%prefix%", plugin.getPlayerManager().getRank(playerUUID).getPrefix()).replace("%player%", disconnectedPlayer.getDisplayName()).replace("%server%", server)/*.replace("%bars%", plugin.getConfig("messages.yml").getString("on-join.messages.bars-format"))*/));
+                    Bukkit.getConsoleSender().sendMessage(CC.translate(leaveMessage.replace("%prefix%", plugin.getPlayerManager().getRank(playerUUID).getPrefix()).replace("%player%", disconnectedPlayer.getDisplayName()).replace("%server%", server)/*.replace("%bars%", plugin.getConfig("messages.yml").getString("on-join.messages.bars-format"))*/));
                 }
             }
         } else {
@@ -127,6 +129,7 @@ public class PlayerListeners implements Listener {
     }
 
     private String replacewelcomemessage(Player player, String message) {
+        UUID playerUUID = player.getUniqueId();
 
         String website = plugin.getConfig("settings.yml").getString("socials.website");
         String store = plugin.getConfig("settings.yml").getString("socials.store");
@@ -149,6 +152,7 @@ public class PlayerListeners implements Listener {
                 .replace("%twitter%", twitter)
                 .replace("%youtube%", youtube)
                 .replace("%flowerbar%", CC.FLOWER_BAR_LONG)
+                .replace("%rank%", plugin.getPlayerManager().getRank(playerUUID).getDisplayName())
                 ;
 
         return replacedMessage;

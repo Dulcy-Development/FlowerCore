@@ -148,6 +148,8 @@ on-join:
         - "   ● Store: &b%store%"
         #- "   ● TeamSpeak: &b%teamspeak%"
         - " "
+        - "  &f► Your current rank is &r%rank%&f!"
+        - " "
         - "%flowerbar%"
         #- "%bars%"
         - " "
