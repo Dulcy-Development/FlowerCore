@@ -85,7 +85,7 @@ public class CC {
     }
 
     public static void sendError(String message) {
-        Bukkit.getServer().getConsoleSender().sendMessage(CC.translate("&c" + message + "!"));  //In Player Manager class!
+        Bukkit.getServer().getConsoleSender().sendMessage(CC.translate("[CC Util sendError] &c" + message + "!"));  //In Player Manager class!
     }
 
     public static String translate(String in) {
