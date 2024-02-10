@@ -1,6 +1,7 @@
 package me.emmiesa.flowercore.commands.admin.administration;
 
 import me.emmiesa.flowercore.FlowerCore;
+import me.emmiesa.flowercore.utils.Utils;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
@@ -11,12 +12,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class BroadcastCommand extends BaseCommand {
-
-    private final FlowerCore plugin;
-
-    public BroadcastCommand(FlowerCore plugin) {
-        this.plugin = plugin;
-    }
 
     @Command(name = "broadcast", inGameOnly = false, permission = "flower.command.broadcast")
     public void onCommand(CommandArgs args) {
@@ -32,7 +27,7 @@ public class BroadcastCommand extends BaseCommand {
                 String formattedMessage = message
                         .replace("%text%", String.join(" ", text))
                         .replace("%bars%", barsFormat);
-                plugin.getServer().broadcastMessage(CC.translate(formattedMessage));
+                Utils.broadcastMessage(CC.translate(formattedMessage));
             }
         } else {
             sender.sendMessage(CC.translate("§cUsage: /broadcast <text>"));
