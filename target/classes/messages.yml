@@ -169,4 +169,4 @@ on-leave:
     donator:
       left-the-game: "&7» %prefix%%player% &fleft the server!"
     staff:
-      joined-the-game: "&3[&bS&3] &r%prefix%%player% &bhas left &3%server%&b."
+      left-the-game: "&3[&bS&3] &r%prefix%%player% &bhas left &3%server%&b."

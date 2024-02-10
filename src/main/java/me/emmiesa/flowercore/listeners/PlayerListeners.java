@@ -124,7 +124,7 @@ public class PlayerListeners implements Listener {
                 }
             }
         } else {
-            Bukkit.getConsoleSender().sendMessage(CC.translate("&4Warning: Join message or server name is null."));
+            Bukkit.getConsoleSender().sendMessage(CC.translate("&4Warning: Leave message or server name is null."));
         }
 
         if (disconnectedPlayer.hasPermission("flowercore.donator.joinmessage")) {

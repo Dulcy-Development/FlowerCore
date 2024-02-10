@@ -1,4 +1,5 @@
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\commands\admin\teleport\TeleportCommand.java
+C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\punishments\PunishmentType.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\database\MongoManager.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\commands\admin\teleport\TeleportHereCommand.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\extras\scoreboard\assemble\events\AssembleBoardCreatedEvent.java
@@ -29,12 +30,11 @@ C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\e
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\utils\menu\button\BackButton.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\menus\ranklist\button\RankListButton.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\commands\admin\essential\FeedCommand.java
-C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\punishments\PunishTypes.java
-C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\commands\admin\speed\SpeedResetCommand.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\menus\settings\SettingsMenu.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\menus\ranklist\RankListMenu.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\commands\global\StoreCommand.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\commands\admin\essential\ForceFlyCommand.java
+C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\punishments\Punishment.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\commands\admin\rank\SubCommands\RankSetSuffixCommand.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\listeners\CommandListener.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\utils\command\CommandArgs.java
@@ -77,7 +77,6 @@ C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\e
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\utils\command\BaseCommand.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\commands\admin\essential\HealCommand.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\commands\admin\administration\AlertCommand.java
-C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\commands\admin\speed\SpeedCommand.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\commands\admin\teleport\TeleportPositionCommand.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\commands\global\PluginCommand.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\extras\scoreboard\assemble\Assemble.java
@@ -92,10 +91,12 @@ C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\e
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\utils\menu\MenuListener.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\menus\settings\button\SettingsButton.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\commands\admin\essential\GodModeCommand.java
+C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\commands\admin\essential\SpeedCommand.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\commands\global\WebsiteCommand.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\extras\scoreboard\assemble\exception\AssembleException.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\menus\grantconfirm\GrantConfirmMenu.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\utils\menu\button\DisplayButton.java
+C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\commands\admin\essential\SpeedResetCommand.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\handler\ConfigHandler.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\papi\ProfilePlaceholders.java
 C:\Users\Emy\Desktop\Development\1 Projects\FlowerCore-master\src\main\java\me\emmiesa\flowercore\utils\menu\Menu.java
