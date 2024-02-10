@@ -9,6 +9,8 @@ import me.emmiesa.flowercore.utils.command.CommandArgs;
 import me.emmiesa.flowercore.utils.others.Cooldown;
 import org.bukkit.entity.Player;
 
+import java.util.UUID;
+
 /*
  * FrozedClub
  * Project: FrozedUHCMeetup
@@ -19,6 +21,7 @@ public class AnnounceCommand extends BaseCommand {
     @Command(name = "announce", permission = "flowercore.command.announce")
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
+        UUID playerUUID = player.getUniqueId();
 
         if (!FlowerCore.instance.getConfig("settings.yml").getBoolean("announce.enabled")) {
             player.sendMessage(CC.translate(FlowerCore.instance.getConfig("settings.yml").getString("announce.disabled")));
@@ -34,7 +37,7 @@ public class AnnounceCommand extends BaseCommand {
 
         String format = FlowerCore.instance.getConfig("settings.yml").getString("announce.format");
         format = format.replace("%server_name%", FlowerCore.instance.getConfig("settings.yml").getString("server-name"));
-        format = format.replace("%player_display_name%", player.getDisplayName());
+        format = format.replace("%prefix%", FlowerCore.instance.getPlayerManager().getRank(playerUUID).getPrefix());
         format = format.replace("%player_name%", player.getName());
 
         String cmd = FlowerCore.instance.getConfig("settings.yml").getString("announce.command");
