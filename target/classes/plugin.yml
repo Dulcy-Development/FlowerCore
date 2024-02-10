@@ -1,5 +1,5 @@
 name: FlowerCore
-version: '1.3.5-SNAPSHOT'
+version: '1.3.6-SNAPSHOT'
 main: me.emmiesa.flowercore.FlowerCore
 author: Emmiesa
 description: 'A custom server core'

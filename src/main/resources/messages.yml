@@ -10,9 +10,11 @@ reload:
   reloading:
     - "&r"
     - "&8&m-----------------------------------------------------"
-    - " &7[&cWARNING&7] &fReloading the configuration files."
+    - " &7[&cWARNING&7] &fReloading the configuration files..."
     - "&r"
-    - " &8[&bConfig.yml, Commands.yml, Database.yml, Messages.yml, Settings.yml&8]"
+    - " &8[&bConfig.yml, Commands.yml, Database.yml, Extras.yml,"
+    - " &bMessages.yml, Permissions.yml, Placeholders.yml, Ranks.yml,"
+    - " &bSettings.yml&8]"
     - "&8&m-----------------------------------------------------"
     - "&r"
   finished:
