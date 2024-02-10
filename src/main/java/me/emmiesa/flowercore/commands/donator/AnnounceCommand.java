@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 
 /*
  * FrozedClub
- * Project: FrozedSG
+ * Project: FrozedUHCMeetup
  */
 
 public class AnnounceCommand extends BaseCommand {

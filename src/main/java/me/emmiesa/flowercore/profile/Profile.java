@@ -8,12 +8,6 @@ import me.emmiesa.flowercore.ranks.Rank;
 
 import java.util.UUID;
 
-/**
- * @author lrxh
- * @project RiftCore
- * @since 1/6/2024
- */
-
 @Getter
 @Setter
 @Builder

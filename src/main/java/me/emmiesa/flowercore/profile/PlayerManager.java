@@ -14,12 +14,6 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * @author lrxh
- * @project RiftCore
- * @since 1/6/2024
- */
-
 @Getter
 public class PlayerManager {
     private final FlowerCore plugin = FlowerCore.getInstance();
