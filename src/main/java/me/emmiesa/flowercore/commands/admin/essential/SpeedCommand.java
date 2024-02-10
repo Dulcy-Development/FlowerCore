@@ -24,6 +24,7 @@ public class SpeedCommand extends BaseCommand {
         if (args.length() == 1) {
             add.add("fly");
             add.add("walk");
+            add.add("reset");
         }
         return add;
     }
@@ -36,37 +37,41 @@ public class SpeedCommand extends BaseCommand {
         String[] args = cmd.getArgs();
 
         if (args.length == 0) {
-            player.sendMessage(CC.translate("&cUsage: /speed fly &4┃ &cwalk (value). To reset, do /defaultspeed."));
+            player.sendMessage(CC.translate("&cUsage: /speed fly/walk (value) &4| &c/speed reset"));
             return;
         }
 
-        int speedVelocity = Integer.parseInt(args[1]);
         switch (args[0]) {
             case "fly":
-                if (!NumberUtils.checkInt(args[1])) {
-                    player.sendMessage(CC.translate("&cPlease use Numbers! ( 1, 2, 3, ect.. )"));
-                    return;
-                }
-                if (speedVelocity < 1 || speedVelocity > 10) {
-                    player.sendMessage(CC.translate("&cPlease enter a value between 1 and 10"));
-                    return;
-                }
-                player.setFlySpeed(speedVelocity * 0.1F);
-                player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("speed-set.fly").replace("%value%", String.valueOf(speedVelocity))));
-                break;
             case "walk":
-                if (!NumberUtils.checkInt(args[1])) {
-                    player.sendMessage(CC.translate("&cPlease use Numbers! ( 1, 2, 3, ect.. )"));
+                if (args.length < 2) {
+                    player.sendMessage(CC.translate("&cPlease specify a speed value."));
                     return;
                 }
+                if (!NumberUtils.checkInt(args[1])) {
+                    player.sendMessage(CC.translate("&cPlease use Numbers! ( 1, 2, 3, etc.. )"));
+                    return;
+                }
+                int speedVelocity = Integer.parseInt(args[1]);
                 if (speedVelocity < 1 || speedVelocity > 10) {
                     player.sendMessage(CC.translate("&cPlease enter a value between 1 and 10"));
                     return;
                 }
-                player.setWalkSpeed(speedVelocity * 0.1F);
-                player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("speed-set.walk").replace("%value%", String.valueOf(speedVelocity))));
+                if (args[0].equals("fly")) {
+                    player.setFlySpeed(speedVelocity * 0.1F);
+                    player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("speed-set.fly").replace("%value%", String.valueOf(speedVelocity))));
+                } else { // walk
+                    player.setWalkSpeed(speedVelocity * 0.1F);
+                    player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("speed-set.walk").replace("%value%", String.valueOf(speedVelocity))));
+                }
+                break;
+            case "reset":
+                player.setFlySpeed(0.1F);
+                player.setWalkSpeed(0.2F);
+                player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("speed-set.reset")));
                 break;
             default:
+                player.sendMessage(CC.translate("&cUsage: /speed fly &4┃ &cwalk &4┃ reset (value)."));
                 break;
         }
     }

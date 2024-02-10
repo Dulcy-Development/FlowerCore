@@ -23,7 +23,6 @@ me\emmiesa\flowercore\handler\ConfigHandler.class
 me\emmiesa\flowercore\commands\admin\essential\FeedCommand.class
 me\emmiesa\flowercore\commands\global\TeamSpeakCommand.class
 me\emmiesa\flowercore\punishments\Punishment.class
-me\emmiesa\flowercore\commands\admin\essential\SpeedResetCommand.class
 me\emmiesa\flowercore\listeners\ChatListener.class
 me\emmiesa\flowercore\utils\menu\MenuListener.class
 me\emmiesa\flowercore\commands\global\YouTubeCommand.class

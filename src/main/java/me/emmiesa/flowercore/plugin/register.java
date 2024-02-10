@@ -2,7 +2,6 @@ package me.emmiesa.flowercore.plugin;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.commands.admin.essential.SpeedCommand;
-import me.emmiesa.flowercore.commands.admin.essential.SpeedResetCommand;
 import me.emmiesa.flowercore.listeners.CommandListener;
 import me.emmiesa.flowercore.commands.admin.gamemode.gmaCommand;
 import me.emmiesa.flowercore.commands.admin.gamemode.gmcCommand;
@@ -79,7 +78,6 @@ public class register {
         new ClearChatCommand();
         new TeamSpeakCommand();
         new TeleportUpCommand();
-        new SpeedResetCommand();
         new TeleportHereCommand();
         new TeleportSpawnCommand();
         new TrollEverybodyCommand();
