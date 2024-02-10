@@ -6,7 +6,7 @@
 
   <groupId>me.emmiesa</groupId>
   <artifactId>flowercore</artifactId>
-  <version>1.3.5-SNAPSHOT</version>
+  <version>1.3.6-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>FlowerCore</name>
