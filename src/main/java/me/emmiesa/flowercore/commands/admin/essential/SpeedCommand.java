@@ -37,7 +37,12 @@ public class SpeedCommand extends BaseCommand {
         String[] args = cmd.getArgs();
 
         if (args.length == 0) {
-            player.sendMessage(CC.translate("&cUsage: /speed fly/walk (value) &4| &c/speed reset"));
+            player.sendMessage(CC.FLOWER_BAR_LONG);
+            player.sendMessage(CC.translate("&b&lSpeed Command Help:"));
+            player.sendMessage(CC.translate(" &f● &b/speed fly &8<&7value&8> &8| &7Set your flying speed."));
+            player.sendMessage(CC.translate(" &f● &b/speed walk &8<&7value&8> &8| &7Set your walking speed."));
+            player.sendMessage(CC.translate(" &f● &b/speed reset &8| &7Reset your speed"));
+            player.sendMessage(CC.FLOWER_BAR_LONG);
             return;
         }
 
@@ -60,7 +65,7 @@ public class SpeedCommand extends BaseCommand {
                 if (args[0].equals("fly")) {
                     player.setFlySpeed(speedVelocity * 0.1F);
                     player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("speed-set.fly").replace("%value%", String.valueOf(speedVelocity))));
-                } else { // walk
+                } else {
                     player.setWalkSpeed(speedVelocity * 0.1F);
                     player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("speed-set.walk").replace("%value%", String.valueOf(speedVelocity))));
                 }
@@ -71,7 +76,12 @@ public class SpeedCommand extends BaseCommand {
                 player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("speed-set.reset")));
                 break;
             default:
-                player.sendMessage(CC.translate("&cUsage: /speed fly &4┃ &cwalk &4┃ reset (value)."));
+                player.sendMessage(CC.FLOWER_BAR_LONG);
+                player.sendMessage(CC.translate("&b&lSpeed Command Help:"));
+                player.sendMessage(CC.translate(" &f● &b/speed fly &8<&7value&8> &8| &7Set your flying speed."));
+                player.sendMessage(CC.translate(" &f● &b/speed walk &8<&7value&8> &8| &7Set your walking speed."));
+                player.sendMessage(CC.translate(" &f● &b/speed reset &8| &7Reset your speed"));
+                player.sendMessage(CC.FLOWER_BAR_LONG);
                 break;
         }
     }
