@@ -1,4 +1,4 @@
-package me.emmiesa.flowercore.commands.admin.speed;
+package me.emmiesa.flowercore.commands.admin.essential;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.utils.chat.CC;
