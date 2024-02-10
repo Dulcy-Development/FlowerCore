@@ -96,6 +96,13 @@ public class PlayerListeners implements Listener {
         } else {
             Bukkit.getConsoleSender().sendMessage(CC.translate("&4Warning: Join message or server name is null."));
         }
+
+        if (joinedPlayer.hasPermission("flowercore.donator.joinmessage")) {
+            event.setJoinMessage(CC.translate("&7» " + FlowerCore.instance.getPlayerManager().getRank(playerUUID).getPrefix() + joinedPlayer.getName() + "&f joined the server!"));
+            Bukkit.getConsoleSender().sendMessage(CC.translate("&7» " + FlowerCore.instance.getPlayerManager().getRank(playerUUID).getPrefix() + joinedPlayer.getName() + "&f joined the server!"));
+        } else {
+            event.setJoinMessage(null);
+        }
     }
 
     @EventHandler
@@ -116,6 +123,13 @@ public class PlayerListeners implements Listener {
             }
         } else {
             Bukkit.getConsoleSender().sendMessage(CC.translate("&4Warning: Join message or server name is null."));
+        }
+
+        if (disconnectedPlayer.hasPermission("flowercore.donator.joinmessage")) {
+            event.setQuitMessage(CC.translate("&7» " + FlowerCore.instance.getPlayerManager().getRank(playerUUID).getPrefix() + disconnectedPlayer.getName() + " &fleft the server!"));
+            Bukkit.getConsoleSender().sendMessage(CC.translate("&7» " + FlowerCore.instance.getPlayerManager().getRank(playerUUID).getPrefix() + disconnectedPlayer.getName() + " &fleft the server!"));
+        } else {
+            event.setQuitMessage(null);
         }
 
         FlowerCore.instance.getMongoManager().saveProfile(playerUUID);

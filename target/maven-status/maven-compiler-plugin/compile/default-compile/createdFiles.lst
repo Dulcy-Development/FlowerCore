@@ -22,6 +22,7 @@ me\emmiesa\flowercore\commands\admin\rank\RankCommand.class
 me\emmiesa\flowercore\handler\ConfigHandler.class
 me\emmiesa\flowercore\commands\admin\essential\FeedCommand.class
 me\emmiesa\flowercore\commands\global\TeamSpeakCommand.class
+me\emmiesa\flowercore\punishments\Punishment.class
 me\emmiesa\flowercore\listeners\ChatListener.class
 me\emmiesa\flowercore\utils\menu\MenuListener.class
 me\emmiesa\flowercore\commands\global\YouTubeCommand.class
@@ -38,6 +39,7 @@ me\emmiesa\flowercore\extras\scoreboard\assemble\board\AssembleBoardEntry.class
 me\emmiesa\flowercore\plugin\register.class
 me\emmiesa\flowercore\Locale.class
 me\emmiesa\flowercore\ranks\Rank.class
+me\emmiesa\flowercore\punishments\PunishmentType.class
 me\emmiesa\flowercore\commands\admin\speed\SpeedResetCommand.class
 me\emmiesa\flowercore\commands\admin\administration\InstanceCommand.class
 me\emmiesa\flowercore\commands\admin\administration\AlertCommand.class
@@ -101,7 +103,6 @@ me\emmiesa\flowercore\extras\scoreboard\assemble\events\AssembleBoardDestroyEven
 me\emmiesa\flowercore\commands\admin\rank\SubCommands\RankListCommand.class
 me\emmiesa\flowercore\utils\Utils.class
 me\emmiesa\flowercore\commands\admin\essential\TrollCommand.class
-me\emmiesa\flowercore\punishments\PunishTypes.class
 me\emmiesa\flowercore\profile\PlayerManager.class
 me\emmiesa\flowercore\extras\scoreboard\assemble\events\AssembleBoardCreatedEvent.class
 me\emmiesa\flowercore\extras\scoreboard\assemble\exception\AssembleException.class
