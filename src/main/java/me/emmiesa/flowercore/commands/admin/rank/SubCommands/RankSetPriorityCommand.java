@@ -35,6 +35,9 @@ public class RankSetPriorityCommand extends BaseCommand {
         }
 
         rank.setPriority(priority);
-        player.sendMessage(CC.translate("&aSuccessfully set priority!"));
+        player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("rank.setpriority")
+                .replace("%rank%", rankName)
+                .replace("%priority%", String.valueOf(priority))
+        ));
     }
 }

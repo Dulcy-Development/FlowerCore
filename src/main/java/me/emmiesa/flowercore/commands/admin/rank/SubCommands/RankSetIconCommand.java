@@ -9,6 +9,7 @@ import me.emmiesa.flowercore.utils.command.Command;
 import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.intellij.lang.annotations.Flow;
 
 public class RankSetIconCommand extends BaseCommand {
 
@@ -40,6 +41,9 @@ public class RankSetIconCommand extends BaseCommand {
         }
 
         rank.setIcon(player.getItemInHand().getType());
-        player.sendMessage(CC.translate("&aSuccessfully set rank icon!"));
+        player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("rank.seticon")
+                .replace("%rank%", rankName))
+                //.replace("%icon%", player.getItemInHand().getItemMeta().getDisplayName())
+        );
     }
 }

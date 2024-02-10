@@ -53,12 +53,17 @@ spawn.not-set.reminder:
   enabled: true #This also disables the console message if it's false!
   message: "&c(Reminder) The join location was not set. Players won't be teleported! &8(TIP) &7&oYou can disable this message in the 'messages' config file."
 rank:
-  created: "&aSuccessfully created the &r%rank% &arank!"
-  saving: "&7Saving all ranks..."
   saved: "&aSuccessfully saved all ranks!"
+  saving: "&7Saving all ranks..."
+  created: "&aSuccessfully created the &r%rank% &arank!"
+  addperm: "&aSuccessfully added the &r%perm% &apermission to the &r%rank% &arank!"
+  seticon: "&aSuccessfully set &r%icon% &aas icon of the &r%rank% &arank!"
+  setstaff: "&aSuccessfully set staff &r%state% &afor the &r%rank% &arank!"
+  setprefix: "&aSuccessfully set &a'%prefix%&a' as prefix of the &r%rank% &arank!"
+  setdefault: "&aSuccessfully set default &r%state% &afor the &r%rank% &arank!"
+  setpriority: "&aSuccessfully set the priority of the &r%rank% &arank to &b%priority%&a!"
   does-not-exist: "&cThe %rank% &crank does not exist!"
   set-displayname: "&aSuccessfully set &r%display-name% &aas display name of the &r%rank% &arank!"
-  addperm: "&aSuccessfully added the &r%perm% &apermission to the &r%rank% &arank!"
 clear-chat: "&aThe chat has been cleared by %player%."
 clear-chat-staff: "&7[&8%server%&7] Cleared the chat by &8%player%&7."
 socials:
@@ -155,9 +160,13 @@ on-join:
         - "%flowerbar%"
         #- "%bars%"
         - " "
+    donator:
+      joined-the-game: "&7» %prefix%%player% &fjoined the server!"
     staff:
       joined-the-game: "&3[&bS&3] &r%prefix%%player% &bhas joined &3%server%&b."
 on-leave:
   messages:
+    donator:
+      left-the-game: "&7» %prefix%%player% &fleft the server!"
     staff:
-      left-the-game: "&3[&bS&3] &7(%server%) %prefix%%player% &chas left the server."
+      joined-the-game: "&3[&bS&3] &r%prefix%%player% &bhas left &3%server%&b."
