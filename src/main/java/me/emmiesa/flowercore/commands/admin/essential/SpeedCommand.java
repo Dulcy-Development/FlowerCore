@@ -37,12 +37,14 @@ public class SpeedCommand extends BaseCommand {
         String[] args = cmd.getArgs();
 
         if (args.length == 0) {
+            player.sendMessage(" ");
             player.sendMessage(CC.FLOWER_BAR_LONG);
             player.sendMessage(CC.translate("&b&lSpeed Command Help:"));
             player.sendMessage(CC.translate(" &f● &b/speed fly &8<&7value&8> &8| &7Set your flying speed."));
             player.sendMessage(CC.translate(" &f● &b/speed walk &8<&7value&8> &8| &7Set your walking speed."));
             player.sendMessage(CC.translate(" &f● &b/speed reset &8| &7Reset your speed"));
             player.sendMessage(CC.FLOWER_BAR_LONG);
+            player.sendMessage(" ");
             return;
         }
 
@@ -76,12 +78,14 @@ public class SpeedCommand extends BaseCommand {
                 player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("speed-set.reset")));
                 break;
             default:
+                player.sendMessage(" ");
                 player.sendMessage(CC.FLOWER_BAR_LONG);
                 player.sendMessage(CC.translate("&b&lSpeed Command Help:"));
                 player.sendMessage(CC.translate(" &f● &b/speed fly &8<&7value&8> &8| &7Set your flying speed."));
                 player.sendMessage(CC.translate(" &f● &b/speed walk &8<&7value&8> &8| &7Set your walking speed."));
                 player.sendMessage(CC.translate(" &f● &b/speed reset &8| &7Reset your speed"));
                 player.sendMessage(CC.FLOWER_BAR_LONG);
+                player.sendMessage(" ");
                 break;
         }
     }
