@@ -16,17 +16,6 @@ import java.util.UUID;
 
 public class gmspCommand extends BaseCommand {
 
-    @Completer(name = "gamemode", aliases = "gm")
-    public List<String> gmspCompleter(CommandArgs args) {
-        List<String> add = new ArrayList<>();
-        if (args.length() == 1) {
-            add.add("3");
-            add.add("sp");
-            add.add("spectator");
-        }
-        return add;
-    }
-
     @Command(name = "gmsp", aliases = {"gm.sp", "spectator", "gamemode.sp","gamemode.3", "gamemode.spectator", "gm.3", "gm3", "gm.spectator"}, permission = "flowercore.staff")
     public void onCommand(CommandArgs args) {
         if (args.length() > 0) {

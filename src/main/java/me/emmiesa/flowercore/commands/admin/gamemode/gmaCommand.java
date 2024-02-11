@@ -17,12 +17,21 @@ import java.util.UUID;
 public class gmaCommand extends BaseCommand {
 
     @Completer(name = "gamemode", aliases = "gm")
-    public List<String> gmaCompleter(CommandArgs args) {
+    public List<String> gmCompleter(CommandArgs args) {
         List<String> add = new ArrayList<>();
         if (args.length() == 1) {
-            add.add("2");
-            add.add("a");
+            //add.add("1");
+            //add.add("c");
+            add.add("creative");
+            //add.add("0");
+            //add.add("s");
+            add.add("survival");
+            //add.add("2");
+            //add.add("a");
             add.add("adventure");
+            ////add.add("3");
+            ////add.add("sp");
+            add.add("spectator");
         }
         return add;
     }

@@ -16,17 +16,6 @@ import java.util.UUID;
 
 public class gmsCommand extends BaseCommand {
 
-    @Completer(name = "gamemode", aliases = "gm")
-    public List<String> gmsCompleter(CommandArgs args) {
-        List<String> add = new ArrayList<>();
-        if (args.length() == 1) {
-            add.add("0");
-            add.add("s");
-            add.add("survival");
-        }
-        return add;
-    }
-
     @Command(name = "gms", aliases = {"gm.s", "survival", "gamemode.s","gamemode.0", "gamemode.survival", "gm.0", "gm0", "gm.survival"}, permission = "flowercore.staff")
     public void onCommand(CommandArgs args) {
         if (args.length() > 0) {
