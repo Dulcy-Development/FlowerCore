@@ -36,7 +36,7 @@ public class RankSetSuffixCommand extends BaseCommand {
 
         rank.setSuffix(suffix);
         player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("rank.setsuffix")
-                .replace("%prefix%", suffix))
+                .replace("%suffix%", suffix))
                 .replace("%rank%", rankName)
         );
     }

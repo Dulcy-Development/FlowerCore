@@ -60,6 +60,7 @@ rank:
   seticon: "&aSuccessfully set &r%icon% &aas icon of the &r%rank% &arank!"
   setstaff: "&aSuccessfully set staff &r%state% &afor the &r%rank% &arank!"
   setprefix: "&aSuccessfully set &a'%prefix%&a' as prefix of the &r%rank% &arank!"
+  setsuffix: "&aSuccessfully set &a'%suffix%&a' as suffix of the &r%rank% &arank!"
   setdefault: "&aSuccessfully set default &r%state% &afor the &r%rank% &arank!"
   setpriority: "&aSuccessfully set the priority of the &r%rank% &arank to &b%priority%&a!"
   does-not-exist: "&cThe %rank% &crank does not exist!"

@@ -6,7 +6,7 @@
 server-name: eu-hub-1
 server-region: EU
 chat: # Available placeholders %prefix%, %player%, %message%, %suffix%
-  format: "%prefix%%player%&7: &f%message%"
+  format: "%prefix%%player%%suffix%§7: §f%message%"
 grant-settings:
   broadcast: #If somebody is being granted a rank, alert the entire server.
     enabled: true
