@@ -13,23 +13,23 @@ public class TeleportHereCommand extends BaseCommand {
 
     @Override
     public void onCommand(CommandArgs cmd) {
-        Player p = cmd.getPlayer();
+        Player player = cmd.getPlayer();
         String[] args = cmd.getArgs();
 
         if (args.length == 0) {
-            p.sendMessage("§cUsage /" + cmd.getLabel() + " <player>");
+            player.sendMessage("§cUsage /tphere (player)");
             return;
         }
 
         Player target = Bukkit.getPlayer(args[0]);
         if (target == null) {
-            p.sendMessage("§cPlayer isn't online");
+            player.sendMessage(CC.translate("&fNo player matching &b" + args[0] + " &fis connected to this server."));
             return;
         }
 
-        target.teleport(p.getLocation());
-        p.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("teleport.tp-here.sender").replace("%target%", target.getDisplayName())));
-        target.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("teleport.tp-here.target").replace("%player%", p.getName())));
+        player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("teleport.tp-here.sender").replace("%target%", target.getDisplayName())));
+        target.teleport(player.getLocation());
+        target.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("teleport.tp-here.target").replace("%player%", player.getName())));
     }
 }
 

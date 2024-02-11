@@ -18,11 +18,11 @@ public class TeleportPositionCommand extends BaseCommand {
         String[] args = cmd.getArgs();
 
         if (args.length < 3) {
-            player.sendMessage("§cUsage: /" + cmd.getLabel() + " (x) (y) (z)");
+            player.sendMessage("§cUsage: /tppos (x) (y) (z)");
             return;
         }
         if (!NumberUtils.checkInt(args[0]) || !NumberUtils.checkInt(args[1]) || !NumberUtils.checkInt(args[2])) {
-            player.sendMessage("§ePlease specify a number");
+            player.sendMessage(CC.translate("&cInvalid value. Please specify numbers."));
             return;
         }
 
@@ -31,7 +31,7 @@ public class TeleportPositionCommand extends BaseCommand {
         int z = Integer.parseInt(args[2]);
         Location loc = new Location(player.getWorld(), x, y, z);
         if (x > 30000000 || x < -30000000 || y > 30000000 || y < -30000000 || z > 30000000 || z < -30000000) {
-            player.sendMessage("§eMax value is 30000000/-30000000");
+            player.sendMessage(CC.translate("&cYou can't teleport further than 30000000/-30000000."));
             return;
         }
 
