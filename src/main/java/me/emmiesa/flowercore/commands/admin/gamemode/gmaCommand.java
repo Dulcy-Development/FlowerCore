@@ -13,19 +13,19 @@ import java.util.UUID;
 
 public class gmaCommand extends BaseCommand {
 
-    @Command(name = "gma", aliases = {"gm.a", "adventure", "gamemode.a", "gamemode.2", "gm.2", "gm2"}, permission = "flowercore.staff")
+    @Command(name = "gma", aliases = {"gm.a", "adventure", "gamemode.a", "gamemode.2", "gamemode.adventure", "gm.2", "gm2"}, permission = "flowercore.staff")
     public void onCommand(CommandArgs args) {
-
         if (args.length() > 0) {
             String targetName = args.getArgs(0);
             Player target = Bukkit.getServer().getPlayer(targetName);
-            UUID targetUUID = target.getUniqueId();
-            UUID playerUUID = args.getPlayer().getUniqueId();
 
             if (target == null) {
-                args.getPlayer().sendMessage(CC.translate("&fNo player matching &b" + target + " &fis connected to this server"));
+                args.getPlayer().sendMessage(CC.translate("&fNo player matching &b" + targetName + " &fis connected to this server"));
                 return;
             }
+
+            UUID targetUUID = target.getUniqueId();
+            UUID playerUUID = args.getPlayer().getUniqueId();
 
             if (target.getGameMode().equals(GameMode.ADVENTURE)) {
                 args.getPlayer().sendMessage(CC.translate("&c" + target.getName() + " is already in Adventure mode."));
@@ -33,6 +33,11 @@ public class gmaCommand extends BaseCommand {
                 args.getPlayer().sendMessage(CC.translate("&bYou've set &r" + FlowerCore.instance.getPlayerManager().getRank(targetUUID).getPrefix() + target.getName() + "&b's gamemode to &3Adventure&b."));
                 target.setGameMode(GameMode.ADVENTURE);
                 target.sendMessage(CC.translate("&bYour gamemode has been set to &3adventure &bby &r" + FlowerCore.instance.getPlayerManager().getRank(playerUUID).getPrefix() + args.getPlayer().getName() + " &b."));
+                for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
+                    if (onlinePlayer.hasPermission("flowercore.staff")) {
+                        onlinePlayer.sendMessage(CC.translate("&7&o(" + args.getPlayer().getDisplayName() + "&7&o: Set " + target.getDisplayName() + "&7&o's gamemode adventure)")/*.replace("%prefix%", FlowerCore.instance.getPlayerManager().getRank(playerUUID).getPrefix())))*/);
+                    }
+                }
             }
         } else {
             Player player = args.getPlayer();
@@ -41,6 +46,11 @@ public class gmaCommand extends BaseCommand {
             } else {
                 player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("gamemode.adventure.switched")));
                 player.setGameMode(GameMode.ADVENTURE);
+                for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
+                    if (onlinePlayer.hasPermission("flowercore.staff")) {
+                        onlinePlayer.sendMessage(CC.translate("&7&o(" + args.getPlayer().getDisplayName() + "&7&o: Set own gamemode adventure)")/*.replace("%prefix%", FlowerCore.instance.getPlayerManager().getRank(playerUUID).getPrefix())))*/);
+                    }
+                }
             }
         }
     }
