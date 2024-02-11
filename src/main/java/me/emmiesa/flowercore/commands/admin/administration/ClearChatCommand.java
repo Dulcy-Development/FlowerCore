@@ -17,7 +17,7 @@ public class ClearChatCommand extends BaseCommand {
     @Command(name = "clearchat", aliases = {"chatclear"}, permission = "flower.command.staff", inGameOnly = false)
     public void onCommand(CommandArgs args) {
         CommandSender sender = args.getSender();
-
+        //
         for (int i = 0; i < 1000; i++) {
             Bukkit.broadcastMessage("");
         }

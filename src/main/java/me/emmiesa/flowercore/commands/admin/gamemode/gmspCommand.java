@@ -5,15 +5,29 @@ import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
 import me.emmiesa.flowercore.utils.command.CommandArgs;
+import me.emmiesa.flowercore.utils.command.Completer;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class gmspCommand extends BaseCommand {
 
-    @Command(name = "gmsp", aliases = {"gm.sp", "spectator", "gamemode.sp","gamemode.3", "gamemode.spectator", "gm.3", "gm3"}, permission = "flowercore.staff")
+    @Completer(name = "gamemode", aliases = "gm")
+    public List<String> gmspCompleter(CommandArgs args) {
+        List<String> add = new ArrayList<>();
+        if (args.length() == 1) {
+            add.add("3");
+            add.add("sp");
+            add.add("spectator");
+        }
+        return add;
+    }
+
+    @Command(name = "gmsp", aliases = {"gm.sp", "spectator", "gamemode.sp","gamemode.3", "gamemode.spectator", "gm.3", "gm3", "gm.spectator"}, permission = "flowercore.staff")
     public void onCommand(CommandArgs args) {
         if (args.length() > 0) {
             String targetName = args.getArgs(0);

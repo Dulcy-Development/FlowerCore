@@ -5,15 +5,29 @@ import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
 import me.emmiesa.flowercore.utils.command.CommandArgs;
+import me.emmiesa.flowercore.utils.command.Completer;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class gmaCommand extends BaseCommand {
 
-    @Command(name = "gma", aliases = {"gm.a", "adventure", "gamemode.a", "gamemode.2", "gamemode.adventure", "gm.2", "gm2"}, permission = "flowercore.staff")
+    @Completer(name = "gamemode", aliases = "gm")
+    public List<String> gmaCompleter(CommandArgs args) {
+        List<String> add = new ArrayList<>();
+        if (args.length() == 1) {
+            add.add("2");
+            add.add("a");
+            add.add("adventure");
+        }
+        return add;
+    }
+
+    @Command(name = "gma", aliases = {"gm.a", "adventure", "gamemode.a", "gamemode.2", "gamemode.adventure", "gm.2", "gm2", "gm.adventure"}, permission = "flowercore.staff")
     public void onCommand(CommandArgs args) {
         if (args.length() > 0) {
             String targetName = args.getArgs(0);

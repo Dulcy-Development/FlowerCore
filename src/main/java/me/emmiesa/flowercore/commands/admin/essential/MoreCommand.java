@@ -8,10 +8,6 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-/*
- * Credit: Zoom core
- */
-
 public class MoreCommand extends BaseCommand {
 
     @Command(name = "more", permission = "flower.command.more", aliases = {"stackitem"})
@@ -22,7 +18,7 @@ public class MoreCommand extends BaseCommand {
         ItemStack item = player.getItemInHand();
 
         if (item == null || item.getType() == Material.AIR) {
-            player.sendMessage(CC.translate("&cWhat do you want me to stack? Nothing?"));
+            player.sendMessage(CC.translate("&cUh, fine. Let's stack nothing. You have to be holding an item..."));
             return;
         }
         if (item.getAmount() >= 64) {
