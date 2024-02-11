@@ -112,7 +112,8 @@ teleport:
   #tpall: "&fTeleported all players to &f%player%"
   tp-pos: "&bTeleported you to the provided location &f(&b%x%x&f, &b%y%y&f, &b%z%z&f)."
   tp-up: "&bTeleported you to the top."
-  tp-spawn: "&aTeleported you to spawn!"
+  #tp-spawn: "&aTeleported you to spawn!"
+  tp-spawn-action-bar: "&bTeleported you to spawn!"
 fly:
   enabled: "&bYou've &aenabled &bflight."
   disabled: "&bYou've &cdisabled &bflight."
