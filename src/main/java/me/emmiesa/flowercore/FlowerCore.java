@@ -1,5 +1,6 @@
 package me.emmiesa.flowercore;
 
+import me.emmiesa.flowercore.announcements.AnnouncementManager;
 import me.emmiesa.flowercore.database.MongoManager;
 import me.emmiesa.flowercore.extras.scoreboard.assemble.Assemble;
 import me.emmiesa.flowercore.extras.scoreboard.assemble.AssembleStyle;
@@ -128,6 +129,8 @@ public class FlowerCore extends JavaPlugin {
         mongoManager.startMongo();
 
         this.playerManager = new PlayerManager();
+
+        new AnnouncementManager(this);
     }
 
     private void registerScoreboard() {

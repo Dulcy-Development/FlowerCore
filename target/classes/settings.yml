@@ -7,6 +7,50 @@ server-name: eu-hub-1
 server-region: EU
 chat: # Available placeholders %prefix%, %player%, %message%, %suffix%
   format: "%prefix%%player%%suffix%§7: §f%message%"
+announcements:
+  # Available Placeholders:
+  # - %discord%, %twitter%, %tiktok%, %youtube%, %teamspeak%, %store%, %website%,
+  # - %bars% - taken from the "bars-format" string
+  # - %flowerbar% - A preset bar format (not customizable)
+  enabled: true
+  send-every: 20
+  bars-format: "&7&m------------------------------"
+  announcements:
+    message-1:
+      - " "
+      - "%bars%"
+      - " &fJoin our discord:"
+      - "  &b%discord%"
+      - "%bars%"
+      - " "
+    message-2:
+      - " "
+      - "%bars%"
+      - " &fWatch us on YouTube:"
+      - "  &b%youtube%"
+      - "%bars%"
+      - " "
+    message-3:
+      - " "
+      - "%bars%"
+      - " &fBuy ranks and more at:"
+      - "  &b%store%"
+      - "%bars%"
+      - " "
+    message-4:
+      - " "
+      - "%bars%"
+      - " &fVisit our website:"
+      - "  &b%website%"
+      - "%bars%"
+      - " "
+    message-5:
+      - " "
+      - "%bars%"
+      - " &fWatch our TikTok shorts:"
+      - "  &b%tiktok%"
+      - "%bars%"
+      - " "
 grant-settings:
   broadcast: #If somebody is being granted a rank, alert the entire server.
     enabled: true

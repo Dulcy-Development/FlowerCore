@@ -28,7 +28,6 @@ me\emmiesa\flowercore\utils\menu\MenuListener.class
 me\emmiesa\flowercore\commands\global\YouTubeCommand.class
 me\emmiesa\flowercore\commands\admin\essential\SpeedCommand.class
 me\emmiesa\flowercore\utils\chat\JSONMessage$ClickEvent.class
-me\emmiesa\flowercore\utils\chat\ActionBarUtil.class
 me\emmiesa\flowercore\commands\admin\gamemode\gmspCommand.class
 me\emmiesa\flowercore\commands\admin\essential\HealCommand.class
 me\emmiesa\flowercore\utils\command\BukkitCompleter.class
@@ -67,7 +66,6 @@ me\emmiesa\flowercore\commands\admin\essential\MoreCommand.class
 me\emmiesa\flowercore\commands\admin\gamemode\gmsCommand.class
 me\emmiesa\flowercore\commands\admin\rank\SubCommands\RankSetPrefixCommand.class
 me\emmiesa\flowercore\extras\scoreboard\assemble\Assemble.class
-me\emmiesa\flowercore\utils\chat\ActionBarUtil$1.class
 me\emmiesa\flowercore\papi\ProfilePlaceholders.class
 me\emmiesa\flowercore\menus\ranklist\RankListMenu.class
 me\emmiesa\flowercore\database\MongoManager.class
@@ -85,6 +83,7 @@ me\emmiesa\flowercore\utils\command\Completer.class
 me\emmiesa\flowercore\commands\global\PingCommand.class
 me\emmiesa\flowercore\FlowerCore.class
 me\emmiesa\flowercore\menus\grant\GrantMenu.class
+me\emmiesa\flowercore\announcements\AnnouncementManager$1.class
 me\emmiesa\flowercore\commands\admin\rank\SubCommands\RankSetStaffCommand.class
 me\emmiesa\flowercore\extras\scoreboard\assemble\events\AssembleBoardCreateEvent.class
 me\emmiesa\flowercore\utils\command\BukkitCommand.class
@@ -113,5 +112,6 @@ me\emmiesa\flowercore\commands\global\StoreCommand.class
 me\emmiesa\flowercore\commands\admin\rank\SubCommands\RankSaveCommand.class
 me\emmiesa\flowercore\utils\item\ItemBuilder.class
 me\emmiesa\flowercore\utils\chat\JSONMessage$MessagePart.class
+me\emmiesa\flowercore\announcements\AnnouncementManager.class
 me\emmiesa\flowercore\extras\scoreboard\assemble\board\AssembleBoard.class
 me\emmiesa\flowercore\commands\admin\essential\ForceFlyCommand.class
