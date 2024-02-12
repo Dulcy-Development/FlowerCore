@@ -21,7 +21,6 @@ public class AnnouncementManager {
         this.plugin = plugin;
         if (plugin.getConfig("settings.yml").getBoolean("announcements.enabled")) {
             sendAnnounce();
-            Bukkit.getConsoleSender().sendMessage(CC.translate("&c&lsendAnnounce IS TRIGGERED!"));
         }
     }
 
@@ -52,6 +51,10 @@ public class AnnouncementManager {
                                 .replace("%twitter%", Locale.TWITTER)
                                 .replace("%youtube%", Locale.YOUTUBE);
                         Utils.broadcastMessage(CC.translate(message));
+
+                        if (plugin.getConfig("settings.yml").getBoolean("announcements.console-enabled")) {
+                            Bukkit.getConsoleSender().sendMessage(CC.translate(message));
+                        }
                     });
                 }
             }
