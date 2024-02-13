@@ -5,11 +5,11 @@ import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
 import me.emmiesa.flowercore.utils.command.CommandArgs;
+import net.minecraft.server.v1_8_R3.IChatBaseComponent;
+import net.minecraft.server.v1_8_R3.PacketPlayOutChat;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
-import net.minecraft.server.v1_8_R3.IChatBaseComponent;
-import net.minecraft.server.v1_8_R3.PacketPlayOutChat;
 
 public class TeleportSpawnCommand extends BaseCommand {
 
@@ -18,16 +18,16 @@ public class TeleportSpawnCommand extends BaseCommand {
     public void onCommand(CommandArgs args) {
         final Player player = args.getPlayer();
 
-        if (FlowerCore.instance.getConfig("settings.yml").getBoolean("on-join.teleport.enabled")) {
-            player.teleport(FlowerCore.instance.getSpawnLocation());
-            //player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("teleport.tp-spawn")));
+        if (FlowerCore.getInstance().getConfig("settings.yml").getBoolean("on-join.teleport.enabled")) {
+            player.teleport(FlowerCore.getInstance().getSpawnLocation());
+            //player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("teleport.tp-spawn")));
 
-            String sendmsg = CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("teleport.tp-spawn-action-bar"));
+            String sendmsg = CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("teleport.tp-spawn-action-bar"));
 
             sendActionBar(player, sendmsg, 5);
 
         } else {
-            player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("spawn.not-set.reminder.message")));
+            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("spawn.not-set.reminder.message")));
         }
     }
 
@@ -45,7 +45,7 @@ public class TeleportSpawnCommand extends BaseCommand {
                         PacketPlayOutChat clearPacket = new PacketPlayOutChat(clearChatBaseComponent, (byte) 2);
                         ((CraftPlayer) player).getHandle().playerConnection.sendPacket(clearPacket);
                     }
-                }.runTaskLater(FlowerCore.instance, durationSeconds * 20);
+                }.runTaskLater(FlowerCore.getInstance(), durationSeconds * 20L);
             }
         } catch (Exception e) {
             e.printStackTrace();

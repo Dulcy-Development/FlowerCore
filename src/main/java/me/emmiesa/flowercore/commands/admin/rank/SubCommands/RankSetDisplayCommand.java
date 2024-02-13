@@ -25,12 +25,12 @@ public class RankSetDisplayCommand extends BaseCommand {
     }
 
     private void setDisplayName(Player player, String rankName, String displayName) {
-        if (FlowerCore.instance.getRanksManager().getRank(rankName) == null) {
+        if (FlowerCore.getInstance().getRanksManager().getRank(rankName) == null) {
             player.sendMessage(CC.translate(Locale.RANK_NOT_FOUND).replace("%rank%", rankName));
             return;
         }
 
-        FlowerCore.instance.getRanksManager().getRank(rankName).setDisplayName(displayName);
-        player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("rank.set-displayname").replace("%rank%", rankName).replace("%display-name%", displayName)));
+        FlowerCore.getInstance().getRanksManager().getRank(rankName).setDisplayName(displayName);
+        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.set-displayname").replace("%rank%", rankName).replace("%display-name%", displayName)));
     }
 }

@@ -24,9 +24,9 @@ import java.util.Map.Entry;
 
 public class CommandFramework implements CommandExecutor {
 
-    private Map<String, Entry<Method, Object>> commandMap = new HashMap<String, Entry<Method, Object>>();
+    private final Map<String, Entry<Method, Object>> commandMap = new HashMap<String, Entry<Method, Object>>();
     private CommandMap map;
-    private FlowerCore plugin;
+    private final FlowerCore plugin;
 
     public CommandFramework(FlowerCore plugin) {
         this.plugin = plugin;
@@ -199,7 +199,7 @@ public class CommandFramework implements CommandExecutor {
         String label = args.getLabel();
         String[] parts = label.split(":");
 
-        if (args.getSender().hasPermission(FlowerCore.instance.getConfig("messages.yml").getString("anti-syntax-bypass-perm"))) {
+        if (args.getSender().hasPermission(FlowerCore.getInstance().getConfig("messages.yml").getString("anti-syntax-bypass-perm"))) {
             if (parts.length > 1) {
                 String commandToExecute = parts[1];
 
@@ -218,7 +218,7 @@ public class CommandFramework implements CommandExecutor {
                 args.getSender().sendMessage(CC.translate("&cMissing arguments / Wrong format or Internal error."));
             }
         } else {
-            args.getSender().sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("anti-syntax").replace("%argument%", args.getLabel())));
+            args.getSender().sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("anti-syntax").replace("%argument%", args.getLabel())));
         }
     }
 }

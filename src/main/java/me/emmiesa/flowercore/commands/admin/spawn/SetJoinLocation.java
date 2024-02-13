@@ -14,7 +14,7 @@ public class SetJoinLocation extends BaseCommand {
     @Override
     public void onCommand(CommandArgs cmd) {
         Player player = (Player) cmd.getSender();
-        FlowerCore.instance.setSpawnLocation(player.getLocation());
-        player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("spawn-set")));
+        FlowerCore.getInstance().setSpawnLocation(player.getLocation());
+        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("spawn-set")));
     }
 }

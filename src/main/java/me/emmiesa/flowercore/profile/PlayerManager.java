@@ -4,8 +4,6 @@ package me.emmiesa.flowercore.profile;
 import lombok.Getter;
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.ranks.Rank;
-import me.emmiesa.flowercore.utils.Utils;
-import me.emmiesa.flowercore.utils.chat.CC;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.PermissionAttachment;

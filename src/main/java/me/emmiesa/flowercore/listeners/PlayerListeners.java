@@ -104,9 +104,9 @@ public class PlayerListeners implements Listener {
         }
 
         if (joinedPlayer.hasPermission("flowercore.donator.joinmessage")) {
-            //event.setJoinMessage(CC.translate("&7» " + FlowerCore.instance.getPlayerManager().getRank(playerUUID).getPrefix() + joinedPlayer.getName() + "&f joined the server!"));
-            Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("on-join.messages.donator.joined-the-game").replace("%prefix%", FlowerCore.instance.getPlayerManager().getRank(playerUUID).getPrefix()).replace("%player%", joinedPlayer.getName())));
-            event.setJoinMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("on-join.messages.donator.joined-the-game").replace("%prefix%", FlowerCore.instance.getPlayerManager().getRank(playerUUID).getPrefix()).replace("%player%", joinedPlayer.getName())));
+            //event.setJoinMessage(CC.translate("&7» " + FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix() + joinedPlayer.getName() + "&f joined the server!"));
+            Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("on-join.messages.donator.joined-the-game").replace("%prefix%", FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix()).replace("%player%", joinedPlayer.getName())));
+            event.setJoinMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("on-join.messages.donator.joined-the-game").replace("%prefix%", FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix()).replace("%player%", joinedPlayer.getName())));
         } else {
             event.setJoinMessage(null);
             Bukkit.getConsoleSender().sendMessage(CC.translate("&6[Player Join-logs] " + joinedPlayer.getName() + " joined. &8(" + joinedPlayer.getUniqueId() + "&8)"));
@@ -134,15 +134,15 @@ public class PlayerListeners implements Listener {
         }
 
         if (disconnectedPlayer.hasPermission("flowercore.donator.joinmessage")) {
-            //event.setQuitMessage(CC.translate("&7» " + FlowerCore.instance.getPlayerManager().getRank(playerUUID).getPrefix() + disconnectedPlayer.getName() + " &fleft the server!"));
-            Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("on-leave.messages.donator.left-the-game").replace("%prefix%", FlowerCore.instance.getPlayerManager().getRank(playerUUID).getPrefix()).replace("%player%", disconnectedPlayer.getName())));
-            event.setQuitMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("on-leave.messages.donator.left-the-game").replace("%prefix%", FlowerCore.instance.getPlayerManager().getRank(playerUUID).getPrefix()).replace("%player%", disconnectedPlayer.getName())));
+            //event.setQuitMessage(CC.translate("&7» " + FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix() + disconnectedPlayer.getName() + " &fleft the server!"));
+            Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("on-leave.messages.donator.left-the-game").replace("%prefix%", FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix()).replace("%player%", disconnectedPlayer.getName())));
+            event.setQuitMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("on-leave.messages.donator.left-the-game").replace("%prefix%", FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix()).replace("%player%", disconnectedPlayer.getName())));
         } else {
             event.setQuitMessage(null);
             Bukkit.getConsoleSender().sendMessage(CC.translate("&8[Player Leave-logs] " + disconnectedPlayer.getName() + " left. &8(" + disconnectedPlayer.getUniqueId() + "&8)"));
         }
 
-        FlowerCore.instance.getMongoManager().saveProfile(playerUUID);
+        FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
     }
 
     private void sendWelcomeMessages(Player player, List<String> messages) {
@@ -176,8 +176,7 @@ public class PlayerListeners implements Listener {
                 .replace("%twitter%", twitter)
                 .replace("%youtube%", youtube)
                 .replace("%flowerbar%", CC.FLOWER_BAR_LONG)
-                .replace("%rank%", plugin.getPlayerManager().getRank(playerUUID).getDisplayName())
-                ;
+                .replace("%rank%", plugin.getPlayerManager().getRank(playerUUID).getDisplayName());
 
         return replacedMessage;
     }

@@ -5,13 +5,10 @@ import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
 import me.emmiesa.flowercore.utils.command.CommandArgs;
-import me.emmiesa.flowercore.utils.command.Completer;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 public class gmcCommand extends BaseCommand {
@@ -33,25 +30,25 @@ public class gmcCommand extends BaseCommand {
             if (target.getGameMode().equals(GameMode.CREATIVE)) {
                 args.getPlayer().sendMessage(CC.translate("&c" + target.getName() + " is already in Creative mode."));
             } else {
-                args.getPlayer().sendMessage(CC.translate("&bYou've set &r" + FlowerCore.instance.getPlayerManager().getRank(targetUUID).getPrefix() + target.getName() + "&b's gamemode to &3creative&b."));
+                args.getPlayer().sendMessage(CC.translate("&bYou've set &r" + FlowerCore.getInstance().getPlayerManager().getRank(targetUUID).getPrefix() + target.getName() + "&b's gamemode to &3creative&b."));
                 target.setGameMode(GameMode.CREATIVE);
-                target.sendMessage(CC.translate("&bYour gamemode has been set to &3creative &bby &r" + FlowerCore.instance.getPlayerManager().getRank(playerUUID).getPrefix() + args.getPlayer().getName() + " &b."));
+                target.sendMessage(CC.translate("&bYour gamemode has been set to &3creative &bby &r" + FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix() + args.getPlayer().getName() + " &b."));
                 for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
                     if (onlinePlayer.hasPermission("flowercore.staff")) {
-                        onlinePlayer.sendMessage(CC.translate("&7&o(" + args.getPlayer().getDisplayName() + "&7&o: Set " + target.getDisplayName() + "&7&o's gamemode creative)")/*.replace("%prefix%", FlowerCore.instance.getPlayerManager().getRank(playerUUID).getPrefix())))*/);
+                        onlinePlayer.sendMessage(CC.translate("&7&o(" + args.getPlayer().getDisplayName() + "&7&o: Set " + target.getDisplayName() + "&7&o's gamemode creative)")/*.replace("%prefix%", FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix())))*/);
                     }
                 }
             }
         } else {
             Player player = args.getPlayer();
             if (player.getGameMode().equals(GameMode.CREATIVE)) {
-                player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("gamemode.creative.is_already")));
+                player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("gamemode.creative.is_already")));
             } else {
-                player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("gamemode.creative.switched")));
+                player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("gamemode.creative.switched")));
                 player.setGameMode(GameMode.CREATIVE);
                 for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
                     if (onlinePlayer.hasPermission("flowercore.staff")) {
-                        onlinePlayer.sendMessage(CC.translate("&7&o(" + args.getPlayer().getDisplayName() + "&7&o: Set own gamemode creative)")/*.replace("%prefix%", FlowerCore.instance.getPlayerManager().getRank(playerUUID).getPrefix())))*/);
+                        onlinePlayer.sendMessage(CC.translate("&7&o(" + args.getPlayer().getDisplayName() + "&7&o: Set own gamemode creative)")/*.replace("%prefix%", FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix())))*/);
                     }
                 }
             }

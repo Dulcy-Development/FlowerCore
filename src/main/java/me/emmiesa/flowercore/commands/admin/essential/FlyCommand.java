@@ -19,9 +19,9 @@ public class FlyCommand extends BaseCommand {
             player.setAllowFlight(!player.getAllowFlight());
 
             if (player.getAllowFlight()) {
-                player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("fly.enabled")));
+                player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("fly.enabled")));
             } else {
-                player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("fly.disabled")));
+                player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("fly.disabled")));
             }
         } else {
             player.sendMessage(CC.translate("&bToggling flight in gamemode &3creative &bor &3spectator &bmight cause issues! Type &3/forcefly &bto bypass anyway..."));

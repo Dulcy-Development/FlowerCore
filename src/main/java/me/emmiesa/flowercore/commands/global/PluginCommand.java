@@ -24,7 +24,7 @@ public class PluginCommand extends BaseCommand {
                 .sorted()
                 .collect(Collectors.toList());
 
-        if (sender.hasPermission(FlowerCore.instance.getConfig("commands.yml").getString("plugin.permission.perm"))) {
+        if (sender.hasPermission(FlowerCore.getInstance().getConfig("commands.yml").getString("plugin.permission.perm"))) {
             sender.sendMessage(" ");
             sender.sendMessage(CC.translate("&d&lೋღ&d&l&m«-------&f&l&m-------&d&l&m-------»&r&d&lღೋ"));
             sender.sendMessage(CC.translate("&f     All &dPlugins &fon the server:"));
@@ -34,7 +34,7 @@ public class PluginCommand extends BaseCommand {
             sender.sendMessage(CC.translate("&d&lೋღ&d&l&m«-------&f&l&m-------&d&l&m-------»&r&d&lღೋ"));
             sender.sendMessage(" ");
         } else {
-            if (FlowerCore.instance.getConfig("commands.yml").getBoolean("plugin.permission.perm-off")) {
+            if (FlowerCore.getInstance().getConfig("commands.yml").getBoolean("plugin.permission.perm-off")) {
                 sender.sendMessage(" ");
                 sender.sendMessage(CC.translate("&d&lೋღ&d&l&m«-------&f&l&m-------&d&l&m-------»&r&d&lღೋ"));
                 sender.sendMessage(CC.translate("&f     All &dPlugins &fon the server:"));

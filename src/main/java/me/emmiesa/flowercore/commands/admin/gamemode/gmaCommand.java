@@ -53,25 +53,25 @@ public class gmaCommand extends BaseCommand {
             if (target.getGameMode().equals(GameMode.ADVENTURE)) {
                 args.getPlayer().sendMessage(CC.translate("&c" + target.getName() + " is already in Adventure mode."));
             } else {
-                args.getPlayer().sendMessage(CC.translate("&bYou've set &r" + FlowerCore.instance.getPlayerManager().getRank(targetUUID).getPrefix() + target.getName() + "&b's gamemode to &3Adventure&b."));
+                args.getPlayer().sendMessage(CC.translate("&bYou've set &r" + FlowerCore.getInstance().getPlayerManager().getRank(targetUUID).getPrefix() + target.getName() + "&b's gamemode to &3Adventure&b."));
                 target.setGameMode(GameMode.ADVENTURE);
-                target.sendMessage(CC.translate("&bYour gamemode has been set to &3adventure &bby &r" + FlowerCore.instance.getPlayerManager().getRank(playerUUID).getPrefix() + args.getPlayer().getName() + " &b."));
+                target.sendMessage(CC.translate("&bYour gamemode has been set to &3adventure &bby &r" + FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix() + args.getPlayer().getName() + " &b."));
                 for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
                     if (onlinePlayer.hasPermission("flowercore.staff")) {
-                        onlinePlayer.sendMessage(CC.translate("&7&o(" + args.getPlayer().getDisplayName() + "&7&o: Set " + target.getDisplayName() + "&7&o's gamemode adventure)")/*.replace("%prefix%", FlowerCore.instance.getPlayerManager().getRank(playerUUID).getPrefix())))*/);
+                        onlinePlayer.sendMessage(CC.translate("&7&o(" + args.getPlayer().getDisplayName() + "&7&o: Set " + target.getDisplayName() + "&7&o's gamemode adventure)")/*.replace("%prefix%", FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix())))*/);
                     }
                 }
             }
         } else {
             Player player = args.getPlayer();
             if (player.getGameMode().equals(GameMode.ADVENTURE)) {
-                player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("gamemode.adventure.is_already")));
+                player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("gamemode.adventure.is_already")));
             } else {
-                player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("gamemode.adventure.switched")));
+                player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("gamemode.adventure.switched")));
                 player.setGameMode(GameMode.ADVENTURE);
                 for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
                     if (onlinePlayer.hasPermission("flowercore.staff")) {
-                        onlinePlayer.sendMessage(CC.translate("&7&o(" + args.getPlayer().getDisplayName() + "&7&o: Set own gamemode adventure)")/*.replace("%prefix%", FlowerCore.instance.getPlayerManager().getRank(playerUUID).getPrefix())))*/);
+                        onlinePlayer.sendMessage(CC.translate("&7&o(" + args.getPlayer().getDisplayName() + "&7&o: Set own gamemode adventure)")/*.replace("%prefix%", FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix())))*/);
                     }
                 }
             }

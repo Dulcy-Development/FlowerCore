@@ -8,11 +8,14 @@ import com.mongodb.client.model.ReplaceOptions;
 import lombok.Getter;
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.profile.Profile;
+import me.emmiesa.flowercore.punishments.Punishment;
+import me.emmiesa.flowercore.punishments.PunishmentSerializer;
 import org.bson.Document;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import static com.mongodb.client.model.Filters.eq;
@@ -24,11 +27,11 @@ public class MongoManager {
     private MongoCollection<Document> collection;
 
     public void startMongo() {
-        String uri = FlowerCore.instance.getConfig("database.yml").getString("database.uri");
+        String uri = FlowerCore.getInstance().getConfig("database.yml").getString("database.uri");
         mongoClient = MongoClients.create(uri);
 
         MongoDatabase database = getMongoClient().getDatabase("flower");
-        String collectionName = FlowerCore.instance.getConfig("database.yml").getString("database.collection");
+        String collectionName = FlowerCore.getInstance().getConfig("database.yml").getString("database.collection");
 
         if (!collectionExists(database, collectionName)) {
             database.createCollection(collectionName);
@@ -47,20 +50,22 @@ public class MongoManager {
         } else {
             profile = createProfile(playerUUID, doc);
         }
-        FlowerCore.instance.getPlayerManager().addRank(profile);
+        FlowerCore.getInstance().getPlayerManager().addRank(profile);
     }
 
     private Profile createDefaultProfile(UUID playerUUID) {
         return Profile.builder()
                 .uuid(playerUUID)
-                .rank(FlowerCore.instance.getRanksManager().getDefaultRank())
+                .rank(FlowerCore.getInstance().getRanksManager().getDefaultRank())
                 .build();
     }
 
     private Profile createProfile(UUID playerUUID, Document doc) {
+
         return Profile.builder()
                 .uuid(playerUUID)
-                .rank(FlowerCore.instance.getRanksManager().getRank(doc.getString("rank")))
+                .rank(FlowerCore.getInstance().getRanksManager().getRank(doc.getString("rank")))
+                .punishments(PunishmentSerializer.deserialize(doc.getList("punishments", String.class)))
                 .build();
     }
 
@@ -80,7 +85,7 @@ public class MongoManager {
     }
 
     public void saveProfile(UUID playerUUID) {
-        Profile profile = FlowerCore.instance.getPlayerManager().getProfiles().get(playerUUID);
+        Profile profile = FlowerCore.getInstance().getPlayerManager().getProfiles().get(playerUUID);
 
         if (profile != null) {
             Document profileDoc = createDocument(playerUUID, profile);
@@ -90,6 +95,7 @@ public class MongoManager {
 
     private Document createDocument(UUID playerUUID, Profile profile) {
         return new Document("UUID", playerUUID.toString())
+                .append("punishments", PunishmentSerializer.serialize(profile.getPunishments()))
                 .append("rank", profile.getRank().getName());
     }
 

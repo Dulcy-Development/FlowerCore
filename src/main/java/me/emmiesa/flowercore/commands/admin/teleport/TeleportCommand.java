@@ -26,6 +26,6 @@ public class TeleportCommand extends BaseCommand {
         }
 
         player.teleport(target.getLocation());
-        player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("teleport.tp").replace("%target%", target.getDisplayName())));
+        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("teleport.tp").replace("%target%", target.getDisplayName())));
     }
 }

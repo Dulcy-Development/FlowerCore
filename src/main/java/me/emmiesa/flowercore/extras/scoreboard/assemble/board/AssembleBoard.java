@@ -1,8 +1,8 @@
 package me.emmiesa.flowercore.extras.scoreboard.assemble.board;
 
+import lombok.Getter;
 import me.emmiesa.flowercore.extras.scoreboard.assemble.Assemble;
 import me.emmiesa.flowercore.extras.scoreboard.assemble.events.AssembleBoardCreatedEvent;
-import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -17,72 +17,72 @@ import java.util.UUID;
 @Getter
 public class AssembleBoard {
 
-	private final Assemble assemble;
+    private final Assemble assemble;
 
-	private final List<AssembleBoardEntry> entries = new ArrayList<>();
-	private final List<String> identifiers = new ArrayList<>();
+    private final List<AssembleBoardEntry> entries = new ArrayList<>();
+    private final List<String> identifiers = new ArrayList<>();
 
-	private final UUID uuid;
+    private final UUID uuid;
 
-	public AssembleBoard(Player player, Assemble assemble) {
-		this.uuid = player.getUniqueId();
-		this.assemble = assemble;
-		this.setup(player);
-	}
+    public AssembleBoard(Player player, Assemble assemble) {
+        this.uuid = player.getUniqueId();
+        this.assemble = assemble;
+        this.setup(player);
+    }
 
-	public Scoreboard getScoreboard() {
-		Player player = Bukkit.getPlayer(getUuid());
-		if (getAssemble().isHook() || player.getScoreboard() != Bukkit.getScoreboardManager().getMainScoreboard()) {
-			return player.getScoreboard();
-		} else {
-			return Bukkit.getScoreboardManager().getNewScoreboard();
-		}
-	}
+    public Scoreboard getScoreboard() {
+        Player player = Bukkit.getPlayer(getUuid());
+        if (getAssemble().isHook() || player.getScoreboard() != Bukkit.getScoreboardManager().getMainScoreboard()) {
+            return player.getScoreboard();
+        } else {
+            return Bukkit.getScoreboardManager().getNewScoreboard();
+        }
+    }
 
-	public Objective getObjective() {
-		Scoreboard scoreboard = getScoreboard();
-		if (scoreboard.getObjective("Assemble") == null) {
-			Objective objective = scoreboard.registerNewObjective("Assemble", "dummy");
-			objective.setDisplaySlot(DisplaySlot.SIDEBAR);
-			objective.setDisplayName(getAssemble().getAdapter().getTitle(Bukkit.getPlayer(getUuid())));
-			return objective;
-		} else {
-			return scoreboard.getObjective("Assemble");
-		}
-	}
+    public Objective getObjective() {
+        Scoreboard scoreboard = getScoreboard();
+        if (scoreboard.getObjective("Assemble") == null) {
+            Objective objective = scoreboard.registerNewObjective("Assemble", "dummy");
+            objective.setDisplaySlot(DisplaySlot.SIDEBAR);
+            objective.setDisplayName(getAssemble().getAdapter().getTitle(Bukkit.getPlayer(getUuid())));
+            return objective;
+        } else {
+            return scoreboard.getObjective("Assemble");
+        }
+    }
 
-	private void setup(Player player) {
-		Scoreboard scoreboard = getScoreboard();
-		player.setScoreboard(scoreboard);
-		getObjective();
+    private void setup(Player player) {
+        Scoreboard scoreboard = getScoreboard();
+        player.setScoreboard(scoreboard);
+        getObjective();
 
-		if (assemble.isCallEvents()) {
-			AssembleBoardCreatedEvent createdEvent = new AssembleBoardCreatedEvent(this);
-			Bukkit.getPluginManager().callEvent(createdEvent);
-		}
-	}
+        if (assemble.isCallEvents()) {
+            AssembleBoardCreatedEvent createdEvent = new AssembleBoardCreatedEvent(this);
+            Bukkit.getPluginManager().callEvent(createdEvent);
+        }
+    }
 
-	public AssembleBoardEntry getEntryAtPosition(int pos) {
-		return pos >= this.entries.size() ? null : this.entries.get(pos);
-	}
+    public AssembleBoardEntry getEntryAtPosition(int pos) {
+        return pos >= this.entries.size() ? null : this.entries.get(pos);
+    }
 
-	public String getUniqueIdentifier(int position) {
-		String identifier = getRandomChatColor(position) + ChatColor.WHITE;
+    public String getUniqueIdentifier(int position) {
+        String identifier = getRandomChatColor(position) + ChatColor.WHITE;
 
-		while (this.identifiers.contains(identifier)) {
-			identifier = identifier + getRandomChatColor(position) + ChatColor.WHITE;
-		}
+        while (this.identifiers.contains(identifier)) {
+            identifier = identifier + getRandomChatColor(position) + ChatColor.WHITE;
+        }
 
-		if (identifier.length() > 16) {
-			return this.getUniqueIdentifier(position);
-		}
+        if (identifier.length() > 16) {
+            return this.getUniqueIdentifier(position);
+        }
 
-		this.identifiers.add(identifier);
+        this.identifiers.add(identifier);
 
-		return identifier;
-	}
+        return identifier;
+    }
 
-	private String getRandomChatColor(int position) {
-		return assemble.getChatColorCache()[position].toString();
-	}
+    private String getRandomChatColor(int position) {
+        return assemble.getChatColorCache()[position].toString();
+    }
 }

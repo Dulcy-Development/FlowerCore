@@ -15,8 +15,24 @@ public class ConfigHandler {
 
     FlowerCore plugin = FlowerCore.getInstance();
 
-    private File defaultConfigFile, settingsConfigFile, messagesConfigFile, commandsConfigFile, databaseConfigFile, extrasConfigFile, ranksConfigFile, permissionsConfigFile, placeholdersConfigFile;
-    private FileConfiguration defaultConfig, settingsConfig, messagesConfig, commandsConfig, databaseConfig, extrasConfig, ranksConfig, permissionsConfig, placeholdersConfig;
+    private final File defaultConfigFile;
+    private final File settingsConfigFile;
+    private final File messagesConfigFile;
+    private final File commandsConfigFile;
+    private final File databaseConfigFile;
+    private final File extrasConfigFile;
+    private final File ranksConfigFile;
+    private final File permissionsConfigFile;
+    private final File placeholdersConfigFile;
+    private final FileConfiguration defaultConfig;
+    private final FileConfiguration settingsConfig;
+    private final FileConfiguration messagesConfig;
+    private final FileConfiguration commandsConfig;
+    private final FileConfiguration databaseConfig;
+    private final FileConfiguration extrasConfig;
+    private final FileConfiguration ranksConfig;
+    private final FileConfiguration permissionsConfig;
+    private final FileConfiguration placeholdersConfig;
 
     public ConfigHandler() {
         defaultConfigFile = new File(plugin.getDataFolder(), "config.yml");

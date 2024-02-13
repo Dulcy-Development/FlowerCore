@@ -1,7 +1,6 @@
 package me.emmiesa.flowercore.commands.admin.essential;
 
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.utils.Utils;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;

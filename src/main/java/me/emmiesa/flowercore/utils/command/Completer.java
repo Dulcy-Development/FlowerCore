@@ -9,8 +9,8 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Completer {
 
-	String name();
+    String name();
 
-	String[] aliases() default {};
+    String[] aliases() default {};
 
 }

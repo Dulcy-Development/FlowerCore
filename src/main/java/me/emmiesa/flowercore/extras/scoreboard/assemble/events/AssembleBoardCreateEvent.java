@@ -11,18 +11,18 @@ import org.bukkit.event.HandlerList;
 @Setter
 public class AssembleBoardCreateEvent extends Event implements Cancellable {
 
-	@Getter
-	public static HandlerList handlerList = new HandlerList();
+    @Getter
+    public static HandlerList handlerList = new HandlerList();
 
-	private Player player;
-	private boolean cancelled = false;
+    private Player player;
+    private boolean cancelled = false;
 
-	public AssembleBoardCreateEvent(Player player) {
-		this.player = player;
-	}
+    public AssembleBoardCreateEvent(Player player) {
+        this.player = player;
+    }
 
-	@Override
-	public HandlerList getHandlers() {
-		return handlerList;
-	}
+    @Override
+    public HandlerList getHandlers() {
+        return handlerList;
+    }
 }

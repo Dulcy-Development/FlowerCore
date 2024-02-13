@@ -27,7 +27,7 @@ public class RankSetSuffixCommand extends BaseCommand {
     }
 
     public void setSuffix(Player player, String rankName, String suffix) {
-        Rank rank = FlowerCore.instance.getRanksManager().getRank(rankName);
+        Rank rank = FlowerCore.getInstance().getRanksManager().getRank(rankName);
 
         if (rank == null) {
             player.sendMessage(CC.translate(Locale.RANK_NOT_FOUND).replace("%rank%", rankName));
@@ -35,8 +35,8 @@ public class RankSetSuffixCommand extends BaseCommand {
         }
 
         rank.setSuffix(suffix);
-        player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("rank.setsuffix")
-                .replace("%suffix%", suffix))
+        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.setsuffix")
+                        .replace("%suffix%", suffix))
                 .replace("%rank%", rankName)
         );
     }

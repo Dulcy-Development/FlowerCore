@@ -18,12 +18,12 @@ public class ChatListener implements Listener {
 
         boolean translate = player.hasPermission("flowercore.staff");
 
-        String prefix = CC.translate(FlowerCore.instance.getPlayerManager().getRank(playerUUID).getPrefix());
-        String suffix = CC.translate(FlowerCore.instance.getPlayerManager().getRank(playerUUID).getSuffix());
+        String prefix = CC.translate(FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix());
+        String suffix = CC.translate(FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getSuffix());
 
         String message = translate ? CC.translate(event.getMessage()) : event.getMessage();
 
-        String chatFormat = FlowerCore.instance.getConfig("settings.yml").getString("chat.format")
+        String chatFormat = FlowerCore.getInstance().getConfig("settings.yml").getString("chat.format")
                 .replace("%prefix%", prefix)
                 .replace("%player%", player.getName())
                 .replace("%message%", message)
@@ -38,10 +38,10 @@ public class ChatListener implements Listener {
         Player player = event.getPlayer();
         UUID playerUUID = player.getUniqueId();
 
-        event.setFormat(CC.translate(FlowerCore.instance.getConfig("settings.yml").getString("chat.format")
-                .replace("%prefix%", FlowerCore.instance.getPlayerManager().getRank(playerUUID).getPrefix())
+        event.setFormat(CC.translate(FlowerCore.getInstance().getConfig("settings.yml").getString("chat.format")
+                .replace("%prefix%", FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix())
                 .replace("%player%", player.getName())
                 .replace("%message%", event.getMessage())
-                .replace("%suffix%", FlowerCore.instance.getPlayerManager().getRank(playerUUID).getSuffix())));
+                .replace("%suffix%", FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getSuffix())));
     }
 }*/

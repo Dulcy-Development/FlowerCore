@@ -27,7 +27,7 @@ public class RankSetPrefixCommand extends BaseCommand {
     }
 
     public void setPrefix(Player player, String rankName, String prefix) {
-        Rank rank = FlowerCore.instance.getRanksManager().getRank(rankName);
+        Rank rank = FlowerCore.getInstance().getRanksManager().getRank(rankName);
 
         if (rank == null) {
             player.sendMessage(CC.translate(Locale.RANK_NOT_FOUND).replace("%rank%", rankName));
@@ -35,8 +35,8 @@ public class RankSetPrefixCommand extends BaseCommand {
         }
 
         rank.setPrefix(prefix);
-        player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("rank.setprefix")
-                .replace("%prefix%", prefix))
+        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.setprefix")
+                        .replace("%prefix%", prefix))
                 .replace("%rank%", rankName)
         );
     }

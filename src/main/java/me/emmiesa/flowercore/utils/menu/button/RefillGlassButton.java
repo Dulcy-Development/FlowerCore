@@ -10,8 +10,8 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class RefillGlassButton extends Button {
 
-    private Material material;
-    private short data;
+    private final Material material;
+    private final short data;
 
     public RefillGlassButton(Material material, int data) {
         this.material = material;

@@ -23,7 +23,7 @@ public class MoreCommand extends BaseCommand {
         }
         if (item.getAmount() >= 64) {
             player.sendMessage(CC.translate("&cThis is already a stack of 64."));
-        return;
+            return;
         }
 
         item.setAmount(64);

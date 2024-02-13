@@ -1,24 +1,24 @@
 package me.emmiesa.flowercore.punishments;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import java.util.UUID;
 
-@RequiredArgsConstructor
-@Getter @Setter
+@AllArgsConstructor
+@Getter
+@Setter
 public class Punishment {
 
-    private String id;
-    private UUID punishedUUID;
-    private String punishedby;
-    private PunishmentType punishtype;
-    private String reason, madeOn, expiresOn, duration, punishedIP;
-    private boolean ip, silent, active;
+    private UUID uuid;
+    private String by;
+    private PunishmentType type;
+    private String reason;
+    private String punishedIP;
+    private boolean ip;
 
-    public boolean isPermanent() {
-        return this.duration.equalsIgnoreCase("Permanent") || this.expiresOn.equalsIgnoreCase("Never");
-    }
-
+    // public boolean isPermanent() {
+    //     return this.duration.equalsIgnoreCase("Permanent") || this.expiresOn.equalsIgnoreCase("Never");
+    //}
 }

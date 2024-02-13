@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import me.emmiesa.flowercore.punishments.Punishment;
 import me.emmiesa.flowercore.ranks.Rank;
 
 import java.util.UUID;
@@ -15,4 +16,5 @@ import java.util.UUID;
 public class Profile {
     private UUID uuid;
     private Rank rank;
+    private Punishment[] punishments;
 }

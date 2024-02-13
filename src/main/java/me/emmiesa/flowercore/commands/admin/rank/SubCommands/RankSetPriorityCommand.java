@@ -27,7 +27,7 @@ public class RankSetPriorityCommand extends BaseCommand {
     }
 
     public void setPriority(Player player, String rankName, int priority) {
-        Rank rank = FlowerCore.instance.getRanksManager().getRank(rankName);
+        Rank rank = FlowerCore.getInstance().getRanksManager().getRank(rankName);
 
         if (rank == null) {
             player.sendMessage(CC.translate(Locale.RANK_NOT_FOUND).replace("%rank%", rankName));
@@ -35,7 +35,7 @@ public class RankSetPriorityCommand extends BaseCommand {
         }
 
         rank.setPriority(priority);
-        player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("rank.setpriority")
+        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.setpriority")
                 .replace("%rank%", rankName)
                 .replace("%priority%", String.valueOf(priority))
         ));

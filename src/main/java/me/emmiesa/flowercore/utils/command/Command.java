@@ -16,17 +16,17 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Command {
 
-	public String name();
+    String name();
 
-	public String permission() default "";
+    String permission() default "";
 
-	public String[] aliases() default {};
+    String[] aliases() default {};
 
-	public String description() default "";
+    String description() default "";
 
-	public String usage() default "";
+    String usage() default "";
 
-	public boolean inGameOnly() default true;
+    boolean inGameOnly() default true;
 
-	public boolean isAdminOnly() default false;
+    boolean isAdminOnly() default false;
 }

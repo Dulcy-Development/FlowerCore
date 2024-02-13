@@ -15,24 +15,24 @@ import java.util.Arrays;
 @AllArgsConstructor
 public class RankListButton extends Button {
 
-	private final Rank rank;
+    private final Rank rank;
 
-	@Override
-	public ItemStack getButtonItem(Player player) {
-		return new ItemBuilder(rank.getIcon()).name(rank.getDisplayName()).lore(Arrays.asList(
-				CC.FLOWER_BAR,
-				"     &f┃ Display name: &b" + rank.getDisplayName(),
-				"     &f┃ Priority: &b" + rank.getPriority(),
-				"     &f┃ Prefix: &b'" + rank.getPrefix() + "'",
-				"     &f┃ Suffix: &b'" + rank.getSuffix() + "'",
-				rank.isStaff() ? "     &f┃ Staff-Rank? &bYes" : "     &f┃ Staff-Rank? &bNo",
-				rank.isDefaultRank() ? "     &f┃ Default-Rank? &bYes" : "     &f┃ Default-Rank? &bNo",
-				CC.FLOWER_BAR)
-		).build();
-	}
+    @Override
+    public ItemStack getButtonItem(Player player) {
+        return new ItemBuilder(rank.getIcon()).name(rank.getDisplayName()).lore(Arrays.asList(
+                CC.FLOWER_BAR,
+                "     &f┃ Display name: &b" + rank.getDisplayName(),
+                "     &f┃ Priority: &b" + rank.getPriority(),
+                "     &f┃ Prefix: &b'" + rank.getPrefix() + "'",
+                "     &f┃ Suffix: &b'" + rank.getSuffix() + "'",
+                rank.isStaff() ? "     &f┃ Staff-Rank? &bYes" : "     &f┃ Staff-Rank? &bNo",
+                rank.isDefaultRank() ? "     &f┃ Default-Rank? &bYes" : "     &f┃ Default-Rank? &bNo",
+                CC.FLOWER_BAR)
+        ).build();
+    }
 
-	@Override
-	public void clicked(Player player, int slot, ClickType clickType, int hotbarSlot) {
-		player.sendMessage(CC.translate(Locale.DEBUG));
-	}
+    @Override
+    public void clicked(Player player, int slot, ClickType clickType, int hotbarSlot) {
+        player.sendMessage(CC.translate(Locale.DEBUG));
+    }
 }

@@ -7,6 +7,7 @@ import me.emmiesa.flowercore.utils.command.Command;
 import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
+
 public class InstanceCommand extends BaseCommand {
 
     @Command(name = "instance", aliases = "serverdetails", permission = "flower.command.instance", inGameOnly = false)

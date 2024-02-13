@@ -14,7 +14,7 @@ public class RankSaveCommand extends BaseCommand {
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
         player.sendMessage(CC.translate(Locale.RANK_SAVING));
-        FlowerCore.instance.getRanksManager().saveToFile();
+        FlowerCore.getInstance().getRanksManager().saveToFile();
         player.sendMessage(CC.translate(Locale.RANK_SAVED));
     }
 }

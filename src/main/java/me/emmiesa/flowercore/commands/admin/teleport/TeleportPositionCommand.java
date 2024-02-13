@@ -36,7 +36,7 @@ public class TeleportPositionCommand extends BaseCommand {
         }
 
         player.teleport(loc);
-        player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("teleport.tp-pos")
+        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("teleport.tp-pos")
                 .replace("%x%", String.valueOf(x))
                 .replace("%y%", String.valueOf(y))
                 .replace("%z%", String.valueOf(z)))

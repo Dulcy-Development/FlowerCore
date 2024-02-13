@@ -27,7 +27,7 @@ public class RankSetDefaultCommand extends BaseCommand {
     }
 
     public void setDefault(Player player, String rankName, boolean state) {
-        Rank rank = FlowerCore.instance.getRanksManager().getRank(rankName);
+        Rank rank = FlowerCore.getInstance().getRanksManager().getRank(rankName);
 
         if (rank == null) {
             player.sendMessage(CC.translate(Locale.RANK_NOT_FOUND).replace("%rank%", rankName));
@@ -36,8 +36,8 @@ public class RankSetDefaultCommand extends BaseCommand {
 
         rank.setDefaultRank(state);
         //player.sendMessage(CC.translate("&bSuccessfully set default " + (state ? "&atrue" : "&cfalse") + "&b for the " + rankName + " &brank!"));
-        player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("rank.setdefault")
-                .replace("%state%", state ? "&atrue" : "&cfalse"))
+        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.setdefault")
+                        .replace("%state%", state ? "&atrue" : "&cfalse"))
                 .replace("%rank%", rankName)
         );
     }

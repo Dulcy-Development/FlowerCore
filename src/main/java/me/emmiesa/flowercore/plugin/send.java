@@ -11,8 +11,8 @@ public class send {
         Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Plugin: &bFlowerCore"));
         Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Author: &bEmmiesa"));
         Bukkit.getConsoleSender().sendMessage(CC.translate(" "));
-        Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Version: &b" + FlowerCore.instance.getDescription().getVersion()));
-        Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Link: &b" + FlowerCore.instance.getDescription().getWebsite()));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Version: &b" + FlowerCore.getInstance().getDescription().getVersion()));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Link: &b" + FlowerCore.getInstance().getDescription().getWebsite()));
         Bukkit.getConsoleSender().sendMessage(CC.translate(" "));
         Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Load time: &b" + (timeTaken) + " &bms"));
         Bukkit.getConsoleSender().sendMessage(CC.translate("&8&m-----------------------------------------------"));

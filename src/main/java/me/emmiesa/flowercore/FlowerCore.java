@@ -1,34 +1,36 @@
 package me.emmiesa.flowercore;
 
-import me.emmiesa.flowercore.extras.scoreboard.assemble.AssembleStyle;
-import me.emmiesa.flowercore.extras.scoreboard.assemble.Assemble;
-import me.emmiesa.flowercore.extras.scoreboard.ScoreboardLayout;
+import lombok.Getter;
+import lombok.Setter;
 import me.emmiesa.flowercore.announcements.AnnouncementManager;
-import me.emmiesa.flowercore.utils.command.CommandFramework;
-import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.configuration.file.FileConfiguration;
-import me.emmiesa.flowercore.papi.ProfilePlaceholders;
-import me.emmiesa.flowercore.handler.ConfigHandler;
-import me.emmiesa.flowercore.utils.others.Cooldown;
 import me.emmiesa.flowercore.database.MongoManager;
+import me.emmiesa.flowercore.extras.scoreboard.ScoreboardLayout;
+import me.emmiesa.flowercore.extras.scoreboard.assemble.Assemble;
+import me.emmiesa.flowercore.extras.scoreboard.assemble.AssembleStyle;
+import me.emmiesa.flowercore.handler.ConfigHandler;
+import me.emmiesa.flowercore.papi.ProfilePlaceholders;
+import me.emmiesa.flowercore.plugin.register;
+import me.emmiesa.flowercore.plugin.send;
 import me.emmiesa.flowercore.profile.PlayerManager;
 import me.emmiesa.flowercore.ranks.RanksManager;
-import me.emmiesa.flowercore.plugin.register;
-import org.bukkit.plugin.java.JavaPlugin;
-import me.emmiesa.flowercore.plugin.send;
-import org.bukkit.Location;
+import me.emmiesa.flowercore.utils.command.CommandFramework;
+import me.emmiesa.flowercore.utils.others.Cooldown;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.World;
-import lombok.Setter;
-import lombok.Getter;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 
-@Getter @Setter
+@Getter
+@Setter
 public class FlowerCore extends JavaPlugin {
 
-    @Getter public static FlowerCore instance;
-
+    @Getter
+    public static FlowerCore instance;
+    public FileConfiguration messagesConfig, settingsConfig, commandsConfig, databaseConfig, extrasConfig, ranksConfig, permissionsConfig, placeholdersConfig;
     private Cooldown announceCooldown;
     private CommandFramework framework;
     private ConfigHandler configHandler;
@@ -37,7 +39,9 @@ public class FlowerCore extends JavaPlugin {
     private PlayerManager playerManager;
     private Location spawnLocation;
 
-    public FileConfiguration messagesConfig, settingsConfig, commandsConfig, databaseConfig, extrasConfig, ranksConfig, permissionsConfig, placeholdersConfig;
+    public static FlowerCore get() {
+        return instance;
+    }
 
     @Override
     public void onEnable() {
@@ -49,7 +53,7 @@ public class FlowerCore extends JavaPlugin {
         configHandler = new ConfigHandler();
         framework = new CommandFramework(this);
 
-        if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")){
+        if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
             new ProfilePlaceholders().register();
         }
 
@@ -130,15 +134,11 @@ public class FlowerCore extends JavaPlugin {
     }
 
     private void registerScoreboard() {
-        if (getConfig("extras.yml").getBoolean("scoreboard.enabled")) {
+        if (FlowerCore.instance.getConfig("extras.yml").getBoolean("scoreboard.enabled")) {
             Assemble assemble = new Assemble(this, new ScoreboardLayout());
             assemble.setAssembleStyle(AssembleStyle.MODERN);
             assemble.setTicks(2);
         }
-    }
-
-    public static FlowerCore get() {
-        return instance;
     }
 
     public FileConfiguration getConfig(String fileName) {

@@ -22,21 +22,21 @@ public class ProfilePlaceholders extends PlaceholderExpansion {
 
     @Override
     public @NotNull String getVersion() {
-        return FlowerCore.instance.getDescription().getVersion();
+        return FlowerCore.getInstance().getDescription().getVersion();
     }
 
     @Override
     public String onPlaceholderRequest(Player player, @NotNull String params) {
         UUID playerUUID = player.getUniqueId();
         if (params.equalsIgnoreCase("rank")) {
-            return FlowerCore.instance.getPlayerManager().getRank(playerUUID).getDisplayName();
+            return FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getDisplayName();
         } else if (params.equalsIgnoreCase("rank_raw")) {
-            return FlowerCore.instance.getPlayerManager().getRank(playerUUID).getName();
+            return FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getName();
         } else if (params.equalsIgnoreCase("isstaffrank")) {
-            if (FlowerCore.instance.getPlayerManager().getRank(playerUUID).isStaff()) {
-                return CC.translate(FlowerCore.instance.getConfig("placeholders.yml").getString("flower_player_rank_isstaff.true"));
+            if (FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).isStaff()) {
+                return CC.translate(FlowerCore.getInstance().getConfig("placeholders.yml").getString("flower_player_rank_isstaff.true"));
             } else {
-                return CC.translate(FlowerCore.instance.getConfig("placeholders.yml").getString("flower_player_rank_isstaff.false"));
+                return CC.translate(FlowerCore.getInstance().getConfig("placeholders.yml").getString("flower_player_rank_isstaff.false"));
             }
         }
         return "&fNull";

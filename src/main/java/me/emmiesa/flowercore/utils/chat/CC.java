@@ -10,8 +10,6 @@ import java.util.Map;
 
 public class CC {
 
-    private static final Map<String, ChatColor> MAP;
-
     public static final String BLUE;
     public static final String AQUA;
     public static final String YELLOW;
@@ -41,6 +39,7 @@ public class CC {
     public static final String FLOWER_BAR;
     public static final String FLOWER_BAR_LONG;
     public static final String FLOWER_BAR_VERY_LONG;
+    private static final Map<String, ChatColor> MAP;
 
     static {
         MAP = new HashMap<>();

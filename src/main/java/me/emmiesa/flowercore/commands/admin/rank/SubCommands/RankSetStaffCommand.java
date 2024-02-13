@@ -27,7 +27,7 @@ public class RankSetStaffCommand extends BaseCommand {
     }
 
     public void setStaff(Player player, String rankName, boolean state) {
-        Rank rank = FlowerCore.instance.getRanksManager().getRank(rankName);
+        Rank rank = FlowerCore.getInstance().getRanksManager().getRank(rankName);
 
         if (rank == null) {
             player.sendMessage(CC.translate(Locale.RANK_NOT_FOUND).replace("%rank%", rankName));
@@ -35,8 +35,8 @@ public class RankSetStaffCommand extends BaseCommand {
         }
 
         rank.setStaff(state);
-        player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("rank.setstaff")
-                .replace("%state%", state ? "&atrue" : "&cfalse"))
+        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.setstaff")
+                        .replace("%state%", state ? "&atrue" : "&cfalse"))
                 .replace("%rank%", rankName)
         );
     }

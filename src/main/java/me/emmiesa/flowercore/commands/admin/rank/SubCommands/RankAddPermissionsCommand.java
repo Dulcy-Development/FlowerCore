@@ -29,7 +29,7 @@ public class RankAddPermissionsCommand extends BaseCommand {
     }
 
     public void addPermission(Player player, String rankName, String permission) {
-        Rank rank = FlowerCore.instance.getRanksManager().getRank(rankName);
+        Rank rank = FlowerCore.getInstance().getRanksManager().getRank(rankName);
 
         if (rank == null) {
             player.sendMessage(CC.translate(Locale.RANK_NOT_FOUND).replace("%rank%", rankName));
@@ -39,6 +39,6 @@ public class RankAddPermissionsCommand extends BaseCommand {
         List<String> permissions = rank.getPermissions();
         permissions.add(permission);
         rank.setPermissions(permissions);
-        player.sendMessage(CC.translate(FlowerCore.instance.getConfig("messages.yml").getString("rank.addperm").replace("%rank%", rankName).replace("%perm%", permission)));
+        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.addperm").replace("%rank%", rankName).replace("%perm%", permission)));
     }
 }
