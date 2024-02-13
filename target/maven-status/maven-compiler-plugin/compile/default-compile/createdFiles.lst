@@ -12,6 +12,7 @@ me\emmiesa\flowercore\commands\global\SettingsCommand.class
 me\emmiesa\flowercore\utils\chat\JSONMessage$MessageEvent.class
 me\emmiesa\flowercore\commands\donator\AnnounceCommand.class
 me\emmiesa\flowercore\menus\ranklist\button\RankListButton.class
+me\emmiesa\flowercore\punishments\PunishmentSerializer.class
 me\emmiesa\flowercore\utils\others\NumberUtils.class
 me\emmiesa\flowercore\extras\scoreboard\assemble\AssembleStyle.class
 me\emmiesa\flowercore\commands\admin\essential\FlyCommand.class
@@ -87,6 +88,7 @@ me\emmiesa\flowercore\announcements\AnnouncementManager$1.class
 me\emmiesa\flowercore\commands\admin\rank\SubCommands\RankSetStaffCommand.class
 me\emmiesa\flowercore\extras\scoreboard\assemble\events\AssembleBoardCreateEvent.class
 me\emmiesa\flowercore\utils\command\BukkitCommand.class
+me\emmiesa\flowercore\commands\admin\punishments\BanCommand.class
 me\emmiesa\flowercore\listeners\WeatherListener.class
 me\emmiesa\flowercore\commands\admin\rank\SubCommands\RankCreateCommand.class
 me\emmiesa\flowercore\utils\menu\button\RefillGlassButton.class

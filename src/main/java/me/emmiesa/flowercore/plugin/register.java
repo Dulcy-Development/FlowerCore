@@ -10,6 +10,7 @@ import me.emmiesa.flowercore.commands.admin.gamemode.gmaCommand;
 import me.emmiesa.flowercore.commands.admin.gamemode.gmcCommand;
 import me.emmiesa.flowercore.commands.admin.gamemode.gmsCommand;
 import me.emmiesa.flowercore.commands.admin.gamemode.gmspCommand;
+import me.emmiesa.flowercore.commands.admin.punishments.BanCommand;
 import me.emmiesa.flowercore.commands.admin.rank.GrantCommand;
 import me.emmiesa.flowercore.commands.admin.rank.RankCommand;
 import me.emmiesa.flowercore.commands.admin.rank.SubCommands.*;
@@ -52,6 +53,7 @@ public class register {
         new gmcCommand();
         new gmsCommand();
         new gmaCommand();
+        new BanCommand();
         new gmspCommand();
         new HealCommand();
         new FeedCommand();
