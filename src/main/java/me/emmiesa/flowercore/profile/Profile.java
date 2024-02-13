@@ -7,6 +7,7 @@ import lombok.Setter;
 import me.emmiesa.flowercore.punishments.Punishment;
 import me.emmiesa.flowercore.ranks.Rank;
 
+import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -16,5 +17,5 @@ import java.util.UUID;
 public class Profile {
     private UUID uuid;
     private Rank rank;
-    private Punishment[] punishments;
+    private List<Punishment> punishments;
 }

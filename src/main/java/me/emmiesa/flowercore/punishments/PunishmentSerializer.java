@@ -10,7 +10,7 @@ import java.util.UUID;
 @UtilityClass
 public class PunishmentSerializer {
 
-    public static List<String> serialize(Punishment[] punishments) {
+    public static List<String> serialize(List<Punishment> punishments) {
         if (punishments == null) {
             return Collections.singletonList("null");
         }
@@ -18,7 +18,7 @@ public class PunishmentSerializer {
         for (Punishment punishment : punishments) {
             serialized.add(punishment.getUuid()
                     + ":" + punishment.getType().toString()
-                    + ":" + punishment.getBy()
+                    + ":" + punishment.getBy().toString()
                     + ":" + punishment.getReason()
                     + ":" + punishment.getPunishedIP()
                     + ":" + punishment.isIp());
@@ -28,7 +28,7 @@ public class PunishmentSerializer {
         return serialized;
     }
 
-    public static Punishment[] deserialize(List<String> serialized) {
+    public static List<Punishment> deserialize(List<String> serialized) {
         if (serialized == null || serialized.isEmpty() || serialized.get(0).equals("null")) {
             return null;
         }
@@ -39,7 +39,7 @@ public class PunishmentSerializer {
             if (parts.length == 8) {
                 UUID uuid = UUID.fromString(parts[0]);
                 PunishmentType type = PunishmentType.valueOf(parts[1]);
-                String by = parts[2];
+                UUID by = UUID.fromString(parts[2]);
                 String reason = parts[3];
                 String punishedIP = parts[4];
                 boolean ip = Boolean.parseBoolean(parts[5]);
@@ -49,7 +49,7 @@ public class PunishmentSerializer {
             }
         }
 
-        return punishments.toArray(new Punishment[0]);
+        return punishments;
     }
 
 }

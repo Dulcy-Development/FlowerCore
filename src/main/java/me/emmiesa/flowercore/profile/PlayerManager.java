@@ -3,11 +3,14 @@ package me.emmiesa.flowercore.profile;
 
 import lombok.Getter;
 import me.emmiesa.flowercore.FlowerCore;
+import me.emmiesa.flowercore.punishments.Punishment;
 import me.emmiesa.flowercore.ranks.Rank;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.PermissionAttachment;
 
+import javax.swing.plaf.PanelUI;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
@@ -28,6 +31,13 @@ public class PlayerManager {
 
     public void setRank(UUID playerUUID, Rank rank) {
         getProfiles().get(playerUUID).setRank(rank);
+    }
+
+    public void addPunishment(UUID playerUUID, Punishment punishment) {
+        List<Punishment> punishments = profiles.get(playerUUID).getPunishments();
+        punishments.add(punishment);
+
+        profiles.get(playerUUID).setPunishments(punishments);
     }
 
     public Rank getRank(UUID playerUUID) {

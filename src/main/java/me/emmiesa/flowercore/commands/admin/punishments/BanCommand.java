@@ -1,11 +1,16 @@
 package me.emmiesa.flowercore.commands.admin.punishments;
 
+import me.emmiesa.flowercore.FlowerCore;
+import me.emmiesa.flowercore.punishments.Punishment;
+import me.emmiesa.flowercore.punishments.PunishmentType;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
 import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+
+import java.util.UUID;
 
 
 public class BanCommand extends BaseCommand {
@@ -20,6 +25,9 @@ public class BanCommand extends BaseCommand {
             Player player = args.getPlayer();
             String targetName = args.getArgs(0);
             Player target = Bukkit.getServer().getPlayer(targetName);
+
+            Punishment punishment = new Punishment(UUID.randomUUID(), player.getUniqueId(), PunishmentType.BAN, "none", target.getAddress().getAddress().getHostAddress(), false);
+            FlowerCore.getInstance().getPlayerManager().addPunishment(target.getUniqueId(), punishment);
 
             player.sendMessage(CC.translate("&7[!] This is where you specify the target player"));
         } else if (args.length() == 2) {

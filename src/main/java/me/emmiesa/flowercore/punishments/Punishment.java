@@ -12,7 +12,7 @@ import java.util.UUID;
 public class Punishment {
 
     private UUID uuid;
-    private String by;
+    private UUID by;
     private PunishmentType type;
     private String reason;
     private String punishedIP;
