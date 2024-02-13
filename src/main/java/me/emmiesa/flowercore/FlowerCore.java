@@ -77,10 +77,6 @@ public class FlowerCore extends JavaPlugin {
         send.off();
     }
 
-    public static FlowerCore get() {
-        return instance;
-    }
-
     public void reloadAllConfigs() {
         commandsConfig = getConfig("commands.yml");
         databaseConfig = getConfig("database.yml");
@@ -134,11 +130,15 @@ public class FlowerCore extends JavaPlugin {
     }
 
     private void registerScoreboard() {
-        if (FlowerCore.instance.getConfig("extras.yml").getBoolean("scoreboard.enabled")) {
+        if (getConfig("extras.yml").getBoolean("scoreboard.enabled")) {
             Assemble assemble = new Assemble(this, new ScoreboardLayout());
             assemble.setAssembleStyle(AssembleStyle.MODERN);
             assemble.setTicks(2);
         }
+    }
+
+    public static FlowerCore get() {
+        return instance;
     }
 
     public FileConfiguration getConfig(String fileName) {

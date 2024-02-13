@@ -7,12 +7,6 @@ import org.bukkit.Material;
 
 import java.util.List;
 
-/**
- * @author lrxh
- * @project RiftCore
- * @since 1/5/2024
- */
-
 @Getter
 @Setter
 @AllArgsConstructor

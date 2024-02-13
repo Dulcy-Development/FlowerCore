@@ -19,6 +19,9 @@ rank-settings:
     send-as-message: false
     open-menu: true
 on-join:
+  play-sound:
+    enabled: true
+    sound: LEVEL_UP
   clear-chat:
     enabled: false
     #This text should always be empty (" "), but let's make it customizable :)
@@ -29,7 +32,7 @@ on-join:
     location:
       world: world
       x: 0.5
-      y: 70.0
+      y: 73.0
       z: 0.5
       yaw: 90.0
       pitch: 0.0
@@ -64,39 +67,39 @@ announcements:
   bars-format: "&7&m------------------------------"
   announcements:
     # Available Placeholders:
-    # - %discord%, %twitter%, %tiktok%, %youtube%, %teamspeak%, %store%, %website%,
-    # - %bars% - taken from the "bars-format" string
-    # - %flowerbar% - A preset bar format (not customizable)
+    # - %discord%, %twitter%, %tiktok%, %youtube%, %teamspeak%, %store%, %website% - taken from "socials" strings above!
+    # - %bars% - taken from the "bars-format" string!
+    # - %flowerbar% - A preset bar format (not customizable)!
     message-1:
       - " "
       #- "%bars%"
       - "&b&lAnnouncement:"
       - " &fJoin our discord to get informed about news & updates!"
-      - "  &b► %discord%"
+      - "  &7► &b%discord%"
       #- "%bars%"
       - " "
     message-2:
       - " "
       #- "%bars%"
       - "&b&lAnnouncement:"
-      - " &fWatch us on YouTube!"
-      - "  &b► %youtube%"
+      - " &fWatch us on YouTube to have some fun!"
+      - "  &7► &b%youtube%"
       #- "%bars%"
       - " "
     message-3:
       - " "
       #- "%bars%"
       - "&b&lAnnouncement:"
-      - " &fBuy ranks and more at!"
-      - "  &b► %store%"
+      - " &fBuy ranks and more to get more feature access!"
+      - "  &7► &b%store%"
       #- "%bars%"
       - " "
     message-4:
       - " "
       #- "%bars%"
       - "&b&lAnnouncement:"
-      - " &fVisit our website!"
-      - "  &b► %website%"
+      - " &fVisit our website to check out the latest new!"
+      - "  &7► &b%website%"
       #- "%bars%"
       - " "
     message-5:
@@ -104,6 +107,6 @@ announcements:
       #- "%bars%"
       - "&b&lAnnouncement:"
       - " &fWatch our TikTok shorts!"
-      - "  &b► %tiktok%"
+      - "  &7► &b%tiktok%"
       #- "%bars%"
       - " "

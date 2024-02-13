@@ -17,12 +17,6 @@ import java.util.UUID;
 
 import static com.mongodb.client.model.Filters.eq;
 
-/**
- * @author lrxh
- * @project WavePractice
- * @since 12/4/2023
- */
-
 @Getter
 public class MongoManager {
 

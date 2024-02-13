@@ -6,12 +6,6 @@ import lombok.Setter;
 
 import java.util.UUID;
 
-/*
- *
- * Project: Experimental Core
- *
- */
-
 @RequiredArgsConstructor
 @Getter @Setter
 public class Punishment {

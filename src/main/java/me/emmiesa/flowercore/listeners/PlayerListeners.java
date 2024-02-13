@@ -6,6 +6,7 @@ import me.emmiesa.flowercore.utils.chat.CC;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -28,6 +29,11 @@ public class PlayerListeners implements Listener {
     public void onJoin(PlayerJoinEvent event) {
         Player joinedPlayer = event.getPlayer();
         UUID playerUUID = joinedPlayer.getUniqueId();
+
+        if (FlowerCore.instance.getConfig("settings.yml").getBoolean("on-join.play-sound.enabled")) {
+            String sound = FlowerCore.instance.getConfig("settings.yml").getString("on-join.play-sound.sound");
+            joinedPlayer.playSound(joinedPlayer.getLocation(), Sound.valueOf(sound), 1.0F, 1.0F);
+        }
 
         if (plugin.getConfig("settings.yml").getBoolean("on-join.clear-chat.enabled")) {
             int linesToClear = plugin.getConfig("settings.yml").getInt("on-join.clear-chat.lines");
