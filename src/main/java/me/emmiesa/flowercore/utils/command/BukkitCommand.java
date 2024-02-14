@@ -11,9 +11,9 @@ import java.util.List;
 
 public class BukkitCommand extends org.bukkit.command.Command {
 
-    protected BukkitCompleter completer;
     private final Plugin owningPlugin;
     private final CommandExecutor executor;
+    protected BukkitCompleter completer;
 
     protected BukkitCommand(String label, CommandExecutor executor, Plugin owner) {
         super(label);

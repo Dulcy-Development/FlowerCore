@@ -36,7 +36,8 @@ public class PunishmentSerializer {
         List<Punishment> punishments = new ArrayList<>();
         for (String s : serialized) {
             String[] parts = s.split(":");
-            if (parts.length == 8) {
+            System.out.println(parts.length);
+            if (parts.length == 6) {
                 UUID uuid = UUID.fromString(parts[0]);
                 PunishmentType type = PunishmentType.valueOf(parts[1]);
                 UUID by = UUID.fromString(parts[2]);

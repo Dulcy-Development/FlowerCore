@@ -20,7 +20,7 @@ public class CommandArgs {
     protected CommandArgs(CommandSender sender, org.bukkit.command.Command command, String label, String[] args,
                           int subCommand) {
         String[] modArgs = new String[args.length - subCommand];
-        if (args.length - subCommand >= 0) System.arraycopy(args, 0 + subCommand, modArgs, 0, args.length - subCommand);
+        if (args.length - subCommand >= 0) System.arraycopy(args, subCommand, modArgs, 0, args.length - subCommand);
 
         StringBuffer buffer = new StringBuffer();
         buffer.append(label);

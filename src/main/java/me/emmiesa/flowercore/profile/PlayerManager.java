@@ -30,6 +30,10 @@ public class PlayerManager {
         Bukkit.getPlayer(profile.getUuid()).sendMessage("Punishments: " + profile.getPunishments());
     }
 
+    public Profile getProfile(UUID playerUUID) {
+        return profiles.get(playerUUID);
+    }
+
     public void setRank(UUID playerUUID, Rank rank) {
         getProfiles().get(playerUUID).setRank(rank);
     }

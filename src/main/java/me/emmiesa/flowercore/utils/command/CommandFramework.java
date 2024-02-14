@@ -25,8 +25,8 @@ import java.util.Map.Entry;
 public class CommandFramework implements CommandExecutor {
 
     private final Map<String, Entry<Method, Object>> commandMap = new HashMap<String, Entry<Method, Object>>();
-    private CommandMap map;
     private final FlowerCore plugin;
+    private CommandMap map;
 
     public CommandFramework(FlowerCore plugin) {
         this.plugin = plugin;

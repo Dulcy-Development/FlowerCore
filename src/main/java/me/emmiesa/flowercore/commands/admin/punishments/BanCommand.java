@@ -32,10 +32,10 @@ public class BanCommand extends BaseCommand {
         Player bannedBy = args.getPlayer();
         /*UUID playerUUID = player.getUniqueId();*/
 
-        banplayer(target, reason, duration, silentornot, bannedBy/*, playerUUID*/);
+        banPlayer(target, reason, duration, silentornot, bannedBy/*, playerUUID*/);
     }
 
-    public void banplayer(String playerName, String reason, String duration, String silentornot, Player bannedBy/*, UUID bannedByUUID*/) {
+    public void banPlayer(String playerName, String reason, String duration, String silentornot, Player bannedBy/*, UUID bannedByUUID*/) {
         Player targetPlayer = Bukkit.getServer().getPlayer(playerName);
         if (targetPlayer == null) {
             bannedBy.sendMessage(CC.translate("&cPlayer not found!"));

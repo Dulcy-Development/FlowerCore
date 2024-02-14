@@ -2,6 +2,8 @@ package me.emmiesa.flowercore.listeners;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.Locale;
+import me.emmiesa.flowercore.punishments.Punishment;
+import me.emmiesa.flowercore.punishments.PunishmentType;
 import me.emmiesa.flowercore.utils.chat.CC;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -11,6 +13,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
@@ -23,6 +26,20 @@ public class PlayerListeners implements Listener {
 
     public PlayerListeners(FlowerCore plugin) {
         this.plugin = plugin;
+    }
+
+    @EventHandler(priority = EventPriority.HIGH)
+    public void onJoin(AsyncPlayerPreLoginEvent event) {
+        if (plugin.getRanksManager().getDefaultRank() != null) {
+            plugin.getPlayerManager().setupPlayer(event.getUniqueId());
+
+            for (Punishment punishment : plugin.getPlayerManager().getProfile(event.getUniqueId()).getPunishments()) {
+                if (punishment.getType().equals(PunishmentType.BAN) || punishment.getType().equals(PunishmentType.BLACKLIST)) {
+                    event.setKickMessage(punishment.getReason());
+                }
+            }
+
+        }
     }
 
     @EventHandler(priority = EventPriority.HIGH)
@@ -51,9 +68,7 @@ public class PlayerListeners implements Listener {
             event.getPlayer().teleport(spawnLocation);
         }
 
-        if (plugin.getRanksManager().getDefaultRank() != null) {
-            plugin.getPlayerManager().setupPlayer(playerUUID);
-        } else {
+        if (plugin.getRanksManager().getDefaultRank() == null) {
             joinedPlayer.sendMessage(CC.translate(Locale.RANK_NOT_SET));
         }
 
@@ -162,9 +177,10 @@ public class PlayerListeners implements Listener {
         String tiktok = plugin.getConfig("settings.yml").getString("socials.tiktok");
         String twitter = plugin.getConfig("settings.yml").getString("socials.twitter");
         String youtube = plugin.getConfig("settings.yml").getString("socials.youtube");
+
         String bars = plugin.getConfig("messages.yml").getString("on-join.messages.bars-format");
 
-        String replacedMessage = message
+        return message
                 .replace("%player%", player.getName())
                 .replace("%health%", String.valueOf(player.getHealth()))
                 .replace("%bars%", bars)
@@ -177,7 +193,5 @@ public class PlayerListeners implements Listener {
                 .replace("%youtube%", youtube)
                 .replace("%flowerbar%", CC.FLOWER_BAR_LONG)
                 .replace("%rank%", plugin.getPlayerManager().getRank(playerUUID).getDisplayName());
-
-        return replacedMessage;
     }
 }

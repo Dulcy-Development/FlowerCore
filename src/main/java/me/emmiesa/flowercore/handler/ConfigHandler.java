@@ -13,8 +13,6 @@ import java.io.IOException;
 @Getter
 public class ConfigHandler {
 
-    FlowerCore plugin = FlowerCore.getInstance();
-
     private final File defaultConfigFile;
     private final File settingsConfigFile;
     private final File messagesConfigFile;
@@ -33,6 +31,7 @@ public class ConfigHandler {
     private final FileConfiguration ranksConfig;
     private final FileConfiguration permissionsConfig;
     private final FileConfiguration placeholdersConfig;
+    FlowerCore plugin = FlowerCore.getInstance();
 
     public ConfigHandler() {
         defaultConfigFile = new File(plugin.getDataFolder(), "config.yml");

@@ -8,14 +8,12 @@ import com.mongodb.client.model.ReplaceOptions;
 import lombok.Getter;
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.profile.Profile;
-import me.emmiesa.flowercore.punishments.Punishment;
 import me.emmiesa.flowercore.punishments.PunishmentSerializer;
 import org.bson.Document;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 import static com.mongodb.client.model.Filters.eq;
@@ -61,7 +59,6 @@ public class MongoManager {
     }
 
     private Profile createProfile(UUID playerUUID, Document doc) {
-
         return Profile.builder()
                 .uuid(playerUUID)
                 .rank(FlowerCore.getInstance().getRanksManager().getRank(doc.getString("rank")))
