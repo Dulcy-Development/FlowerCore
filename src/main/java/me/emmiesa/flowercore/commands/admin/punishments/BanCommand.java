@@ -16,8 +16,6 @@ import java.util.UUID;
 
 public class BanCommand extends BaseCommand {
 
-    private PunishmentType punishmentType;
-
     @Command(name = "ban", inGameOnly = false, permission = "flower.punishment.ban")
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
