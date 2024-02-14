@@ -9,7 +9,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.PermissionAttachment;
 
-import javax.swing.plaf.PanelUI;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -27,6 +27,7 @@ public class PlayerManager {
 
     public void addRank(Profile profile) {
         getProfiles().put(profile.getUuid(), profile);
+        Bukkit.getPlayer(profile.getUuid()).sendMessage("Punishments: " + profile.getPunishments());
     }
 
     public void setRank(UUID playerUUID, Rank rank) {
@@ -35,6 +36,9 @@ public class PlayerManager {
 
     public void addPunishment(UUID playerUUID, Punishment punishment) {
         List<Punishment> punishments = profiles.get(playerUUID).getPunishments();
+        if (punishments == null) {
+            punishments = new ArrayList<>();
+        }
         punishments.add(punishment);
 
         profiles.get(playerUUID).setPunishments(punishments);
