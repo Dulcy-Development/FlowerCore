@@ -13,7 +13,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
@@ -29,23 +28,19 @@ public class PlayerListeners implements Listener {
     }
 
     @EventHandler(priority = EventPriority.HIGH)
-    public void onJoin(AsyncPlayerPreLoginEvent event) {
-        if (plugin.getRanksManager().getDefaultRank() != null) {
-            plugin.getPlayerManager().setupPlayer(event.getUniqueId());
-
-            for (Punishment punishment : plugin.getPlayerManager().getProfile(event.getUniqueId()).getPunishments()) {
-                if (punishment.getType().equals(PunishmentType.BAN) || punishment.getType().equals(PunishmentType.BLACKLIST)) {
-                    event.setKickMessage(punishment.getReason());
-                }
-            }
-
-        }
-    }
-
-    @EventHandler(priority = EventPriority.HIGH)
     public void onJoin(PlayerJoinEvent event) {
         Player joinedPlayer = event.getPlayer();
         UUID playerUUID = joinedPlayer.getUniqueId();
+
+        if (FlowerCore.instance.getRanksManager().getDefaultRank() != null) {
+            FlowerCore.instance.getPlayerManager().setupPlayer(joinedPlayer.getUniqueId());
+
+            for (Punishment punishment : FlowerCore.instance.getPlayerManager().getProfile(joinedPlayer.getUniqueId()).getPunishments()) {
+                if (punishment.getType().equals(PunishmentType.BAN) /*|| punishment.getType().equals(PunishmentType.BLACKLIST)*/) {
+                    joinedPlayer.kickPlayer(punishment.getReason());
+                }
+            }
+        }
 
         if (FlowerCore.instance.getConfig("settings.yml").getBoolean("on-join.play-sound.enabled")) {
             String sound = FlowerCore.instance.getConfig("settings.yml").getString("on-join.play-sound.sound");

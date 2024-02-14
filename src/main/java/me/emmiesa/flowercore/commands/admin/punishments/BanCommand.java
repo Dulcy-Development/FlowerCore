@@ -15,29 +15,25 @@ import java.util.UUID;
 
 public class BanCommand extends BaseCommand {
 
-    @Command(name = "ban", /*inGameOnly = false,*/ permission = "flower.punishment.ban")
+    @Command(name = "ban", permission = "flower.punishment.ban")
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
 
         if (args.length() < 1) {
-            player.sendMessage(CC.translate("&cUsage: /ban (player) (reason) (duration) [-s / -c]"));
+            player.sendMessage(CC.translate("&cUsage: /ban (player) (reason) (duration) [-s]"));
             return;
         }
 
         String target = args.getArgs(0);
-        String reason = args.length() > 1 ? args.getArgs(1) : "No reason given"; // default reason - if only /Ban (player) is executed
-        String duration = args.length() > 2 ? args.getArgs(2) : "permanent"; // default duration default - if only /Ban (player) is executed :)
-        String silentornot = args.length() > 3 ? args.getArgs(3) : ""; //makes -s or -c optional so you can either enter it or not
+        String reason = args.length() > 1 ? args.getArgs(1) : "No reason given";
+        String duration = args.length() > 2 ? args.getArgs(2) : "permanent";
+        String silentornot = args.length() > 3 ? args.getArgs(3) : "";
 
         Player bannedBy = args.getPlayer();
-        /*UUID playerUUID = player.getUniqueId();*/
+        UUID playerUUID = player.getUniqueId();
 
-        banPlayer(target, reason, duration, silentornot, bannedBy/*, playerUUID*/);
-    }
-
-    public void banPlayer(String playerName, String reason, String duration, String silentornot, Player bannedBy/*, UUID bannedByUUID*/) {
-        Player targetPlayer = Bukkit.getServer().getPlayer(playerName);
-        if (targetPlayer == null) {
+        Player targetPlayer = FlowerCore.instance.getServer().getPlayer(target);
+        if (target == null) {
             bannedBy.sendMessage(CC.translate("&cPlayer not found!"));
             return;
         }
@@ -46,5 +42,6 @@ public class BanCommand extends BaseCommand {
         FlowerCore.getInstance().getPlayerManager().addPunishment(targetPlayer.getUniqueId(), punishment);
 
         Utils.broadcastMessage(CC.translate(bannedBy.getDisplayName() + " has banned " + targetPlayer.getName() + " for " + reason + ". Duration: " + duration + (silentornot.equalsIgnoreCase("-s") ? " [Silently]" : "")));
+
     }
 }
