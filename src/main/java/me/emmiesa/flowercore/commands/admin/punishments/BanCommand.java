@@ -28,7 +28,7 @@ public class BanCommand extends BaseCommand {
         String target = args.getArgs(0);
         String reason = args.getArgs(1);
         String duration = args.getArgs(2);
-        String silentornot = args.getArgs(3);
+        String silentornot = args.length() > 3 ? args.getArgs(3) : ""; //makes -s or -c optional so you can either enter it or not
 
         Player bannedBy = args.getPlayer();
         UUID playerUUID = player.getUniqueId();
@@ -43,12 +43,9 @@ public class BanCommand extends BaseCommand {
             return;
         }
 
-        //UUID targetUUID = targetPlayer.getUniqueId();
-        Player target = Bukkit.getServer().getPlayer(playerName);
+        Punishment punishment = new Punishment(UUID.randomUUID(), bannedBy.getUniqueId(), PunishmentType.BAN, reason, targetPlayer.getAddress().getAddress().getHostAddress(), silentornot.equalsIgnoreCase("-s"));
+        FlowerCore.getInstance().getPlayerManager().addPunishment(targetPlayer.getUniqueId(), punishment);
 
-        Punishment punishment = new Punishment(UUID.randomUUID(), bannedBy.getUniqueId(), PunishmentType.BAN, "none", target.getAddress().getAddress().getHostAddress(), false);
-        FlowerCore.getInstance().getPlayerManager().addPunishment(target.getUniqueId(), punishment);
-
-        Utils.broadcastMessage(CC.translate(bannedBy.getDisplayName() + " has banned " + target + " because of " + reason + " for " + duration));
+        Utils.broadcastMessage(CC.translate(bannedBy.getDisplayName() + " has banned " + targetPlayer.getName() + " because of " + reason + " for " + duration));
     }
 }
