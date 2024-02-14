@@ -20,7 +20,7 @@ public class BanCommand extends BaseCommand {
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
 
-        if (args.length() < 2) {
+        if (args.length() < 3) {
             player.sendMessage(CC.translate("&cUsage: /ban (player) (reason) (duration) (-s / -c)"));
             return;
         }
