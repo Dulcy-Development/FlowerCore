@@ -1,4 +1,4 @@
-package me.emmiesa.flowercore.commands.admin.essential;
+package me.emmiesa.flowercore.commands.admin.troll;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.utils.chat.CC;
@@ -21,7 +21,7 @@ public class TrollEverybodyCommand extends BaseCommand {
     public void onCommand(CommandArgs args) {
         CommandSender sender = args.getSender();
         if (args.length() > 0) {
-            sender.sendMessage(CC.translate("&cUsage: /trolleverybody or /trollall"));
+            sender.sendMessage(CC.translate("&cUsage: /trollall"));
         }
 
         try {

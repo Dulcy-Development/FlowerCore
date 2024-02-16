@@ -1,4 +1,4 @@
-package me.emmiesa.flowercore.commands.admin.essential;
+package me.emmiesa.flowercore.commands.admin.troll;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.utils.chat.CC;
@@ -19,7 +19,7 @@ public class TrollSilentCommand extends BaseCommand {
     public void onCommand(CommandArgs args) {
         CommandSender sender = args.getSender();
         if (args.length() == 0) {
-            sender.sendMessage(CC.translate("&cUsage: /trollsilent <player>"));
+            sender.sendMessage(CC.translate("&cUsage: /trollsilent (player)"));
             return;
         }
 
