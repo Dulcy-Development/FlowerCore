@@ -48,11 +48,17 @@ public class PlayerListeners implements Listener {
         if (plugin.getRanksManager().getDefaultRank() != null) {
             for (Punishment punishment : profile.getPunishments()) {
                 if (punishment.getType().equals(PunishmentType.BAN) || punishment.getType().equals(PunishmentType.BLACKLIST)) {
-                    event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_BANNED, punishment.getReason());
+                    String sendpunishmessage = PunishMessage(punishment);
+                    event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_BANNED, sendpunishmessage);
                     return;
                 }
             }
         }
+    }
+
+    private String PunishMessage(Punishment punishment) {
+        String message = CC.translate("\n &cYou have been punished! \n&fPunish Type: &c" + punishment.getType().toString().toLowerCase() + "\n&fPunished By: &c" + Bukkit.getOfflinePlayer(punishment.getBy()).getName() + "\n&fReason: &c" + punishment.getReason() + "\n");
+        return message;
     }
 
     @EventHandler(priority = EventPriority.HIGH)
