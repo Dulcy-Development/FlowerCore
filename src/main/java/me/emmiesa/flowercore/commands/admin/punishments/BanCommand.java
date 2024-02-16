@@ -41,7 +41,7 @@ public class BanCommand extends BaseCommand {
         Punishment punishment = new Punishment(UUID.randomUUID(), bannedBy.getUniqueId(), PunishmentType.BAN, reason, targetPlayer.getAddress().getAddress().getHostAddress(), silentornot.equalsIgnoreCase("-s"));
         FlowerCore.getInstance().getPlayerManager().addPunishment(targetPlayer.getUniqueId(), punishment);
 
-        String bannedmessage = CC.translate("&4&lYou've been banned from Flower Network! \n %cBanned by: &7" + bannedBy.getName() + "\n" + "&cReason: &7" + reason);
+        String bannedmessage = CC.translate("&4&lYou've been banned from Flower Network! \n &cBanned by: &7" + bannedBy.getName() + "\n" + "&cReason: &7" + reason);
         targetPlayer.kickPlayer(bannedmessage);
         Utils.broadcastMessage(CC.translate(bannedBy.getDisplayName() + " has banned " + targetPlayer.getName() + " for " + reason + ". Duration: " + duration + (silentornot.equalsIgnoreCase("-s") ? " [Silently]" : "")));
 

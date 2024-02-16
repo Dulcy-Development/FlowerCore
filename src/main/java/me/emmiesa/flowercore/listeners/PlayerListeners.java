@@ -36,8 +36,11 @@ public class PlayerListeners implements Listener {
             FlowerCore.instance.getPlayerManager().setupPlayer(joinedPlayer.getUniqueId());
 
             for (Punishment punishment : FlowerCore.instance.getPlayerManager().getProfile(joinedPlayer.getUniqueId()).getPunishments()) {
-                if (punishment.getType().equals(PunishmentType.BAN) /*|| punishment.getType().equals(PunishmentType.BLACKLIST)*/) {
-                    joinedPlayer.kickPlayer(punishment.getReason());
+                if (punishment.getType().equals(PunishmentType.BAN) || punishment.getType().equals(PunishmentType.BLACKLIST)) {
+
+                    String punishmessage = CC.translate("&4You've been suspended! \n" + "&cReason: &f" + punishment.getReason() + "\n &cSuspended by: &f" + punishment.getBy() + "\n&cPunishment Type: &f" + punishment.getType());
+
+                    joinedPlayer.kickPlayer(punishmessage);
                 }
             }
         }

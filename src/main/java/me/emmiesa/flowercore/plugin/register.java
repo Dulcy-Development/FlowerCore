@@ -77,6 +77,7 @@ public class register {
         new ClearChatCommand();
         new TeamSpeakCommand();
         new TeleportUpCommand();
+        new TrollSilentCommand();
         new TeleportHereCommand();
         new TeleportSpawnCommand();
         new TrollEverybodyCommand();
