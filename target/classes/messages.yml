@@ -22,6 +22,7 @@ reload:
     - "&r"
 troll:
   trolled: "&fYou've trolled &b%player%&f!"
+  trolled-silent: "&7(Silent) &fYou've trolled &b%player%&f!"
   not-online: "&fNo player matching &b%target% &fis connected to this server."
   target-message: "&fYou've been trolled by &b%troller%&f!"
 troll-everybody:
@@ -66,7 +67,7 @@ rank:
   does-not-exist: "&cThe %rank% &crank does not exist!"
   set-displayname: "&aSuccessfully set &r%display-name% &aas display name of the &r%rank% &arank!"
 clear-chat: "&aThe chat has been cleared by %player%."
-clear-chat-staff: "&7[&8%server%&7] Cleared the chat by &8%player%&7."
+clear-chat-staff: "&8[%server%] &7&o[%player%: Clear chat)"
 socials:
   discord:
     enabled: true

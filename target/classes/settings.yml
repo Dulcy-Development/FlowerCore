@@ -53,13 +53,13 @@ announce:
   announced-message: "&aYou've announced the game!"
   format: '&b&l%server_name% &7» &b%prefix%%player_name% &fwants you to play! &a(Join)'
 socials:
-  discord: discord.emmiesa.dev
-  website: www.emmiesa.dev
-  store: store.emmiesa.dev
-  teamspeak: ts.emmiesa.dev
-  tiktok: tiktok.com/emmiesadev
-  twitter: twitter.com/emmiesadev
-  youtube: youtube.com/emmiesadev
+  discord: discord.flower.club
+  website: www.flower.club
+  store: store.flower.club
+  teamspeak: ts.flower.club
+  tiktok: tiktok.com/flowerclub
+  twitter: twitter.com/flowerclub
+  youtube: youtube.com/flowerclub
 announcements:
   enabled: true
   console-enabled: false #Decides if the announcements should be sent to the console aswell.

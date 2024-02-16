@@ -66,6 +66,7 @@ me\emmiesa\flowercore\commands\admin\administration\ClearChatCommand.class
 me\emmiesa\flowercore\commands\admin\essential\MoreCommand.class
 me\emmiesa\flowercore\commands\admin\gamemode\gmsCommand.class
 me\emmiesa\flowercore\commands\admin\rank\SubCommands\RankSetPrefixCommand.class
+me\emmiesa\flowercore\commands\admin\troll\TrollSilentCommand.class
 me\emmiesa\flowercore\extras\scoreboard\assemble\Assemble.class
 me\emmiesa\flowercore\papi\ProfilePlaceholders.class
 me\emmiesa\flowercore\menus\ranklist\RankListMenu.class
@@ -74,8 +75,8 @@ me\emmiesa\flowercore\commands\admin\gamemode\gmcCommand.class
 me\emmiesa\flowercore\listeners\PlayerListeners.class
 me\emmiesa\flowercore\menus\grantconfirm\GrantConfirmMenu.class
 me\emmiesa\flowercore\utils\chat\StringUtil.class
-me\emmiesa\flowercore\commands\admin\essential\TrollEverybodyCommand.class
 me\emmiesa\flowercore\commands\admin\spawn\TeleportSpawnCommand$1.class
+me\emmiesa\flowercore\commands\admin\troll\TrollCommand.class
 me\emmiesa\flowercore\menus\grant\button\GrantButton.class
 me\emmiesa\flowercore\plugin\send.class
 me\emmiesa\flowercore\commands\admin\essential\GodModeCommand.class
@@ -105,11 +106,11 @@ me\emmiesa\flowercore\commands\admin\rank\SubCommands\RankSetPriorityCommand.cla
 me\emmiesa\flowercore\extras\scoreboard\assemble\events\AssembleBoardDestroyEvent.class
 me\emmiesa\flowercore\commands\admin\rank\SubCommands\RankListCommand.class
 me\emmiesa\flowercore\utils\Utils.class
-me\emmiesa\flowercore\commands\admin\essential\TrollCommand.class
 me\emmiesa\flowercore\profile\PlayerManager.class
 me\emmiesa\flowercore\extras\scoreboard\assemble\events\AssembleBoardCreatedEvent.class
 me\emmiesa\flowercore\extras\scoreboard\assemble\exception\AssembleException.class
 me\emmiesa\flowercore\extras\scoreboard\assemble\listener\AssembleListener.class
+me\emmiesa\flowercore\commands\admin\troll\TrollEverybodyCommand.class
 me\emmiesa\flowercore\commands\global\StoreCommand.class
 me\emmiesa\flowercore\commands\admin\rank\SubCommands\RankSaveCommand.class
 me\emmiesa\flowercore\utils\item\ItemBuilder.class

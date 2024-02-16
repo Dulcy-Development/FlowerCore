@@ -5,6 +5,7 @@ import lombok.Getter;
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.punishments.Punishment;
 import me.emmiesa.flowercore.ranks.Rank;
+import me.emmiesa.flowercore.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.PermissionAttachment;
@@ -39,13 +40,17 @@ public class PlayerManager {
     }
 
     public void addPunishment(UUID playerUUID, Punishment punishment) {
-        List<Punishment> punishments = profiles.get(playerUUID).getPunishments();
+        Profile profile = profiles.get(playerUUID);
+        if (profile == null) {
+            Utils.broadcastMessage("Profile for UUID " + playerUUID + " not found.");
+            return;
+        }
+        List<Punishment> punishments = profile.getPunishments();
         if (punishments == null) {
             punishments = new ArrayList<>();
         }
         punishments.add(punishment);
-
-        profiles.get(playerUUID).setPunishments(punishments);
+        profile.setPunishments(punishments);
     }
 
     public Rank getRank(UUID playerUUID) {

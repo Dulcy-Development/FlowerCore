@@ -8,7 +8,6 @@ import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
 import me.emmiesa.flowercore.utils.command.CommandArgs;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import java.util.UUID;
@@ -30,7 +29,7 @@ public class BanCommand extends BaseCommand {
         String silentornot = args.length() > 3 ? args.getArgs(3) : "";
 
         Player bannedBy = args.getPlayer();
-        UUID playerUUID = player.getUniqueId();
+        //UUID playerUUID = player.getUniqueId();
 
         Player targetPlayer = FlowerCore.instance.getServer().getPlayer(target);
         if (target == null) {
@@ -41,8 +40,7 @@ public class BanCommand extends BaseCommand {
         Punishment punishment = new Punishment(UUID.randomUUID(), bannedBy.getUniqueId(), PunishmentType.BAN, reason, targetPlayer.getAddress().getAddress().getHostAddress(), silentornot.equalsIgnoreCase("-s"));
         FlowerCore.getInstance().getPlayerManager().addPunishment(targetPlayer.getUniqueId(), punishment);
 
-        String bannedmessage = CC.translate("&4&lYou've been banned from Flower Network! \n &cBanned by: &7" + bannedBy.getName() + "\n" + "&cReason: &7" + reason);
-        targetPlayer.kickPlayer(bannedmessage);
+        targetPlayer.kickPlayer("You've been punished");
         Utils.broadcastMessage(CC.translate(bannedBy.getDisplayName() + " has banned " + targetPlayer.getName() + " for " + reason + ". Duration: " + duration + (silentornot.equalsIgnoreCase("-s") ? " [Silently]" : "")));
 
     }

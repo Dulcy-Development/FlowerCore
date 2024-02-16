@@ -2,6 +2,7 @@ package me.emmiesa.flowercore.listeners;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.Locale;
+import me.emmiesa.flowercore.profile.Profile;
 import me.emmiesa.flowercore.punishments.Punishment;
 import me.emmiesa.flowercore.punishments.PunishmentType;
 import me.emmiesa.flowercore.utils.chat.CC;
@@ -13,6 +14,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
@@ -27,23 +29,36 @@ public class PlayerListeners implements Listener {
         this.plugin = plugin;
     }
 
+    @EventHandler(priority = EventPriority.MONITOR)
+    public void onJoin(AsyncPlayerPreLoginEvent event) {
+        UUID playerUUID = event.getUniqueId();
+
+        Profile profile = plugin.getPlayerManager().getProfile(playerUUID);
+
+        if (profile == null) {
+            plugin.getPlayerManager().setupPlayer(playerUUID);
+            profile = plugin.getPlayerManager().getProfile(playerUUID);
+
+            if (profile == null) {
+                event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_OTHER, "Could not load your profile. Please try again.");
+                return;
+            }
+        }
+
+        if (plugin.getRanksManager().getDefaultRank() != null) {
+            for (Punishment punishment : profile.getPunishments()) {
+                if (punishment.getType().equals(PunishmentType.BAN) || punishment.getType().equals(PunishmentType.BLACKLIST)) {
+                    event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_BANNED, punishment.getReason());
+                    return;
+                }
+            }
+        }
+    }
+
     @EventHandler(priority = EventPriority.HIGH)
     public void onJoin(PlayerJoinEvent event) {
         Player joinedPlayer = event.getPlayer();
         UUID playerUUID = joinedPlayer.getUniqueId();
-
-        if (FlowerCore.instance.getRanksManager().getDefaultRank() != null) {
-            FlowerCore.instance.getPlayerManager().setupPlayer(joinedPlayer.getUniqueId());
-
-            for (Punishment punishment : FlowerCore.instance.getPlayerManager().getProfile(joinedPlayer.getUniqueId()).getPunishments()) {
-                if (punishment.getType().equals(PunishmentType.BAN) || punishment.getType().equals(PunishmentType.BLACKLIST)) {
-
-                    String punishmessage = CC.translate("&4You've been suspended! \n" + "&cReason: &f" + punishment.getReason() + "\n &cSuspended by: &f" + punishment.getBy() + "\n&cPunishment Type: &f" + punishment.getType());
-
-                    joinedPlayer.kickPlayer(punishmessage);
-                }
-            }
-        }
 
         if (FlowerCore.instance.getConfig("settings.yml").getBoolean("on-join.play-sound.enabled")) {
             String sound = FlowerCore.instance.getConfig("settings.yml").getString("on-join.play-sound.sound");
