@@ -16,6 +16,7 @@ import me.emmiesa.flowercore.commands.admin.rank.RankCommand;
 import me.emmiesa.flowercore.commands.admin.rank.SubCommands.*;
 import me.emmiesa.flowercore.commands.admin.spawn.SetJoinLocation;
 import me.emmiesa.flowercore.commands.admin.spawn.TeleportSpawnCommand;
+import me.emmiesa.flowercore.commands.admin.tags.TagCommand;
 import me.emmiesa.flowercore.commands.admin.teleport.TeleportCommand;
 import me.emmiesa.flowercore.commands.admin.teleport.TeleportHereCommand;
 import me.emmiesa.flowercore.commands.admin.teleport.TeleportPositionCommand;
@@ -56,6 +57,7 @@ public class register {
         new gmcCommand();
         new gmsCommand();
         new gmaCommand();
+        new TagCommand();
         new BanCommand();
         new gmspCommand();
         new HealCommand();

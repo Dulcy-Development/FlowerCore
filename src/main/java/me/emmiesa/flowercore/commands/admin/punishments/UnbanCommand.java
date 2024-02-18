@@ -14,5 +14,9 @@ public class UnbanCommand extends BaseCommand {
             player.sendMessage(CC.translate("&cUsage: /unban (player) (reason) [-s]"));
             return;
         }
+
+        String target = args.getArgs(0);
+        String reason = args.length() > 1 ? args.getArgs(1) : "No reason given";
+        String silentornot = args.length() > 2 ? args.getArgs(2) : "";
     }
 }
