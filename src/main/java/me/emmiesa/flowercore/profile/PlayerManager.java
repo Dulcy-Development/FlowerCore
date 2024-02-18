@@ -4,6 +4,7 @@ package me.emmiesa.flowercore.profile;
 import lombok.Getter;
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.punishments.Punishment;
+import me.emmiesa.flowercore.punishments.PunishmentType;
 import me.emmiesa.flowercore.ranks.Rank;
 import me.emmiesa.flowercore.utils.Utils;
 import org.bukkit.Bukkit;
@@ -27,8 +28,9 @@ public class PlayerManager {
     }
 
     public void addRank(Profile profile) {
-        getProfiles().put(profile.getUuid(), profile);
-        Bukkit.getPlayer(profile.getUuid()).sendMessage("Punishments: " + profile.getPunishments());
+        if (profile != null) {
+            getProfiles().put(profile.getUuid(), profile);
+        }
     }
 
     public Profile getProfile(UUID playerUUID) {
@@ -57,6 +59,10 @@ public class PlayerManager {
         return getProfiles().get(playerUUID).getRank();
     }
 
+
+    /*
+            What lrxh made:
+
     public void addPermissions(UUID playerUUID) {
         Player player = Bukkit.getPlayer(playerUUID);
 
@@ -71,7 +77,31 @@ public class PlayerManager {
         for (String permission : rank.getPermissions()) {
             attachment.setPermission(permission, true);
         }
-        /*CC.sendError(attachment.getPermissions().toString());*/
+        CC.sendError(attachment.getPermissions().toString());
+    }*/
+
+    public void addPermissions(UUID playerUUID) {
+        Player player = Bukkit.getPlayer(playerUUID);
+
+        if (player == null) {
+            return;
+        }
+
+        PermissionAttachment attachment = player.addAttachment(plugin);
+        List<String> defaultPermissions = plugin.getConfig("permissions.yml").getStringList("default.permissions");
+        if (defaultPermissions != null) {
+            for (String permission : defaultPermissions) {
+                attachment.setPermission(permission, true);
+            }
+        }
+
+        Rank rank = plugin.getPlayerManager().getRank(playerUUID);
+        if (rank != null && rank.getPermissions() != null) {
+            for (String permission : rank.getPermissions()) {
+                attachment.setPermission(permission, true);
+            }
+        }
     }
+
 }
 

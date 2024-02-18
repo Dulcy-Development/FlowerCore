@@ -30,31 +30,44 @@ public class PlayerListeners implements Listener {
     }
 
     @EventHandler(priority = EventPriority.MONITOR)
-    public void onJoin(AsyncPlayerPreLoginEvent event) {
+    public void onLogin(AsyncPlayerPreLoginEvent event) {
         UUID playerUUID = event.getUniqueId();
 
-        Profile profile = plugin.getPlayerManager().getProfile(playerUUID);
+        // Ensure PlayerManager and its methods are accessed safely.
+        if (plugin.getPlayerManager() == null) {
+            event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_OTHER, "§cError: Player manager not available.");
+            return;
+        }
 
+        Profile profile = plugin.getPlayerManager().getProfile(playerUUID);
         if (profile == null) {
             plugin.getPlayerManager().setupPlayer(playerUUID);
             profile = plugin.getPlayerManager().getProfile(playerUUID);
 
             if (profile == null) {
-                event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_OTHER, "Could not load your profile. Please try again.");
+                event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_OTHER, "§cCould not load your profile. Please try to rejoin.");
                 return;
             }
         }
 
-        if (plugin.getRanksManager().getDefaultRank() != null) {
-            for (Punishment punishment : profile.getPunishments()) {
-                if (punishment.getType().equals(PunishmentType.BAN) || punishment.getType().equals(PunishmentType.BLACKLIST)) {
-                    String sendpunishmessage = PunishMessage(punishment);
-                    event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_BANNED, sendpunishmessage);
-                    return;
+        if (plugin.getRanksManager().getDefaultRank() != null && profile != null) {
+            List<Punishment> punishments = profile.getPunishments();
+            if (punishments != null) {
+                for (Punishment punishment : punishments) {
+                    if (punishment != null && (punishment.getType().equals(PunishmentType.BAN) || punishment.getType().equals(PunishmentType.BLACKLIST))) {
+                        String sendPunishMessage = PunishMessage(punishment);
+                        if(sendPunishMessage != null) {
+                            event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_BANNED, sendPunishMessage);
+                        } else {
+                            event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_OTHER, "§cAn error occurred.");
+                        }
+                        return;
+                    }
                 }
             }
         }
     }
+
 
     private String PunishMessage(Punishment punishment) {
         String message = CC.translate("\n &cYou have been punished! \n&fPunish Type: &c" + punishment.getType().toString().toLowerCase() + "\n&fPunished By: &c" + Bukkit.getOfflinePlayer(punishment.getBy()).getName() + "\n&fReason: &c" + punishment.getReason() + "\n");
