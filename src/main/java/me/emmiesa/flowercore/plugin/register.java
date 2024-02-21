@@ -67,6 +67,7 @@ public class register {
         new TrollCommand();
         new StoreCommand();
         new SpeedCommand();
+        new CraftCommand();
         new TikTokCommand();
         new YouTubeCommand();
         new DiscordCommand();

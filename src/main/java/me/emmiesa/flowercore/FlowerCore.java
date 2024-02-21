@@ -3,11 +3,13 @@ package me.emmiesa.flowercore;
 import lombok.Getter;
 import lombok.Setter;
 import me.emmiesa.flowercore.announcements.AnnouncementManager;
-import me.emmiesa.flowercore.database.MongoManager;
+import me.emmiesa.flowercore.database.mongo.MongoManager;
 import me.emmiesa.flowercore.extras.scoreboard.ScoreboardLayout;
 import me.emmiesa.flowercore.extras.scoreboard.assemble.Assemble;
 import me.emmiesa.flowercore.extras.scoreboard.assemble.AssembleStyle;
 import me.emmiesa.flowercore.handler.ConfigHandler;
+//import me.emmiesa.flowercore.database.MongoHandler;
+//import me.emmiesa.flowercore.database.redis.RedisHandler;
 import me.emmiesa.flowercore.papi.ProfilePlaceholders;
 import me.emmiesa.flowercore.plugin.register;
 import me.emmiesa.flowercore.plugin.send;
@@ -35,6 +37,8 @@ public class FlowerCore extends JavaPlugin {
     private CommandFramework framework;
     private ConfigHandler configHandler;
     private MongoManager mongoManager;
+    //private MongoHandler mongoHandler;
+    //private RedisHandler redisHandler;
     private RanksManager ranksManager;
     private PlayerManager playerManager;
     private Location spawnLocation;
@@ -59,6 +63,7 @@ public class FlowerCore extends JavaPlugin {
 
         saveDefaultConfig();
         loadSpawnLocation();
+        //setupMongoRedisHandler();
         registerManagers();
         registerScoreboard();
         register.commands();
@@ -132,6 +137,27 @@ public class FlowerCore extends JavaPlugin {
 
         new AnnouncementManager(this);
     }
+
+    /*private void setupMongoRedisHandler(){
+        String host;
+        int port;
+        String password;
+        boolean uri = getConfig("database.yml").getBoolean("MONGO.URI.ENABLED");
+        String connectionString = getConfig("database.yml").getString("MONGO.URI.CONNECTION-STRING");
+        host = getConfig("database.yml").getString("MONGO.DEFAULT.HOST");
+        port = getConfig("database.yml").getInt("MONGO.DEFAULT.PORT");
+        String database = getConfig("database.yml").getString("MONGO.DEFAULT.DATABASE");
+        boolean authentication = getConfig("database.yml").getBoolean("MONGO.DEFAULT.AUTHENTICATION.ENABLED");
+        String username = getConfig("database.yml").getString("MONGO.DEFAULT.AUTHENTICATION.USERNAME");
+        password = getConfig("database.yml").getString("MONGO.DEFAULT.AUTHENTICATION.PASSWORD");
+        mongoHandler = new MongoHandler(uri, connectionString, host, port, database, authentication, username, password);
+        host = getConfig("database.yml").getString("REDIS.HOST");
+        port = getConfig("database.yml").getInt("REDIS.PORT");
+        String channel = getConfig("database.yml").getString("REDIS.CHANNEL");
+        password = getConfig("database.yml").getString("REDIS.PASSWORD");
+        redisHandler = new RedisHandler(host, port, channel, password);
+        redisHandler.connect();
+    }*/
 
     private void registerScoreboard() {
         if (FlowerCore.instance.getConfig("extras.yml").getBoolean("scoreboard.enabled")) {

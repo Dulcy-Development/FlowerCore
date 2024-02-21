@@ -1,4 +1,4 @@
-package me.emmiesa.flowercore.database;
+package me.emmiesa.flowercore.database.mongo;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
