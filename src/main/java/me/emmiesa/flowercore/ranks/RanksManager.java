@@ -65,6 +65,7 @@ public class RanksManager {
         config.set(key + ".icon", rank.getIcon().toString());
         config.set(key + ".prefix", rank.getPrefix());
         config.set(key + ".suffix", rank.getSuffix());
+        config.set(key + ".color", rank.getColor());
         config.set(key + ".priority", rank.getPriority());
         config.set(key + ".default", rank.isDefaultRank());
         config.set(key + ".staff", rank.isStaff());

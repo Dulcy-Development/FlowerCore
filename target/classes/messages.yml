@@ -67,7 +67,7 @@ rank:
   setprefix: "&aSuccessfully set &a'%prefix%&a' as prefix of the &r%rank% &arank!"
   setsuffix: "&aSuccessfully set &a'%suffix%&a' as suffix of the &r%rank% &arank!"
   setdefault: "&aSuccessfully set default &r%state% &afor the &r%rank% &arank!"
-  set-color: "&aSuccessfully set &r%color% &aas color of the &r%rank% &arank!"
+  set-color: "&aSuccessfully set &r%color%&l● &aas color of the &r%rank% &arank!"
   setpriority: "&aSuccessfully set the priority of the &r%rank% &arank to &b%priority%&a!"
   does-not-exist: "&cThe %rank% &crank does not exist!"
   set-displayname: "&aSuccessfully set &r%display-name% &aas display name of the &r%rank% &arank!"
