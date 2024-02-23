@@ -10,7 +10,7 @@ public class CraftCommand extends BaseCommand {
 
     @Override
     public void onCommand(CommandArgs command) {
-        Player player = (Player) command;
+        Player player = command.getPlayer();
         player.openWorkbench(player.getLocation(), true);
     }
 }
