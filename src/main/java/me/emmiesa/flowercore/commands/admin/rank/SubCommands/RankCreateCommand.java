@@ -27,7 +27,7 @@ public class RankCreateCommand extends BaseCommand {
 
     public void create(Player player, String rankName) {
         List<String> permissions = Collections.singletonList("none");
-        Rank rank = new Rank(rankName, "&7" + rankName, Material.IRON_INGOT, "&7" + rankName, "&7", 0, false, false, permissions);
+        Rank rank = new Rank(rankName, "&7" + rankName, Material.IRON_INGOT, "&7" + rankName, "&7", "&7", 0, false, false, permissions);
         FlowerCore.getInstance().getRanksManager().getRanks().add(rank);
         player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.created")).replace("%rank%", rankName));
         player.sendMessage(CC.translate("&c(!) Don't forget to save you ranks by doing /rank save when you're done setting them up (!)"));

@@ -38,6 +38,7 @@ me\emmiesa\flowercore\utils\command\BukkitCompleter.class
 me\emmiesa\flowercore\commands\admin\teleport\TeleportPositionCommand.class
 me\emmiesa\flowercore\utils\chat\CC.class
 me\emmiesa\flowercore\utils\command\Command.class
+me\emmiesa\flowercore\commands\admin\rank\SubCommands\RankSetColorCommand.class
 me\emmiesa\flowercore\commands\global\WebsiteCommand.class
 me\emmiesa\flowercore\commands\admin\rank\GrantCommand.class
 me\emmiesa\flowercore\extras\scoreboard\assemble\board\AssembleBoardEntry.class

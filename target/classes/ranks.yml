@@ -7,6 +7,7 @@ ranks:
     priority: 100
     default: false
     staff: true
+    color: "&4"
     permissions:
       - '*'
       - none
@@ -18,6 +19,7 @@ ranks:
     priority: 50
     default: false
     staff: true
+    color: "&c"
     permissions:
       - none
   Developer:
@@ -28,6 +30,7 @@ ranks:
     priority: 40
     default: false
     staff: true
+    color: "&b"
     permissions:
       - none
   MVP:
@@ -38,6 +41,7 @@ ranks:
     priority: 10
     default: false
     staff: false
+    color: "&b"
     permissions:
       - none
   Default:
@@ -48,5 +52,6 @@ ranks:
     priority: 1
     default: true
     staff: false
+    color: "&a"
     permissions:
       - none

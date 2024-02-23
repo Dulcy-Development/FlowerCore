@@ -15,6 +15,7 @@ public class Rank {
     private String displayName;
     private Material icon;
     private String prefix;
+    private String color;
     private String suffix;
     private int priority;
     private boolean defaultRank;

@@ -97,6 +97,7 @@ public class Register {
         new RankCreateCommand();
         new RankSetIconCommand();
         new RankSetStaffCommand();
+        new RankSetColorCommand();
         new RankSetSuffixCommand();
         new RankSetPrefixCommand();
         new RankSetDisplayCommand();

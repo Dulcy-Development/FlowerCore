@@ -22,6 +22,7 @@ public class RankCommand extends BaseCommand {
             add.add("list");
 
             add.add("setdisplay");
+            add.add("setcolor");
             add.add("seticon");
             add.add("setprefix");
             add.add("setsuffix");
@@ -48,6 +49,7 @@ public class RankCommand extends BaseCommand {
         player.sendMessage(" ");
         player.sendMessage(CC.translate("&b&lRank Customization Help:"));
         player.sendMessage(CC.translate(" &f● &b/rank setDisplay &8<&7name&8> &8<&7displayName&8>  &8| &7Set display name."));
+        player.sendMessage(CC.translate(" &f● &b/rank setColor &8<&7name&8> &8<&7color-code&8>  &8| &7Set rank color."));
         player.sendMessage(CC.translate(" &f● &b/rank setIcon &8<&7name&8>  &8| &7Set icon."));
         player.sendMessage(CC.translate(" &f● &b/rank setPrefix &8<&7name&8> &8<&7prefix&8>  &8| &7Set prefix."));
         player.sendMessage(CC.translate(" &f● &b/rank setSuffix &8<&7name&8> &8<&7suffix&8>  &8| &7Set suffix."));

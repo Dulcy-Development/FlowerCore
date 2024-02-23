@@ -31,6 +31,7 @@ public class RanksManager {
                     Material.matchMaterial(config.getString(key + ".icon")),
                     config.getString(key + ".prefix"),
                     config.getString(key + ".suffix"),
+                    config.getString(key + ".color"),
                     config.getInt(key + ".priority"),
                     config.getBoolean(key + ".default"),
                     config.getBoolean(key + ".staff"),
