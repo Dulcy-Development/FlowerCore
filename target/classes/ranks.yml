@@ -23,7 +23,7 @@ ranks:
   Developer:
     displayName: '&bDeveloper'
     icon: APPLE
-    prefix: '&7[&bDeveloper&7] &c'
+    prefix: '&7[&bDeveloper&7] &b'
     suffix: '&7'
     priority: 40
     default: false

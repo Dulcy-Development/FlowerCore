@@ -41,7 +41,6 @@ me\emmiesa\flowercore\utils\command\Command.class
 me\emmiesa\flowercore\commands\global\WebsiteCommand.class
 me\emmiesa\flowercore\commands\admin\rank\GrantCommand.class
 me\emmiesa\flowercore\extras\scoreboard\assemble\board\AssembleBoardEntry.class
-me\emmiesa\flowercore\plugin\register.class
 me\emmiesa\flowercore\Locale.class
 me\emmiesa\flowercore\ranks\Rank.class
 me\emmiesa\flowercore\punishments\PunishmentType.class
@@ -58,6 +57,7 @@ me\emmiesa\flowercore\utils\command\CommandFramework.class
 me\emmiesa\flowercore\database\mongo\MongoManager.class
 me\emmiesa\flowercore\ranks\RanksManager.class
 me\emmiesa\flowercore\extras\scoreboard\assemble\AssembleAdapter.class
+me\emmiesa\flowercore\plugin\Register.class
 me\emmiesa\flowercore\utils\chat\JSONMessage$1.class
 me\emmiesa\flowercore\menus\settings\SettingsMenu.class
 me\emmiesa\flowercore\commands\global\PluginCommand.class
@@ -82,7 +82,6 @@ me\emmiesa\flowercore\utils\chat\StringUtil.class
 me\emmiesa\flowercore\commands\admin\spawn\TeleportSpawnCommand$1.class
 me\emmiesa\flowercore\commands\admin\troll\TrollCommand.class
 me\emmiesa\flowercore\menus\grant\button\GrantButton.class
-me\emmiesa\flowercore\plugin\send.class
 me\emmiesa\flowercore\commands\admin\essential\GodModeCommand.class
 me\emmiesa\flowercore\commands\admin\rank\SubCommands\RankSetIconCommand.class
 me\emmiesa\flowercore\utils\command\Completer.class
