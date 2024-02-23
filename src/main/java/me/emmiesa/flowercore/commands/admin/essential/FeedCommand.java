@@ -24,7 +24,7 @@ public class FeedCommand extends BaseCommand {
                 player.sendMessage(CC.translate("&fNo player matching that name &bis &fconnected to this server."));
             }
         } else {
-            player.sendMessage("Usage: /feed [player]");
+            player.sendMessage("Usage: /feed (player)");
         }
     }
 

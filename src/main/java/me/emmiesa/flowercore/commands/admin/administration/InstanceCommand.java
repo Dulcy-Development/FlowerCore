@@ -15,14 +15,6 @@ public class InstanceCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         CommandSender sender = command.getSender();
 
-        /*sender.sendMessage(CC.CHAT_BAR);
-        sender.sendMessage(CC.translate("&b&lServer Instance"));
-        sender.sendMessage(CC.CHAT_BAR);
-        sender.sendMessage(CC.translate("&8 ▸ &7Server&f: &b" + Lang.SERVER_NAME));
-        sender.sendMessage(CC.translate("&8 ▸ &7Version&f: &b" + Bukkit.getServer().getVersion()));
-        sender.sendMessage(CC.translate("&8 ▸ &7Players&f: &b" + Bukkit.getServer().getOnlinePlayers().size() + "/" + Bukkit.getServer().getMaxPlayers()));
-        sender.sendMessage(CC.CHAT_BAR);*/
-
         sender.sendMessage(" ");
         sender.sendMessage(CC.translate("&b&lServer Info"));
         sender.sendMessage(" ");

@@ -24,7 +24,7 @@ public class HealCommand extends BaseCommand {
                 player.sendMessage(CC.translate("&fNo player matching that name &bis &fconnected to this server."));
             }
         } else {
-            player.sendMessage("Usage: /heal [player]");
+            player.sendMessage("Usage: /heal (player)");
         }
     }
 

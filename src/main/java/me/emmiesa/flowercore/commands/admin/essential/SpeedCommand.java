@@ -29,7 +29,7 @@ public class SpeedCommand extends BaseCommand {
         return add;
     }
 
-    @Command(name = "speed", permission = "flowercore.cmd.speed")
+    @Command(name = "speed", permission = "flower.command.speed")
 
     @Override
     public void onCommand(CommandArgs cmd) {
