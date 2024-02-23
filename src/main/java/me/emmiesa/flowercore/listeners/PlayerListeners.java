@@ -76,6 +76,10 @@ public class PlayerListeners implements Listener {
     }
 
 
+    // ^ DOES NOT WORK PROPERLY ;( PLAYER HAS ACTIVE BLACKLIST BUT CAN JOIN AFTER SERVER RESTART
+
+
+
     private String banpunishmessage(Punishment punishment) {
         //String message = CC.translate("&cYou have been punished! \n&fPunish Type: &c" + punishment.getType().toString().toLowerCase() + "\n&fPunished By: &c" + Bukkit.getOfflinePlayer(punishment.getBy()).getName() + "\n&fReason: &c" + punishment.getReason() + "\n");
         String message = CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punishments.ban").replace("%punisher%", Bukkit.getOfflinePlayer(punishment.getBy()).getName()).replace("%reason%", punishment.getReason()));
