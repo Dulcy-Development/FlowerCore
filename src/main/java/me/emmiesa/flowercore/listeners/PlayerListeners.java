@@ -87,7 +87,7 @@ public class PlayerListeners implements Listener {
         return message;
     }
 
-    @EventHandler(priority = EventPriority.HIGH)
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onJoin(PlayerJoinEvent event) {
         Player joinedPlayer = event.getPlayer();
         UUID playerUUID = joinedPlayer.getUniqueId();
