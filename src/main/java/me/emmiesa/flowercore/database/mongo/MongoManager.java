@@ -28,7 +28,7 @@ public class MongoManager {
         String uri = FlowerCore.getInstance().getConfig("database.yml").getString("database.uri");
         mongoClient = MongoClients.create(uri);
 
-        MongoDatabase database = getMongoClient().getDatabase("bgawjpyhnj5ikv4");
+        MongoDatabase database = getMongoClient().getDatabase(FlowerCore.getInstance().getConfig("database.yml").getString("database.collection"));
         String collectionName = FlowerCore.getInstance().getConfig("database.yml").getString("database.collection");
 
         if (!collectionExists(database, collectionName)) {
