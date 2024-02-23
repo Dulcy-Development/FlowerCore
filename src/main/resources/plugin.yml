@@ -1,7 +1,7 @@
 name: FlowerCore
 version: '${project.version}'
 main: me.emmiesa.flowercore.FlowerCore
-author: Emmiesa
+authors: ["Emmiesa", "Remi"]
 description: '${project.description}'
 website: https://dsg.gg/emmiesa
 softdepend:

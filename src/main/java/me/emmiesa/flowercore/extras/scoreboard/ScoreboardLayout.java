@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ScoreboardLayout implements AssembleAdapter {
 
-    private final FlowerCore plugin = FlowerCore.get();
+    private final FlowerCore plugin = FlowerCore.getInstance();
 
     @Override
     public String getTitle(Player player) {

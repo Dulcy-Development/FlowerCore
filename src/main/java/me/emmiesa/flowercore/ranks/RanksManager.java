@@ -37,7 +37,7 @@ public class RanksManager {
                     config.getStringList(key + ".permissions")
             );
 
-            getRanks().add(rank);
+            ranks.add(rank);
 
             if (rank.isDefaultRank()) {
                 setDefaultRank(rank);
@@ -46,18 +46,18 @@ public class RanksManager {
     }
 
     public Rank getRank(String name) {
-        return getRanks().stream()
+        return ranks.stream()
                 .filter(rank -> rank.getName().equalsIgnoreCase(name))
                 .findFirst()
                 .orElse(null);
     }
 
     public void saveToFile() {
-        getRanks().forEach(this::saveRank);
+        ranks.forEach(this::saveRank);
     }
 
     public void saveRank(Rank rank) {
-        FileConfiguration config = getPlugin().getConfigHandler().getRanksConfig();
+        FileConfiguration config = getPlugin().getConfigHandler().getConfigByName("ranks.yml");
         String key = "ranks." + rank.getName();
 
         config.set(key + ".displayName", rank.getDisplayName());
@@ -69,10 +69,10 @@ public class RanksManager {
         config.set(key + ".staff", rank.isStaff());
         config.set(key + ".permissions", rank.getPermissions());
 
-        getPlugin().getConfigHandler().saveConfig(getPlugin().getConfigHandler().getRanksConfigFile(), config);
+        getPlugin().getConfigHandler().saveConfig(getPlugin().getConfigHandler().getConfigFileByName("ranks.yml"), config);
     }
 
     public Rank getPlayerRank(Player player) {
-        return null;
+        return FlowerCore.getInstance().getPlayerManager().getRank(player.getUniqueId());
     }
 }

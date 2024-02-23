@@ -13,7 +13,7 @@ import java.lang.reflect.Method;
 
 public class TrollSilentCommand extends BaseCommand {
 
-    private final FlowerCore plugin = FlowerCore.get();
+    private final FlowerCore plugin = FlowerCore.getInstance();
 
     @Command(name = "trollsilent", aliases = "silenttroll", inGameOnly = false, permission = "flowercore.command.troll")
     public void onCommand(CommandArgs args) {

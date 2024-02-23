@@ -50,6 +50,8 @@ public class PlayerManager {
         List<Punishment> punishments = profile.getPunishments();
         if (punishments == null) {
             punishments = new ArrayList<>();
+        } else {
+            punishments = new ArrayList<>(punishments);
         }
         punishments.add(punishment);
         profile.setPunishments(punishments);
@@ -58,27 +60,6 @@ public class PlayerManager {
     public Rank getRank(UUID playerUUID) {
         return getProfiles().get(playerUUID).getRank();
     }
-
-
-    /*
-            What lrxh made:
-
-    public void addPermissions(UUID playerUUID) {
-        Player player = Bukkit.getPlayer(playerUUID);
-
-        PermissionAttachment attachment = player.addAttachment(plugin);
-
-        for (String permission : plugin.getConfig("permissions.yml").getStringList("default.permissions")) {
-            attachment.setPermission(permission, true);
-        }
-
-        Rank rank = plugin.getPlayerManager().getRank(playerUUID);
-
-        for (String permission : rank.getPermissions()) {
-            attachment.setPermission(permission, true);
-        }
-        CC.sendError(attachment.getPermissions().toString());
-    }*/
 
     public void addPermissions(UUID playerUUID) {
         Player player = Bukkit.getPlayer(playerUUID);
@@ -102,6 +83,5 @@ public class PlayerManager {
             }
         }
     }
-
 }
 

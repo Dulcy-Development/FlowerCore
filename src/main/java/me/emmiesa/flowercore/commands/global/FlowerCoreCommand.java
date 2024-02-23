@@ -14,7 +14,7 @@ import java.util.List;
 
 public class FlowerCoreCommand extends BaseCommand {
 
-    private final FlowerCore plugin = FlowerCore.get();
+    private final FlowerCore plugin = FlowerCore.getInstance();
 
     @Completer(name = "flower", aliases = {"flowercore", "core"})
     public List<String> flowerCompleter(CommandArgs args) {
@@ -33,7 +33,7 @@ public class FlowerCoreCommand extends BaseCommand {
             sender.sendMessage(" ");
             sender.sendMessage(CC.FLOWER_BAR);
             sender.sendMessage(CC.translate("  &b&l   FlowerCore"));
-            sender.sendMessage(CC.translate("      &f┃ Author: &b" + plugin.getDescription().getAuthors().get(0)));
+            sender.sendMessage(CC.translate("      &f┃ Author: &b" + plugin.getDescription().getAuthors().toString().replace("[", "").replace("]", "")));
             sender.sendMessage(CC.translate("      &f┃ Version: &b" + plugin.getDescription().getVersion()));
             sender.sendMessage(CC.translate(" "));
             sender.sendMessage(CC.translate("  &b&l   Description:"));

@@ -30,20 +30,17 @@ public class BlacklistCommand extends BaseCommand {
         String silentornot = args.length() > 3 ? args.getArgs(3) : "";
 
         Player bannedBy = args.getPlayer();
-        //UUID playerUUID = player.getUniqueId();
 
-        Player targetPlayer = FlowerCore.instance.getServer().getPlayer(target);
+        Player targetPlayer = FlowerCore.getInstance().getServer().getPlayer(target);
         if (target == null) {
             bannedBy.sendMessage(CC.translate("&cPlayer not found!"));
             return;
         }
 
-        Punishment punishment = new Punishment(UUID.randomUUID(), bannedBy.getUniqueId(), PunishmentType.BLACKLIST, reason, targetPlayer.getAddress().getAddress().getHostAddress(), silentornot.equalsIgnoreCase("-s"));
+        Punishment punishment = new Punishment(UUID.randomUUID(), targetPlayer.getName(), bannedBy.getUniqueId(), PunishmentType.BLACKLIST, reason, targetPlayer.getAddress().getAddress().getHostAddress(), silentornot.equalsIgnoreCase("-s"));
         FlowerCore.getInstance().getPlayerManager().addPunishment(targetPlayer.getUniqueId(), punishment);
 
         targetPlayer.kickPlayer(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punishments.blacklist").replace("%punisher%", Bukkit.getOfflinePlayer(punishment.getBy()).getName()).replace("%reason%", punishment.getReason())));
-        //targetPlayer.kickPlayer(CC.translate("&cYou have been punished! \n&fPunish Type: &c" + punishment.getType().toString().toLowerCase() + "\n&fPunished By: &c" + Bukkit.getOfflinePlayer(punishment.getBy()).getName() + "\n&fReason: &c" + punishment.getReason() + "\n"));
         Utils.broadcastMessage(CC.translate(bannedBy.getDisplayName() + " has blacklisted " + targetPlayer.getName() + " for " + reason + ". Duration: " + duration + (silentornot.equalsIgnoreCase("-s") ? " [Silently]" : "")));
-
     }
 }

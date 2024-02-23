@@ -9,120 +9,61 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 @Getter
 public class ConfigHandler {
 
-    private final File defaultConfigFile;
-    private final File settingsConfigFile;
-    private final File messagesConfigFile;
-    private final File commandsConfigFile;
-    private final File databaseConfigFile;
-    private final File extrasConfigFile;
-    private final File ranksConfigFile;
-    private final File permissionsConfigFile;
-    private final File placeholdersConfigFile;
-    private final FileConfiguration defaultConfig;
-    private final FileConfiguration settingsConfig;
-    private final FileConfiguration messagesConfig;
-    private final FileConfiguration commandsConfig;
-    private final FileConfiguration databaseConfig;
-    private final FileConfiguration extrasConfig;
-    private final FileConfiguration ranksConfig;
-    private final FileConfiguration permissionsConfig;
-    private final FileConfiguration placeholdersConfig;
-    FlowerCore plugin = FlowerCore.getInstance();
+    private final FlowerCore plugin = FlowerCore.getInstance();
+
+    private final Map<String, File> configFiles = new HashMap<>();
+    private final Map<String, FileConfiguration> fileConfigurations = new HashMap<>();
+
+    private final String[] configFileNames = {
+            "config.yml", "settings.yml", "messages.yml", "commands.yml", "database.yml", "extras.yml", "ranks.yml", "permissions.yml", "placeholders.yml"
+    };
 
     public ConfigHandler() {
-        defaultConfigFile = new File(plugin.getDataFolder(), "config.yml");
-        if (!defaultConfigFile.exists()) {
-            defaultConfigFile.getParentFile().mkdirs();
-            plugin.saveResource("config.yml", false);
+        for (String fileName : configFileNames) {
+            loadConfig(fileName);
         }
-        defaultConfig = YamlConfiguration.loadConfiguration(defaultConfigFile);
-
-        // default ^
-
-        settingsConfigFile = new File(plugin.getDataFolder(), "settings.yml");
-        if (!settingsConfigFile.exists()) {
-            settingsConfigFile.getParentFile().mkdirs();
-            plugin.saveResource("settings.yml", false);
-        }
-        settingsConfig = YamlConfiguration.loadConfiguration(settingsConfigFile);
-
-        // settings ^
-
-        messagesConfigFile = new File(plugin.getDataFolder(), "messages.yml");
-        if (!messagesConfigFile.exists()) {
-            messagesConfigFile.getParentFile().mkdirs();
-            plugin.saveResource("messages.yml", false);
-        }
-        messagesConfig = YamlConfiguration.loadConfiguration(messagesConfigFile);
-
-        // messages ^
-
-        commandsConfigFile = new File(plugin.getDataFolder(), "commands.yml");
-        if (!commandsConfigFile.exists()) {
-            commandsConfigFile.getParentFile().mkdirs();
-            plugin.saveResource("commands.yml", false);
-        }
-        commandsConfig = YamlConfiguration.loadConfiguration(commandsConfigFile);
-
-        // commands ^
-
-        databaseConfigFile = new File(plugin.getDataFolder(), "database.yml");
-        if (!databaseConfigFile.exists()) {
-            databaseConfigFile.getParentFile().mkdirs();
-            plugin.saveResource("database.yml", false);
-        }
-        databaseConfig = YamlConfiguration.loadConfiguration(databaseConfigFile);
-
-        //database ^
-
-        extrasConfigFile = new File(plugin.getDataFolder(), "extras.yml");
-        if (!extrasConfigFile.exists()) {
-            extrasConfigFile.getParentFile().mkdirs();
-            plugin.saveResource("extras.yml", false);
-        }
-        extrasConfig = YamlConfiguration.loadConfiguration(extrasConfigFile);
-
-        //extras ^
-
-        ranksConfigFile = new File(plugin.getDataFolder(), "ranks.yml");
-        if (!ranksConfigFile.exists()) {
-            ranksConfigFile.getParentFile().mkdirs();
-            plugin.saveResource("ranks.yml", false);
-        }
-        ranksConfig = YamlConfiguration.loadConfiguration(ranksConfigFile);
-
-        //ranks ^
-
-        permissionsConfigFile = new File(plugin.getDataFolder(), "permissions.yml");
-        if (!permissionsConfigFile.exists()) {
-            permissionsConfigFile.getParentFile().mkdirs();
-            plugin.saveResource("permissions.yml", false);
-        }
-        permissionsConfig = YamlConfiguration.loadConfiguration(permissionsConfigFile);
-
-        //permissions ^
-
-        placeholdersConfigFile = new File(plugin.getDataFolder(), "placeholders.yml");
-        if (!placeholdersConfigFile.exists()) {
-            placeholdersConfigFile.getParentFile().mkdirs();
-            plugin.saveResource("placeholders.yml", false);
-        }
-        placeholdersConfig = YamlConfiguration.loadConfiguration(placeholdersConfigFile);
-
-        //placeholders ^
     }
 
-    public void saveConfig(File config, FileConfiguration fileConfiguration) {
+    private void loadConfig(String fileName) {
+        File configFile = new File(plugin.getDataFolder(), fileName);
+        configFiles.put(fileName, configFile);
+        if (!configFile.exists()) {
+            configFile.getParentFile().mkdirs();
+            plugin.saveResource(fileName, false);
+        }
+        FileConfiguration config = YamlConfiguration.loadConfiguration(configFile);
+        fileConfigurations.put(fileName, config);
+    }
+
+    public void saveConfigs() {
+        for (Map.Entry<String, FileConfiguration> entry : fileConfigurations.entrySet()) {
+            String fileName = entry.getKey();
+            FileConfiguration config = entry.getValue();
+            File configFile = configFiles.get(fileName);
+            saveConfig(configFile, config);
+        }
+    }
+
+    public void saveConfig(File configFile, FileConfiguration fileConfiguration) {
         try {
-            fileConfiguration.save(config);
-            fileConfiguration.load(config);
-        } catch (IOException | InvalidConfigurationException e) {
-            CC.sendError("Error occurred while saving config");
+            fileConfiguration.save(configFile);
+            fileConfiguration.load(configFile);
+        } catch (Exception e) {
+            CC.sendError("Error occurred while saving config: " + configFile.getName());
         }
     }
 
+    public FileConfiguration getConfigByName(String fileName) {
+        return fileConfigurations.get(fileName);
+    }
+
+    public File getConfigFileByName(String fileName) {
+        return configFiles.get(fileName);
+    }
 }

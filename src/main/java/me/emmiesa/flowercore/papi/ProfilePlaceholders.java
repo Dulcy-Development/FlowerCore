@@ -17,7 +17,7 @@ public class ProfilePlaceholders extends PlaceholderExpansion {
 
     @Override
     public @NotNull String getAuthor() {
-        return "Emmiesa";
+        return FlowerCore.getInstance().getDescription().getAuthors().toString().replace("[", "").replace("]", "");
     }
 
     @Override

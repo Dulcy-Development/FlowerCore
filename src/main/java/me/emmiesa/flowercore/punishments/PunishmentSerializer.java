@@ -1,5 +1,7 @@
 package me.emmiesa.flowercore.punishments;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import lombok.experimental.UtilityClass;
 
 import java.util.ArrayList;
@@ -10,47 +12,37 @@ import java.util.UUID;
 @UtilityClass
 public class PunishmentSerializer {
 
+    private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
     public static List<String> serialize(List<Punishment> punishments) {
-        if (punishments == null) {
-            return Collections.singletonList("null");
+        if (punishments == null || punishments.isEmpty()) {
+            return Collections.emptyList();
         }
+
         List<String> serialized = new ArrayList<>();
         for (Punishment punishment : punishments) {
-            serialized.add(punishment.getUuid()
-                    + ":" + punishment.getType().toString()
-                    + ":" + punishment.getBy().toString()
-                    + ":" + punishment.getReason()
-                    + ":" + punishment.getPunishedIP()
-                    + ":" + punishment.isIp());
+            serialized.add(serializePunishment(punishment));
         }
-        // uuid:type:by:reason:punishedIP:isIP
-
         return serialized;
     }
 
     public static List<Punishment> deserialize(List<String> serialized) {
-        if (serialized == null || serialized.isEmpty() || serialized.get(0).equals("null")) {
-            return null;
+        if (serialized == null || serialized.isEmpty() || serialized.get(0).isEmpty()) {
+            return Collections.emptyList();
         }
 
         List<Punishment> punishments = new ArrayList<>();
         for (String s : serialized) {
-            String[] parts = s.split(":");
-            System.out.println(parts.length);
-            if (parts.length == 6) {
-                UUID uuid = UUID.fromString(parts[0]);
-                PunishmentType type = PunishmentType.valueOf(parts[1]);
-                UUID by = UUID.fromString(parts[2]);
-                String reason = parts[3];
-                String punishedIP = parts[4];
-                boolean ip = Boolean.parseBoolean(parts[5]);
-
-                Punishment punishment = new Punishment(uuid, by, type, reason, punishedIP, ip);
-                punishments.add(punishment);
-            }
+            punishments.add(deserializePunishment(s));
         }
-
         return punishments;
     }
 
+    private static String serializePunishment(Punishment punishment) {
+        return gson.toJson(punishment);
+    }
+
+    private static Punishment deserializePunishment(String serialized) {
+        return gson.fromJson(serialized, Punishment.class);
+    }
 }

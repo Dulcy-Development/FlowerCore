@@ -15,7 +15,7 @@ import java.util.List;
 
 public class TrollEverybodyCommand extends BaseCommand {
 
-    private final FlowerCore plugin = FlowerCore.get();
+    private final FlowerCore plugin = FlowerCore.getInstance();
 
     @Command(name = "trolleverybody", aliases = "trollall", inGameOnly = false, permission = "flowercore.command.trolleverybody")
     public void onCommand(CommandArgs args) {

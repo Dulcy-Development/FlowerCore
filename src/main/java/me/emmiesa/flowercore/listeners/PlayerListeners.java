@@ -49,46 +49,35 @@ public class PlayerListeners implements Listener {
             }
         }
 
-        if (plugin.getRanksManager().getDefaultRank() != null && profile != null) {
-            List<Punishment> punishments = profile.getPunishments();
-            if (punishments != null) {
-                for (Punishment punishment : punishments) {
-                    if (punishment != null && (punishment.getType().equals(PunishmentType.BAN))) {
-                        String sendBanPunishMessage = banpunishmessage(punishment);
-                        if(sendBanPunishMessage != null) {
-                            event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_BANNED, sendBanPunishMessage);
-                        } else {
-                            event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_OTHER, "§cAn error occurred.");
-                        }
-                        return;
-                    } else if (punishment != null && (punishment.getType().equals(PunishmentType.BLACKLIST))) {
-                        String sendBlacklistPunishMessage = blacklistpunishmessage(punishment);
-                        if(sendBlacklistPunishMessage != null) {
-                            event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_BANNED, sendBlacklistPunishMessage);
-                        } else {
-                            event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_OTHER, "§cAn error occurred.");
-                        }
-                        return;
-                    }
-                }
+        if (plugin.getRanksManager().getDefaultRank() == null) {
+            event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_OTHER, "§cError: Default rank not set.");
+            return;
+        }
+
+        List<Punishment> punishments = profile.getPunishments();
+        if (punishments == null) {
+            return;
+        }
+
+        for (Punishment punishment : punishments) {
+            if (punishment != null && (punishment.getType().equals(PunishmentType.BAN))) {
+                String sendBanPunishMessage = banPunishMessage(punishment);
+                event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_BANNED, sendBanPunishMessage);
+                return;
+            } else if (punishment != null && (punishment.getType().equals(PunishmentType.BLACKLIST))) {
+                String sendBlacklistPunishMessage = blacklistPunishMessage(punishment);
+                event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_BANNED, sendBlacklistPunishMessage);
+                return;
             }
         }
     }
 
-
-    // ^ DOES NOT WORK PROPERLY ;( PLAYER HAS ACTIVE BLACKLIST BUT CAN JOIN AFTER SERVER RESTART
-
-
-
-    private String banpunishmessage(Punishment punishment) {
-        //String message = CC.translate("&cYou have been punished! \n&fPunish Type: &c" + punishment.getType().toString().toLowerCase() + "\n&fPunished By: &c" + Bukkit.getOfflinePlayer(punishment.getBy()).getName() + "\n&fReason: &c" + punishment.getReason() + "\n");
-        String message = CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punishments.ban").replace("%punisher%", Bukkit.getOfflinePlayer(punishment.getBy()).getName()).replace("%reason%", punishment.getReason()));
-        return message;
+    private String banPunishMessage(Punishment punishment) {
+        return CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punishments.ban").replace("%punisher%", Bukkit.getOfflinePlayer(punishment.getBy()).getName()).replace("%reason%", punishment.getReason()));
     }
-    private String blacklistpunishmessage(Punishment punishment) {
-        //String message = CC.translate("&cYou have been punished! \n&fPunish Type: &c" + punishment.getType().toString().toLowerCase() + "\n&fPunished By: &c" + Bukkit.getOfflinePlayer(punishment.getBy()).getName() + "\n&fReason: &c" + punishment.getReason() + "\n");
-        String message = CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punishments.blacklist").replace("%punisher%", Bukkit.getOfflinePlayer(punishment.getBy()).getName()).replace("%reason%", punishment.getReason()));
-        return message;
+
+    private String blacklistPunishMessage(Punishment punishment) {
+        return CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punishments.blacklist").replace("%punisher%", Bukkit.getOfflinePlayer(punishment.getBy()).getName()).replace("%reason%", punishment.getReason()));
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
@@ -96,8 +85,8 @@ public class PlayerListeners implements Listener {
         Player joinedPlayer = event.getPlayer();
         UUID playerUUID = joinedPlayer.getUniqueId();
 
-        if (FlowerCore.instance.getConfig("settings.yml").getBoolean("on-join.play-sound.enabled")) {
-            String sound = FlowerCore.instance.getConfig("settings.yml").getString("on-join.play-sound.sound");
+        if (FlowerCore.getInstance().getConfig("settings.yml").getBoolean("on-join.play-sound.enabled")) {
+            String sound = FlowerCore.getInstance().getConfig("settings.yml").getString("on-join.play-sound.sound");
             joinedPlayer.playSound(joinedPlayer.getLocation(), Sound.valueOf(sound), 1.0F, 1.0F);
         }
 
