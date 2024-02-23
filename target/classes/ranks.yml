@@ -20,6 +20,16 @@ ranks:
     staff: true
     permissions:
       - none
+  Developer:
+    displayName: '&bDeveloper'
+    icon: APPLE
+    prefix: '&7[&bDeveloper&7] &c'
+    suffix: '&7'
+    priority: 40
+    default: false
+    staff: true
+    permissions:
+      - none
   MVP:
     displayName: '&bMVP'
     icon: DIAMOND

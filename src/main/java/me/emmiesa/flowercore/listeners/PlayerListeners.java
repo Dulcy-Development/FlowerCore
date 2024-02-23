@@ -33,7 +33,6 @@ public class PlayerListeners implements Listener {
     public void onLogin(AsyncPlayerPreLoginEvent event) {
         UUID playerUUID = event.getUniqueId();
 
-        // Ensure PlayerManager and its methods are accessed safely.
         if (plugin.getPlayerManager() == null) {
             event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_OTHER, "§cError: Player manager not available.");
             return;
@@ -54,10 +53,18 @@ public class PlayerListeners implements Listener {
             List<Punishment> punishments = profile.getPunishments();
             if (punishments != null) {
                 for (Punishment punishment : punishments) {
-                    if (punishment != null && (punishment.getType().equals(PunishmentType.BAN) || punishment.getType().equals(PunishmentType.BLACKLIST))) {
-                        String sendPunishMessage = PunishMessage(punishment);
-                        if(sendPunishMessage != null) {
-                            event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_BANNED, sendPunishMessage);
+                    if (punishment != null && (punishment.getType().equals(PunishmentType.BAN))) {
+                        String sendBanPunishMessage = banpunishmessage(punishment);
+                        if(sendBanPunishMessage != null) {
+                            event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_BANNED, sendBanPunishMessage);
+                        } else {
+                            event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_OTHER, "§cAn error occurred.");
+                        }
+                        return;
+                    } else if (punishment != null && (punishment.getType().equals(PunishmentType.BLACKLIST))) {
+                        String sendBlacklistPunishMessage = blacklistpunishmessage(punishment);
+                        if(sendBlacklistPunishMessage != null) {
+                            event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_BANNED, sendBlacklistPunishMessage);
                         } else {
                             event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_OTHER, "§cAn error occurred.");
                         }
@@ -69,8 +76,14 @@ public class PlayerListeners implements Listener {
     }
 
 
-    private String PunishMessage(Punishment punishment) {
-        String message = CC.translate("&cYou have been punished! \n&fPunish Type: &c" + punishment.getType().toString().toLowerCase() + "\n&fPunished By: &c" + Bukkit.getOfflinePlayer(punishment.getBy()).getName() + "\n&fReason: &c" + punishment.getReason() + "\n");
+    private String banpunishmessage(Punishment punishment) {
+        //String message = CC.translate("&cYou have been punished! \n&fPunish Type: &c" + punishment.getType().toString().toLowerCase() + "\n&fPunished By: &c" + Bukkit.getOfflinePlayer(punishment.getBy()).getName() + "\n&fReason: &c" + punishment.getReason() + "\n");
+        String message = CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punishments.ban").replace("%punisher%", Bukkit.getOfflinePlayer(punishment.getBy()).getName()).replace("%reason%", punishment.getReason()));
+        return message;
+    }
+    private String blacklistpunishmessage(Punishment punishment) {
+        //String message = CC.translate("&cYou have been punished! \n&fPunish Type: &c" + punishment.getType().toString().toLowerCase() + "\n&fPunished By: &c" + Bukkit.getOfflinePlayer(punishment.getBy()).getName() + "\n&fReason: &c" + punishment.getReason() + "\n");
+        String message = CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punishments.blacklist").replace("%punisher%", Bukkit.getOfflinePlayer(punishment.getBy()).getName()).replace("%reason%", punishment.getReason()));
         return message;
     }
 

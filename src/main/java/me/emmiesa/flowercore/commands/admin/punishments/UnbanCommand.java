@@ -18,5 +18,7 @@ public class UnbanCommand extends BaseCommand {
         String target = args.getArgs(0);
         String reason = args.length() > 1 ? args.getArgs(1) : "No reason given";
         String silentornot = args.length() > 2 ? args.getArgs(2) : "" ;
+
+        //implement a method to remove the punishment. Not done yet.
     }
 }

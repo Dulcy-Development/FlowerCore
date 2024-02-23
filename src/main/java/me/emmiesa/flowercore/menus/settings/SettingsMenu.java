@@ -23,7 +23,7 @@ public class SettingsMenu extends Menu {
 
     @Override
     public String getTitle(Player player) {
-        return "&bೋღSettingsღೋ";
+        return "Settings Menu";
     }
 
     @Override
@@ -36,7 +36,7 @@ public class SettingsMenu extends Menu {
                         "&7&oSee private messages",
                         "&7&oor not.",
                         " ",
-                        "&fStatus:"/*+ Profile.getVisibility.Status + " "*/,
+                        "&fStatus:"/*+ get the status + " "*/,
                         " ",
                         "&bClick to change!",
                         "&8&m--------------------"
@@ -49,7 +49,7 @@ public class SettingsMenu extends Menu {
                         "&7&oSee global chat",
                         "&7&oor not.",
                         " ",
-                        "&fStatus:"/*+ Profile.getVisibility.Status + " "*/,
+                        "&fStatus:"/*+ get the status + " "*/,
                         " ",
                         "&bClick to change!",
                         "&8&m--------------------"

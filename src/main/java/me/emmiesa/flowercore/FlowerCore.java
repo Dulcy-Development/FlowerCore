@@ -61,11 +61,11 @@ public class FlowerCore extends JavaPlugin {
             new ProfilePlaceholders().register();
         }
 
+        //registerScoreboard();
         saveDefaultConfig();
         loadSpawnLocation();
-        //setupMongoRedisHandler();
         registerManagers();
-        registerScoreboard();
+        //setupMongoRedisHandler();
         register.commands();
         register.handlers();
         register.listeners();
@@ -159,13 +159,13 @@ public class FlowerCore extends JavaPlugin {
         redisHandler.connect();
     }*/
 
-    private void registerScoreboard() {
+    /*private void registerScoreboard() {
         if (FlowerCore.instance.getConfig("extras.yml").getBoolean("scoreboard.enabled")) {
             Assemble assemble = new Assemble(this, new ScoreboardLayout());
             assemble.setAssembleStyle(AssembleStyle.MODERN);
             assemble.setTicks(2);
         }
-    }
+    }*/
 
     public FileConfiguration getConfig(String fileName) {
         File configFile = new File(getDataFolder(), fileName);

@@ -11,6 +11,8 @@ import me.emmiesa.flowercore.commands.admin.gamemode.gmcCommand;
 import me.emmiesa.flowercore.commands.admin.gamemode.gmsCommand;
 import me.emmiesa.flowercore.commands.admin.gamemode.gmspCommand;
 import me.emmiesa.flowercore.commands.admin.punishments.BanCommand;
+import me.emmiesa.flowercore.commands.admin.punishments.BlacklistCommand;
+import me.emmiesa.flowercore.commands.admin.punishments.UnbanCommand;
 import me.emmiesa.flowercore.commands.admin.rank.GrantCommand;
 import me.emmiesa.flowercore.commands.admin.rank.RankCommand;
 import me.emmiesa.flowercore.commands.admin.rank.SubCommands.*;
@@ -58,12 +60,12 @@ public class register {
         new gmsCommand();
         new gmaCommand();
         new TagCommand();
-        new BanCommand();
         new gmspCommand();
         new HealCommand();
         new FeedCommand();
         new PingCommand();
         new MoreCommand();
+        new UnbanCommand();
         new TrollCommand();
         new StoreCommand();
         new SpeedCommand();
@@ -102,6 +104,10 @@ public class register {
         new RankSetDefaultCommand();
         new RankSetPriorityCommand();
         new RankAddPermissionsCommand();
+
+        new BanCommand();
+        new UnbanCommand();
+        new BlacklistCommand();
 
         new AlertCommand(FlowerCore.getInstance());
         new GodModeCommand(FlowerCore.getInstance());
