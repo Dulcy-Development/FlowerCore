@@ -25,7 +25,7 @@ public class BanCommand extends BaseCommand {
         }
 
         String target = args.getArgs(0);
-        String reason = args.length() > 1 ? args.getArgs(1) : "No reason given";
+        String reason = args.length() > 1 ? args.getArgs(1) : "no reason";
         String duration = args.length() > 2 ? args.getArgs(2) : "permanent";
         String silentornot = args.length() > 3 ? args.getArgs(3) : "";
 
@@ -43,6 +43,6 @@ public class BanCommand extends BaseCommand {
         if (targetPlayer != null) {
             targetPlayer.kickPlayer(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punishments.ban").replace("%punisher%", Bukkit.getOfflinePlayer(punishment.getBy()).getName()).replace("%reason%", punishment.getReason())));
         }
-        Utils.broadcastMessage(CC.translate(bannedBy.getDisplayName() + " has banned " + target + " for " + reason + ". Duration: " + duration + (silentornot.equalsIgnoreCase("-s") ? " [Silently]" : "")));
+        Utils.broadcastMessage(CC.translate("&c" + FlowerCore.getInstance().getPlayerManager().getRank(player.getUniqueId()).getPrefix() + player.getDisplayName() + " &ahas banned " + FlowerCore.getInstance().getPlayerManager().getRank(targetPlayer.getUniqueId()).getPrefix() + target + " &afor " + reason + ". &7(duration: " + duration + "&7) &r" + (silentornot.equalsIgnoreCase("-s") ? " [Silently]" : "")));
     }
 }
