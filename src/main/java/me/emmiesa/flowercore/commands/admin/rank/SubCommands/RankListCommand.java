@@ -20,18 +20,18 @@ public class RankListCommand extends BaseCommand {
         Player player = args.getPlayer();
 
         if (FlowerCore.getInstance().getConfig("settings.yml").getBoolean("rank-settings.list.send-as-message")) {
-            sendasmessage(player);
+            sendAsMessage(player);
         }
         if (FlowerCore.getInstance().getConfig("settings.yml").getBoolean("rank-settings.list.open-menu")) {
-            openlistmenu(player);
+            openListMenu(player);
         }
     }
 
-    public void openlistmenu(Player player) {
+    public void openListMenu(Player player) {
         new RankListMenu().openMenu(player);
     }
 
-    public void sendasmessage(Player player) {
+    public void sendAsMessage(Player player) {
         List<Rank> ranks = FlowerCore.getInstance().getRanksManager().getRanks();
 
         int maxLength = ranks.stream()
