@@ -32,6 +32,7 @@ me\emmiesa\flowercore\listeners\ChatListener.class
 me\emmiesa\flowercore\utils\menu\MenuListener.class
 me\emmiesa\flowercore\commands\global\YouTubeCommand.class
 me\emmiesa\flowercore\commands\admin\essential\SpeedCommand.class
+me\emmiesa\flowercore\commands\admin\troll\RocketCommand$1.class
 me\emmiesa\flowercore\commands\admin\punishments\UnbanCommand.class
 me\emmiesa\flowercore\utils\chat\JSONMessage$ClickEvent.class
 me\emmiesa\flowercore\commands\admin\gamemode\gmspCommand.class
@@ -51,6 +52,7 @@ me\emmiesa\flowercore\punishments\PunishmentType.class
 me\emmiesa\flowercore\commands\admin\administration\InstanceCommand.class
 me\emmiesa\flowercore\commands\admin\administration\AlertCommand.class
 me\emmiesa\flowercore\commands\admin\punishments\BlacklistCommand.class
+me\emmiesa\flowercore\commands\admin\troll\RocketCommand.class
 me\emmiesa\flowercore\commands\admin\spawn\TeleportSpawnCommand.class
 me\emmiesa\flowercore\commands\admin\rank\SubCommands\RankSetDefaultCommand.class
 me\emmiesa\flowercore\utils\chat\JSONMessage$ReflectionHelper.class

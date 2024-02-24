@@ -20,7 +20,8 @@ public class LaunchCommand extends BaseCommand {
                 return;
             }
             target.setVelocity(new Vector(0, 1, 0).multiply(15));
-            target.sendMessage(CC.translate("&aYou have been launched into the air!"));
+            sender.sendMessage(CC.translate("&bYou've launched &3" + target.getDisplayName() + " &binto the air!"));
+            target.sendMessage(CC.translate("&cYou have been launched into the air by &4" + args.getSender().getName() + " &c!"));
         } else {
             if (!(sender instanceof Player)) {
                 sender.sendMessage(CC.translate("&cUsage: /launch (player)"));
@@ -28,7 +29,7 @@ public class LaunchCommand extends BaseCommand {
             }
             Player player = (Player) sender;
             player.setVelocity(new Vector(0, 1, 0).multiply(15));
-            player.sendMessage(CC.translate("&aYou have been launched into the air!"));
+            player.sendMessage(CC.translate("&bYou've launched &3yourself &binto the air!"));
         }
     }
 

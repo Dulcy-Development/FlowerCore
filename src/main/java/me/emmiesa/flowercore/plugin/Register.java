@@ -70,6 +70,7 @@ public class Register {
         new CraftCommand();
         new TikTokCommand();
         new LaunchCommand();
+        new RocketCommand();
         new CaptureCommand();
         new YouTubeCommand();
         new DiscordCommand();

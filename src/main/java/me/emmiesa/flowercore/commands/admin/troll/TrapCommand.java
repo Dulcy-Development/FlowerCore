@@ -49,8 +49,8 @@ public class TrapCommand extends BaseCommand {
             world.getBlockAt(px + pos[0], py + pos[1], pz + pos[2]).setType(Material.GLASS);
         }
 
-        sender.sendMessage(CC.translate("&bYou've trapped &3" + target.getDisplayName() + " &bin glass. They can probably no longer move! \n&cIf they escaped, try using /capture (player)"));
-        target.sendMessage(CC.translate("&cYou've been trapped by &4" + args.getPlayer().getDisplayName() + "&c. You're in trouble (!)"));
+        sender.sendMessage(CC.translate("&bYou've trapped &3" + target.getDisplayName() + " &bin glass. They can probably no longer move! \n&cIf they escaped, try doing '/capture " + target.getDisplayName() + "&c'"));
+        target.sendMessage(CC.translate("&c(!) You've been trapped by &4" + args.getPlayer().getDisplayName() + "&c. You're in trouble (!)"));
     }
 }
 
