@@ -1,8 +1,10 @@
 package me.emmiesa.flowercore.utils.chat;
 
 import me.emmiesa.flowercore.FlowerCore;
+import me.emmiesa.flowercore.Locale;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.configuration.file.FileConfiguration;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -114,6 +116,16 @@ public class CC {
         return toReturn;
     }
 
+    public static void listRanks() {
+        Bukkit.getConsoleSender().sendMessage(" ");
+        Bukkit.getConsoleSender().sendMessage(CC.translate("&fAll registered FlowerCore ranks:"));
+        FileConfiguration ranksConfig = FlowerCore.getInstance().getConfig("ranks.yml");
+        for (String rankName : ranksConfig.getConfigurationSection("ranks").getKeys(false)) {
+            String displayName = ranksConfig.getString("ranks." + rankName + ".displayName", rankName);
+            Bukkit.getConsoleSender().sendMessage(CC.translate(" &f- &b" + displayName));
+        }
+    }
+
     public static void on(long timeTaken) {
         Bukkit.getConsoleSender().sendMessage(" ");
         Bukkit.getConsoleSender().sendMessage(CC.translate("&8&m-----------------------------------------------"));
@@ -122,6 +134,13 @@ public class CC {
         Bukkit.getConsoleSender().sendMessage(CC.translate(" "));
         Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Version: &b" + FlowerCore.getInstance().getDescription().getVersion()));
         Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Link: &b" + FlowerCore.getInstance().getDescription().getWebsite()));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(" "));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(" &7| Bukkit Server Name: &b" + Bukkit.getServerName()));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Server Name: &b" + Locale.SERVER_NAME));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Engine: &b" + Bukkit.getVersion()));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(" "));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Ranks: &b" + FlowerCore.getInstance().getConfig("ranks.yml").getConfigurationSection("ranks").getKeys(false).size()));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Tags: &b" + "null"));
         Bukkit.getConsoleSender().sendMessage(CC.translate(" "));
         Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Load time: &b" + (timeTaken) + " &bms"));
         Bukkit.getConsoleSender().sendMessage(CC.translate("&8&m-----------------------------------------------"));

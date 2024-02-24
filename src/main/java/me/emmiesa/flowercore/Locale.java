@@ -10,7 +10,7 @@ public class Locale {
     public static String NO_PERM = messagesConfig.getString("no-perms");
 
     public static String RANK_NOT_FOUND = messagesConfig.getString("rank.does-not-exist");
-    public static String RANK_NOT_SET = "&c(Error) Your rank was not set.";
+    public static String RANK_NOT_SET = messagesConfig.getString("rank.not-set-error");
     public static String RANK_SAVED = messagesConfig.getString("rank.saved");
     public static String RANK_SAVING = messagesConfig.getString("rank.saving");
 

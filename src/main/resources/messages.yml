@@ -21,8 +21,8 @@ reload:
     - "&b➥ &fSuccessfully reloaded the &bconfiguration &ffiles! &f(&b%timetaken% ms&f)"
     - "&r"
 punishments:
-  ban: "\n&cYou've been banned from the Flower Network&f! \n&cBanned by %punisher% for %reason%&f! \n&8If you believe this was false, join our discord and appeal!"
-  blacklist: "\n&4You've been blacklisted from the Flower Network! \n&fBlacklisted by &c%punisher% &ffor &c%reason%&f! \n&8You may not appeal for this!"
+  ban: "\n&cYou've been banned from the Flower Network! \n&cBanned by %punisher% for %reason%&f! \n&7If you believe this was false, join our discord and appeal!"
+  blacklist: "\n&4You've been blacklisted from the Flower Network! \n&4Blacklisted by %punisher% for &c%reason%&f! \n&7You may not appeal for this!"
   kick: "&cYou've been kicked! \n&fKicked by &c%punisher% &fbecause of &c%reason%&f!"
 troll:
   trolled: "&fYou've trolled &b%player%&f!"
@@ -58,6 +58,7 @@ spawn.not-set.reminder:
   enabled: true #This also disables the console message if it's false!
   message: "&c(Reminder) The join location was not set. Players won't be teleported! &8(TIP) &7&oYou can disable this message in the 'messages' config file."
 rank:
+  not-set-error: "&c(Error) Your rank was not set."
   saved: "&aSuccessfully saved all ranks!"
   saving: "&7Saving all ranks..."
   created: "&aSuccessfully created the &r%rank% &arank!"

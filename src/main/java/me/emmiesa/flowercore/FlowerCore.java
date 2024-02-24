@@ -61,8 +61,11 @@ public class FlowerCore extends JavaPlugin {
             new ProfilePlaceholders().register();
         }
 
+        CC.listRanks();
+
         long end = System.currentTimeMillis();
         long timeTaken = end - start;
+
         CC.on(timeTaken);
     }
 

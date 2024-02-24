@@ -6,6 +6,7 @@ import me.emmiesa.flowercore.ranks.Rank;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.item.ItemBuilder;
 import me.emmiesa.flowercore.utils.menu.Button;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
@@ -33,6 +34,6 @@ public class RankListButton extends Button {
 
     @Override
     public void clicked(Player player, int slot, ClickType clickType, int hotbarSlot) {
-        player.sendMessage(CC.translate(Locale.DEBUG));
+        player.playSound(player.getLocation(), Sound.STEP_GRASS, 2.0F, 1.5F);
     }
 }
