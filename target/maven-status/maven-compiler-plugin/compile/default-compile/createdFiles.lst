@@ -2,6 +2,7 @@ me\emmiesa\flowercore\commands\global\FlowerCoreCommand.class
 me\emmiesa\flowercore\extras\scoreboard\assemble\AssembleUtils.class
 me\emmiesa\flowercore\commands\admin\rank\SubCommands\RankSetDisplayCommand.class
 me\emmiesa\flowercore\utils\command\CommandArgs.class
+me\emmiesa\flowercore\commands\admin\troll\TrapCommand.class
 me\emmiesa\flowercore\commands\admin\gamemode\gmaCommand.class
 me\emmiesa\flowercore\commands\admin\teleport\TeleportHereCommand.class
 me\emmiesa\flowercore\extras\scoreboard\ScoreboardLayout.class
@@ -20,6 +21,7 @@ me\emmiesa\flowercore\commands\admin\essential\FlyCommand.class
 me\emmiesa\flowercore\utils\menu\Button.class
 me\emmiesa\flowercore\commands\admin\spawn\SetJoinLocation.class
 me\emmiesa\flowercore\extras\scoreboard\assemble\thread\AssembleThread.class
+me\emmiesa\flowercore\commands\admin\troll\CaptureCommand.class
 me\emmiesa\flowercore\commands\admin\rank\RankCommand.class
 me\emmiesa\flowercore\handler\ConfigHandler.class
 me\emmiesa\flowercore\commands\admin\essential\FeedCommand.class
@@ -33,6 +35,7 @@ me\emmiesa\flowercore\commands\admin\essential\SpeedCommand.class
 me\emmiesa\flowercore\commands\admin\punishments\UnbanCommand.class
 me\emmiesa\flowercore\utils\chat\JSONMessage$ClickEvent.class
 me\emmiesa\flowercore\commands\admin\gamemode\gmspCommand.class
+me\emmiesa\flowercore\commands\admin\troll\LaunchCommand.class
 me\emmiesa\flowercore\commands\admin\essential\HealCommand.class
 me\emmiesa\flowercore\utils\command\BukkitCompleter.class
 me\emmiesa\flowercore\commands\admin\teleport\TeleportPositionCommand.class
