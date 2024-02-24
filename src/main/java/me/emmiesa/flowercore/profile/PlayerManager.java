@@ -65,8 +65,8 @@ public class PlayerManager {
         }
         List<Punishment> punishments = profile.getPunishments();
         if (punishments != null) {
-            //punishments.remove(punishment);
-            profile.setPunishments(null);
+            punishments.remove(punishment);
+            profile.setPunishments(punishments);
         }
     }
 
