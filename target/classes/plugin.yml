@@ -1,9 +1,7 @@
 name: FlowerCore
 version: '1.0-SNAPSHOT'
 main: me.emmiesa.flowercore.FlowerCore
-authors:
-  - Emmiesa
-  - Remi
+authors: ["Emmiesa", "Remi"]
 description: 'A custom server core'
 website: https://dsg.gg/emmiesa
 softdepend:
