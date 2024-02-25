@@ -12,7 +12,7 @@ import me.emmiesa.flowercore.commands.admin.gamemode.gmsCommand;
 import me.emmiesa.flowercore.commands.admin.gamemode.gmspCommand;
 import me.emmiesa.flowercore.commands.admin.punishments.BanCommand;
 import me.emmiesa.flowercore.commands.admin.punishments.BlacklistCommand;
-import me.emmiesa.flowercore.commands.admin.punishments.UnbanCommand;
+import me.emmiesa.flowercore.commands.admin.punishments.pardon.UnbanCommand;
 import me.emmiesa.flowercore.commands.admin.rank.GrantCommand;
 import me.emmiesa.flowercore.commands.admin.rank.RankCommand;
 import me.emmiesa.flowercore.commands.admin.rank.SubCommands.*;

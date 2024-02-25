@@ -1,4 +1,4 @@
-package me.emmiesa.flowercore.commands.admin.punishments;
+package me.emmiesa.flowercore.commands.admin.punishments.pardon;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.punishments.Punishment;
@@ -40,9 +40,6 @@ public class UnbanCommand extends BaseCommand {
         Punishment punishment = new Punishment(UUID.randomUUID(), targetPlayer == null ? target : targetPlayer.getName(), bannedBy.getUniqueId(), PunishmentType.BAN, reason, targetPlayer == null ? "No IP" : targetPlayer.getAddress().getAddress().getHostAddress(), silentornot.equalsIgnoreCase("-s"));
         FlowerCore.getInstance().getPlayerManager().removePunishment(Bukkit.getOfflinePlayer(target).getUniqueId(), punishment);
 
-        if (targetPlayer != null) {
-            targetPlayer.kickPlayer(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punishments.unban").replace("%punisher%", Bukkit.getOfflinePlayer(punishment.getBy()).getName()).replace("%reason%", punishment.getReason())));
-        }
         Utils.broadcastMessage(CC.translate("&c" + FlowerCore.getInstance().getPlayerManager().getRank(bannedBy.getUniqueId()).getColor() + bannedBy.getDisplayName() + " &ahas unbanned " + FlowerCore.getInstance().getPlayerManager().getRank(targetPlayer.getUniqueId()).getColor() + target + " &afor " + reason + ". &7(duration: " + duration + "&7) &r" + (silentornot.equalsIgnoreCase("-s") ? " [Silently]" : "")));
     }
 }
