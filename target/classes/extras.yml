@@ -6,28 +6,3 @@
 listeners:
   namehealth: false
   disable-rain: false
-#scoreboard:
-#  enabled: false
-#  title: "&b&lFlower &7[&b%server-name%&7]"
-#  lines:
-#    - "&7&m-----------------------"
-#    - "&b&lServer:"
-#    - "&f&l ┃ &rPlayers: &b%online-players%"
-#    - "&f&l ┃ &rServer: &b%server-name%"
-#    - "&f&l ┃ &rYou: &b%username%"
-#    - " "
-#    - "&b&lInfo:"
-#    - "&f&l ┃ &rRegion: &b%server-region%"
-#    - " "
-#    - "&b&o flower.club"
-#    - "&7&m-----------------------"
-#tablist:
-#  enabled: false
-#  title:
-#    - " "
-#    - "&bFlowerCore"
-#    - " "
-#  footer:
-#    - " "
-#    - "&7Playing &b%server-name% &7on eu.emmiesa.dev"
-#    - " "

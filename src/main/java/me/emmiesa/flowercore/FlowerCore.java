@@ -4,14 +4,42 @@ import lombok.Getter;
 import lombok.Setter;
 
 import me.emmiesa.flowercore.announcements.AnnouncementManager;
+import me.emmiesa.flowercore.commands.admin.administration.AlertCommand;
+import me.emmiesa.flowercore.commands.admin.administration.BroadcastCommand;
+import me.emmiesa.flowercore.commands.admin.administration.ClearChatCommand;
+import me.emmiesa.flowercore.commands.admin.administration.InstanceCommand;
+import me.emmiesa.flowercore.commands.admin.essential.*;
+import me.emmiesa.flowercore.commands.admin.gamemode.gmaCommand;
+import me.emmiesa.flowercore.commands.admin.gamemode.gmcCommand;
+import me.emmiesa.flowercore.commands.admin.gamemode.gmsCommand;
+import me.emmiesa.flowercore.commands.admin.gamemode.gmspCommand;
+import me.emmiesa.flowercore.commands.admin.punishments.BanCommand;
+import me.emmiesa.flowercore.commands.admin.punishments.BlacklistCommand;
+import me.emmiesa.flowercore.commands.admin.punishments.pardon.UnbanCommand;
+import me.emmiesa.flowercore.commands.admin.rank.GrantCommand;
+import me.emmiesa.flowercore.commands.admin.rank.RankCommand;
+import me.emmiesa.flowercore.commands.admin.rank.SubCommands.*;
+import me.emmiesa.flowercore.commands.admin.spawn.SetJoinLocation;
+import me.emmiesa.flowercore.commands.admin.spawn.TeleportSpawnCommand;
+import me.emmiesa.flowercore.commands.admin.tags.TagCommand;
+import me.emmiesa.flowercore.commands.admin.teleport.TeleportCommand;
+import me.emmiesa.flowercore.commands.admin.teleport.TeleportHereCommand;
+import me.emmiesa.flowercore.commands.admin.teleport.TeleportPositionCommand;
+import me.emmiesa.flowercore.commands.admin.teleport.TeleportUpCommand;
+import me.emmiesa.flowercore.commands.admin.troll.*;
+import me.emmiesa.flowercore.commands.donator.AnnounceCommand;
+import me.emmiesa.flowercore.commands.global.*;
 import me.emmiesa.flowercore.database.mongo.MongoManager;
 import me.emmiesa.flowercore.handler.ConfigHandler;
+import me.emmiesa.flowercore.listeners.ChatListener;
+import me.emmiesa.flowercore.listeners.CommandListener;
+import me.emmiesa.flowercore.listeners.PlayerListeners;
 import me.emmiesa.flowercore.papi.ProfilePlaceholders;
-import me.emmiesa.flowercore.plugin.Register;
 import me.emmiesa.flowercore.profile.PlayerManager;
 import me.emmiesa.flowercore.ranks.RanksManager;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.CommandFramework;
+import me.emmiesa.flowercore.utils.menu.MenuListener;
 import me.emmiesa.flowercore.utils.others.Cooldown;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -37,29 +65,28 @@ public class FlowerCore extends JavaPlugin {
     private RanksManager ranksManager;
     private PlayerManager playerManager;
     private Location spawnLocation;
-    private Register register;
 
     @Override
     public void onEnable() {
         instance = this;
         long start = System.currentTimeMillis();
 
+        check();
+
         configHandler = new ConfigHandler();
-        saveDefaultConfig();
-        loadSpawnLocation();
-        registerManagers();
 
         framework = new CommandFramework(this);
-        register = new Register();
-        register.check();
-        register.commands();
-        register.handlers();
-        register.listeners();
-        register.done();
 
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
             new ProfilePlaceholders().register();
         }
+
+        saveDefaultConfig();
+        loadSpawnLocation();
+        registerManagers();
+        registerCommands();
+        registerListeners();
+        registerHandlers();
 
         CC.listRanks();
 
@@ -67,6 +94,137 @@ public class FlowerCore extends JavaPlugin {
         long timeTaken = end - start;
 
         CC.on(timeTaken);
+    }
+
+    private void check() {
+        Bukkit.getConsoleSender().sendMessage(CC.translate("[FlowerCore] Loading..."));
+        if (!FlowerCore.getInstance().getDescription().getAuthors().contains("Emmy") || !FlowerCore.getInstance().getDescription().getName().contains("FlowerCore")) {
+            System.exit(0);
+            Bukkit.shutdown();
+        } else {
+            Bukkit.getConsoleSender().sendMessage(CC.translate("[FlowerCore] Author name is correct."));
+        }
+        Bukkit.getConsoleSender().sendMessage(CC.translate("[FlowerCore] Started register process..."));
+    }
+
+    private void registerManagers() {
+        this.ranksManager = new RanksManager();
+        this.ranksManager.load();
+
+        this.mongoManager = new MongoManager();
+        this.mongoManager.startMongo();
+
+        this.playerManager = new PlayerManager();
+
+        new AnnouncementManager(this);
+    }
+
+    private void registerCommands() {
+        long start = System.currentTimeMillis();
+
+        Bukkit.getConsoleSender().sendMessage(CC.translate("Registering all commands..."));
+
+        new FlowerCoreCommand();
+        new FlyCommand();
+        new gmcCommand();
+        new gmsCommand();
+        new gmaCommand();
+        new TagCommand();
+        new gmspCommand();
+        new HealCommand();
+        new FeedCommand();
+        new PingCommand();
+        new MoreCommand();
+        new TrapCommand();
+        new UnbanCommand();
+        new TrollCommand();
+        new StoreCommand();
+        new SpeedCommand();
+        new CraftCommand();
+        new TikTokCommand();
+        new LaunchCommand();
+        new RocketCommand();
+        new CaptureCommand();
+        new YouTubeCommand();
+        new DiscordCommand();
+        new TwitterCommand();
+        new WebsiteCommand();
+        new SettingsCommand();
+        new ForceFlyCommand();
+        new TeleportCommand();
+        new AnnounceCommand();
+        new InstanceCommand();
+        new TeleportCommand();
+        new SetJoinLocation();
+        new ClearChatCommand();
+        new TeamSpeakCommand();
+        new TeleportUpCommand();
+        new TrollSilentCommand();
+        new TeleportHereCommand();
+        new TeleportSpawnCommand();
+        new TrollEverybodyCommand();
+        new TeleportPositionCommand();
+
+        new RankCommand();
+        new GrantCommand();
+        new RankListCommand();
+        new RankSaveCommand();
+        new RankCreateCommand();
+        new RankSetIconCommand();
+        new RankSetStaffCommand();
+        new RankSetColorCommand();
+        new RankSetSuffixCommand();
+        new RankSetPrefixCommand();
+        new RankSetDisplayCommand();
+        new RankSetDefaultCommand();
+        new RankSetPriorityCommand();
+        new RankAddPermissionsCommand();
+
+        new BanCommand();
+        new UnbanCommand();
+        new BlacklistCommand();
+
+        new AlertCommand(FlowerCore.getInstance());
+        new GodModeCommand(FlowerCore.getInstance());
+        new BroadcastCommand(FlowerCore.getInstance());
+
+        if (FlowerCore.getInstance().getConfig("commands.yml").getBoolean("plugin.enabled")) {
+            new PluginCommand();
+        }
+
+        long end = System.currentTimeMillis();
+        long timeTaken = end - start;
+
+        Bukkit.getConsoleSender().sendMessage(CC.translate("Registered all commands in " + timeTaken + "ms."));
+    }
+
+
+    private void registerListeners() {
+        long start = System.currentTimeMillis();
+
+        Bukkit.getConsoleSender().sendMessage(CC.translate("Registering all listeners..."));
+
+        getServer().getPluginManager().registerEvents(new MenuListener(), this);
+        getServer().getPluginManager().registerEvents(new PlayerListeners(this), this);
+        getServer().getPluginManager().registerEvents(new ChatListener(), this);
+        getServer().getPluginManager().registerEvents(new CommandListener(), this);
+        getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
+        long end = System.currentTimeMillis();
+        long timeTaken = end - start;
+
+        Bukkit.getConsoleSender().sendMessage(CC.translate("Registered all listeners in " + timeTaken + "ms."));
+    }
+
+    private void registerHandlers() {
+        long start = System.currentTimeMillis();
+
+        Bukkit.getConsoleSender().sendMessage(CC.translate("Registering all handlers..."));
+
+        long end = System.currentTimeMillis();
+        long timeTaken = end - start;
+
+        Bukkit.getConsoleSender().sendMessage(CC.translate("Registered all handlers in " + timeTaken + "ms."));
+        Bukkit.getConsoleSender().sendMessage(CC.translate("Register process was successful!"));
     }
 
     @Override
@@ -114,18 +272,6 @@ public class FlowerCore extends JavaPlugin {
         getConfig("settings.yml").set("on-join.teleport.location.yaw", location.getYaw());
         getConfig("settings.yml").set("on-join.teleport.location.pitch", location.getPitch());
         configHandler.saveConfig(configHandler.getConfigFileByName("settings.yml"), configHandler.getConfigByName("settings.yml"));
-    }
-
-    private void registerManagers() {
-        this.ranksManager = new RanksManager();
-        this.ranksManager.load();
-
-        this.mongoManager = new MongoManager();
-        this.mongoManager.startMongo();
-
-        this.playerManager = new PlayerManager();
-
-        new AnnouncementManager(this);
     }
 
     public FileConfiguration getConfig(String fileName) {

@@ -1,4 +1,4 @@
-package me.emmiesa.flowercore.plugin;
+/*package me.emmiesa.flowercore.plugin;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.commands.admin.administration.AlertCommand;
@@ -36,13 +36,13 @@ public class Register {
     public void check() {
         Bukkit.getConsoleSender().sendMessage(CC.translate("[FlowerCore] Loading..."));
         Bukkit.getConsoleSender().sendMessage(CC.translate("[FlowerCore] Checking plugin.yml..."));
-        /*if (!FlowerCore.getInstance().getDescription().getAuthors().contains("Emmiesa") || !FlowerCore.getInstance().getDescription().getName().contains("FlowerCore")) {
+        if (!FlowerCore.getInstance().getDescription().getAuthors().contains("Emmy") || !FlowerCore.getInstance().getDescription().getName().contains("FlowerCore")) {
             Bukkit.getConsoleSender().sendMessage(CC.translate("&4[FlowerCore] WRONG AUTHOR/PLUGIN NAME! Shutting the server down..."));
             System.exit(0);
             Bukkit.shutdown();
         } else {
             Bukkit.getConsoleSender().sendMessage(CC.translate("[FlowerCore] No changes detected"));
-        }*/
+        }
         Bukkit.getConsoleSender().sendMessage(CC.translate("[FlowerCore] Started register process..."));
     }
 
@@ -157,4 +157,4 @@ public class Register {
         Bukkit.getConsoleSender().sendMessage(CC.translate(" "));
         Bukkit.getConsoleSender().sendMessage(CC.translate("[FlowerCore] Registering was successful."));
     }
-}
+}*/

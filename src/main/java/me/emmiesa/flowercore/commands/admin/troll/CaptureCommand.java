@@ -21,16 +21,16 @@ public class CaptureCommand extends BaseCommand {
             return;
         }
 
-        Player executor = (Player) sender;
+        Player player = (Player) sender;
         Player target = Bukkit.getPlayerExact(args.getArgs(0));
         if (target == null) {
             sender.sendMessage(CC.translate("&cPlayer not found."));
             return;
         }
 
-        target.teleport(executor.getLocation());
+        target.teleport(player.getLocation());
 
-        Location loc = executor.getLocation();
+        Location loc = player.getLocation();
         World world = loc.getWorld();
 
         int px = loc.getBlockX();
@@ -48,6 +48,6 @@ public class CaptureCommand extends BaseCommand {
         }
 
         sender.sendMessage(CC.translate("&aYou've captured &2" + target.getDisplayName() + " &aand put them in jail."));
-        target.sendMessage(CC.translate("&cYou've been captured and put in jail by &4" + executor.getDisplayName() + "&c."));
+        target.sendMessage(CC.translate("&cYou've been captured and put in jail by &4" + player.getDisplayName() + "&c."));
     }
 }
