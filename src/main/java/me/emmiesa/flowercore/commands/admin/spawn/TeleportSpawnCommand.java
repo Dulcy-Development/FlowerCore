@@ -22,9 +22,9 @@ public class TeleportSpawnCommand extends BaseCommand {
             player.teleport(FlowerCore.getInstance().getSpawnLocation());
             //player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("teleport.tp-spawn")));
 
-            String sendmsg = CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("teleport.tp-spawn-action-bar"));
+            String sendMsg = CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("teleport.tp-spawn-action-bar"));
 
-            sendActionBar(player, sendmsg, 5);
+            sendActionBar(player, sendMsg, 5);
 
         } else {
             player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("spawn.not-set.reminder.message")));

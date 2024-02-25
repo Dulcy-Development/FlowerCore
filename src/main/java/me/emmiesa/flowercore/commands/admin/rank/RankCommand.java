@@ -14,24 +14,24 @@ public class RankCommand extends BaseCommand {
 
     @Completer(name = "rank")
     public List<String> rankCompleter(CommandArgs args) {
-        List<String> add = new ArrayList<>();
+        List<String> commands = new ArrayList<>();
         if (args.length() == 1) {
-            add.add("create");
-            add.add("delete");
-            add.add("save");
-            add.add("list");
+            commands.add("create");
+            commands.add("delete");
+            commands.add("save");
+            commands.add("list");
 
-            add.add("setdisplay");
-            add.add("setcolor");
-            add.add("seticon");
-            add.add("setprefix");
-            add.add("setsuffix");
-            add.add("setpriority");
-            add.add("setdefault");
-            add.add("setstaff");
-            add.add("addperm");
+            commands.add("setdisplay");
+            commands.add("setcolor");
+            commands.add("seticon");
+            commands.add("setprefix");
+            commands.add("setsuffix");
+            commands.add("setpriority");
+            commands.add("setdefault");
+            commands.add("setstaff");
+            commands.add("addperm");
         }
-        return add;
+        return commands;
     }
 
     @Command(name = "rank", permission = "flowercore.staff")

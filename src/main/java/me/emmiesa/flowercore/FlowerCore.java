@@ -113,16 +113,15 @@ public class FlowerCore extends JavaPlugin {
         getConfig("settings.yml").set("on-join.teleport.location.z", location.getZ());
         getConfig("settings.yml").set("on-join.teleport.location.yaw", location.getYaw());
         getConfig("settings.yml").set("on-join.teleport.location.pitch", location.getPitch());
-
         configHandler.saveConfig(configHandler.getConfigFileByName("settings.yml"), configHandler.getConfigByName("settings.yml"));
     }
 
     private void registerManagers() {
         this.ranksManager = new RanksManager();
-        getRanksManager().load();
+        this.ranksManager.load();
 
         this.mongoManager = new MongoManager();
-        mongoManager.startMongo();
+        this.mongoManager.startMongo();
 
         this.playerManager = new PlayerManager();
 
