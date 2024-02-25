@@ -9,7 +9,7 @@ chat: # Available placeholders %prefix%, %player%, %message%, %suffix%
   format: "%prefix%%player%%suffix%§7: §f%message%"
 grant-settings:
   broadcast: #If somebody is being granted a rank, alert the entire server.
-    enabled: true
+    enabled: false
     message:
       - " "
       - "&b%granted-player%'s rank has been set to %rank% &bby %granted-by%&a."
@@ -41,8 +41,13 @@ on-join:
     enabled: false
     gamemode: "SURVIVAL" #You can use SURVIVAL, CREATIVE, ADVENTURE or SPECTATOR.
 vanilla-commands-blocker:
-  perm-to-bypass: flower.bypass.cmd.disabler
-  disable_me-say: true #Disable /me... & /say...
+  perm-to-bypass: "flower.blockedcmd.bypass"
+  disable_commands: #Don't forget to include the "/"
+    - "/me"
+    - "/say"
+    - "/flowercore"
+    - "/core"
+    - "/flowercore reload"
 announce:
   enabled: true
   disabled: "&fNot enabled."
