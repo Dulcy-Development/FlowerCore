@@ -65,6 +65,11 @@ socials:
   tiktok: tiktok.com/flowerclub
   twitter: twitter.com/flowerclub
   youtube: youtube.com/flowerclub
+punishments:
+  default-reason:
+    blacklist: "no reason"
+    ban: "no reason"
+    kick: "absolutely no reason"
 announcements:
   enabled: true
   console-enabled: false #Decides if the announcements should be sent to the console aswell.

@@ -23,7 +23,7 @@ reload:
 punishments:
   ban: "\n&cYou've been banned from the Flower Network! \n&cBanned by %punisher% for %reason%&f! \n&7If you believe this was false, join our discord and appeal!"
   blacklist: "\n&4You've been blacklisted from the Flower Network! \n&4Blacklisted by %punisher% for &c%reason%&f! \n&7You may not appeal for this!"
-  kick: "&cYou've been kicked! \n&fKicked by &c%punisher% &fbecause of &c%reason%&f!"
+  kick: "&cYou've been kicked! \n&fKicked by &c%punisher% &ffor &c%reason%&f!"
 troll:
   trolled: "&fYou've trolled &b%player%&f!"
   trolled-silent: "&7(Silent) &fYou've trolled &b%player%&f!"

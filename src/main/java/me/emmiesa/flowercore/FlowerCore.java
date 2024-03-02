@@ -15,7 +15,9 @@ import me.emmiesa.flowercore.commands.admin.gamemode.gmsCommand;
 import me.emmiesa.flowercore.commands.admin.gamemode.gmspCommand;
 import me.emmiesa.flowercore.commands.admin.punishments.BanCommand;
 import me.emmiesa.flowercore.commands.admin.punishments.BlacklistCommand;
+import me.emmiesa.flowercore.commands.admin.punishments.KickCommand;
 import me.emmiesa.flowercore.commands.admin.punishments.pardon.UnbanCommand;
+import me.emmiesa.flowercore.commands.admin.punishments.pardon.UnblacklistCommand;
 import me.emmiesa.flowercore.commands.admin.rank.GrantCommand;
 import me.emmiesa.flowercore.commands.admin.rank.RankCommand;
 import me.emmiesa.flowercore.commands.admin.rank.SubCommands.*;
@@ -96,9 +98,17 @@ public class FlowerCore extends JavaPlugin {
         CC.on(timeTaken);
     }
 
+    @Override
+    public void onDisable() {
+        ranksManager.saveToFile();
+        mongoManager.close();
+        mongoManager.saveAllPlayerData();
+        CC.off();
+    }
+
     private void check() {
         Bukkit.getConsoleSender().sendMessage(CC.translate("[FlowerCore] Loading..."));
-        if (!FlowerCore.getInstance().getDescription().getAuthors().contains("Emmy") || !FlowerCore.getInstance().getDescription().getName().contains("FlowerCore")) {
+        if (!getDescription().getAuthors().contains("Emmy") || !getDescription().getName().contains("FlowerCore")) {
             System.exit(0);
             Bukkit.shutdown();
         } else {
@@ -136,7 +146,6 @@ public class FlowerCore extends JavaPlugin {
         new PingCommand();
         new MoreCommand();
         new TrapCommand();
-        new UnbanCommand();
         new TrollCommand();
         new StoreCommand();
         new SpeedCommand();
@@ -181,14 +190,17 @@ public class FlowerCore extends JavaPlugin {
         new RankAddPermissionsCommand();
 
         new BanCommand();
-        new UnbanCommand();
+        new KickCommand();
         new BlacklistCommand();
 
-        new AlertCommand(FlowerCore.getInstance());
-        new GodModeCommand(FlowerCore.getInstance());
-        new BroadcastCommand(FlowerCore.getInstance());
+        new UnbanCommand();
+        new UnblacklistCommand();
 
-        if (FlowerCore.getInstance().getConfig("commands.yml").getBoolean("plugin.enabled")) {
+        new AlertCommand(this);
+        new GodModeCommand(this);
+        new BroadcastCommand(this);
+
+        if (getConfig("commands.yml").getBoolean("plugin.enabled")) {
             new PluginCommand();
         }
 
@@ -225,14 +237,6 @@ public class FlowerCore extends JavaPlugin {
 
         Bukkit.getConsoleSender().sendMessage(CC.translate("Registered all handlers in " + timeTaken + "ms."));
         Bukkit.getConsoleSender().sendMessage(CC.translate("Register process was successful!"));
-    }
-
-    @Override
-    public void onDisable() {
-        ranksManager.saveToFile();
-        mongoManager.close();
-        mongoManager.saveAllPlayerData();
-        CC.off();
     }
 
     public void reloadAllConfigs() {

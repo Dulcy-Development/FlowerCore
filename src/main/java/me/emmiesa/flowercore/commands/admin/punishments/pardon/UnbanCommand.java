@@ -1,6 +1,7 @@
 package me.emmiesa.flowercore.commands.admin.punishments.pardon;
 
 import me.emmiesa.flowercore.FlowerCore;
+import me.emmiesa.flowercore.Locale;
 import me.emmiesa.flowercore.punishments.Punishment;
 import me.emmiesa.flowercore.punishments.PunishmentType;
 import me.emmiesa.flowercore.utils.Utils;
@@ -15,12 +16,13 @@ import java.util.UUID;
 
 public class UnbanCommand extends BaseCommand {
     @Override
-    @Command(name = "unban", permission = "flower.punishment.ban")
+    @Command(name = "unban", permission = "flower.punishment.unban")
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
+        player.sendMessage(CC.translate(Locale.CMD_CANT_BE_USED));
 
-        if (args.length() < 1) {
-            player.sendMessage(CC.translate("&cUsage: /ban (player) (reason) (duration) [-s]"));
+        /*if (args.length() < 1) {
+            player.sendMessage(CC.translate("&cUsage: /unban (player) (reason) (duration) [-s]"));
             return;
         }
 
@@ -41,5 +43,6 @@ public class UnbanCommand extends BaseCommand {
         FlowerCore.getInstance().getPlayerManager().removePunishment(Bukkit.getOfflinePlayer(target).getUniqueId(), punishment);
 
         Utils.broadcastMessage(CC.translate("&c" + FlowerCore.getInstance().getPlayerManager().getRank(bannedBy.getUniqueId()).getColor() + bannedBy.getDisplayName() + " &ahas unbanned " + FlowerCore.getInstance().getPlayerManager().getRank(targetPlayer.getUniqueId()).getColor() + target + " &afor " + reason + ". &7(duration: " + duration + "&7) &r" + (silentornot.equalsIgnoreCase("-s") ? " [Silently]" : "")));
+        */
     }
 }

@@ -24,8 +24,10 @@ public class BlacklistCommand extends BaseCommand {
             return;
         }
 
+        String defaultreason = FlowerCore.getInstance().getConfig("settings.yml").getString("punishments.default-reason.blacklist");
+
         String target = args.getArgs(0);
-        String reason = args.length() > 1 ? args.getArgs(1) : "No reason given";
+        String reason = args.length() > 1 ? args.getArgs(1) : defaultreason;
         String duration = args.length() > 2 ? args.getArgs(2) : "permanent";
         String silentornot = args.length() > 3 ? args.getArgs(3) : "";
 

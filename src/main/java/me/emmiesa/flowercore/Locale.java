@@ -1,5 +1,6 @@
 package me.emmiesa.flowercore;
 
+import me.emmiesa.flowercore.utils.chat.CC;
 import org.bukkit.configuration.file.FileConfiguration;
 
 public class Locale {
@@ -7,6 +8,7 @@ public class Locale {
     private static final FileConfiguration settingsConfig = FlowerCore.getInstance().getConfigHandler().getConfigByName("settings.yml");
 
     public static String DEBUG = "&7(Debug) This is not being handled yet.";
+    public static String CMD_CANT_BE_USED = "&4This command cannot be used currently because It's still in development.";
     public static String NO_PERM = messagesConfig.getString("no-perms");
 
     public static String RANK_NOT_FOUND = messagesConfig.getString("rank.does-not-exist");
