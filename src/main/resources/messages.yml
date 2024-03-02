@@ -6,6 +6,7 @@
 no-perms: "&cNo permission."
 anti-syntax: "&cExcuse me? I can see that you're not a staff member. I've blocked '%argument%' for your safety!"
 anti-syntax-bypass-perm: flowercore.staff
+
 reload:
   reloading:
     - "&r"
@@ -20,31 +21,37 @@ reload:
   finished:
     - "&b➥ &fSuccessfully reloaded the &bconfiguration &ffiles! &f(&b%timetaken% ms&f)"
     - "&r"
+
 punishments:
   blacklist: "\n&4You've been blacklisted from the Flower Network! \n&4Blacklisted by %punisher% for &c%reason%&f! \n&7You may not appeal for this!"
   ban: "\n&cYou've been banned from the Flower Network! \n&cBanned by %punisher% for %reason%&f! \n&7If you believe this was false, join our discord and appeal!"
   kick: "&7You've been kicked! \n&7Kicked by &a%punisher% &7for &a%reason%&7!"
+
 troll:
   trolled: "&fYou've trolled &b%player%&f!"
   trolled-silent: "&7(Silent) &fYou've trolled &b%player%&f!"
   not-online: "&fNo player matching &b%target% &fis connected to this server."
   target-message: "&fYou've been trolled by &b%troller%&f!"
+
 troll-everybody:
   trolled: "&fYou've trolled &beverybody&f!"
   target-message:
     - "&r"
     - "&fEverybody on the server got trolled by &b%troller%&f!"
     - "&r "
+
 speed-set:
   fly: "&aYou've set your &bflying &aspeed to &b%value%&a."
   walk: "&aYou've set your &bwalking &aspeed to &b%value%&a."
   reset: "&aYou've set your &bwalking &aand &bflying &aspeed to &bdefault&a."
+
 alert:
   bars-format: "&r "
   message:
     #- "%bars%"
     - "&7[&4Alert&7] &f%text%"
     #- "%bars%"
+
 broadcast:
   bars-format: "&8&m-------------------------------------"
   message:
@@ -53,10 +60,12 @@ broadcast:
     - "&8[&dBroadcast&8] &f%text%"
     #- " "
     #- "%bars%"
+
 spawn-set: "&aSuccessfully set new join location!"
 spawn.not-set.reminder:
   enabled: true #This also disables the console message if it's false!
   message: "&c(Reminder) The join location was not set. Players won't be teleported! &8(TIP) &7&oYou can disable this message in the 'messages' config file."
+
 rank:
   not-set-error: "&c(Error) Your rank was not set."
   saved: "&aSuccessfully saved all ranks!"
@@ -72,8 +81,10 @@ rank:
   setpriority: "&aSuccessfully set the priority of the &r%rank% &arank to &b%priority%&a!"
   does-not-exist: "&cThe %rank% &crank does not exist!"
   set-displayname: "&aSuccessfully set &r%display-name% &aas display name of the &r%rank% &arank!"
+
 clear-chat: "&aThe chat has been cleared by %player%."
 clear-chat-staff: "&8[%server%] &7&o[%player%: Clear chat)"
+
 socials:
   discord:
     enabled: true
@@ -103,6 +114,7 @@ socials:
     enabled: true
     enabled_message: "&fOur TeamSpeak: &b%link%"
     disabled_message: '&fUnknown &d%link% &flink. Type "/links" for help.'
+
 ping:
   enabled: true
   disabled_message: '&fPing command is currently disabled.'
@@ -111,6 +123,7 @@ ping:
   ping_target_not_found: "&fNo player matching &b%player% &fis connected to this server."
   require_permission: false
   permission: "flower.command.ping"
+
 teleport:
   tp: "&bTeleported to &3%target%&b."
   tp-here:
@@ -121,12 +134,15 @@ teleport:
   tp-up: "&bTeleported you to the top."
   #tp-spawn: "&aTeleported you to spawn!"
   tp-spawn-action-bar: "&bTeleported you to spawn!"
+
 fly:
   enabled: "&bYou've &aenabled &bflight."
   disabled: "&bYou've &cdisabled &bflight."
+
 forcefly:
   enabled: "&bYou've &aenabled &bflight forcefully."
   disabled: "&bYou've &cdisabled &bflight forcefully."
+
 gamemode:
   creative:
     is_already: "&cYour gamemode is already creative!"
@@ -140,6 +156,7 @@ gamemode:
   spectator:
     is_already: "&cYour gamemode is already spectator!"
     switched: "&bYour gamemode has been changed to &3spectator&b."
+
 on-join:
   messages:
     bars-format: "&8&m-----------------------------------"
@@ -173,6 +190,7 @@ on-join:
       joined-the-game: "&7» %prefix%%player% &fjoined the server!"
     staff:
       joined-the-game: "&3[&bS&3] &r%prefix%%player% &bhas joined &3%server%&b."
+
 on-leave:
   messages:
     donator:

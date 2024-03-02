@@ -4,10 +4,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 import me.emmiesa.flowercore.announcements.AnnouncementManager;
-import me.emmiesa.flowercore.commands.admin.administration.AlertCommand;
-import me.emmiesa.flowercore.commands.admin.administration.BroadcastCommand;
-import me.emmiesa.flowercore.commands.admin.administration.ClearChatCommand;
-import me.emmiesa.flowercore.commands.admin.administration.InstanceCommand;
+import me.emmiesa.flowercore.commands.admin.essential.AlertCommand;
+import me.emmiesa.flowercore.commands.admin.essential.BroadcastCommand;
+import me.emmiesa.flowercore.commands.admin.essential.ClearChatCommand;
+import me.emmiesa.flowercore.commands.admin.server.InstanceCommand;
 import me.emmiesa.flowercore.commands.admin.essential.*;
 import me.emmiesa.flowercore.commands.admin.gamemode.gmaCommand;
 import me.emmiesa.flowercore.commands.admin.gamemode.gmcCommand;
@@ -108,7 +108,7 @@ public class FlowerCore extends JavaPlugin {
 
     private void registerManagers() {
         saveDefaultConfig();
-        loadSpawnLocation();
+        //loadSpawnLocation();
         configHandler = new ConfigHandler();
 
         framework = new CommandFramework(this);
@@ -149,6 +149,7 @@ public class FlowerCore extends JavaPlugin {
         new StoreCommand();
         new SpeedCommand();
         new CraftCommand();
+        new ClearCommand();
         new TikTokCommand();
         new LaunchCommand();
         new RocketCommand();
@@ -249,7 +250,7 @@ public class FlowerCore extends JavaPlugin {
         placeholdersConfig = getConfig("placeholder.yml");
     }
 
-    private void loadSpawnLocation() {
+    /*private void loadSpawnLocation() {
         FileConfiguration config = getConfig("settings.yml");
         boolean enableSpawnTeleport = config.getBoolean("on-join.teleport.enabled");
 
@@ -263,18 +264,20 @@ public class FlowerCore extends JavaPlugin {
 
             spawnLocation = new Location(world, x, y, z, yaw, pitch);
         }
-    }
+    }*/
 
     public void setSpawnLocation(Location location) {
         this.spawnLocation = location;
+        FileConfiguration config = configHandler.getConfigByName("settings.yml");
 
-        getConfig("settings.yml").set("on-join.teleport.location.world", location.getWorld().getName());
-        getConfig("settings.yml").set("on-join.teleport.location.x", location.getX());
-        getConfig("settings.yml").set("on-join.teleport.location.y", location.getY());
-        getConfig("settings.yml").set("on-join.teleport.location.z", location.getZ());
-        getConfig("settings.yml").set("on-join.teleport.location.yaw", location.getYaw());
-        getConfig("settings.yml").set("on-join.teleport.location.pitch", location.getPitch());
-        configHandler.saveConfig(configHandler.getConfigFileByName("settings.yml"), configHandler.getConfigByName("settings.yml"));
+        config.set("on-join.teleport.location.world", location.getWorld().getName());
+        config.set("on-join.teleport.location.x", location.getX());
+        config.set("on-join.teleport.location.y", location.getY());
+        config.set("on-join.teleport.location.z", location.getZ());
+        config.set("on-join.teleport.location.yaw", location.getYaw());
+        config.set("on-join.teleport.location.pitch", location.getPitch());
+
+        configHandler.saveConfig(configHandler.getConfigFileByName("settings.yml"), config);
     }
 
     public FileConfiguration getConfig(String fileName) {

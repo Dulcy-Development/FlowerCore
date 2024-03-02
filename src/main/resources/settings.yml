@@ -5,8 +5,10 @@
 #
 server-name: eu-hub-1
 server-region: EU
+
 chat: # Available placeholders %prefix%, %player%, %message%, %suffix%
   format: "%prefix%%player%%suffix%§7: §f%message%"
+
 grant-settings:
   broadcast: #If somebody is being granted a rank, alert the entire server.
     enabled: false
@@ -14,10 +16,12 @@ grant-settings:
       - " "
       - "&b%granted-player%'s rank has been set to %rank% &bby %granted-by%&a."
       - " "
+
 rank-settings:
   list:
     send-as-message: false
     open-menu: true
+
 on-join:
   play-sound:
     enabled: true
@@ -40,14 +44,14 @@ on-join:
   set-gamemode:
     enabled: false
     gamemode: "SURVIVAL" #You can use SURVIVAL, CREATIVE, ADVENTURE or SPECTATOR.
+
 vanilla-commands-blocker:
   perm-to-bypass: "flower.blockedcmd.bypass"
-  disable_commands: #Don't forget to include the "/"
+  disable_commands:
     - "/me"
     - "/say"
-    - "/flowercore"
-    - "/core"
     - "/flowercore reload"
+
 announce:
   enabled: true
   disabled: "&fNot enabled."
@@ -57,6 +61,7 @@ announce:
   hover: "&aClick to join!"
   announced-message: "&aYou've announced the game!"
   format: '&b&l%server_name% &7» &b%prefix%%player_name% &fwants you to play! &a(Join)'
+
 socials:
   discord: discord.flower.club
   website: www.flower.club
@@ -65,11 +70,22 @@ socials:
   tiktok: tiktok.com/flowerclub
   twitter: twitter.com/flowerclub
   youtube: youtube.com/flowerclub
+
 punishments:
   default-reason:
     blacklist: "no reason"
     ban: "no reason"
     kick: "absolutely no reason"
+
+#This overwrites /ver, /bukkit:ver /version, /bukkit:version, /about, /bukkit:about, /? and sends the following message.
+version-command:
+  enabled: true
+  message:
+    - ""
+    - "&fHey &b%player%&f,"
+    - "&fThis server is running &b%version% &fusing Emmy's awesome core plugin which is called &b&lFlowerCore&r!"
+    - ""
+
 announcements:
   enabled: true
   console-enabled: false #Decides if the announcements should be sent to the console aswell.

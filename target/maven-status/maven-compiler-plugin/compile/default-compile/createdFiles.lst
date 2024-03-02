@@ -1,6 +1,7 @@
 me\emmiesa\flowercore\commands\global\FlowerCoreCommand.class
 me\emmiesa\flowercore\commands\admin\rank\SubCommands\RankSetDisplayCommand.class
 me\emmiesa\flowercore\utils\command\CommandArgs.class
+me\emmiesa\flowercore\commands\admin\essential\AlertCommand.class
 me\emmiesa\flowercore\commands\admin\troll\TrapCommand.class
 me\emmiesa\flowercore\commands\admin\gamemode\gmaCommand.class
 me\emmiesa\flowercore\commands\admin\teleport\TeleportHereCommand.class
@@ -14,6 +15,7 @@ me\emmiesa\flowercore\commands\donator\AnnounceCommand.class
 me\emmiesa\flowercore\menus\ranklist\button\RankListButton.class
 me\emmiesa\flowercore\punishments\PunishmentSerializer.class
 me\emmiesa\flowercore\utils\others\NumberUtils.class
+me\emmiesa\flowercore\commands\admin\essential\BroadcastCommand.class
 me\emmiesa\flowercore\commands\admin\essential\FlyCommand.class
 me\emmiesa\flowercore\utils\menu\Button.class
 me\emmiesa\flowercore\commands\admin\punishments\pardon\UnblacklistCommand.class
@@ -30,6 +32,7 @@ me\emmiesa\flowercore\utils\menu\MenuListener.class
 me\emmiesa\flowercore\commands\global\YouTubeCommand.class
 me\emmiesa\flowercore\commands\admin\essential\SpeedCommand.class
 me\emmiesa\flowercore\commands\admin\troll\RocketCommand$1.class
+me\emmiesa\flowercore\commands\admin\essential\ClearChatCommand.class
 me\emmiesa\flowercore\utils\chat\JSONMessage$ClickEvent.class
 me\emmiesa\flowercore\commands\admin\gamemode\gmspCommand.class
 me\emmiesa\flowercore\commands\admin\troll\LaunchCommand.class
@@ -44,8 +47,7 @@ me\emmiesa\flowercore\commands\admin\rank\GrantCommand.class
 me\emmiesa\flowercore\Locale.class
 me\emmiesa\flowercore\ranks\Rank.class
 me\emmiesa\flowercore\punishments\PunishmentType.class
-me\emmiesa\flowercore\commands\admin\administration\InstanceCommand.class
-me\emmiesa\flowercore\commands\admin\administration\AlertCommand.class
+me\emmiesa\flowercore\commands\admin\essential\ClearCommand.class
 me\emmiesa\flowercore\commands\admin\punishments\BlacklistCommand.class
 me\emmiesa\flowercore\commands\admin\troll\RocketCommand.class
 me\emmiesa\flowercore\commands\admin\spawn\TeleportSpawnCommand.class
@@ -53,7 +55,6 @@ me\emmiesa\flowercore\commands\admin\rank\SubCommands\RankSetDefaultCommand.clas
 me\emmiesa\flowercore\utils\chat\JSONMessage$ReflectionHelper.class
 me\emmiesa\flowercore\utils\chat\JSONMessage.class
 me\emmiesa\flowercore\commands\admin\punishments\pardon\UnbanCommand.class
-me\emmiesa\flowercore\commands\admin\administration\BroadcastCommand.class
 me\emmiesa\flowercore\listeners\CommandListener.class
 me\emmiesa\flowercore\utils\command\CommandFramework.class
 me\emmiesa\flowercore\database\mongo\MongoManager.class
@@ -67,7 +68,6 @@ me\emmiesa\flowercore\menus\settings\button\SettingsButton.class
 me\emmiesa\flowercore\profile\Profile.class
 me\emmiesa\flowercore\utils\menu\Button$1.class
 me\emmiesa\flowercore\utils\chat\JSONMessage$HoverEvent.class
-me\emmiesa\flowercore\commands\admin\administration\ClearChatCommand.class
 me\emmiesa\flowercore\commands\admin\essential\MoreCommand.class
 me\emmiesa\flowercore\commands\admin\gamemode\gmsCommand.class
 me\emmiesa\flowercore\commands\admin\rank\SubCommands\RankSetPrefixCommand.class
@@ -83,6 +83,7 @@ me\emmiesa\flowercore\commands\admin\troll\TrollCommand.class
 me\emmiesa\flowercore\menus\grant\button\GrantButton.class
 me\emmiesa\flowercore\commands\admin\punishments\KickCommand.class
 me\emmiesa\flowercore\commands\admin\essential\GodModeCommand.class
+me\emmiesa\flowercore\commands\admin\server\InstanceCommand.class
 me\emmiesa\flowercore\commands\admin\rank\SubCommands\RankSetIconCommand.class
 me\emmiesa\flowercore\utils\command\Completer.class
 me\emmiesa\flowercore\commands\global\PingCommand.class
