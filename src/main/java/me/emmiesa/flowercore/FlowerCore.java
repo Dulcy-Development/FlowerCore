@@ -165,6 +165,7 @@ public class FlowerCore extends JavaPlugin {
         new InstanceCommand();
         new TeleportCommand();
         new SetJoinLocation();
+        new LocationCommand();
         new ClearChatCommand();
         new TeamSpeakCommand();
         new TeleportUpCommand();

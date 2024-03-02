@@ -21,6 +21,7 @@ me\emmiesa\flowercore\utils\menu\Button.class
 me\emmiesa\flowercore\commands\admin\punishments\pardon\UnblacklistCommand.class
 me\emmiesa\flowercore\commands\admin\spawn\SetJoinLocation.class
 me\emmiesa\flowercore\commands\admin\troll\CaptureCommand.class
+me\emmiesa\flowercore\commands\admin\spawn\SetJoinLocation$1.class
 me\emmiesa\flowercore\commands\admin\rank\RankCommand.class
 me\emmiesa\flowercore\handler\ConfigHandler.class
 me\emmiesa\flowercore\commands\admin\essential\FeedCommand.class
@@ -44,6 +45,7 @@ me\emmiesa\flowercore\utils\command\Command.class
 me\emmiesa\flowercore\commands\admin\rank\SubCommands\RankSetColorCommand.class
 me\emmiesa\flowercore\commands\global\WebsiteCommand.class
 me\emmiesa\flowercore\commands\admin\rank\GrantCommand.class
+me\emmiesa\flowercore\commands\admin\essential\LocationCommand.class
 me\emmiesa\flowercore\Locale.class
 me\emmiesa\flowercore\ranks\Rank.class
 me\emmiesa\flowercore\punishments\PunishmentType.class

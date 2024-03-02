@@ -45,6 +45,8 @@ speed-set:
   walk: "&aYou've set your &bwalking &aspeed to &b%value%&a."
   reset: "&aYou've set your &bwalking &aand &bflying &aspeed to &bdefault&a."
 
+current-location: "&r\n&fYour current location: \n&f◦ World: &b{world} \n&f◦ X: &b{x} \n&f◦ Y: &b{y} \n&f◦ Z: &b{z} \n&f◦ Yaw: &b{yaw} \n&f◦ Pitch: &b{pitch}\n&r "
+
 alert:
   bars-format: "&r "
   message:
@@ -61,7 +63,11 @@ broadcast:
     #- " "
     #- "%bars%"
 
-spawn-set: "&aSuccessfully set new join location!"
+spawn-set: "&aSuccessfully set new join location! \n &8- &7{world}: {x}, {y}, {z} (Yaw: {yaw}, Pitch: {pitch})" #Used {} as placeholders because it would be a mess with %
+spawn-set-action-bar:
+  enabled: true
+  duration: 10 #In seconds, how long the action bar should be displayed :>
+  message: "&aNew location has been saved. You don't need to restart!"
 spawn.not-set.reminder:
   enabled: true #This also disables the console message if it's false!
   message: "&c(Reminder) The join location was not set. Players won't be teleported! &8(TIP) &7&oYou can disable this message in the 'messages' config file."
