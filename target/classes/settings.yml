@@ -83,7 +83,7 @@ version-command:
   message:
     - ""
     - "&fHey &b%player%&f,"
-    - "&fThis server is running &b%version% &fusing Emmy's awesome core plugin which is called &b&lFlowerCore&r!"
+    - "&fThis server is running &b%spigot% &fusing Emmy's awesome core plugin which is called &b&lFlowerCore&r!"
     - ""
 
 announcements:

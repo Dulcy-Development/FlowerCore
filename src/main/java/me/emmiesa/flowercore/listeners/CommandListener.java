@@ -18,6 +18,7 @@ public class CommandListener implements Listener {
                 for (String message : FlowerCore.getInstance().getConfig("settings.yml").getStringList("version-command.message")) {
                     event.getPlayer().sendMessage(CC.translate(message)
                             .replace("%player%", event.getPlayer().getDisplayName())
+                            .replace("%spigot%", Bukkit.getServer().getName())
                             .replace("%version%", Bukkit.getServer().getVersion()));
                 }
             }
