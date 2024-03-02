@@ -16,7 +16,7 @@ public class TeleportSpawnCommand extends BaseCommand {
     @Command(name = "teleportspawn", permission = "flowercore.staff", aliases = {"tpspawn", "tpjoinlocation", "tplobby"})
     @Override
     public void onCommand(CommandArgs args) {
-        final Player player = args.getPlayer();
+        Player player = args.getPlayer();
 
         if (FlowerCore.getInstance().getConfig("settings.yml").getBoolean("on-join.teleport.enabled")) {
             player.teleport(FlowerCore.getInstance().getSpawnLocation());

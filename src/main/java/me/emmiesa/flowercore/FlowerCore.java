@@ -73,18 +73,7 @@ public class FlowerCore extends JavaPlugin {
         instance = this;
         long start = System.currentTimeMillis();
 
-        check();
-
-        configHandler = new ConfigHandler();
-
-        framework = new CommandFramework(this);
-
-        if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
-            new ProfilePlaceholders().register();
-        }
-
-        saveDefaultConfig();
-        loadSpawnLocation();
+        checkDescription();
         registerManagers();
         registerCommands();
         registerListeners();
@@ -106,7 +95,7 @@ public class FlowerCore extends JavaPlugin {
         CC.off();
     }
 
-    private void check() {
+    private void checkDescription() {
         Bukkit.getConsoleSender().sendMessage(CC.translate("[FlowerCore] Loading..."));
         if (!getDescription().getAuthors().contains("Emmy") || !getDescription().getName().contains("FlowerCore")) {
             System.exit(0);
@@ -118,6 +107,16 @@ public class FlowerCore extends JavaPlugin {
     }
 
     private void registerManagers() {
+        saveDefaultConfig();
+        loadSpawnLocation();
+        configHandler = new ConfigHandler();
+
+        framework = new CommandFramework(this);
+
+        if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
+            new ProfilePlaceholders().register();
+        }
+
         this.ranksManager = new RanksManager();
         this.ranksManager.load();
 

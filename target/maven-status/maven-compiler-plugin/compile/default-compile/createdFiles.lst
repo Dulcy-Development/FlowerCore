@@ -16,6 +16,7 @@ me\emmiesa\flowercore\punishments\PunishmentSerializer.class
 me\emmiesa\flowercore\utils\others\NumberUtils.class
 me\emmiesa\flowercore\commands\admin\essential\FlyCommand.class
 me\emmiesa\flowercore\utils\menu\Button.class
+me\emmiesa\flowercore\commands\admin\punishments\pardon\UnblacklistCommand.class
 me\emmiesa\flowercore\commands\admin\spawn\SetJoinLocation.class
 me\emmiesa\flowercore\commands\admin\troll\CaptureCommand.class
 me\emmiesa\flowercore\commands\admin\rank\RankCommand.class
@@ -80,6 +81,7 @@ me\emmiesa\flowercore\utils\chat\StringUtil.class
 me\emmiesa\flowercore\commands\admin\spawn\TeleportSpawnCommand$1.class
 me\emmiesa\flowercore\commands\admin\troll\TrollCommand.class
 me\emmiesa\flowercore\menus\grant\button\GrantButton.class
+me\emmiesa\flowercore\commands\admin\punishments\KickCommand.class
 me\emmiesa\flowercore\commands\admin\essential\GodModeCommand.class
 me\emmiesa\flowercore\commands\admin\rank\SubCommands\RankSetIconCommand.class
 me\emmiesa\flowercore\utils\command\Completer.class
