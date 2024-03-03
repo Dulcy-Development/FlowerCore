@@ -57,7 +57,7 @@ public class PlayerManager {
         profile.setPunishments(punishments);
     }
 
-    public void removePunishment(UUID playerUUID, Punishment punishment) {
+    public void removePunishment(UUID playerUUID, PunishmentType type, String punishedName) {
         Profile profile = profiles.get(playerUUID);
         if (profile == null) {
             Utils.broadcastMessage("Profile for UUID " + playerUUID + " not found.");
@@ -65,10 +65,11 @@ public class PlayerManager {
         }
         List<Punishment> punishments = profile.getPunishments();
         if (punishments != null) {
-            punishments.remove(punishment);
+            punishments.removeIf(p -> p.getType() == type && p.getName().equalsIgnoreCase(punishedName));
             profile.setPunishments(punishments);
         }
     }
+
 
     public Rank getRank(UUID playerUUID) {
         return getProfiles().get(playerUUID).getRank();

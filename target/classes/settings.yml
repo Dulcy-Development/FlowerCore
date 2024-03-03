@@ -79,11 +79,16 @@ punishments:
 
 #This overwrites /ver, /bukkit:ver /version, /bukkit:version, /about, /bukkit:about, /? and sends the following message.
 version-command:
+  # Available Placeholders:
+  # - %player% (Player name of who executed the command)
+  # - %spigot% (Name of the spigot)
+  # - %version% (Version of the spigot)
   enabled: true
   message:
     - ""
     - "&fHey &b%player%&f,"
-    - "&fThis server is running &b%spigot% &fusing Emmy's awesome core plugin which is called &b&lFlowerCore&r!"
+    - "&fThis server is running &b&l%spigot% &fusing Emmy's awesome core plugin which is called &b&lFlowerCore&r!"
+    #- " &8- &7%version%"
     - ""
 
 announcements:

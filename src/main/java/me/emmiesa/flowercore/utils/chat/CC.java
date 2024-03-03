@@ -137,10 +137,10 @@ public class CC {
         Bukkit.getConsoleSender().sendMessage(CC.translate(" "));
         Bukkit.getConsoleSender().sendMessage(CC.translate(" &7| Bukkit Server Name: &b" + Bukkit.getServerName()));
         Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Server Name: &b" + Locale.SERVER_NAME));
-        Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Engine: &b" + Bukkit.getVersion()));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Spigot: &b" + Bukkit.getName()));
         Bukkit.getConsoleSender().sendMessage(CC.translate(" "));
         Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Ranks: &b" + FlowerCore.getInstance().getConfig("ranks.yml").getConfigurationSection("ranks").getKeys(false).size()));
-        Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Tags: &b" + "null"));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Tags: &b" + "0"));
         Bukkit.getConsoleSender().sendMessage(CC.translate(" "));
         Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Load time: &b" + (timeTaken) + " &bms"));
         Bukkit.getConsoleSender().sendMessage(CC.translate("&8&m-----------------------------------------------"));

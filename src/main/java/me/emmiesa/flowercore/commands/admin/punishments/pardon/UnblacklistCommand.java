@@ -19,9 +19,8 @@ public class UnblacklistCommand extends BaseCommand {
     @Command(name = "unblacklist", permission = "flower.punishment.unblacklist")
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
-        player.sendMessage(CC.translate(Locale.CMD_CANT_BE_USED));
 
-        /*if (args.length() < 1) {
+        if (args.length() < 1) {
             player.sendMessage(CC.translate("&cUsage: /unblacklist (player) (reason) (duration) [-s]"));
             return;
         }
@@ -40,9 +39,8 @@ public class UnblacklistCommand extends BaseCommand {
         }
 
         Punishment punishment = new Punishment(UUID.randomUUID(), targetPlayer == null ? target : targetPlayer.getName(), bannedBy.getUniqueId(), PunishmentType.BLACKLIST, reason, targetPlayer == null ? "No IP" : targetPlayer.getAddress().getAddress().getHostAddress(), silentornot.equalsIgnoreCase("-s"));
-        FlowerCore.getInstance().getPlayerManager().removePunishment(Bukkit.getOfflinePlayer(target).getUniqueId(), punishment);
+        FlowerCore.getInstance().getPlayerManager().removePunishment(Bukkit.getOfflinePlayer(target).getUniqueId(), PunishmentType.BLACKLIST, target);
 
         Utils.broadcastMessage(CC.translate("&c" + FlowerCore.getInstance().getPlayerManager().getRank(bannedBy.getUniqueId()).getColor() + bannedBy.getDisplayName() + " &ahas unblacklisted " + FlowerCore.getInstance().getPlayerManager().getRank(targetPlayer.getUniqueId()).getColor() + target + " &afor " + reason + ". &7(duration: " + duration + "&7) &r" + (silentornot.equalsIgnoreCase("-s") ? " [Silently]" : "")));
-    */
     }
 }

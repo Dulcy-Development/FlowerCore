@@ -24,10 +24,7 @@ import me.emmiesa.flowercore.commands.admin.rank.SubCommands.*;
 import me.emmiesa.flowercore.commands.admin.spawn.SetJoinLocation;
 import me.emmiesa.flowercore.commands.admin.spawn.TeleportSpawnCommand;
 import me.emmiesa.flowercore.commands.admin.tags.TagCommand;
-import me.emmiesa.flowercore.commands.admin.teleport.TeleportCommand;
-import me.emmiesa.flowercore.commands.admin.teleport.TeleportHereCommand;
-import me.emmiesa.flowercore.commands.admin.teleport.TeleportPositionCommand;
-import me.emmiesa.flowercore.commands.admin.teleport.TeleportUpCommand;
+import me.emmiesa.flowercore.commands.admin.teleport.*;
 import me.emmiesa.flowercore.commands.admin.troll.*;
 import me.emmiesa.flowercore.commands.donator.AnnounceCommand;
 import me.emmiesa.flowercore.commands.global.*;
@@ -159,7 +156,6 @@ public class FlowerCore extends JavaPlugin {
         new WebsiteCommand();
         new SettingsCommand();
         new ForceFlyCommand();
-        new TeleportCommand();
         new AnnounceCommand();
         new InstanceCommand();
         new TeleportCommand();
@@ -169,6 +165,7 @@ public class FlowerCore extends JavaPlugin {
         new TeamSpeakCommand();
         new TeleportUpCommand();
         new TrollSilentCommand();
+        new TeleportAllCommand();
         new TeleportHereCommand();
         new TeleportSpawnCommand();
         new TrollEverybodyCommand();

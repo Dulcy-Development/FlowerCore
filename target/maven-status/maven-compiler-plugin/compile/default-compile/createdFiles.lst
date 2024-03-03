@@ -98,6 +98,7 @@ me\emmiesa\flowercore\commands\admin\punishments\BanCommand.class
 me\emmiesa\flowercore\listeners\WeatherListener.class
 me\emmiesa\flowercore\commands\admin\rank\SubCommands\RankCreateCommand.class
 me\emmiesa\flowercore\commands\admin\tags\TagCommand.class
+me\emmiesa\flowercore\commands\admin\teleport\TeleportAllCommand.class
 me\emmiesa\flowercore\utils\menu\button\RefillGlassButton.class
 me\emmiesa\flowercore\commands\global\DiscordCommand.class
 me\emmiesa\flowercore\commands\global\TikTokCommand.class

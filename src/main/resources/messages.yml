@@ -136,10 +136,10 @@ teleport:
   tp-here:
     sender: "&bYou've teleported &3%target% &bto you."
     target: "&3%player% &bteleported you to her location."
-  #tpall: "&fTeleported all players to &f%player%"
+  tp-all: "&fTeleported all players to &f%player%"
   tp-pos: "&bTeleported you to the provided location &f(&b%x%x&f, &b%y%y&f, &b%z%z&f)."
   tp-up: "&bTeleported you to the top."
-  #tp-spawn: "&aTeleported you to spawn!"
+  tp-spawn: "&aTeleported you to spawn!"
   tp-spawn-action-bar: "&bTeleported you to spawn!"
 
 socials:

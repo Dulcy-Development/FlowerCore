@@ -4,7 +4,7 @@
 #
 #
 no-perms: "&cNo permission."
-anti-syntax: "&cExcuse me? I can see that you're not a staff member. I've blocked '%argument%' for your safety!"
+anti-syntax: "&cNope."
 anti-syntax-bypass-perm: flowercore.staff
 
 reload:
@@ -40,10 +40,38 @@ troll-everybody:
     - "&fEverybody on the server got trolled by &b%troller%&f!"
     - "&r "
 
+heal:
+  healed: "&aYou've been healed."
+  target-healed: "&aYou've healed &b%target%&a."
+  target-not-found: "&fNo player matching &b%target% &fis connected to this server."
+
+feed:
+  fed: "&aYou've been fed."
+  target-fed: "&aYou've fed &b%target%&a."
+  target-not-found: "&fNo player matching &b%target% &fis connected to this server."
+
+more-command:
+  given: "&aThere you go."
+  already-a-stack: "&cThis is already a stack of 64."
+  no-item-held: "&cYou need to be holding an item!"
+
+god-mode:
+  enabled: "&aYou've enabled god-mode."
+  disabled: "&cYou've disabled god-mode."
+
 speed-set:
   fly: "&aYou've set your &bflying &aspeed to &b%value%&a."
   walk: "&aYou've set your &bwalking &aspeed to &b%value%&a."
   reset: "&aYou've set your &bwalking &aand &bflying &aspeed to &bdefault&a."
+
+fly:
+  enabled: "&bYou've &aenabled &bflight."
+  disabled: "&bYou've &cdisabled &bflight."
+  not-in-survival: "&bToggling flight in gamemode &3creative &bor &3spectator &bmight cause issues! Type &3/forcefly &bto bypass anyway..."
+
+forcefly:
+  enabled: "&bYou've &aenabled &bflight forcefully."
+  disabled: "&bYou've &cdisabled &bflight forcefully."
 
 current-location: "&r\n&fYour current location: \n&f◦ World: &b{world} \n&f◦ X: &b{x} \n&f◦ Y: &b{y} \n&f◦ Z: &b{z} \n&f◦ Yaw: &b{yaw} \n&f◦ Pitch: &b{pitch}\n&r "
 
@@ -62,18 +90,21 @@ broadcast:
     - "&8[&dBroadcast&8] &f%text%"
     #- " "
     #- "%bars%"
-
 spawn-set: "&aSuccessfully set new join location! \n &8- &7{world}: {x}, {y}, {z} (Yaw: {yaw}, Pitch: {pitch})" #Used {} as placeholders because it would be a mess with %
 spawn-set-action-bar:
   enabled: true
   duration: 10 #In seconds, how long the action bar should be displayed :>
   message: "&aNew location has been saved. You don't need to restart!"
+
 spawn.not-set.reminder:
   enabled: true #This also disables the console message if it's false!
   message: "&c(Reminder) The join location was not set. Players won't be teleported! &8(TIP) &7&oYou can disable this message in the 'messages' config file."
 
 rank:
   not-set-error: "&c(Error) Your rank was not set."
+  save-reminder: #A message that gets sent each time you create a new rank.
+    enabled: true
+    message: "&c(!) Don't forget to save you ranks by doing /rank save when you're done setting them up (!)"
   saved: "&aSuccessfully saved all ranks!"
   saving: "&7Saving all ranks..."
   created: "&aSuccessfully created the &r%rank% &arank!"
@@ -90,6 +121,26 @@ rank:
 
 clear-chat: "&aThe chat has been cleared by %player%."
 clear-chat-staff: "&8[%server%] &7&o[%player%: Clear chat)"
+
+ping:
+  enabled: true
+  disabled_message: '&fPing command is currently disabled.'
+  ping_self: "&b%player%&f's ping: &b%ping% &fms"
+  ping_other: "&b%player%&f's ping: &b%ping% &fms"
+  ping_target_not_found: "&fNo player matching &b%player% &fis connected to this server."
+  require_permission: false
+  permission: "flower.command.ping"
+
+teleport:
+  tp: "&bTeleported to &3%target%&b."
+  tp-here:
+    sender: "&bYou've teleported &3%target% &bto you."
+    target: "&3%player% &bteleported you to her location."
+  tp-all: "&fTeleported all players to &f%player%"
+  tp-pos: "&bTeleported you to the provided location &f(&b%x%x&f, &b%y%y&f, &b%z%z&f)."
+  tp-up: "&bTeleported you to the top."
+  tp-spawn: "&aTeleported you to spawn!"
+  tp-spawn-action-bar: "&bTeleported you to spawn!"
 
 socials:
   discord:
@@ -120,34 +171,6 @@ socials:
     enabled: true
     enabled_message: "&fOur TeamSpeak: &b%link%"
     disabled_message: '&fUnknown &d%link% &flink. Type "/links" for help.'
-
-ping:
-  enabled: true
-  disabled_message: '&fPing command is currently disabled.'
-  ping_self: "&b%player%&f's ping: &b%ping% &fms"
-  ping_other: "&b%player%&f's ping: &b%ping% &fms"
-  ping_target_not_found: "&fNo player matching &b%player% &fis connected to this server."
-  require_permission: false
-  permission: "flower.command.ping"
-
-teleport:
-  tp: "&bTeleported to &3%target%&b."
-  tp-here:
-    sender: "&bYou've teleported &3%target% &bto you."
-    target: "&3%player% &bteleported you to her location."
-  #tpall: "&fTeleported all players to &f%player%"
-  tp-pos: "&bTeleported you to the provided location &f(&b%x%x&f, &b%y%y&f, &b%z%z&f)."
-  tp-up: "&bTeleported you to the top."
-  #tp-spawn: "&aTeleported you to spawn!"
-  tp-spawn-action-bar: "&bTeleported you to spawn!"
-
-fly:
-  enabled: "&bYou've &aenabled &bflight."
-  disabled: "&bYou've &cdisabled &bflight."
-
-forcefly:
-  enabled: "&bYou've &aenabled &bflight forcefully."
-  disabled: "&bYou've &cdisabled &bflight forcefully."
 
 gamemode:
   creative:
