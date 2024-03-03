@@ -6,16 +6,3 @@
 database:
   uri: "mongodb://localhost:27017"
   collection: "flower"
-
-#MONGO: (Not in usage)
-#  URI:
-#    ENABLED: false
-#    CONNECTION-STRING: ""
-#  DEFAULT:
-#    HOST: "localhost"
-#    PORT: 27017
-#    DATABASE: "flower"
-#    AUTHENTICATION:
-#      ENABLED: false
-#      USERNAME: ""
-#      PASSWORD: ""

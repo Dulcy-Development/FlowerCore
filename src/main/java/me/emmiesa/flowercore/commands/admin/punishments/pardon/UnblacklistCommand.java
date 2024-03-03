@@ -1,8 +1,6 @@
 package me.emmiesa.flowercore.commands.admin.punishments.pardon;
 
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.Locale;
-import me.emmiesa.flowercore.punishments.Punishment;
 import me.emmiesa.flowercore.punishments.PunishmentType;
 import me.emmiesa.flowercore.utils.Utils;
 import me.emmiesa.flowercore.utils.chat.CC;
@@ -10,37 +8,43 @@ import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
 import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
+import org.bukkit.OfflinePlayer;
+import org.bukkit.command.CommandSender;
 
 import java.util.UUID;
 
 public class UnblacklistCommand extends BaseCommand {
     @Override
-    @Command(name = "unblacklist", permission = "flower.punishment.unblacklist")
+    @Command(name = "unblacklist", permission = "flower.punishment.unblacklist", inGameOnly = false)
     public void onCommand(CommandArgs args) {
-        Player player = args.getPlayer();
+        CommandSender sender = args.getSender();
 
         if (args.length() < 1) {
-            player.sendMessage(CC.translate("&cUsage: /unblacklist (player) (reason) (duration) [-s]"));
+            sender.sendMessage(CC.translate("&cUsage: /unblacklist (player)"));
             return;
         }
 
-        String target = args.getArgs(0);
-        String reason = args.length() > 1 ? args.getArgs(1) : "no reason";
-        String duration = args.length() > 2 ? args.getArgs(2) : "permanent";
-        String silentornot = args.length() > 3 ? args.getArgs(3) : "";
+        String targetName = args.getArgs(0);
 
-        Player bannedBy = args.getPlayer();
+        UUID playerUUID = findUUIDByName(targetName);
 
-        Player targetPlayer = FlowerCore.getInstance().getServer().getPlayer(target);
-        if (target == null) {
-            bannedBy.sendMessage(CC.translate("&cPlayer not found!"));
+        if (playerUUID == null) {
+            sender.sendMessage(CC.translate("&4" + targetName + " &chas never joined this server before or the username is invalid."));
             return;
         }
 
-        Punishment punishment = new Punishment(UUID.randomUUID(), targetPlayer == null ? target : targetPlayer.getName(), bannedBy.getUniqueId(), PunishmentType.BLACKLIST, reason, targetPlayer == null ? "No IP" : targetPlayer.getAddress().getAddress().getHostAddress(), silentornot.equalsIgnoreCase("-s"));
-        FlowerCore.getInstance().getPlayerManager().removePunishment(Bukkit.getOfflinePlayer(target).getUniqueId(), PunishmentType.BLACKLIST, target);
+        Utils.broadcastMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.un-blacklisted").replace("%pardoner%", sender.getName()).replace("%target%", targetName)));
+        //Utils.broadcastMessage(CC.translate("&4" + targetName + " &4was unblacklisted by &4" + sender.getName() + "&4."));
+        FlowerCore.getInstance().getPlayerManager().removePunishment(playerUUID, PunishmentType.BLACKLIST, targetName);
+        FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
+    }
 
-        Utils.broadcastMessage(CC.translate("&c" + FlowerCore.getInstance().getPlayerManager().getRank(bannedBy.getUniqueId()).getColor() + bannedBy.getDisplayName() + " &ahas unblacklisted " + FlowerCore.getInstance().getPlayerManager().getRank(targetPlayer.getUniqueId()).getColor() + target + " &afor " + reason + ". &7(duration: " + duration + "&7) &r" + (silentornot.equalsIgnoreCase("-s") ? " [Silently]" : "")));
+    public UUID findUUIDByName(String playerName) {
+        for (OfflinePlayer player : Bukkit.getOfflinePlayers()) {
+            if (player.getName() != null && player.getName().equalsIgnoreCase(playerName)) {
+                return player.getUniqueId();
+            }
+        }
+        return null;
     }
 }

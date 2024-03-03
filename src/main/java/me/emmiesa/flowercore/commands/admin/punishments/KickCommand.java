@@ -37,6 +37,7 @@ public class KickCommand extends BaseCommand {
         if (targetPlayer != null) {
             targetPlayer.kickPlayer(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punishments.kick").replace("%punisher%", Bukkit.getOfflinePlayer(punishment.getBy()).getName()).replace("%reason%", punishment.getReason())));
         }
-        Utils.broadcastMessage(CC.translate("&c" + FlowerCore.getInstance().getPlayerManager().getRank(kickedBy.getUniqueId()).getColor() + kickedBy.getDisplayName() + " &ahas kicked " + FlowerCore.getInstance().getPlayerManager().getRank(targetPlayer.getUniqueId()).getColor() + target + " &afor " + reason + (silentornot.equalsIgnoreCase("-s") ? " [Silently]" : "")));
+        Utils.broadcastMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.kicked").replace("%punisher%", kickedBy.getDisplayName()).replace("%target%", target).replace("%reason%", reason)));
+        //Utils.broadcastMessage(CC.translate("&c" + FlowerCore.getInstance().getPlayerManager().getRank(kickedBy.getUniqueId()).getColor() + kickedBy.getDisplayName() + " &ahas kicked " + FlowerCore.getInstance().getPlayerManager().getRank(targetPlayer.getUniqueId()).getColor() + target + " &afor " + reason + (silentornot.equalsIgnoreCase("-s") ? " [Silently]" : "")));
     }
 }

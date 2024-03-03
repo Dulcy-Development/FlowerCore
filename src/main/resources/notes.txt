@@ -1,0 +1,16 @@
+flower_rank_isstaff = True or false if the players rank is a staff rank
+flower_player_rankname = display the players rank with color
+flower_player_rankname_raw = display the players rank without color
+
+MONGO:
+  URI:
+    ENABLED: false
+    CONNECTION-STRING: ""
+  DEFAULT:
+    HOST: "localhost"
+    PORT: 27017
+    DATABASE: "flower"
+    AUTHENTICATION:
+      ENABLED: false
+      USERNAME: ""
+      PASSWORD: ""

@@ -7,6 +7,8 @@ import me.emmiesa.flowercore.punishments.Punishment;
 import me.emmiesa.flowercore.punishments.PunishmentType;
 import me.emmiesa.flowercore.ranks.Rank;
 import me.emmiesa.flowercore.utils.Utils;
+import me.emmiesa.flowercore.utils.chat.CC;
+import org.bson.Document;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.PermissionAttachment;
@@ -16,6 +18,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
+
+import static com.mongodb.client.model.Filters.eq;
 
 @Getter
 public class PlayerManager {
@@ -70,9 +74,19 @@ public class PlayerManager {
         }
     }
 
-
     public Rank getRank(UUID playerUUID) {
-        return getProfiles().get(playerUUID).getRank();
+        if(Bukkit.getPlayer(playerUUID) != null){
+            return getProfiles().get(playerUUID).getRank();
+        }
+        else{
+            Document doc = FlowerCore.getInstance().getMongoManager().getCollection().find(eq("UUID", playerUUID.toString())).first();
+            if(doc !=null){
+                return FlowerCore.getInstance().getRanksManager().getRank(doc.getString("rank"));
+            }
+            else {
+                return null;
+            }
+        }
     }
 
     public void addPermissions(UUID playerUUID) {

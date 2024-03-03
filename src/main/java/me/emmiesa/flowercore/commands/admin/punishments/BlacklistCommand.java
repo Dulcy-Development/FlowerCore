@@ -31,18 +31,19 @@ public class BlacklistCommand extends BaseCommand {
         String duration = args.length() > 2 ? args.getArgs(2) : "permanent";
         String silentornot = args.length() > 3 ? args.getArgs(3) : "";
 
-        Player bannedBy = args.getPlayer();
+        Player blacklistedBy = args.getPlayer();
 
         Player targetPlayer = FlowerCore.getInstance().getServer().getPlayer(target);
         if (target == null) {
-            bannedBy.sendMessage(CC.translate("&cPlayer not found!"));
+            blacklistedBy.sendMessage(CC.translate("&cPlayer not found!"));
             return;
         }
 
-        Punishment punishment = new Punishment(UUID.randomUUID(), targetPlayer.getName(), bannedBy.getUniqueId(), PunishmentType.BLACKLIST, reason, targetPlayer.getAddress().getAddress().getHostAddress(), silentornot.equalsIgnoreCase("-s"));
+        Punishment punishment = new Punishment(UUID.randomUUID(), targetPlayer.getName(), blacklistedBy.getUniqueId(), PunishmentType.BLACKLIST, reason, targetPlayer.getAddress().getAddress().getHostAddress(), silentornot.equalsIgnoreCase("-s"));
         FlowerCore.getInstance().getPlayerManager().addPunishment(targetPlayer.getUniqueId(), punishment);
 
         targetPlayer.kickPlayer(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punishments.blacklist").replace("%punisher%", Bukkit.getOfflinePlayer(punishment.getBy()).getName()).replace("%reason%", punishment.getReason())));
-        Utils.broadcastMessage(CC.translate(bannedBy.getDisplayName() + " has blacklisted " + targetPlayer.getName() + " for " + reason + ". Duration: " + duration + (silentornot.equalsIgnoreCase("-s") ? " [Silently]" : "")));
+        //Utils.broadcastMessage(CC.translate(blacklistedBy.getDisplayName() + " has blacklisted " + targetPlayer.getName() + " for " + reason + ". Duration: " + duration + (silentornot.equalsIgnoreCase("-s") ? " [Silently]" : "")));
+        Utils.broadcastMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.blacklisted").replace("%punisher%", blacklistedBy.getDisplayName()).replace("%target%", target).replace("%reason%", reason)));
     }
 }
