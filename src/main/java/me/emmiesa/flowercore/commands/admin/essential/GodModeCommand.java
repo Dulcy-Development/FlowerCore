@@ -1,5 +1,6 @@
 package me.emmiesa.flowercore.commands.admin.essential;
 
+import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
@@ -29,11 +30,11 @@ public class GodModeCommand extends BaseCommand implements Listener {
         if (godModePlayers.contains(player)) {
             disableGodMode(player);
             player.setAllowFlight(false);
-            player.sendMessage(CC.translate("&eGod mode &ddisabled."));
+            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("god-mode.disabled")));
         } else {
             enableGodMode(player);
             player.setAllowFlight(true);
-            player.sendMessage(CC.translate("&eGod mode &denabled."));
+            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("god-mode.enabled")));
         }
     }
 

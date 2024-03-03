@@ -87,7 +87,7 @@ version-command:
   message:
     - ""
     - "&fHey &b%player%&f,"
-    - "&fThis server is running &b%spigot% &fusing Emmy's awesome core plugin which is called &b&lFlowerCore&r!"
+    - "&fThis server is running &b&l%spigot% &fusing Emmy's awesome core plugin which is called &b&lFlowerCore&r!"
     #- " &8- &7%version%"
     - ""
 

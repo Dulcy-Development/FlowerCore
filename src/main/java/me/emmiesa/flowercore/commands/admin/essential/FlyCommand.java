@@ -24,7 +24,7 @@ public class FlyCommand extends BaseCommand {
                 player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("fly.disabled")));
             }
         } else {
-            player.sendMessage(CC.translate("&bToggling flight in gamemode &3creative &bor &3spectator &bmight cause issues! Type &3/forcefly &bto bypass anyway..."));
+            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("fly.not-in-survival")));
         }
     }
 }

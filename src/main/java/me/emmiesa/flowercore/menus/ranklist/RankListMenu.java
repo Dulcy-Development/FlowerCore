@@ -30,8 +30,6 @@ public class RankListMenu extends Menu {
     public Map<Integer, Button> getButtons(Player player) {
         Map<Integer, Button> buttons = new HashMap<>();
 
-        //buttons.put(0, backButton);
-
         int slot = 0;
 
         for (Rank rank : FlowerCore.getInstance().getRanksManager().getRanks()) {

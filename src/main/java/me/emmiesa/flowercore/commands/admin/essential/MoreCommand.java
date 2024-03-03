@@ -1,5 +1,6 @@
 package me.emmiesa.flowercore.commands.admin.essential;
 
+import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
@@ -18,16 +19,16 @@ public class MoreCommand extends BaseCommand {
         ItemStack item = player.getItemInHand();
 
         if (item == null || item.getType() == Material.AIR) {
-            player.sendMessage(CC.translate("&cUh, fine. Let's stack nothing. You have to be holding an item..."));
+            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("more-command.no-item-held")));
             return;
         }
         if (item.getAmount() >= 64) {
-            player.sendMessage(CC.translate("&cThis is already a stack of 64."));
+            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("more-command.already-a-stack")));
             return;
         }
 
         item.setAmount(64);
         player.updateInventory();
-        player.sendMessage(CC.translate("&fHere you go."));
+        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("more-command.given")));
     }
 }

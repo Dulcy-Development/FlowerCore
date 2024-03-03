@@ -1,10 +1,12 @@
 package me.emmiesa.flowercore.commands.admin.essential;
 
+import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
 import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.entity.Player;
+import org.intellij.lang.annotations.Flow;
 
 public class HealCommand extends BaseCommand {
 
@@ -14,17 +16,17 @@ public class HealCommand extends BaseCommand {
 
         if (args.length() == 0) {
             healPlayer(player);
-            player.sendMessage(CC.translate("&fYou've been &bhealed."));
+            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("heal.healed")));
         } else if (args.length() == 1) {
-            Player targetPlayer = player.getServer().getPlayer(args.getArgs()[0]);
+            Player targetPlayer = player.getServer().getPlayer(args.getArgs()[0]); //Bukkit.getPlayer(command.getArgs()[0]);
             if (targetPlayer != null && targetPlayer.isOnline()) {
                 healPlayer(targetPlayer);
-                player.sendMessage(CC.translate("&b" + targetPlayer.getName() + " &fhas been healed."));
+                player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("heal.target-healed").replace("%target%", targetPlayer.getName())));
             } else {
-                player.sendMessage(CC.translate("&fNo player matching that name &bis &fconnected to this server."));
+                player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("heal.target-not-found").replace("%target%", args.getArgs()[0])));
             }
         } else {
-            player.sendMessage("Usage: /heal (player)");
+            player.sendMessage(CC.translate("Usage: /heal (player)"));
         }
     }
 
