@@ -97,7 +97,9 @@ broadcast:
     - "&8[&dBroadcast&8] &f%text%"
     #- " "
     #- "%bars%"
+
 spawn-set: "&aSuccessfully set new join location! \n &8- &7{world}: {x}, {y}, {z} (Yaw: {yaw}, Pitch: {pitch})" #Used {} as placeholders because it would be a mess with %
+
 spawn-set-action-bar:
   enabled: true
   duration: 10 #In seconds, how long the action bar should be displayed :>
@@ -140,21 +142,6 @@ instance-command:
   - " &fSoftware: &b%spigot%"
   - " &fPlayers: &b%max-players%&f/&b%online-players%"
   - ""
-
-#instance-command:
-#  - ""
-#  - "&f}&m---&r&f&k|&r &4&lServer Details &r&k|&r&m---&r{"
-#  - "          &fServer Name:"
-#  - "           &c%server-name%"
-#  - "         &fServer Region:"
-#  - "                &c%server-region%"
-#  - "            &fVersion:"
-#  - "&c%version%"
-#  - "            &fSoftware:"
-#  - "            &c%spigot%"
-#  - "            &fPlayers:"
-#  - "              &c%max-players%&f/&c%online-players%"
-#  - "&f}&m---&r&f&k|&r &4&l=============&r &r&k|&r&m---&r{"
 
 ping:
   enabled: true

@@ -14,3 +14,18 @@ MONGO:
       ENABLED: false
       USERNAME: ""
       PASSWORD: ""
+
+instance-command:
+  - ""
+  - "&f}&m---&r&f&k|&r &4&lServer Details &r&k|&r&m---&r{"
+  - "          &fServer Name:"
+  - "           &c%server-name%"
+  - "         &fServer Region:"
+  - "                &c%server-region%"
+  - "            &fVersion:"
+  - "&c%version%"
+  - "            &fSoftware:"
+  - "            &c%spigot%"
+  - "            &fPlayers:"
+  - "              &c%max-players%&f/&c%online-players%"
+  - "&f}&m---&r&f&k|&r &4&l=============&r &r&k|&r&m---&r{"
