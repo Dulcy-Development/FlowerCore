@@ -44,6 +44,7 @@ public class BlacklistCommand extends BaseCommand {
 
         targetPlayer.kickPlayer(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punishments.blacklist").replace("%punisher%", Bukkit.getOfflinePlayer(punishment.getBy()).getName()).replace("%reason%", punishment.getReason())));
         //Utils.broadcastMessage(CC.translate(blacklistedBy.getDisplayName() + " has blacklisted " + targetPlayer.getName() + " for " + reason + ". Duration: " + duration + (silentornot.equalsIgnoreCase("-s") ? " [Silently]" : "")));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.blacklisted").replace("%punisher%", blacklistedBy.getDisplayName()).replace("%target%", target).replace("%reason%", reason)));
         Utils.broadcastMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.blacklisted").replace("%punisher%", blacklistedBy.getDisplayName()).replace("%target%", target).replace("%reason%", reason)));
     }
 }

@@ -39,6 +39,6 @@ public class RankAddPermissionsCommand extends BaseCommand {
         List<String> permissions = rank.getPermissions();
         permissions.add(permission);
         rank.setPermissions(permissions);
-        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.addperm").replace("%rank%", rankName).replace("%perm%", permission)));
+        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.add-perm").replace("%rank%", rankName).replace("%perm%", permission)));
     }
 }

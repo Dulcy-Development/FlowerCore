@@ -36,7 +36,7 @@ public class RankSetDefaultCommand extends BaseCommand {
 
         rank.setDefaultRank(state);
         //player.sendMessage(CC.translate("&bSuccessfully set default " + (state ? "&atrue" : "&cfalse") + "&b for the " + rankName + " &brank!"));
-        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.setdefault")
+        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.set-default")
                         .replace("%state%", state ? "&atrue" : "&cfalse"))
                 .replace("%rank%", rankName)
         );

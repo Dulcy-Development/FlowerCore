@@ -35,7 +35,7 @@ public class RankSetStaffCommand extends BaseCommand {
         }
 
         rank.setStaff(state);
-        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.setstaff")
+        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.set-staff")
                         .replace("%state%", state ? "&atrue" : "&cfalse"))
                 .replace("%rank%", rankName)
         );

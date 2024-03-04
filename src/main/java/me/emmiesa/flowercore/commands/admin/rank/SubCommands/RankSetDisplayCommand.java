@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 
 public class RankSetDisplayCommand extends BaseCommand {
 
-    @Command(name = "rank.setdisplay", aliases = "setrankdisplayname", permission = "flowercore.staff")
+    @Command(name = "rank.setdisplay", aliases = {"setrankdisplayname", "rank.setdisplayname"}, permission = "flowercore.staff")
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
 
@@ -31,6 +31,6 @@ public class RankSetDisplayCommand extends BaseCommand {
         }
 
         FlowerCore.getInstance().getRanksManager().getRank(rankName).setDisplayName(displayName);
-        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.set-displayname").replace("%rank%", rankName).replace("%display-name%", displayName)));
+        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.set-display-name").replace("%rank%", rankName).replace("%display-name%", displayName)));
     }
 }

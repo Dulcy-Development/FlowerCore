@@ -33,6 +33,7 @@ public class UnblacklistCommand extends BaseCommand {
             return;
         }
 
+        Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.un-blacklisted").replace("%pardoner%", sender.getName()).replace("%target%", targetName)));
         Utils.broadcastMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.un-blacklisted").replace("%pardoner%", sender.getName()).replace("%target%", targetName)));
         //Utils.broadcastMessage(CC.translate("&4" + targetName + " &4was unblacklisted by &4" + sender.getName() + "&4."));
         FlowerCore.getInstance().getPlayerManager().removePunishment(playerUUID, PunishmentType.BLACKLIST, targetName);

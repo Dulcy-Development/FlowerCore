@@ -35,7 +35,7 @@ public class RankSetPrefixCommand extends BaseCommand {
         }
 
         rank.setPrefix(prefix);
-        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.setprefix")
+        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.set-prefix")
                         .replace("%prefix%", prefix))
                 .replace("%rank%", rankName)
         );

@@ -40,7 +40,7 @@ public class RankSetIconCommand extends BaseCommand {
         }
 
         rank.setIcon(player.getItemInHand().getType());
-        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.seticon")
+        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.set-icon")
                         .replace("%rank%", rankName))
                 //.replace("%icon%", player.getItemInHand().getItemMeta().getDisplayName())
         );

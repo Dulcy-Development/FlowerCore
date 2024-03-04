@@ -23,15 +23,15 @@ reload:
     - "&r"
 
 punish-broadcasts:
-  kicked: "&a%punisher% &7has kicked &a%target%&7for &a%reason%&7."
-  blacklisted: "&4%punisher% &chas blacklisted &4%target%&cfor &4%reason%&7."
-  banned: "&4%punisher% &chas banned &4%target%&cfor &4%reason%&7."
+  kicked: "&a%punisher% &7has kicked &a%target% &7for &a%reason%&7."
+  blacklisted: "&4%punisher% &chas blacklisted &4%target% &cfor &4%reason%&7."
+  banned: "&4%punisher% &chas banned &4%target% &cfor &4%reason%&7."
   un-blacklisted: "&a%pardoner% &7has un-blacklisted &a%target%&7."
   un-banned: "&a%pardoner% &7has un-banned &a%target%&7."
 
 punishments:
-  blacklist: "\n&4You've been blacklisted from the Flower Network! \n&4Blacklisted by %punisher% for &c%reason%&f! \n&7You may not appeal for this!"
-  ban: "\n&cYou've been banned from the Flower Network! \n&cBanned by %punisher% for %reason%&f! \n&7If you believe this was false, join our discord and appeal!"
+  blacklist: "\n&4You've been blacklisted from the Flower Network! \n&4Blacklisted by %punisher% for &c%reason%&4! \n&7You may not appeal for this!"
+  ban: "\n&cYou've been banned from the Flower Network! \n&cBanned by %punisher% for %reason%! \n&7If you believe this was false, join our discord and appeal!"
   kick: "&7You've been kicked! \n&7Kicked by &a%punisher% &7for &a%reason%&7!"
 
 troll:
@@ -109,25 +109,35 @@ spawn.not-set.reminder:
 
 rank:
   not-set-error: "&c(Error) Your rank was not set."
+  does-not-exist: "&cThe %rank% &crank does not exist!"
+  add-perm: "&aSuccessfully added the &r%perm% &apermission to the &r%rank% &arank!"
+  created: "&aSuccessfully created the &r%rank% &arank!"
+  saved: "&aSuccessfully saved all ranks!"
+  saving: "&7Saving all ranks..."
+  set-color: "&aSuccessfully set &r%color%&l● &aas color of the &r%rank% &arank!"
+  set-default: "&aSuccessfully set default &r%state% &afor the &r%rank% &arank!"
+  set-display-name: "&aSuccessfully set &r%display-name% &aas display name of the &r%rank% &arank!"
+  set-icon: "&aSuccessfully set &r%icon% &aas icon of the &r%rank% &arank!"
+  set-prefix: "&aSuccessfully set &a'%prefix%&a' as prefix of the &r%rank% &arank!"
+  set-priority: "&aSuccessfully set the priority of the &r%rank% &arank to &b%priority%&a!"
+  set-staff: "&aSuccessfully set staff &r%state% &afor the &r%rank% &arank!"
+  set-suffix: "&aSuccessfully set &a'%suffix%&a' as suffix of the &r%rank% &arank!"
   save-reminder: #A message that gets sent each time you create a new rank.
     enabled: true
     message: "&c(!) Don't forget to save you ranks by doing /rank save when you're done setting them up (!)"
-  saved: "&aSuccessfully saved all ranks!"
-  saving: "&7Saving all ranks..."
-  created: "&aSuccessfully created the &r%rank% &arank!"
-  addperm: "&aSuccessfully added the &r%perm% &apermission to the &r%rank% &arank!"
-  seticon: "&aSuccessfully set &r%icon% &aas icon of the &r%rank% &arank!"
-  setstaff: "&aSuccessfully set staff &r%state% &afor the &r%rank% &arank!"
-  setprefix: "&aSuccessfully set &a'%prefix%&a' as prefix of the &r%rank% &arank!"
-  setsuffix: "&aSuccessfully set &a'%suffix%&a' as suffix of the &r%rank% &arank!"
-  setdefault: "&aSuccessfully set default &r%state% &afor the &r%rank% &arank!"
-  set-color: "&aSuccessfully set &r%color%&l● &aas color of the &r%rank% &arank!"
-  setpriority: "&aSuccessfully set the priority of the &r%rank% &arank to &b%priority%&a!"
-  does-not-exist: "&cThe %rank% &crank does not exist!"
-  set-displayname: "&aSuccessfully set &r%display-name% &aas display name of the &r%rank% &arank!"
 
 clear-chat: "&aThe chat has been cleared by %player%."
 clear-chat-staff: "&8[%server%] &7&o[%player%: Clear chat)"
+
+instance-command:
+  - "&7&m-------------------------------------"
+  - "&b&lServer Details:"
+  - "&7Server Name: &e%server-name%"
+  - "&7Server Region: &e%server-region%"
+  - "&7Version: &e%version%"
+  - "&7Software: &e%spigot%"
+  - "&7Players: &e%max-players%&7/&e%online-players%"
+  - "&7&m-------------------------------------"
 
 ping:
   enabled: true

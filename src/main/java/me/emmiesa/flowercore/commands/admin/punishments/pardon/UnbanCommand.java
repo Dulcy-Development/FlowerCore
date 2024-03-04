@@ -33,6 +33,7 @@ public class UnbanCommand extends BaseCommand {
             return;
         }
 
+        Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.un-banned").replace("%pardoner%", sender.getName()).replace("%target%", targetName)));
         Utils.broadcastMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.un-banned").replace("%pardoner%", sender.getName()).replace("%target%", targetName)));
         //Utils.broadcastMessage(CC.translate("&4" + targetName + " &cwas unbanned by &4" + sender.getName() + "&c."));
         FlowerCore.getInstance().getPlayerManager().removePunishment(playerUUID, PunishmentType.BAN, targetName);
