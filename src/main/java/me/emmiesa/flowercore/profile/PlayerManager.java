@@ -7,7 +7,6 @@ import me.emmiesa.flowercore.punishments.Punishment;
 import me.emmiesa.flowercore.punishments.PunishmentType;
 import me.emmiesa.flowercore.ranks.Rank;
 import me.emmiesa.flowercore.utils.Utils;
-import me.emmiesa.flowercore.utils.chat.CC;
 import org.bson.Document;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -97,7 +96,7 @@ public class PlayerManager {
         }
 
         PermissionAttachment attachment = player.addAttachment(plugin);
-        List<String> defaultPermissions = plugin.getConfig("permissions.yml").getStringList("default.permissions");
+        List<String> defaultPermissions = plugin.getConfig("settings.yml").getStringList("default-permissions");
         if (defaultPermissions != null) {
             for (String permission : defaultPermissions) {
                 attachment.setPermission(permission, true);

@@ -3,12 +3,10 @@ package me.emmiesa.flowercore.handler;
 import lombok.Getter;
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.utils.chat.CC;
-import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,7 +19,7 @@ public class ConfigHandler {
     private final Map<String, FileConfiguration> fileConfigurations = new HashMap<>();
 
     private final String[] configFileNames = {
-            "config.yml", "settings.yml", "messages.yml", "commands.yml", "database.yml", "extras.yml", "ranks.yml", "permissions.yml", "placeholders.yml"
+            "config.yml", "settings.yml", "messages.yml", "commands.yml", "database.yml", "extras.yml", "ranks.yml", "placeholders.yml"
     };
 
     public ConfigHandler() {

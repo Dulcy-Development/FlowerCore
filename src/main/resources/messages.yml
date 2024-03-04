@@ -14,7 +14,7 @@ reload:
     - " &7[&cWARNING&7] &fReloading the configuration files..."
     - "&r"
     - " &8[&bConfig.yml, Commands.yml, Database.yml, Extras.yml,"
-    - " &bMessages.yml, Permissions.yml, Placeholders.yml, Ranks.yml,"
+    - " &bMessages.yml, Placeholders.yml, Ranks.yml,"
     - " &bSettings.yml&8]"
     - "&8&m-----------------------------------------------------"
     - "&r"
@@ -112,8 +112,8 @@ rank:
   does-not-exist: "&cThe %rank% &crank does not exist!"
   add-perm: "&aSuccessfully added the &r%perm% &apermission to the &r%rank% &arank!"
   created: "&aSuccessfully created the &r%rank% &arank!"
-  saved: "&aSuccessfully saved all ranks!"
   saving: "&7Saving all ranks..."
+  saved: "&aSuccessfully saved all ranks!"
   set-color: "&aSuccessfully set &r%color%&l● &aas color of the &r%rank% &arank!"
   set-default: "&aSuccessfully set default &r%state% &afor the &r%rank% &arank!"
   set-display-name: "&aSuccessfully set &r%display-name% &aas display name of the &r%rank% &arank!"
@@ -122,7 +122,8 @@ rank:
   set-priority: "&aSuccessfully set the priority of the &r%rank% &arank to &b%priority%&a!"
   set-staff: "&aSuccessfully set staff &r%state% &afor the &r%rank% &arank!"
   set-suffix: "&aSuccessfully set &a'%suffix%&a' as suffix of the &r%rank% &arank!"
-  save-reminder: #A message that gets sent each time you create a new rank.
+  save-reminder:
+    #A message that gets sent each time you create a new rank.
     enabled: true
     message: "&c(!) Don't forget to save you ranks by doing /rank save when you're done setting them up (!)"
 
@@ -130,14 +131,30 @@ clear-chat: "&aThe chat has been cleared by %player%."
 clear-chat-staff: "&8[%server%] &7&o[%player%: Clear chat)"
 
 instance-command:
-  - "&7&m-------------------------------------"
-  - "&6&lServer Details:"
-  - " &7Server Name: &e%server-name%"
-  - " &7Server Region: &e%server-region%"
-  - " &7Version: &e%version%"
-  - " &7Software: &e%spigot%"
-  - " &7Players: &e%max-players%&7/&e%online-players%"
-  - "&7&m-------------------------------------"
+  - ""
+  - "&b&lServer Details:"
+  - " &fVersion: &b%version%"
+  - " &fBukkit Server name: &b%bukkit-server-name%"
+  - " &fServer Region: &b%server-region%"
+  - " &fServer Name: &b%server-name%"
+  - " &fSoftware: &b%spigot%"
+  - " &fPlayers: &b%max-players%&f/&b%online-players%"
+  - ""
+
+#instance-command:
+#  - ""
+#  - "&f}&m---&r&f&k|&r &4&lServer Details &r&k|&r&m---&r{"
+#  - "          &fServer Name:"
+#  - "           &c%server-name%"
+#  - "         &fServer Region:"
+#  - "                &c%server-region%"
+#  - "            &fVersion:"
+#  - "&c%version%"
+#  - "            &fSoftware:"
+#  - "            &c%spigot%"
+#  - "            &fPlayers:"
+#  - "              &c%max-players%&f/&c%online-players%"
+#  - "&f}&m---&r&f&k|&r &4&l=============&r &r&k|&r&m---&r{"
 
 ping:
   enabled: true

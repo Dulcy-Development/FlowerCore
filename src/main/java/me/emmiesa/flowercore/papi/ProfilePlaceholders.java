@@ -32,7 +32,13 @@ public class ProfilePlaceholders extends PlaceholderExpansion {
             return FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getDisplayName();
         } else if (params.equalsIgnoreCase("rank_raw")) {
             return FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getName();
-        } else if (params.equalsIgnoreCase("isstaffrank")) {
+        } else if (params.equalsIgnoreCase("bar")) {
+            return CC.FLOWER_BAR;
+        /*} else if (params.equalsIgnoreCase("bar_long")) {
+            return CC.FLOWER_BAR_LONG;
+        } else if (params.equalsIgnoreCase("bar_verylong")) {
+            return CC.FLOWER_BAR_VERY_LONG;*/
+        } else if (params.equalsIgnoreCase("is_staff")) {
             if (FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).isStaff()) {
                 return CC.translate(FlowerCore.getInstance().getConfig("placeholders.yml").getString("flower_player_rank_isstaff.true"));
             } else {

@@ -14,17 +14,17 @@ public class TagCommand extends BaseCommand {
 
     @Completer(name = "tag")
     public List<String> tagCompleter(CommandArgs args) {
-        List<String> add = new ArrayList<>();
+        List<String> commands = new ArrayList<>();
         if (args.length() == 1) {
-            add.add("create");
-            add.add("delete");
-            add.add("save");
-            add.add("list");
+            commands.add("create");
+            commands.add("delete");
+            commands.add("save");
+            commands.add("list");
 
-            add.add("settag");
-            add.add("setcolor");
+            commands.add("settag");
+            commands.add("setcolor");
         }
-        return add;
+        return commands;
     }
 
     @Command(name = "tag", permission = "flowercore.staff")

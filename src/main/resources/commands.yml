@@ -3,9 +3,38 @@
 #               FlowerCore made by Emmiesa | Commands.yml
 #
 #
-#Based on this Configuration, the commands listed below, will either register, or not.
-plugin:
+vanilla-commands-blocker:
+  perm-to-bypass: "flower.blockedcmd.bypass"
+  disable_commands:
+    - "/me"
+    - "/say"
+    - "/minecraft:me"
+    - "/minecraft:say"
+
+#This overwrites /ver, /bukkit:ver /version, /bukkit:version, /about, /bukkit:about, /? and sends the following message.
+version-command:
+  # Available Placeholders:
+  # - %player% (Player name of who executed the command)
+  # - %spigot% (Name of the spigot)
+  # - %version% (Version of the spigot)
   enabled: true
-  permission:
-    perm-off: false #Does not require the perm if 'true'
-    perm: flower.cmd.plugin
+  message:
+    - ""
+    - "&fHey &b%player%&f,"
+    - "&fThis server is running &b&l%spigot% &fusing Emmy's awesome core plugin which is called &b&lFlowerCore&r!"
+    #- " &8- &7%version%"
+    - ""
+
+bungee-command:
+  enabled: true
+  message:
+    - ""
+    - "&eThis server is running &dXeBungee&e."
+    - ""
+
+plugins-command:
+  enabled: true
+  message:
+    - ""
+    - "&cNuh uh, &4%player%&c!"
+    - ""

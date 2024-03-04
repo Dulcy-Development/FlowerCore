@@ -12,10 +12,10 @@ public class CommandListener implements Listener {
 
     @EventHandler
     public void onPlayerCommandPreprocess(PlayerCommandPreprocessEvent event) {
-        if (FlowerCore.getInstance().getConfig("settings.yml").getBoolean("version-command.enabled")) {
+        if (FlowerCore.getInstance().getConfig("commands.yml").getBoolean("version-command.enabled")) {
             if (event.getMessage().toLowerCase().startsWith("/version") || event.getMessage().toLowerCase().startsWith("/ver") || event.getMessage().toLowerCase().startsWith("/bukkit:ver") || event.getMessage().toLowerCase().startsWith("/bukkit:version") || event.getMessage().toLowerCase().startsWith("/bukkit:about") || event.getMessage().toLowerCase().startsWith("/about") || event.getMessage().equalsIgnoreCase("/?")) {
                 event.setCancelled(true);
-                for (String message : FlowerCore.getInstance().getConfig("settings.yml").getStringList("version-command.message")) {
+                for (String message : FlowerCore.getInstance().getConfig("commands.yml").getStringList("version-command.message")) {
                     event.getPlayer().sendMessage(CC.translate(message)
                             .replace("%player%", event.getPlayer().getDisplayName())
                             .replace("%spigot%", Bukkit.getServer().getName())
@@ -24,9 +24,31 @@ public class CommandListener implements Listener {
             }
         }
 
-        if (!event.getPlayer().hasPermission(FlowerCore.getInstance().getConfig("settings.yml").getString("vanilla-commands-blocker.perm-to-bypass"))) {
+        if (FlowerCore.getInstance().getConfig("commands.yml").getBoolean("plugins-command.enabled")) {
+            if (event.getMessage().toLowerCase().startsWith("/plugins") || event.getMessage().toLowerCase().startsWith("/pl") || event.getMessage().toLowerCase().startsWith("/bukkit:pl") || event.getMessage().toLowerCase().startsWith("/bukkit:plugins")) {
+                event.setCancelled(true);
+                for (String message : FlowerCore.getInstance().getConfig("commands.yml").getStringList("plugins-command.message")) {
+                    event.getPlayer().sendMessage(CC.translate(message)
+                            .replace("%player%", event.getPlayer().getDisplayName()));
+                }
+            }
+        }
 
-            List<String> blockedCommands = FlowerCore.getInstance().getConfig("settings.yml").getStringList("vanilla-commands-blocker.disable_commands");
+        if (FlowerCore.getInstance().getConfig("commands.yml").getBoolean("bungee-command.enabled")) {
+            if (event.getMessage().toLowerCase().startsWith("/bungee") || event.getMessage().toLowerCase().startsWith("/bungeecord") || event.getMessage().toLowerCase().startsWith("/flamecord") || event.getMessage().toLowerCase().startsWith("/flame") || event.getMessage().toLowerCase().startsWith("/proxy")) {
+                event.setCancelled(true);
+                for (String message : FlowerCore.getInstance().getConfig("commands.yml").getStringList("bungee-command.message")) {
+                    event.getPlayer().sendMessage(CC.translate(message)
+                            .replace("%player%", event.getPlayer().getDisplayName()));
+                            //.replace("%spigot%", Bukkit.getServer().getName())
+                            //.replace("%version%", Bukkit.getServer().getVersion()))
+                }
+            }
+        }
+
+        if (!event.getPlayer().hasPermission(FlowerCore.getInstance().getConfig("commands.yml").getString("vanilla-commands-blocker.perm-to-bypass"))) {
+
+            List<String> blockedCommands = FlowerCore.getInstance().getConfig("commands.yml").getStringList("vanilla-commands-blocker.disable_commands");
 
             for (String command : blockedCommands) {
                 String formattedCommand = command.startsWith("/") ? command : "/" + command;

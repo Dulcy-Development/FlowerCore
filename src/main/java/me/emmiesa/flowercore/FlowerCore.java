@@ -20,7 +20,7 @@ import me.emmiesa.flowercore.commands.admin.punishments.pardon.UnbanCommand;
 import me.emmiesa.flowercore.commands.admin.punishments.pardon.UnblacklistCommand;
 import me.emmiesa.flowercore.commands.admin.rank.GrantCommand;
 import me.emmiesa.flowercore.commands.admin.rank.RankCommand;
-import me.emmiesa.flowercore.commands.admin.rank.SubCommands.*;
+import me.emmiesa.flowercore.commands.admin.rank.subcommands.*;
 import me.emmiesa.flowercore.commands.admin.spawn.SetJoinLocation;
 import me.emmiesa.flowercore.commands.admin.spawn.TeleportSpawnCommand;
 import me.emmiesa.flowercore.commands.admin.tags.TagCommand;
@@ -42,7 +42,6 @@ import me.emmiesa.flowercore.utils.menu.MenuListener;
 import me.emmiesa.flowercore.utils.others.Cooldown;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -56,7 +55,7 @@ public class FlowerCore extends JavaPlugin {
     @Getter
     private static FlowerCore instance;
 
-    private FileConfiguration messagesConfig, settingsConfig, commandsConfig, databaseConfig, extrasConfig, ranksConfig, permissionsConfig, placeholdersConfig;
+    private FileConfiguration messagesConfig, settingsConfig, commandsConfig, databaseConfig, extrasConfig, ranksConfig, placeholdersConfig; //used for reloading the configs
     private Cooldown announceCooldown;
     private CommandFramework framework;
     private ConfigHandler configHandler;
@@ -161,6 +160,7 @@ public class FlowerCore extends JavaPlugin {
         new TeleportCommand();
         new SetJoinLocation();
         new LocationCommand();
+        new BroadcastCommand();
         new ClearChatCommand();
         new TeamSpeakCommand();
         new TeleportUpCommand();
@@ -195,11 +195,6 @@ public class FlowerCore extends JavaPlugin {
 
         new AlertCommand(this);
         new GodModeCommand(this);
-        new BroadcastCommand(this);
-
-        if (getConfig("commands.yml").getBoolean("plugin.enabled")) {
-            new PluginCommand();
-        }
 
         long end = System.currentTimeMillis();
         long timeTaken = end - start;
@@ -243,7 +238,6 @@ public class FlowerCore extends JavaPlugin {
         messagesConfig = getConfig("messages.yml");
         settingsConfig = getConfig("settings.yml");
         ranksConfig = getConfig("ranks.yml");
-        permissionsConfig = getConfig("permissions.yml");
         placeholdersConfig = getConfig("placeholder.yml");
     }
 

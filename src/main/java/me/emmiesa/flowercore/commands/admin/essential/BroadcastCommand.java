@@ -13,12 +13,6 @@ import java.util.List;
 
 public class BroadcastCommand extends BaseCommand {
 
-    private final FlowerCore plugin;
-
-    public BroadcastCommand(FlowerCore plugin) {
-        this.plugin = plugin;
-    }
-
     @Command(name = "broadcast", inGameOnly = false, permission = "flower.command.broadcast")
     public void onCommand(CommandArgs args) {
         CommandSender sender = args.getSender();

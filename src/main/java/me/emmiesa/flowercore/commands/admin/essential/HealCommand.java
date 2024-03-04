@@ -6,7 +6,6 @@ import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
 import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.entity.Player;
-import org.intellij.lang.annotations.Flow;
 
 public class HealCommand extends BaseCommand {
 

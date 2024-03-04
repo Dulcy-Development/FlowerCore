@@ -4,7 +4,7 @@
 #
 #
 server-name: eu-hub-1
-server-region: EU
+server-region: Europe
 
 chat: # Available placeholders %prefix%, %player%, %message%, %suffix%
   format: "%prefix%%player%%suffix%§7: §f%message%"
@@ -21,6 +21,9 @@ rank-settings:
   list:
     send-as-message: false
     open-menu: true
+
+default-permissions: #Experimental, better not use it.
+  - "none"
 
 on-join:
   play-sound:
@@ -44,13 +47,6 @@ on-join:
   set-gamemode:
     enabled: false
     gamemode: "SURVIVAL" #You can use SURVIVAL, CREATIVE, ADVENTURE or SPECTATOR.
-
-vanilla-commands-blocker:
-  perm-to-bypass: "flower.blockedcmd.bypass"
-  disable_commands:
-    - "/me"
-    - "/say"
-    - "/flowercore reload"
 
 announce:
   enabled: true
@@ -76,20 +72,6 @@ punishments:
     blacklist: "no reason"
     ban: "no reason"
     kick: "absolutely no reason"
-
-#This overwrites /ver, /bukkit:ver /version, /bukkit:version, /about, /bukkit:about, /? and sends the following message.
-version-command:
-  # Available Placeholders:
-  # - %player% (Player name of who executed the command)
-  # - %spigot% (Name of the spigot)
-  # - %version% (Version of the spigot)
-  enabled: true
-  message:
-    - ""
-    - "&fHey &b%player%&f,"
-    - "&fThis server is running &b&l%spigot% &fusing Emmy's awesome core plugin which is called &b&lFlowerCore&r!"
-    #- " &8- &7%version%"
-    - ""
 
 announcements:
   enabled: true

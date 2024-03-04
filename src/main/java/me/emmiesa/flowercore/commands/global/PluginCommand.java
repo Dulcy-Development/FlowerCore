@@ -1,4 +1,4 @@
-package me.emmiesa.flowercore.commands.global;
+/*package me.emmiesa.flowercore.commands.global;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.Locale;
@@ -15,6 +15,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class PluginCommand extends BaseCommand {
+
+    //if (getConfig("commands.yml").getBoolean("plugin.enabled")) {
+    //        new PluginCommand();
+    //    }
 
     @Command(name = "serverplugins", aliases = {"plugininformation", "listplugins", "pluginslist", "plugin", "pl", "plugins"}, inGameOnly = false)
     public void onCommand(CommandArgs args) {
@@ -48,4 +52,4 @@ public class PluginCommand extends BaseCommand {
             }
         }
     }
-}
+}*/

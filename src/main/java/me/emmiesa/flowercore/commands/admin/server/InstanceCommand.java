@@ -20,6 +20,7 @@ public class InstanceCommand extends BaseCommand {
             sender.sendMessage(CC.translate(message)
                     .replace("%server-region%", Locale.SERVER_REGION)
                     .replace("%server-name%", Locale.SERVER_NAME)
+                    .replace("%bukkit-server-name%", Bukkit.getServerName())
                     .replace("%version%", Bukkit.getServer().getVersion())
                     .replace("%spigot%", Bukkit.getServer().getName())
                     .replace("%max-players%", String.valueOf(Bukkit.getServer().getMaxPlayers()))

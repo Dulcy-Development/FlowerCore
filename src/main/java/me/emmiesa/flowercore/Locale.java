@@ -1,6 +1,5 @@
 package me.emmiesa.flowercore;
 
-import me.emmiesa.flowercore.utils.chat.CC;
 import org.bukkit.configuration.file.FileConfiguration;
 
 public class Locale {

@@ -20,13 +20,13 @@ public class SpeedCommand extends BaseCommand {
 
     @Completer(name = "speed")
     public List<String> speedCompleter(CommandArgs args) {
-        List<String> add = new ArrayList<>();
+        List<String> commands = new ArrayList<>();
         if (args.length() == 1) {
-            add.add("fly");
-            add.add("walk");
-            add.add("reset");
+            commands.add("fly");
+            commands.add("walk");
+            commands.add("reset");
         }
-        return add;
+        return commands;
     }
 
     @Command(name = "speed", permission = "flower.command.speed")
