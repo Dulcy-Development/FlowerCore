@@ -67,6 +67,7 @@ public class FlowerCore extends JavaPlugin {
     private RanksManager ranksManager;
     private PlayerManager playerManager;
     private Location spawnLocation;
+    private String prefix = "§f[§bFlowerCore§f]§r ";
 
     @Override
     public void onEnable() {
@@ -76,10 +77,8 @@ public class FlowerCore extends JavaPlugin {
         checkDescription();
         registerManagers();
         registerCommands();
-        registerListeners();
         registerHandlers();
-
-        CC.listRanks();
+        registerListeners();
 
         long end = System.currentTimeMillis();
         long timeTaken = end - start;
@@ -96,14 +95,13 @@ public class FlowerCore extends JavaPlugin {
     }
 
     private void checkDescription() {
-        Bukkit.getConsoleSender().sendMessage(CC.translate("[FlowerCore] Loading..."));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Loading..."));
         if (!getDescription().getAuthors().contains("Emmy") || !getDescription().getName().contains("FlowerCore")) {
             System.exit(0);
             Bukkit.shutdown();
         } else {
-            Bukkit.getConsoleSender().sendMessage(CC.translate("[FlowerCore] Author name is correct."));
+            Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Starting register process..."));
         }
-        Bukkit.getConsoleSender().sendMessage(CC.translate("[FlowerCore] Started register process..."));
     }
 
     private void registerManagers() {
@@ -130,7 +128,7 @@ public class FlowerCore extends JavaPlugin {
     private void registerCommands() {
         long start = System.currentTimeMillis();
 
-        Bukkit.getConsoleSender().sendMessage(CC.translate("Registering all commands..."));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Registering all commands..."));
 
         new FlowerCoreCommand();
         new FlyCommand();
@@ -208,14 +206,14 @@ public class FlowerCore extends JavaPlugin {
         long end = System.currentTimeMillis();
         long timeTaken = end - start;
 
-        Bukkit.getConsoleSender().sendMessage(CC.translate("Registered all commands in " + timeTaken + "ms."));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Registered all commands in " + timeTaken + "ms."));
     }
 
 
     private void registerListeners() {
         long start = System.currentTimeMillis();
 
-        Bukkit.getConsoleSender().sendMessage(CC.translate("Registering all listeners..."));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Registering all listeners..."));
 
         getServer().getPluginManager().registerEvents(new MenuListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerListeners(this), this);
@@ -225,19 +223,19 @@ public class FlowerCore extends JavaPlugin {
         long end = System.currentTimeMillis();
         long timeTaken = end - start;
 
-        Bukkit.getConsoleSender().sendMessage(CC.translate("Registered all listeners in " + timeTaken + "ms."));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Registered all listeners in " + timeTaken + "ms."));
     }
 
     private void registerHandlers() {
         long start = System.currentTimeMillis();
 
-        Bukkit.getConsoleSender().sendMessage(CC.translate("Registering all handlers..."));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Registering all handlers..."));
 
         long end = System.currentTimeMillis();
         long timeTaken = end - start;
 
-        Bukkit.getConsoleSender().sendMessage(CC.translate("Registered all handlers in " + timeTaken + "ms."));
-        Bukkit.getConsoleSender().sendMessage(CC.translate("Register process was successful!"));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Registered all handlers in " + timeTaken + "ms."));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Register process was successful!"));
     }
 
     public void reloadAllConfigs() {

@@ -129,7 +129,7 @@ public class CC {
     public static void on(long timeTaken) {
         Bukkit.getConsoleSender().sendMessage(" ");
         Bukkit.getConsoleSender().sendMessage(CC.translate("&8&m-----------------------------------------------"));
-        Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Plugin: &bFlowerCore"));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Plugin: &b" + FlowerCore.getInstance().getDescription().getName()));
         Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Authors: &b" + FlowerCore.getInstance().getDescription().getAuthors().toString().replace("[", "").replace("]", "")));
         Bukkit.getConsoleSender().sendMessage(CC.translate(" "));
         Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Version: &b" + FlowerCore.getInstance().getDescription().getVersion()));

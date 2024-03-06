@@ -18,14 +18,14 @@ public class gmaCommand extends BaseCommand {
 
     @Completer(name = "gamemode", aliases = "gm")
     public List<String> gmCompleter(CommandArgs args) {
-        List<String> add = new ArrayList<>();
+        List<String> commands = new ArrayList<>();
         if (args.length() == 1) {
-            add.add("creative");
-            add.add("survival");
-            add.add("adventure");
-            add.add("spectator");
+            commands.add("creative");
+            commands.add("survival");
+            commands.add("adventure");
+            commands.add("spectator");
         }
-        return add;
+        return commands;
     }
 
     @Command(name = "gma", aliases = {"gm.a", "adventure", "gamemode.a", "gamemode.2", "gamemode.adventure", "gm.2", "gm2", "gm.adventure"}, permission = "flowercore.staff")

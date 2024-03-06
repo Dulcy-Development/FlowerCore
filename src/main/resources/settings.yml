@@ -26,6 +26,17 @@ default-permissions: #Experimental, better not use it.
   - "none"
 
 on-join:
+  # <-- not in usage -->
+  #
+  #fly: #Difference between these two, is that set flying makes the player fly already, and allow flying just allows them to toggle flight when they want to
+  #  set-flying:
+  #    enabled: true
+  #    permission: flowercore.staff
+  #  allow-flying:
+  #    enabled: true
+  #    permission: flowercore.staff
+  #
+  # <-- not in usage -->
   play-sound:
     enabled: true
     sound: LEVEL_UP

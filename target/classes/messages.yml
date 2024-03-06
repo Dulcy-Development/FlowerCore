@@ -47,6 +47,16 @@ troll-everybody:
     - "&fEverybody on the server got trolled by &b%troller%&f!"
     - "&r "
 
+time-changer:
+  day: "&fYou have set your time to &bday&f."
+  sunset: "&fYou have set your time to &bsunset&f."
+  night: "&fYou have set your time to &bnight&f."
+
+rename-item:
+  missing-arguments: "&cMissing arguments! Please enter a name for the item."
+  no-item: "&cYou need to be holding an item!"
+  renamed: "&aYou've renamed the &a'&r%item%&a' &aitem to &a'&r%renamed%&a'."
+
 heal:
   healed: "&aYou've been healed."
   target-healed: "&aYou've healed &b%target%&a."
@@ -97,7 +107,9 @@ broadcast:
     - "&8[&dBroadcast&8] &f%text%"
     #- " "
     #- "%bars%"
+
 spawn-set: "&aSuccessfully set new join location! \n &8- &7{world}: {x}, {y}, {z} (Yaw: {yaw}, Pitch: {pitch})" #Used {} as placeholders because it would be a mess with %
+
 spawn-set-action-bar:
   enabled: true
   duration: 10 #In seconds, how long the action bar should be displayed :>
@@ -138,23 +150,8 @@ instance-command:
   - " &fServer Region: &b%server-region%"
   - " &fServer Name: &b%server-name%"
   - " &fSoftware: &b%spigot%"
-  - " &fPlayers: &b%max-players%&f/&b%online-players%"
+  - " &fPlayers: &b%online-players%&f/&b%max-players%"
   - ""
-
-#instance-command:
-#  - ""
-#  - "&f}&m---&r&f&k|&r &4&lServer Details &r&k|&r&m---&r{"
-#  - "          &fServer Name:"
-#  - "           &c%server-name%"
-#  - "         &fServer Region:"
-#  - "                &c%server-region%"
-#  - "            &fVersion:"
-#  - "&c%version%"
-#  - "            &fSoftware:"
-#  - "            &c%spigot%"
-#  - "            &fPlayers:"
-#  - "              &c%max-players%&f/&c%online-players%"
-#  - "&f}&m---&r&f&k|&r &4&l=============&r &r&k|&r&m---&r{"
 
 ping:
   enabled: true
