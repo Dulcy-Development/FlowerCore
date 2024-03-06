@@ -72,6 +72,7 @@ public class FlowerCore extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
+
         long start = System.currentTimeMillis();
 
         checkDescription();
