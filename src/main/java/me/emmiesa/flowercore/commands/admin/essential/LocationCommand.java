@@ -5,6 +5,7 @@ import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
 import me.emmiesa.flowercore.utils.command.CommandArgs;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
@@ -25,5 +26,6 @@ public class LocationCommand extends BaseCommand {
                 .replace("{pitch}", String.format("%.2f", loc.getPitch()));
 
         player.sendMessage(CC.translate(message));
+        Bukkit.getConsoleSender().sendMessage(CC.translate("\n&3(" + player.getName() + ") &r" + message));
     }
 }

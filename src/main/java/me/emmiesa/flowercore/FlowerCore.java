@@ -28,6 +28,10 @@ import me.emmiesa.flowercore.commands.admin.teleport.*;
 import me.emmiesa.flowercore.commands.admin.troll.*;
 import me.emmiesa.flowercore.commands.donator.AnnounceCommand;
 import me.emmiesa.flowercore.commands.global.*;
+import me.emmiesa.flowercore.commands.global.socials.*;
+import me.emmiesa.flowercore.commands.global.worldtime.DayCommand;
+import me.emmiesa.flowercore.commands.global.worldtime.NightCommand;
+import me.emmiesa.flowercore.commands.global.worldtime.SunsetCommand;
 import me.emmiesa.flowercore.database.mongo.MongoManager;
 import me.emmiesa.flowercore.handler.ConfigHandler;
 import me.emmiesa.flowercore.listeners.ChatListener;
@@ -148,6 +152,7 @@ public class FlowerCore extends JavaPlugin {
         new TikTokCommand();
         new LaunchCommand();
         new RocketCommand();
+        new RenameCommand();
         new CaptureCommand();
         new YouTubeCommand();
         new DiscordCommand();
@@ -192,6 +197,10 @@ public class FlowerCore extends JavaPlugin {
 
         new UnbanCommand();
         new UnblacklistCommand();
+
+        new DayCommand();
+        new NightCommand();
+        new SunsetCommand();
 
         new AlertCommand(this);
         new GodModeCommand(this);
