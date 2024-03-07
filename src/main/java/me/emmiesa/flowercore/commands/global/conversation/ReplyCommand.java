@@ -39,7 +39,7 @@ public class ReplyCommand extends BaseCommand {
         }
 
         if (lastConversantUUID == null) {
-            player.sendMessage(CC.translate("You have no one to reply to."));
+            player.sendMessage(CC.translate("&cYou have no one to reply to."));
             return;
         }
 

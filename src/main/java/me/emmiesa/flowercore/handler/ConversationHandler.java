@@ -35,8 +35,7 @@ public class ConversationHandler {
 
         if (targetPlayer == null) {
             if (senderPlayer != null) {
-                senderPlayer.sendMessage(ChatColor.RED + "The player is currently offline.");
-                Utils.broadcastMessage("player offline");
+                senderPlayer.sendMessage(CC.translate("&cThat player is currently offline."));
             }
             return;
         }

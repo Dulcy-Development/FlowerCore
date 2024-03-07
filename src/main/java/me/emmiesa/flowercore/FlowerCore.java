@@ -51,6 +51,7 @@ import me.emmiesa.flowercore.utils.menu.MenuListener;
 import me.emmiesa.flowercore.utils.others.Cooldown;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -113,6 +114,7 @@ public class FlowerCore extends JavaPlugin {
 
     private void registerManagers() {
         saveDefaultConfig();
+        loadSpawnLocation();
         configHandler = new ConfigHandler();
 
         framework = new CommandFramework(this);
@@ -259,6 +261,22 @@ public class FlowerCore extends JavaPlugin {
         settingsConfig = getConfig("settings.yml");
         ranksConfig = getConfig("ranks.yml");
         placeholdersConfig = getConfig("placeholder.yml");
+    }
+
+    private void loadSpawnLocation() {
+        FileConfiguration config = getConfig("settings.yml");
+        boolean enableSpawnTeleport = config.getBoolean("on-join.teleport.enabled");
+
+        if (enableSpawnTeleport) {
+            World world = Bukkit.getWorld(config.getString("on-join.teleport.location.world"));
+            double x = config.getDouble("on-join.teleport.location.x");
+            double y = config.getDouble("on-join.teleport.location.y");
+            double z = config.getDouble("on-join.teleport.location.z");
+            float yaw = (float) config.getDouble("on-join.teleport.location.yaw");
+            float pitch = (float) config.getDouble("on-join.teleport.location.pitch");
+
+            spawnLocation = new Location(world, x, y, z, yaw, pitch);
+        }
     }
 
     public void setSpawnLocation(Location location) {
