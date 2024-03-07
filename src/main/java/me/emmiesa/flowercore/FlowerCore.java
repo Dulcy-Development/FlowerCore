@@ -250,7 +250,6 @@ public class FlowerCore extends JavaPlugin {
         long timeTaken = end - start;
 
         Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Registered all handlers in " + timeTaken + "ms."));
-        Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Register process was successful!"));
     }
 
     public void reloadAllConfigs() {
