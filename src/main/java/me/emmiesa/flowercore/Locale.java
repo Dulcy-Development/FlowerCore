@@ -8,6 +8,7 @@ public class Locale {
 
     public static String DEBUG = "&7(Debug) This is not being handled yet.";
     public static String CMD_CANT_BE_USED = "&4This command cannot be used currently because It's still in development.";
+    public static String PLAYER_NOT_ONLINE = "&cNo player matching &4%player% &cis connected to this server.";
     public static String NO_PERM = messagesConfig.getString("no-perms");
 
     public static String RANK_NOT_FOUND = messagesConfig.getString("rank.does-not-exist");

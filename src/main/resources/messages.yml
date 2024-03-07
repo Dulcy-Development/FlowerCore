@@ -47,6 +47,10 @@ troll-everybody:
     - "&fEverybody on the server got trolled by &b%troller%&f!"
     - "&r "
 
+sudo:
+  command: "&aYou've made &b%target% &aexecute this command: &b%arguments%&a!"
+  message: "&aYou've made &b%target% &asay &b%arguments% &ain chat!"
+
 time-changer:
   day: "&fYou have set your time to &bday&f."
   sunset: "&fYou have set your time to &bsunset&f."

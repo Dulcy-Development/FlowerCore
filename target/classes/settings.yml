@@ -65,7 +65,7 @@ announce:
   bungee: true
   cooldown: 15
   command: "play eu-hub-1"
-  hover: "&aClick to join!"
+  hover: "&aClick to join eu-hub-1!\n&r \n&c&lWarning: &r&cThis will switch your server!"
   announced-message: "&aYou've announced the game!"
   format: '&b&l%server_name% &7» &b%prefix%%player_name% &fwants you to play! &a(Join)'
 
@@ -83,6 +83,9 @@ punishments:
     blacklist: "no reason"
     ban: "no reason"
     kick: "absolutely no reason"
+
+sudo:
+  exclude-op: true #This prevents OP players to be sudo-ed.
 
 announcements:
   enabled: true

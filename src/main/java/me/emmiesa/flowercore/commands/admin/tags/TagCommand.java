@@ -22,7 +22,8 @@ public class TagCommand extends BaseCommand {
             commands.add("list");
 
             commands.add("settag");
-            commands.add("setcolor");
+            commands.add("seticon");
+            commands.add("setdisplayname");
         }
         return commands;
     }
@@ -41,8 +42,9 @@ public class TagCommand extends BaseCommand {
         player.sendMessage(CC.translate(" &f● &b/tag list &8| &7See all ranks."));
         player.sendMessage(" ");
         player.sendMessage(CC.translate("&b&lTag Customization Help:"));
-        player.sendMessage(CC.translate(" &f● &b/tag setTag &8<&7name&8> &8<&7displayName&8>  &8| &7Set the way the tag should look."));
-        player.sendMessage(CC.translate(" &f● &b/tag setColor &8<&7name&8> &8<&7color&8> &8| &7Set color."));
+        player.sendMessage(CC.translate(" &f● &b/tag setTag &8<&7name&8> &8<&7tag-format&8>  &8| &7Set the way the tag should look."));
+        player.sendMessage(CC.translate(" &f● &b/tag setIcon &8<&7name&8> &8| &7Set icon."));
+        player.sendMessage(CC.translate(" &f● &b/tag setDisplayname &8<&7name&8> &8<&7displayname&8> &8| &7Set display name."));
         player.sendMessage(CC.FLOWER_BAR_LONG);
         player.sendMessage(" ");
     }

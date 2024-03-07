@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import me.emmiesa.flowercore.announcements.AnnouncementManager;
+import me.emmiesa.flowercore.commands.FlowerCoreCommand;
 import me.emmiesa.flowercore.commands.admin.essential.AlertCommand;
 import me.emmiesa.flowercore.commands.admin.essential.BroadcastCommand;
 import me.emmiesa.flowercore.commands.admin.essential.ClearChatCommand;
@@ -27,13 +28,17 @@ import me.emmiesa.flowercore.commands.admin.tags.TagCommand;
 import me.emmiesa.flowercore.commands.admin.teleport.*;
 import me.emmiesa.flowercore.commands.admin.troll.*;
 import me.emmiesa.flowercore.commands.donator.AnnounceCommand;
-import me.emmiesa.flowercore.commands.global.*;
+import me.emmiesa.flowercore.commands.global.conversation.MessageCommand;
+import me.emmiesa.flowercore.commands.global.conversation.ReplyCommand;
+import me.emmiesa.flowercore.commands.global.info.PingCommand;
+import me.emmiesa.flowercore.commands.global.settings.SettingsCommand;
 import me.emmiesa.flowercore.commands.global.socials.*;
 import me.emmiesa.flowercore.commands.global.worldtime.DayCommand;
 import me.emmiesa.flowercore.commands.global.worldtime.NightCommand;
 import me.emmiesa.flowercore.commands.global.worldtime.SunsetCommand;
 import me.emmiesa.flowercore.database.mongo.MongoManager;
 import me.emmiesa.flowercore.handler.ConfigHandler;
+import me.emmiesa.flowercore.handler.ConversationHandler;
 import me.emmiesa.flowercore.listeners.ChatListener;
 import me.emmiesa.flowercore.listeners.CommandListener;
 import me.emmiesa.flowercore.listeners.PlayerListeners;
@@ -63,6 +68,7 @@ public class FlowerCore extends JavaPlugin {
     private Cooldown announceCooldown;
     private CommandFramework framework;
     private ConfigHandler configHandler;
+    private ConversationHandler conversationHandler;
     private MongoManager mongoManager;
     private RanksManager ranksManager;
     private PlayerManager playerManager;
@@ -77,9 +83,9 @@ public class FlowerCore extends JavaPlugin {
 
         checkDescription();
         registerManagers();
-        registerCommands();
         registerHandlers();
         registerListeners();
+        registerCommands();
 
         long end = System.currentTimeMillis();
         long timeTaken = end - start;
@@ -143,6 +149,7 @@ public class FlowerCore extends JavaPlugin {
         new PingCommand();
         new MoreCommand();
         new TrapCommand();
+        new SudoCommand();
         new TrollCommand();
         new StoreCommand();
         new SpeedCommand();
@@ -197,6 +204,9 @@ public class FlowerCore extends JavaPlugin {
         new UnbanCommand();
         new UnblacklistCommand();
 
+        new ReplyCommand();
+        new MessageCommand();
+
         new DayCommand();
         new NightCommand();
         new SunsetCommand();
@@ -231,6 +241,8 @@ public class FlowerCore extends JavaPlugin {
         long start = System.currentTimeMillis();
 
         Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Registering all handlers..."));
+
+        conversationHandler = new ConversationHandler();
 
         long end = System.currentTimeMillis();
         long timeTaken = end - start;
