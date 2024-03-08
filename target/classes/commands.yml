@@ -10,6 +10,9 @@ vanilla-commands-blocker:
     - "/say"
     - "/minecraft:me"
     - "/minecraft:say"
+    - "/minecraft:tell"
+    - "/achievement"
+    - "/minecraft:achievement"
 
 #This overwrites /ver, /bukkit:ver /version, /bukkit:version, /about, /bukkit:about, /? and sends the following message.
 version-command:

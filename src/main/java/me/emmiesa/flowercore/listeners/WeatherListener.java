@@ -16,14 +16,14 @@ public class WeatherListener implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onWeatherChangeEvent(WeatherChangeEvent event) {
-        if (plugin.getConfig("extras.yml").getBoolean("listeners.disable-rain") && event.toWeatherState()) {
+        if (plugin.getConfig("settings.yml").getBoolean("listeners.disable-rain") && event.toWeatherState()) {
             event.setCancelled(true);
         }
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onThunderChange(ThunderChangeEvent event) {
-        if (plugin.getConfig("extras.yml").getBoolean("listeners.disable-rain") && event.toThunderState()) {
+        if (plugin.getConfig("settings.yml").getBoolean("listeners.disable-rain") && event.toThunderState()) {
             event.setCancelled(true);
         }
     }

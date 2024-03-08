@@ -141,7 +141,7 @@ rank:
   save-reminder:
     #A message that gets sent each time you create a new rank.
     enabled: true
-    message: "&c(!) Don't forget to save you ranks by doing /rank save when you're done setting them up (!)"
+    message: "&c(!) Don't forget to save your ranks by doing /rank save when you're done setting them up (!)"
 
 clear-chat: "&aThe chat has been cleared by %player%."
 clear-chat-staff: "&8[%server%] &7&o[%player%: Clear chat)"
@@ -222,6 +222,10 @@ gamemode:
     switched: "&bYour gamemode has been changed to &3spectator&b."
 
 on-join:
+  title-sender:
+    enabled: true
+    main-title: "&4❤"
+    sub-title: "&fWelcome to the Flower Network, &b%player%&f!"
   messages:
     bars-format: "&8&m-----------------------------------"
     welcome-message:

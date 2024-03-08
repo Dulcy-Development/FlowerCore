@@ -58,7 +58,6 @@ public class FlowerCoreCommand extends BaseCommand {
                 sender.sendMessage(CC.translate(message));
             }
 
-            plugin.reloadConfig();
             plugin.reloadAllConfigs();
 
             long end = System.currentTimeMillis();

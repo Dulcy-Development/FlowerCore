@@ -87,6 +87,7 @@ public class FlowerCore extends JavaPlugin {
         registerHandlers();
         registerListeners();
         registerCommands();
+        loadSpawnLocation();
 
         long end = System.currentTimeMillis();
         long timeTaken = end - start;
@@ -103,18 +104,16 @@ public class FlowerCore extends JavaPlugin {
     }
 
     private void checkDescription() {
-        Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Loading..."));
+        //Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Checking plugin.yml..."));
         if (!getDescription().getAuthors().contains("Emmy") || !getDescription().getName().contains("FlowerCore")) {
             System.exit(0);
             Bukkit.shutdown();
         } else {
-            Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Starting register process..."));
+            Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Loading..."));
         }
     }
 
     private void registerManagers() {
-        saveDefaultConfig();
-        loadSpawnLocation();
         configHandler = new ConfigHandler();
 
         framework = new CommandFramework(this);
@@ -137,7 +136,7 @@ public class FlowerCore extends JavaPlugin {
     private void registerCommands() {
         long start = System.currentTimeMillis();
 
-        Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Registering all commands..."));
+        //Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Registering all commands..."));
 
         new FlowerCoreCommand();
         new FlyCommand();
@@ -226,7 +225,7 @@ public class FlowerCore extends JavaPlugin {
     private void registerListeners() {
         long start = System.currentTimeMillis();
 
-        Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Registering all listeners..."));
+        //Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Registering all listeners..."));
 
         getServer().getPluginManager().registerEvents(new MenuListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerListeners(this), this);
@@ -242,7 +241,7 @@ public class FlowerCore extends JavaPlugin {
     private void registerHandlers() {
         long start = System.currentTimeMillis();
 
-        Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Registering all handlers..."));
+        //Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Registering all handlers..."));
 
         conversationHandler = new ConversationHandler();
 
@@ -255,7 +254,6 @@ public class FlowerCore extends JavaPlugin {
     public void reloadAllConfigs() {
         commandsConfig = getConfig("commands.yml");
         databaseConfig = getConfig("database.yml");
-        extrasConfig = getConfig("extras.yml");
         messagesConfig = getConfig("messages.yml");
         settingsConfig = getConfig("settings.yml");
         ranksConfig = getConfig("ranks.yml");
@@ -263,7 +261,8 @@ public class FlowerCore extends JavaPlugin {
     }
 
     private void loadSpawnLocation() {
-        FileConfiguration config = getConfig("settings.yml");
+        Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "&fSpawn location has been loaded."));
+        FileConfiguration config = configHandler.getConfigByName("settings.yml");
         boolean enableSpawnTeleport = config.getBoolean("on-join.teleport.enabled");
 
         if (enableSpawnTeleport) {

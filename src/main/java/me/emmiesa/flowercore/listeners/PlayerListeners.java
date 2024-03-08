@@ -110,11 +110,18 @@ public class PlayerListeners implements Listener {
             joinedPlayer.sendMessage(CC.translate(Locale.RANK_NOT_SET));
         }
 
+        if (plugin.getConfig("messages.yml").getBoolean("on-join.title-sender.enabled")) {
+
+            String mainTitle = FlowerCore.getInstance().getConfig("messages.yml").getString("on-join.title-sender.main-title").replace("%player%", joinedPlayer.getName());
+            String subTitle = FlowerCore.getInstance().getConfig("messages.yml").getString("on-join.title-sender.sub-title").replace("%player%", FlowerCore.getInstance().getPlayerManager().getPlayerRankColor(joinedPlayer.getUniqueId()) + joinedPlayer.getName());
+
+            joinedPlayer.sendTitle(CC.translate(mainTitle), CC.translate(subTitle));
+        }
+
         if (plugin.getConfig("messages.yml").getBoolean("on-join.messages.welcome-message.enabled", true)) {
             List<String> welcomeMessages = plugin.getConfig("messages.yml").getStringList("on-join.messages.welcome-message.message");
             sendWelcomeMessages(joinedPlayer, welcomeMessages);
         }
-
 
         if (plugin.getConfig("settings.yml").getBoolean("on-join.clear-inventory")) {
             joinedPlayer.getInventory().clear();

@@ -88,6 +88,18 @@ public class PlayerManager {
         }
     }
 
+    public String getPlayerRankColor(UUID playerUUID) {
+        Rank rank = getRank(playerUUID);
+        if (rank != null) {
+            String color = plugin.getConfig("ranks.yml").getString("ranks." + rank.getName() + ".color");
+            if (color != null) {
+                return color;
+            }
+        }
+        return "&a";
+    }
+
+
     public void addPermissions(UUID playerUUID) {
         Player player = Bukkit.getPlayer(playerUUID);
 

@@ -38,6 +38,7 @@ public class AnnounceCommand extends BaseCommand {
         String format = FlowerCore.getInstance().getConfig("settings.yml").getString("announce.format");
         format = format.replace("%server_name%", FlowerCore.getInstance().getConfig("settings.yml").getString("server-name"));
         format = format.replace("%prefix%", FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix());
+        format = format.replace("%player-display-name%", FlowerCore.getInstance().getPlayerManager().getPlayerRankColor(playerUUID));
         format = format.replace("%player_name%", player.getName());
 
         String cmd = FlowerCore.getInstance().getConfig("settings.yml").getString("announce.command");

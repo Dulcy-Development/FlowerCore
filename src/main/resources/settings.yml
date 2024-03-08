@@ -67,7 +67,8 @@ announce:
   command: "play eu-hub-1"
   hover: "&aClick to join eu-hub-1!\n&r \n&c&lWarning: &r&cThis will switch your server!"
   announced-message: "&aYou've announced the game!"
-  format: '&b&l%server_name% &7» &b%prefix%%player_name% &fwants you to play! &a(Join)'
+  format: '&b&l%server_name% &7» &b%player-display-name%%player_name% &fwants you to play! &a(Join)'
+  #Placeholders in format: %player-display-name%, %prefix%, %player_name%, %server_name%
 
 socials:
   discord: discord.flower.club
@@ -86,6 +87,9 @@ punishments:
 
 sudo:
   exclude-op: true #This prevents OP players to be sudo-ed.
+
+listeners:
+  disable-rain: false
 
 announcements:
   enabled: true
