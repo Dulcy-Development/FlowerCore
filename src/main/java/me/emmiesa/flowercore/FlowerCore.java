@@ -64,8 +64,6 @@ public class FlowerCore extends JavaPlugin {
 
     @Getter
     private static FlowerCore instance;
-
-    private FileConfiguration messagesConfig, settingsConfig, commandsConfig, databaseConfig, extrasConfig, ranksConfig, placeholdersConfig; //used for reloading the configs
     private Cooldown announceCooldown;
     private CommandFramework framework;
     private ConfigHandler configHandler;
@@ -249,15 +247,6 @@ public class FlowerCore extends JavaPlugin {
         long timeTaken = end - start;
 
         Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Registered all handlers in " + timeTaken + "ms."));
-    }
-
-    public void reloadAllConfigs() {
-        commandsConfig = getConfig("commands.yml");
-        databaseConfig = getConfig("database.yml");
-        messagesConfig = getConfig("messages.yml");
-        settingsConfig = getConfig("settings.yml");
-        ranksConfig = getConfig("ranks.yml");
-        placeholdersConfig = getConfig("placeholder.yml");
     }
 
     private void loadSpawnLocation() {

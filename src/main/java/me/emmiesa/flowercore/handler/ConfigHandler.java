@@ -39,6 +39,12 @@ public class ConfigHandler {
         fileConfigurations.put(fileName, config);
     }
 
+    public void reloadConfigs() {
+        for (String fileName : configFileNames) {
+            loadConfig(fileName);
+        }
+    }
+
     public void saveConfigs() {
         for (Map.Entry<String, FileConfiguration> entry : fileConfigurations.entrySet()) {
             String fileName = entry.getKey();
