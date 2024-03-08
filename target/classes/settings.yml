@@ -9,6 +9,9 @@ server-region: Europe
 chat: # Available placeholders %prefix%, %player%, %message%, %suffix%
   format: "%prefix%%player%%suffix%§7: §f%message%"
 
+nametags:
+  enabled: false
+
 grant-settings:
   broadcast: #If somebody is being granted a rank, alert the entire server.
     enabled: false

@@ -52,6 +52,7 @@ me\emmiesa\flowercore\utils\chat\CC.class
 me\emmiesa\flowercore\commands\admin\rank\subcommands\RankListCommand.class
 me\emmiesa\flowercore\utils\command\Command.class
 me\emmiesa\flowercore\commands\global\worldtime\DayCommand.class
+me\emmiesa\flowercore\nametag\NametagManager.class
 me\emmiesa\flowercore\commands\admin\rank\GrantCommand.class
 me\emmiesa\flowercore\commands\admin\essential\LocationCommand.class
 me\emmiesa\flowercore\commands\global\socials\StoreCommand.class

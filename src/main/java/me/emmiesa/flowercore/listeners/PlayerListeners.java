@@ -2,6 +2,7 @@ package me.emmiesa.flowercore.listeners;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.Locale;
+import me.emmiesa.flowercore.nametag.NametagManager;
 import me.emmiesa.flowercore.profile.Profile;
 import me.emmiesa.flowercore.punishments.Punishment;
 import me.emmiesa.flowercore.punishments.PunishmentType;
@@ -104,6 +105,12 @@ public class PlayerListeners implements Listener {
 
         if (spawnLocation != null) {
             event.getPlayer().teleport(spawnLocation);
+        }
+
+        if (plugin.getConfig("settings.yml").getBoolean("nametags.enabled")) {
+            NametagManager.updatePlayerNametag(joinedPlayer);
+        } else {
+            NametagManager.resetPlayerNametag(joinedPlayer);
         }
 
         if (plugin.getRanksManager().getDefaultRank() == null) {

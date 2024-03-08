@@ -1,6 +1,7 @@
 package me.emmiesa.flowercore.menus.grantconfirm.button;
 
 import me.emmiesa.flowercore.FlowerCore;
+import me.emmiesa.flowercore.nametag.NametagManager;
 import me.emmiesa.flowercore.ranks.Rank;
 import me.emmiesa.flowercore.utils.Utils;
 import me.emmiesa.flowercore.utils.chat.CC;
@@ -50,6 +51,8 @@ public class GrantConfirmButton extends Button {
             if (targetPlayer != null) {
                 player.sendMessage(CC.translate("&aYou have successfully granted " + playerName + " &athe " + rank.getDisplayName() + " &arank!"));
                 targetPlayer.sendMessage(CC.translate("&aYour rank has been set to " + rank.getDisplayName() + " &aby " + FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix() + player.getDisplayName() + "&a."));
+                NametagManager.updatePlayerNametag(targetPlayer);
+
                 Button.playSuccess(player);
                 player.closeInventory();
 
