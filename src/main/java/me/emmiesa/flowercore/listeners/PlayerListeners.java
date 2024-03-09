@@ -107,6 +107,8 @@ public class PlayerListeners implements Listener {
             event.getPlayer().teleport(spawnLocation);
         }
 
+        NametagManager.resetPlayerNametag(joinedPlayer); //reset first to prevent issues with other plugins
+
         if (plugin.getConfig("settings.yml").getBoolean("nametags.enabled")) {
             NametagManager.updatePlayerNametag(joinedPlayer);
         } else {
