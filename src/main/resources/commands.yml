@@ -21,6 +21,7 @@ version-command:
   # - %spigot% (Name of the spigot)
   # - %version% (Version of the spigot)
   enabled: true
+  perm-to-bypass: "flower.bypasscmd.ver"
   message:
     - ""
     - "&fHey &b%player%&f,"
@@ -30,6 +31,7 @@ version-command:
 
 bungee-command:
   enabled: true
+  perm-to-bypass: "flower.bypasscmd.bungee"
   message:
     - ""
     - "&eThis server is running &dXeBungee&e."
@@ -37,6 +39,7 @@ bungee-command:
 
 plugins-command:
   enabled: true
+  perm-to-bypass: "flower.bypasscmd.pl"
   message:
     - ""
     - "&cNuh uh, &4%player%&c!"

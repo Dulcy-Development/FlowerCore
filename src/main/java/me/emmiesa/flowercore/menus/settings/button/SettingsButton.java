@@ -30,6 +30,11 @@ public class SettingsButton extends Button {
 
     @Override
     public void clicked(Player player, int slot, ClickType clickType, int hotbarSlot) {
+
+        if (clickType == ClickType.MIDDLE || clickType == ClickType.RIGHT || clickType == ClickType.NUMBER_KEY || clickType == ClickType.DROP || clickType == ClickType.SHIFT_LEFT || clickType == ClickType.SHIFT_RIGHT) {
+            return;
+        }
+
         if (icon.name().contains("BOOK_AND_QUILL")) {
             playSuccess(player);
             player.performCommand("tpm");

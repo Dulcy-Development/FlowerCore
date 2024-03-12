@@ -19,18 +19,18 @@ public class AnnouncementManager {
 
     public AnnouncementManager(FlowerCore plugin) {
         this.plugin = plugin;
-        if (plugin.getConfig("settings.yml").getBoolean("announcements.enabled")) {
+        if (plugin.getConfig("messages.yml").getBoolean("announcements.enabled")) {
             sendAnnounce();
         }
     }
 
     private void sendAnnounce() {
-        long intervalTicks = plugin.getConfig("settings.yml").getLong("announcements.send-every") * 20;
+        long intervalTicks = plugin.getConfig("messages.yml").getLong("announcements.send-every") * 20;
         List<List<String>> allAnnouncements = new ArrayList<>();
 
-        Set<String> keys = plugin.getConfig("settings.yml").getConfigurationSection("announcements.announcements").getKeys(false);
+        Set<String> keys = plugin.getConfig("messages.yml").getConfigurationSection("announcements.announcements").getKeys(false);
         for (String key : keys) {
-            List<String> announcement = plugin.getConfig("settings.yml").getStringList("announcements.announcements." + key);
+            List<String> announcement = plugin.getConfig("messages.yml").getStringList("announcements.announcements." + key);
             allAnnouncements.add(announcement);
         }
 
@@ -41,7 +41,7 @@ public class AnnouncementManager {
                     List<String> selectedAnnouncement = allAnnouncements.get(random.nextInt(allAnnouncements.size()));
                     selectedAnnouncement.forEach(line -> {
                         String message = line
-                                .replace("%bars%", plugin.getConfig("settings.yml").getString("announcements.bars-format"))
+                                .replace("%bars%", plugin.getConfig("messages.yml").getString("announcements.bars-format"))
                                 .replace("%flowerbar%", CC.FLOWER_BAR_LONG)
                                 .replace("%discord%", Locale.DISCORD)
                                 .replace("%website%", Locale.WEBSITE)
@@ -52,7 +52,7 @@ public class AnnouncementManager {
                                 .replace("%youtube%", Locale.YOUTUBE);
                         Utils.broadcastMessage(CC.translate(message));
 
-                        if (plugin.getConfig("settings.yml").getBoolean("announcements.console-enabled")) {
+                        if (plugin.getConfig("messages.yml").getBoolean("announcements.console-enabled")) {
                             Bukkit.getConsoleSender().sendMessage(CC.translate(message));
                         }
                     });

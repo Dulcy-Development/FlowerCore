@@ -34,6 +34,16 @@ punishments:
   ban: "\n&cYou've been banned from the Flower Network! \n&cBanned by %punisher% for %reason%! \n&7If you believe this was false, join our discord and appeal!"
   kick: "&7You've been kicked! \n&7Kicked by &a%punisher% &7for &a%reason%&7!"
 
+private-messages:
+  recent-conversant-offline: "&cThe player you were communicating with is currently offline."
+  no-recent-conversation: "&cYou haven't messaged anyone recently."
+  nobody-to-reply: "&cYou have nobody to reply to."
+  last-conversant: "&bYou're communicating with: &3%conversant%" #when /r is executed with no arguments
+  target-self: "&cYou can't message yourself."
+  conversation:
+    from: "&f(&bFrom %sender%&f) %message%"
+    to: "&f(&bTo %target%&f) %message%"
+
 troll:
   trolled: "&fYou've trolled &b%player%&f!"
   trolled-silent: "&7(Silent) &fYou've trolled &b%player%&f!"
@@ -265,3 +275,54 @@ on-leave:
       left-the-game: "&7» %prefix%%player% &fleft the server!"
     staff:
       left-the-game: "&3[&bS&3] &r%prefix%%player% &bhas left &3%server%&b."
+
+announcements:
+  enabled: true
+  console-enabled: false #Decides if the announcements should be sent to the console aswell.
+  send-every: 120
+  bars-format: "&7&m------------------------------"
+  announcements:
+    # Available Placeholders:
+    # - %discord%, %twitter%, %tiktok%, %youtube%, %teamspeak%, %store%, %website% - taken from "socials" strings above!
+    # - %bars% - taken from the "bars-format" string!
+    # - %flowerbar% - A preset bar format (not customizable)!
+    message-1:
+      - " "
+      #- "%bars%"
+      - "&b&lAnnouncement:"
+      - " &fJoin our discord to get informed about news & updates!"
+      - "  &7► &b%discord%"
+      #- "%bars%"
+      - " "
+    message-2:
+      - " "
+      #- "%bars%"
+      - "&b&lAnnouncement:"
+      - " &fWatch us on YouTube to have some fun!"
+      - "  &7► &b%youtube%"
+      #- "%bars%"
+      - " "
+    message-3:
+      - " "
+      #- "%bars%"
+      - "&b&lAnnouncement:"
+      - " &fBuy ranks and more to get more feature access!"
+      - "  &7► &b%store%"
+      #- "%bars%"
+      - " "
+    message-4:
+      - " "
+      #- "%bars%"
+      - "&b&lAnnouncement:"
+      - " &fVisit our website to check out the latest new!"
+      - "  &7► &b%website%"
+      #- "%bars%"
+      - " "
+    message-5:
+      - " "
+      #- "%bars%"
+      - "&b&lAnnouncement:"
+      - " &fWatch our TikTok shorts!"
+      - "  &7► &b%tiktok%"
+      #- "%bars%"
+      - " "

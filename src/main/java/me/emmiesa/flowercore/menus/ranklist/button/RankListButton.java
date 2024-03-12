@@ -34,6 +34,11 @@ public class RankListButton extends Button {
 
     @Override
     public void clicked(Player player, int slot, ClickType clickType, int hotbarSlot) {
+
+        if (clickType == ClickType.MIDDLE || clickType == ClickType.RIGHT || clickType == ClickType.NUMBER_KEY || clickType == ClickType.DROP || clickType == ClickType.SHIFT_LEFT || clickType == ClickType.SHIFT_RIGHT) {
+            return;
+        }
+
         player.playSound(player.getLocation(), Sound.STEP_GRASS, 2.0F, 1.5F);
     }
 }

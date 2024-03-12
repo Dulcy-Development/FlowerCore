@@ -1,6 +1,7 @@
 package me.emmiesa.flowercore.commands.global.conversation;
 
 import me.emmiesa.flowercore.FlowerCore;
+import me.emmiesa.flowercore.Locale;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
@@ -31,12 +32,12 @@ public class MessageCommand extends BaseCommand {
         Player targetPlayer = FlowerCore.getInstance().getServer().getPlayer(target);
 
         if (sender.equals(targetPlayer)){
-            sender.sendMessage(CC.translate("&cYou can't message yourself."));
+            sender.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("private-messages.target-self")));
             return;
         }
 
         if (targetPlayer == null) {
-            sender.sendMessage(CC.translate("&cPlayer not found."));
+            sender.sendMessage(CC.translate(Locale.PLAYER_NOT_ONLINE).replace("%player%", command.getArgs(0)));
             return;
         }
 

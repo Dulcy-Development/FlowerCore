@@ -40,9 +40,19 @@ public class ConversationHandler {
             return;
         }
 
-        targetPlayer.sendMessage(CC.translate("&f(&bFrom " + FlowerCore.getInstance().getPlayerManager().getRank(senderPlayer.getUniqueId()).getPrefix() + senderPlayer.getName() + "&f) " + message));
+        //targetPlayer.sendMessage(CC.translate("&f(&bFrom " + FlowerCore.getInstance().getPlayerManager().getRank(senderPlayer.getUniqueId()).getPrefix() + senderPlayer.getName() + "&f) " + message));
 
-        senderPlayer.sendMessage(CC.translate("&f(&bTo " + FlowerCore.getInstance().getPlayerManager().getRank(targetPlayer.getUniqueId()).getPrefix() + targetPlayer.getName() + "&f) " + message));
+        targetPlayer.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("private-messages.conversation.from")
+                .replace("%sender%", FlowerCore.getInstance().getPlayerManager().getPlayerRankColor(senderPlayer.getUniqueId()) + senderPlayer.getName())
+                .replace("%message%", message)
+        ));
+
+        //senderPlayer.sendMessage(CC.translate("&f(&bTo " + FlowerCore.getInstance().getPlayerManager().getRank(targetPlayer.getUniqueId()).getPrefix() + targetPlayer.getName() + "&f) " + message));
+
+        senderPlayer.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("private-messages.conversation.to")
+                .replace("%target%", FlowerCore.getInstance().getPlayerManager().getPlayerRankColor(targetPlayer.getUniqueId()) + targetPlayer.getName())
+                .replace("%message%", message)
+        ));
     }
 
     public UUID getLastConversant(UUID player) {

@@ -43,6 +43,11 @@ public class GrantConfirmButton extends Button {
 
     @Override
     public void clicked(Player player, int slot, ClickType clickType, int hotbarSlot) {
+
+        if (clickType == ClickType.MIDDLE || clickType == ClickType.RIGHT || clickType == ClickType.NUMBER_KEY || clickType == ClickType.DROP || clickType == ClickType.SHIFT_LEFT || clickType == ClickType.SHIFT_RIGHT) {
+            return;
+        }
+
         UUID playerUUID = player.getUniqueId();
         UUID playerToGrantUUID = Bukkit.getPlayerExact(playerName).getUniqueId();
         if (isConfirmButton) {

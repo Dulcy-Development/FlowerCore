@@ -26,26 +26,26 @@ public class ReplyCommand extends BaseCommand {
 
         if (command.getArgs().length < 1) {
             if (lastConversantUUID == null) {
-                player.sendMessage(CC.translate("&cYou haven't messaged anyone recently."));
+                player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("private-messages.no-recent-conversation")));
             } else {
                 Player lastConversant = FlowerCore.getInstance().getServer().getPlayer(lastConversantUUID);
                 if (lastConversant != null) {
-                    player.sendMessage(CC.translate("&bYou're communicating with: &3" + lastConversant.getName()));
+                    player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("private-messages.last-conversant").replace("%conversant%", lastConversant.getName())));
                 } else {
-                    player.sendMessage(CC.translate("&cThe player you last conversed with is currently offline."));
+                    player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("private-messages.recent-conversant-offline")));
                 }
             }
             return;
         }
 
         if (lastConversantUUID == null) {
-            player.sendMessage(CC.translate("&cYou have no one to reply to."));
+            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("private-messages.nobody-to-reply")));
             return;
         }
 
         Player targetPlayer = FlowerCore.getInstance().getServer().getPlayer(lastConversantUUID);
         if (targetPlayer == null) {
-            player.sendMessage(CC.translate("&cThe player you're trying to reply to is currently offline."));
+            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("private-messages.recent-conversant-offline")));
             return;
         }
 
