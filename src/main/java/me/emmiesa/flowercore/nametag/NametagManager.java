@@ -8,7 +8,20 @@ import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
 import org.bukkit.scoreboard.Team;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class NametagManager {
+
+    /*
+     *
+     * This needs to be re-done. It is basic as +as#dv+!
+     *
+     */
+
     public static void updatePlayerNametag(Player player) {
 
         if (!FlowerCore.getInstance().getConfig("settings.yml").getBoolean("nametags.enabled")) {

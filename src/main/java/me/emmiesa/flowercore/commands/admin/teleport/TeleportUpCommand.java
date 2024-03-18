@@ -8,6 +8,13 @@ import me.emmiesa.flowercore.utils.command.Command;
 import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.entity.Player;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ * Credit: Zoom Core
+ */
+
 public class TeleportUpCommand extends BaseCommand {
     @Command(name = "teleporttop", permission = "flower.cmd.top", aliases = {"top", "tptop", "ontop", "tpup"})
     @Override

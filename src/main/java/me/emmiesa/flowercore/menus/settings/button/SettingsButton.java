@@ -12,7 +12,12 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 
+
 /**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ *
  * @author Elb1to
  * @since 11/11/2023
  */

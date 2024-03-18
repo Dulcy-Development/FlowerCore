@@ -18,6 +18,12 @@ import java.util.UUID;
 
 import static com.mongodb.client.model.Filters.eq;
 
+/**
+ * Created by lrxh_
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 @Getter
 public class MongoManager {
 

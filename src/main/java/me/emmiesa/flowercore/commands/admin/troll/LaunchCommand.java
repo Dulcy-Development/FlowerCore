@@ -9,6 +9,12 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class LaunchCommand extends BaseCommand {
     @Command(name = "launch", inGameOnly = false, permission = "flowercore.command.launch")
     public void onCommand(CommandArgs args) {

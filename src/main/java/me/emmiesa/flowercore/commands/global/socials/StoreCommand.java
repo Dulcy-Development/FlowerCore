@@ -8,6 +8,12 @@ import me.emmiesa.flowercore.utils.command.Command;
 import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.command.CommandSender;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class StoreCommand extends BaseCommand {
 
     @Command(name = "store", aliases = {"buy", "webstore"}, inGameOnly = false)

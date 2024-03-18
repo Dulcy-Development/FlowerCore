@@ -9,6 +9,12 @@ import me.emmiesa.flowercore.utils.others.NumberUtils;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class TeleportPositionCommand extends BaseCommand {
     @Command(name = "teleportposition", permission = "flowercore.command.tppos", aliases = {"tp-pos", "tppos"})
 

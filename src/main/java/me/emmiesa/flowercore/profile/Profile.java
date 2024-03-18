@@ -10,6 +10,12 @@ import me.emmiesa.flowercore.ranks.Rank;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Created by lrxh
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 @Getter
 @Setter
 @Builder

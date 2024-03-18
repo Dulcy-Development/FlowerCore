@@ -12,6 +12,13 @@ import org.bukkit.entity.Player;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ * Credit: FrozedUHCMeetup
+ */
+
 public class Utils {
 
     public static List<Player> getOnlinePlayers() {

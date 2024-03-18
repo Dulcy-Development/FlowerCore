@@ -7,6 +7,12 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.weather.ThunderChangeEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class WeatherListener implements Listener {
     private final FlowerCore plugin;
 

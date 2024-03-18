@@ -13,6 +13,12 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.Arrays;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 @AllArgsConstructor
 public class RankListButton extends Button {
 

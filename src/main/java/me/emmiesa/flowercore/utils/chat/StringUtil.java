@@ -1,5 +1,11 @@
 package me.emmiesa.flowercore.utils.chat;
 
+/**
+ * Created by somebody unknown
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class StringUtil {
     public static String repeat(char character, int count) {
         StringBuilder result = new StringBuilder();

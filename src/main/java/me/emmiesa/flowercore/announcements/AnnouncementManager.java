@@ -12,6 +12,12 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class AnnouncementManager {
 
     private final FlowerCore plugin;

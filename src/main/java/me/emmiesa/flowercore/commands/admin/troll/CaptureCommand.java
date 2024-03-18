@@ -11,6 +11,12 @@ import org.bukkit.World;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class CaptureCommand extends BaseCommand {
     @Command(name = "capture", aliases = "jail", permission = "flowercore.command.capture")
     public void onCommand(CommandArgs args) {

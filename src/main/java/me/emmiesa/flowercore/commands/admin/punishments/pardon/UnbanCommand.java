@@ -13,6 +13,12 @@ import org.bukkit.command.CommandSender;
 
 import java.util.UUID;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class UnbanCommand extends BaseCommand {
     @Override
     @Command(name = "unban", permission = "flower.punishment.unban", inGameOnly = false)

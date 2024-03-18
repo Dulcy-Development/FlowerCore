@@ -2,6 +2,12 @@ package me.emmiesa.flowercore;
 
 import org.bukkit.configuration.file.FileConfiguration;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class Locale {
     private static final FileConfiguration messagesConfig = FlowerCore.getInstance().getConfigHandler().getConfigByName("messages.yml");
     private static final FileConfiguration settingsConfig = FlowerCore.getInstance().getConfigHandler().getConfigByName("settings.yml");

@@ -12,6 +12,12 @@ import org.bukkit.entity.Player;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class RankCreateCommand extends BaseCommand {
 
     @Command(name = "rank.create", aliases = "createrank", permission = "flowercore.staff")

@@ -12,6 +12,12 @@ import org.bukkit.entity.Player;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class GrantMenu extends Menu {
 
     private final RefillGlassButton refillGlassButton;

@@ -13,6 +13,12 @@ import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class BlacklistCommand extends BaseCommand {
 
     @Command(name = "blacklist", permission = "flower.punishment.blacklist")

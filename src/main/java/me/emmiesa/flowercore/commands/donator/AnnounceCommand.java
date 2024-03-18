@@ -11,9 +11,12 @@ import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
-/*
- * FrozedClub
- * Project: FrozedUHCMeetup
+
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ * Credit: FrozedUHCMeetup (for Utils)
  */
 
 public class AnnounceCommand extends BaseCommand {

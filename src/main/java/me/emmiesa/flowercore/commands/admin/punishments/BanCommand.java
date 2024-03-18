@@ -13,6 +13,12 @@ import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class BanCommand extends BaseCommand {
 
     @Command(name = "ban", permission = "flower.punishment.ban")

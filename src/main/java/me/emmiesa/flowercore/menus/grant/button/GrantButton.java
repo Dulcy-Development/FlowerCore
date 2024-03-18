@@ -14,6 +14,12 @@ import org.bukkit.inventory.ItemStack;
 import java.util.Arrays;
 import java.util.UUID;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 @AllArgsConstructor
 public class GrantButton extends Button {
     private final Rank rank;

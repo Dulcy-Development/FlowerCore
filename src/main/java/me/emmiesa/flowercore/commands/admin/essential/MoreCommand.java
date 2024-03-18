@@ -9,6 +9,12 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class MoreCommand extends BaseCommand {
 
     @Command(name = "more", permission = "flower.command.more", aliases = {"stackitem"})

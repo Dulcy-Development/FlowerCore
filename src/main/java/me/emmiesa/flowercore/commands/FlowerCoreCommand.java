@@ -12,6 +12,12 @@ import org.bukkit.command.CommandSender;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class FlowerCoreCommand extends BaseCommand {
 
     private final FlowerCore plugin = FlowerCore.getInstance();

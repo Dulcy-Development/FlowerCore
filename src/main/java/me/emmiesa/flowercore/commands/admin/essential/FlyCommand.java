@@ -8,6 +8,12 @@ import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class FlyCommand extends BaseCommand {
 
     @Command(name = "fly", permission = "core.essentials.fly")

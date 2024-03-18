@@ -9,6 +9,12 @@ import me.emmiesa.flowercore.utils.command.Command;
 import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.entity.Player;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class RankSetPriorityCommand extends BaseCommand {
 
     @Command(name = "rank.setpriority", aliases = {"setrankpriority", "setrankprio"}, permission = "flowercore.staff")

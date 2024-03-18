@@ -89,7 +89,7 @@ punishments:
     kick: "absolutely no reason"
 
 sudo:
-  exclude-op: true #This prevents OP players to be sudo-ed.
+  exclude-op: false #This prevents OP players to be sudo-ed.
 
 listeners:
   disable-rain: false

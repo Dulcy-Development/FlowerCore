@@ -10,6 +10,12 @@ import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class RankSetIconCommand extends BaseCommand {
 
     @Command(name = "rank.seticon", aliases = {"setrankicon"}, permission = "flowercore.staff")

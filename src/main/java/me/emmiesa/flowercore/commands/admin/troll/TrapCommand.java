@@ -11,6 +11,12 @@ import org.bukkit.World;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class TrapCommand extends BaseCommand {
     @Command(name = "trap", inGameOnly = false, permission = "flowercore.command.trap")
     public void onCommand(CommandArgs args) {

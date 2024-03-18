@@ -1,9 +1,7 @@
 package me.emmiesa.flowercore.utils.others;
 
-/*
- *
- * Taken from frozedclub on github
- *
+
+/**
  * Created by Ryzeon
  * Project: FrozedHubDeluxe
  * Date: 10/11/2020 @ 13:30

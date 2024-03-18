@@ -11,6 +11,12 @@ import org.bukkit.entity.Player;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class TrollCommand extends BaseCommand {
 
     private final FlowerCore plugin = FlowerCore.getInstance();

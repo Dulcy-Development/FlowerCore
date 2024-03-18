@@ -13,6 +13,12 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.List;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class TrollEverybodyCommand extends BaseCommand {
 
     private final FlowerCore plugin = FlowerCore.getInstance();

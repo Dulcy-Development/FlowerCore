@@ -8,6 +8,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Created by lrxh
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ * Recode: Remi
+ */
+
 @UtilityClass
 public class PunishmentSerializer {
 

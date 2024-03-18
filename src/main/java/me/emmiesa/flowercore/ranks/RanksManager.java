@@ -10,6 +10,12 @@ import org.bukkit.entity.Player;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by lrxh
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 @Getter
 @Setter
 public class RanksManager {

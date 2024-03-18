@@ -20,6 +20,12 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import static com.mongodb.client.model.Filters.eq;
 
+/**
+ * Created by lrxh
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 @Getter
 public class PlayerManager {
     private final FlowerCore plugin = FlowerCore.getInstance();

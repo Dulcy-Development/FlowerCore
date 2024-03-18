@@ -112,11 +112,13 @@ public class FlowerCore extends JavaPlugin {
     }
 
     private void registerManagers() {
+        long start = System.currentTimeMillis();
         configHandler = new ConfigHandler();
 
         framework = new CommandFramework(this);
 
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
+            Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Successfully registered PlaceholderAPI expansion."));
             new ProfilePlaceholders().register();
         }
 
@@ -129,6 +131,11 @@ public class FlowerCore extends JavaPlugin {
         this.playerManager = new PlayerManager();
 
         new AnnouncementManager(this);
+
+        long end = System.currentTimeMillis();
+        long timeTaken = end - start;
+
+        Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Registered all managers in " + timeTaken + "ms."));
     }
 
 

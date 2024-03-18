@@ -15,6 +15,12 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class GodModeCommand extends BaseCommand implements Listener {
 
     private final Set<Player> godModePlayers = new HashSet<>();

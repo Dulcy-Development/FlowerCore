@@ -14,6 +14,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class GrantConfirmMenu extends Menu {
     private final UUID playerToGrantUUID;
     private final Rank rank;

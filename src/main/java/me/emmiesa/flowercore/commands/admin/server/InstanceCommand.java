@@ -9,6 +9,12 @@ import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class InstanceCommand extends BaseCommand {
 
     @Command(name = "instance", aliases = "serverdetails", permission = "flower.command.instance", inGameOnly = false)

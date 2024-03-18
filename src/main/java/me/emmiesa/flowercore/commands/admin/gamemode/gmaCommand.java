@@ -14,6 +14,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class gmaCommand extends BaseCommand {
 
     @Completer(name = "gamemode", aliases = "gm")

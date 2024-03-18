@@ -17,6 +17,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class GrantConfirmButton extends Button {
     private final UUID playerToGrantUUID;
     private final Rank rank;

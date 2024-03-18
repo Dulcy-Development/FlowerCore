@@ -10,6 +10,12 @@ import org.bukkit.entity.Player;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class TagCommand extends BaseCommand {
 
     @Completer(name = "tag")

@@ -11,6 +11,12 @@ import org.bukkit.entity.Player;
 
 import java.util.List;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class RankAddPermissionsCommand extends BaseCommand {
 
     @Command(name = "rank.addpermissions", aliases = {"addrankperms", "rank.addperm"}, permission = "flowercore.staff")

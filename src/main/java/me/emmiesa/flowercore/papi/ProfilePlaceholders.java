@@ -8,6 +8,12 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.UUID;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class ProfilePlaceholders extends PlaceholderExpansion {
 
     @Override

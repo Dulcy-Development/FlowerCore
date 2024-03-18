@@ -10,6 +10,12 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class ClearChatCommand extends BaseCommand {
 
     private final FlowerCore plugin = FlowerCore.getInstance();

@@ -10,6 +10,12 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 @Getter
 public class ConfigHandler {
 

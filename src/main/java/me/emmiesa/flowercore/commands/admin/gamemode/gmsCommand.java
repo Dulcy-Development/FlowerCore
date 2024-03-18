@@ -11,6 +11,12 @@ import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class gmsCommand extends BaseCommand {
 
     @Command(name = "gms", aliases = {"gm.s", "survival", "gamemode.s", "gamemode.0", "gamemode.survival", "gm.0", "gm0", "gm.survival"}, permission = "flowercore.staff")

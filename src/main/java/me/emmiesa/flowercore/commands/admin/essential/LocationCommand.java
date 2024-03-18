@@ -9,6 +9,12 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class LocationCommand extends BaseCommand {
 
     @Command(name = "location", permission = "flowercore.command.location", aliases = {"loc", "whereami"})

@@ -9,6 +9,12 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 import java.util.UUID;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class ChatListener implements Listener {
 
     @EventHandler

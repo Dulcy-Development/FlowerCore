@@ -6,6 +6,9 @@ import me.emmiesa.flowercore.utils.Utils;
 
 import java.text.DecimalFormat;
 
+/**
+ * FrozedUHCMeetup
+ */
 
 @Getter
 @Setter

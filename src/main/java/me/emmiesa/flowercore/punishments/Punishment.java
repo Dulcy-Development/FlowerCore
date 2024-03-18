@@ -9,6 +9,13 @@ import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
+/**
+ * Created by lrxh
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ * Recode: Remi
+ */
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

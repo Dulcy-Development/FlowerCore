@@ -8,6 +8,12 @@ import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class TeleportHereCommand extends BaseCommand {
     @Command(name = "teleporthere", permission = "flowercore.command.tphere", aliases = {"tphere", "s"})
 

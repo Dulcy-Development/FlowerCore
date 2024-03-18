@@ -9,6 +9,12 @@ import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class SudoCommand extends BaseCommand {
     @Override
     @Command(name = "sudo", permission = "flowercore.command.sudo", aliases = {"forcetosay"}, inGameOnly = false)

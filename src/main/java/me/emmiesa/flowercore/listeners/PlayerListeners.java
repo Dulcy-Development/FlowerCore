@@ -22,6 +22,12 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class PlayerListeners implements Listener {
 
     private final FlowerCore plugin;

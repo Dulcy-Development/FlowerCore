@@ -11,6 +11,12 @@ import org.bukkit.entity.Player;
 import java.util.HashMap;
 import java.util.UUID;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 @Getter
 public class ConversationHandler {
 

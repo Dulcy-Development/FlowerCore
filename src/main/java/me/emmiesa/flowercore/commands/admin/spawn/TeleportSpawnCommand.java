@@ -11,6 +11,12 @@ import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
+/**
+ * Created by Emmy
+ * Project: FlowerCore
+ * Discord: dsc.gg/emmiesa
+ */
+
 public class TeleportSpawnCommand extends BaseCommand {
 
     @Command(name = "teleportspawn", permission = "flowercore.staff", aliases = {"tpspawn", "tpjoinlocation", "tplobby"})

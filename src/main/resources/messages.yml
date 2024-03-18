@@ -190,8 +190,9 @@ teleport:
 socials:
   discord:
     enabled: true
-    enabled_message: "&fDiscord: &b%link%"
+    enabled_message: "&fDiscord: &b%discord%"
     disabled_message: '&fUnknown &d%link% &flink. Type "/links" for help.'
+    placeholder-format: "discord" #%link%
   store:
     enabled: true
     enabled_message: "&fOur Store: &b%link%"
