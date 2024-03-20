@@ -45,42 +45,27 @@ public abstract class Menu {
         return item;
     }
 
+    /**
+     *
+     * I Edited the openMenu void so that it does not close the previously opened menu.
+     * It's just smoother - Emmy
+     *
+     */
+
     public void openMenu(final Player player) {
         this.buttons = this.getButtons(player);
 
-        Menu previousMenu = Menu.currentlyOpenedMenus.get(player.getName());
-        Inventory inventory = null;
+        Inventory inventory;
         int size = this.getSize() == -1 ? this.size(this.buttons) : this.getSize();
-        boolean update = false;
         String title = CC.translate(this.getTitle(player));
 
         if (title.length() > 32) {
             title = title.substring(0, 32);
         }
 
-        if (player.getOpenInventory() != null) {
-            if (previousMenu == null) {
-                player.closeInventory();
-            } else {
-                int previousSize = player.getOpenInventory().getTopInventory().getSize();
-
-                if (previousSize == size && player.getOpenInventory().getTopInventory().getTitle().equals(title)) {
-                    inventory = player.getOpenInventory().getTopInventory();
-                    update = true;
-                } else {
-                    previousMenu.setClosedByMenu(true);
-                    player.closeInventory();
-                }
-            }
-        }
-
-        if (inventory == null) {
-            inventory = Bukkit.createInventory(player, size, title);
-        }
+        inventory = Bukkit.createInventory(player, size, title);
 
         inventory.setContents(new ItemStack[inventory.getSize()]);
-
-        currentlyOpenedMenus.put(player.getName(), this);
 
         for (Map.Entry<Integer, Button> buttonEntry : this.buttons.entrySet()) {
             inventory.setItem(buttonEntry.getKey(), createItemStack(player, buttonEntry.getValue()));
@@ -95,14 +80,11 @@ public abstract class Menu {
             }
         }
 
-        if (update) {
-            player.updateInventory();
-        } else {
-            player.openInventory(inventory);
-        }
+        player.openInventory(inventory);
+
+        currentlyOpenedMenus.put(player.getName(), this);
 
         this.onOpen(player);
-        this.setClosedByMenu(false);
     }
 
     public int size(Map<Integer, Button> buttons) {

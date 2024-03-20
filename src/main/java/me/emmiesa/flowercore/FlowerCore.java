@@ -11,6 +11,7 @@ import me.emmiesa.flowercore.commands.admin.essential.BroadcastCommand;
 import me.emmiesa.flowercore.commands.admin.essential.ClearChatCommand;
 import me.emmiesa.flowercore.commands.admin.spawn.TeleportSpawnCommand;
 import me.emmiesa.flowercore.commands.global.conversation.ReplyCommand;
+import me.emmiesa.flowercore.commands.global.info.NewsCommand;
 import me.emmiesa.flowercore.commands.global.settings.SettingsCommand;
 import me.emmiesa.flowercore.commands.global.worldtime.SunsetCommand;
 import me.emmiesa.flowercore.commands.global.worldtime.NightCommand;
@@ -181,6 +182,7 @@ public class FlowerCore extends JavaPlugin {
         new MoreCommand();
         new TrapCommand();
         new SudoCommand();
+        new NewsCommand();
         new TrollCommand();
         new StoreCommand();
         new SpeedCommand();

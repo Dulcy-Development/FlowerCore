@@ -87,6 +87,7 @@ me\emmiesa\flowercore\utils\menu\Button$1.class
 me\emmiesa\flowercore\utils\chat\JSONMessage$HoverEvent.class
 me\emmiesa\flowercore\commands\admin\essential\MoreCommand.class
 me\emmiesa\flowercore\commands\admin\gamemode\gmsCommand.class
+me\emmiesa\flowercore\commands\global\info\NewsCommand.class
 me\emmiesa\flowercore\commands\admin\rank\subcommands\RankSetIconCommand.class
 me\emmiesa\flowercore\commands\admin\troll\TrollSilentCommand.class
 me\emmiesa\flowercore\commands\admin\rank\subcommands\RankAddPermissionsCommand.class
@@ -118,6 +119,8 @@ me\emmiesa\flowercore\commands\admin\punishments\BanCommand.class
 me\emmiesa\flowercore\listeners\WeatherListener.class
 me\emmiesa\flowercore\commands\admin\rank\subcommands\RankSetSuffixCommand.class
 me\emmiesa\flowercore\commands\admin\tags\TagCommand.class
+me\emmiesa\flowercore\menus\news\NewsMenu.class
+me\emmiesa\flowercore\menus\news\button\NewsButton.class
 me\emmiesa\flowercore\commands\admin\teleport\TeleportAllCommand.class
 me\emmiesa\flowercore\utils\menu\button\RefillGlassButton.class
 me\emmiesa\flowercore\commands\admin\essential\SudoCommand.class
