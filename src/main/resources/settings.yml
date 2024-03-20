@@ -9,8 +9,8 @@ server-region: Europe
 chat: # Available placeholders %prefix%, %player%, %message%, %suffix%
   format: "%prefix%%player%%suffix%§7: §f%message%"
 
-nametags:
-  enabled: false
+#nametags:
+#  enabled: false
 
 grant-settings:
   broadcast: #If somebody is being granted a rank, alert the entire server.
@@ -29,17 +29,6 @@ default-permissions: #Experimental, better not use it.
   - "none"
 
 on-join:
-  # <-- not in usage -->
-  #
-  #fly: #Difference between these two, is that set flying makes the player fly already, and allow flying just allows them to toggle flight when they want to
-  #  set-flying:
-  #    enabled: true
-  #    permission: flowercore.staff
-  #  allow-flying:
-  #    enabled: true
-  #    permission: flowercore.staff
-  #
-  # <-- not in usage -->
   play-sound:
     enabled: true
     sound: LEVEL_UP
@@ -70,8 +59,7 @@ announce:
   command: "play eu-hub-1"
   hover: "&aClick to join eu-hub-1!\n&r \n&c&lWarning: &r&cThis will switch your server!"
   announced-message: "&aYou've announced the game!"
-  format: '&b&l%server_name% &7» &b%player-display-name%%player_name% &fwants you to play! &a(Join)'
-  #Placeholders in format: %player-display-name%, %prefix%, %player_name%, %server_name%
+  format: '&b&l%server_name% &7» &b%player-display-name%%player_name% &fwants you to play! &a(Join)' #Placeholders: %player-display-name%, %prefix%, %player_name%, %server_name%
 
 socials:
   discord: discord.flower.club

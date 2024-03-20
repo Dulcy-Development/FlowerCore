@@ -18,7 +18,7 @@ public class NametagManager {
 
     /*
      *
-     * This needs to be re-done. It is basic as +as#dv+!
+     * This is terrible and needs to be redone in a better way.
      *
      */
 

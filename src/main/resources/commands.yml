@@ -13,6 +13,9 @@ vanilla-commands-blocker:
     - "/minecraft:tell"
     - "/achievement"
     - "/minecraft:achievement"
+    - "/bukkit:?"
+    - "/version FlowerCore"
+    - "/ver FlowerCore"
 
 #This overwrites /ver, /bukkit:ver /version, /bukkit:version, /about, /bukkit:about, /? and sends the following message.
 version-command:
@@ -23,24 +26,26 @@ version-command:
   enabled: true
   perm-to-bypass: "flower.bypasscmd.ver"
   message:
-    - ""
-    - "&fHey &b%player%&f,"
-    - "&fThis server is running &b&l%spigot% &fusing Emmy's awesome core plugin which is called &b&lFlowerCore&r!"
+    - "&cYou don't have permission to execute this command!"
+    #- "&fHey &b%player%&f,"
+    #- "&fThis server is running &b&l%spigot% &fusing Emmy's awesome core plugin which is called &b&lFlowerCore&r!"
     #- " &8- &7%version%"
-    - ""
+    #- ""
 
 bungee-command:
   enabled: true
   perm-to-bypass: "flower.bypasscmd.bungee"
   message:
-    - ""
-    - "&eThis server is running &dXeBungee&e."
-    - ""
+    - "&cYou don't have permission to execute this command!"
+    #- ""
+    #- "&eThis server is running &dXeBungee&e."
+    #- ""
 
 plugins-command:
   enabled: true
   perm-to-bypass: "flower.bypasscmd.pl"
   message:
-    - ""
-    - "&cNuh uh, &4%player%&c!"
-    - ""
+    - "&cYou don't have permission to execute this command!"
+    #- ""
+    #- "&cNuh uh, &4%player%&c!"
+    #- ""

@@ -22,20 +22,22 @@ public class RankCommand extends BaseCommand {
     public List<String> rankCompleter(CommandArgs args) {
         List<String> commands = new ArrayList<>();
         if (args.length() == 1) {
-            commands.add("create");
-            commands.add("delete");
-            commands.add("save");
-            commands.add("list");
+            if (args.getPlayer().hasPermission("flowercore.admin")) {
+                commands.add("create");
+                commands.add("delete");
+                commands.add("save");
+                commands.add("list");
 
-            commands.add("setdisplay");
-            commands.add("setcolor");
-            commands.add("seticon");
-            commands.add("setprefix");
-            commands.add("setsuffix");
-            commands.add("setpriority");
-            commands.add("setdefault");
-            commands.add("setstaff");
-            commands.add("addperm");
+                commands.add("setdisplay");
+                commands.add("setcolor");
+                commands.add("seticon");
+                commands.add("setprefix");
+                commands.add("setsuffix");
+                commands.add("setpriority");
+                commands.add("setdefault");
+                commands.add("setstaff");
+                commands.add("addperm");
+            }
         }
         return commands;
     }

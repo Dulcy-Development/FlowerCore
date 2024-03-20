@@ -18,12 +18,13 @@ public class CommandListener implements Listener {
 
     @EventHandler
     public void onPlayerCommandPreprocess(PlayerCommandPreprocessEvent event) {
-        if (FlowerCore.getInstance().getConfig("commands.yml").getBoolean("version-command.enabled")) {
-            if (!event.getPlayer().hasPermission(FlowerCore.getInstance().getConfig("commands.yml").getString("version-command.perm-to-bypass"))) {
-                if (event.getMessage().equals("/version") || event.getMessage().equals("/ver") || event.getMessage().equals("/bukkit:ver") || event.getMessage().equals("/bukkit:version") || event.getMessage().equals("/bukkit:about") || event.getMessage().equals("/about") || event.getMessage().equals("/?")) {
+        if (FlowerCore.getInstance().getConfig("commands.yml").getBoolean("plugins-command.enabled")) {
+            if (!event.getPlayer().hasPermission(FlowerCore.getInstance().getConfig("commands.yml").getString("plugins-command.perm-to-bypass"))) {
+                String[] parts = event.getMessage().toLowerCase().trim().split("\\s+");
+                if (parts[0].equals("/version") || parts[0].equals("/ver") || parts[0].equals("/bukkit:ver") || parts[0].equals("/bukkit:version") || parts[0].equals("/bukkit:about") || parts[0].equals("/about") || parts[0].equals("/?")) {
                     event.setCancelled(true);
-                    for (String message : FlowerCore.getInstance().getConfig("commands.yml").getStringList("version-command.message")) {
-                        event.getPlayer().sendMessage(CC.translate(message)
+                    for (String msg : FlowerCore.getInstance().getConfig("commands.yml").getStringList("version-command.message")) {
+                        event.getPlayer().sendMessage(CC.translate(msg)
                                 .replace("%player%", event.getPlayer().getDisplayName())
                                 .replace("%spigot%", Bukkit.getServer().getName())
                                 .replace("%version%", Bukkit.getServer().getVersion()));
@@ -46,7 +47,7 @@ public class CommandListener implements Listener {
 
         if (FlowerCore.getInstance().getConfig("commands.yml").getBoolean("bungee-command.enabled")) {
             if (!event.getPlayer().hasPermission(FlowerCore.getInstance().getConfig("commands.yml").getString("bungee-command.perm-to-bypass"))) {
-                if (event.getMessage().equals("/bungee") || event.getMessage().toLowerCase().startsWith("/bungeecord") || event.getMessage().equals("/flamecord") || event.getMessage().equals("/flame") || event.getMessage().equals("/proxy")) {
+                if (event.getMessage().equals("/bungee") || event.getMessage().equals("/bungeecord") || event.getMessage().equals("/flamecord") || event.getMessage().equals("/flame") || event.getMessage().equals("/proxy")) {
                     event.setCancelled(true);
                     for (String message : FlowerCore.getInstance().getConfig("commands.yml").getStringList("bungee-command.message")) {
                         event.getPlayer().sendMessage(CC.translate(message)

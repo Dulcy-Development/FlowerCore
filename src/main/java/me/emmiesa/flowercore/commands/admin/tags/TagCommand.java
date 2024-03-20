@@ -22,14 +22,16 @@ public class TagCommand extends BaseCommand {
     public List<String> tagCompleter(CommandArgs args) {
         List<String> commands = new ArrayList<>();
         if (args.length() == 1) {
-            commands.add("create");
-            commands.add("delete");
-            commands.add("save");
-            commands.add("list");
+            if (args.getPlayer().hasPermission("flowercore.admin")) {
+                commands.add("create");
+                commands.add("delete");
+                commands.add("save");
+                commands.add("list");
 
-            commands.add("settag");
-            commands.add("seticon");
-            commands.add("setdisplayname");
+                commands.add("settag");
+                commands.add("seticon");
+                commands.add("setdisplayname");
+            }
         }
         return commands;
     }

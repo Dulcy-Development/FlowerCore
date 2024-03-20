@@ -69,6 +69,7 @@ me\emmiesa\flowercore\commands\admin\punishments\BlacklistCommand.class
 me\emmiesa\flowercore\commands\global\worldtime\NightCommand.class
 me\emmiesa\flowercore\commands\admin\troll\RocketCommand.class
 me\emmiesa\flowercore\commands\admin\spawn\TeleportSpawnCommand.class
+me\emmiesa\flowercore\utils\AntiTabCompleter.class
 me\emmiesa\flowercore\utils\chat\JSONMessage$ReflectionHelper.class
 me\emmiesa\flowercore\utils\chat\JSONMessage.class
 me\emmiesa\flowercore\commands\admin\punishments\pardon\UnbanCommand.class

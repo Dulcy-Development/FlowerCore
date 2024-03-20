@@ -24,11 +24,13 @@ public class FlowerCoreCommand extends BaseCommand {
 
     @Completer(name = "flower", aliases = {"flowercore", "core"})
     public List<String> flowerCompleter(CommandArgs args) {
-        List<String> add = new ArrayList<>();
+        List<String> command = new ArrayList<>();
         if (args.length() == 1) {
-            add.add("reload");
+            if (args.getPlayer().hasPermission("flowercore.admin")) {
+                command.add("reload");
+            }
         }
-        return add;
+        return command;
     }
 
     @Command(name = "flowercore", aliases = {"flower", "core"}, inGameOnly = false)
@@ -39,7 +41,7 @@ public class FlowerCoreCommand extends BaseCommand {
             sender.sendMessage(" ");
             sender.sendMessage(CC.FLOWER_BAR);
             sender.sendMessage(CC.translate("  &b&l   FlowerCore"));
-            sender.sendMessage(CC.translate("      &f┃ Author: &b" + plugin.getDescription().getAuthors().toString().replace("[", "").replace("]", "")));
+            sender.sendMessage(CC.translate("      &f┃ Authors: &b" + plugin.getDescription().getAuthors().toString().replace("[", "").replace("]", "")));
             sender.sendMessage(CC.translate("      &f┃ Version: &b" + plugin.getDescription().getVersion()));
             sender.sendMessage(CC.translate(" "));
             sender.sendMessage(CC.translate("  &b&l   Description:"));
