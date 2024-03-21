@@ -9,6 +9,7 @@ import me.emmiesa.flowercore.utils.menu.Menu;
 import me.emmiesa.flowercore.utils.menu.button.RefillGlassButton;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.material.MaterialData;
 
@@ -30,20 +31,20 @@ public class NewsMenu extends Menu {
 	public NewsMenu() {
 		this.refillGlassButton = new RefillGlassButton(
 				Material.STAINED_GLASS_PANE,
-				FlowerCore.getInstance().getConfig("settings.yml").getInt("menus.news.refill-glass.data", 15)
+				FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/news.yml").getInt("refill-glass.data", 15)
 		);
 	}
 
 	@Override
 	public String getTitle(Player player) {
-		return CC.translate(FlowerCore.getInstance().getConfig("settings.yml").getString("menus.news.title"));
+		return CC.translate(FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/news.yml").getString("title"));
 	}
 
 	@Override
 	public Map<Integer, Button> getButtons(Player player) {
 		Map<Integer, Button> buttons = new HashMap<>();
 
-		ConfigurationSection serversSection = FlowerCore.getInstance().getConfig("settings.yml").getConfigurationSection("menus.news.servers");
+		ConfigurationSection serversSection = FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/news.yml").getConfigurationSection("items");
 
 		if (serversSection != null) {
 			for (String serverKey : serversSection.getKeys(false)) {
@@ -65,7 +66,7 @@ public class NewsMenu extends Menu {
 		}
 
 		// Add refill glass button
-		ConfigurationSection refillGlassSection = FlowerCore.getInstance().getConfig("settings.yml").getConfigurationSection("menus.news.refill-glass");
+		ConfigurationSection refillGlassSection = FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/news.yml").getConfigurationSection("refill-glass");
 		if (refillGlassSection != null && refillGlassSection.getBoolean("enabled", true)) {
 			List<String> refillSlots = refillGlassSection.getStringList("slots");
 			for (String refillSlot : refillSlots) {
@@ -79,10 +80,9 @@ public class NewsMenu extends Menu {
 
 	@Override
 	public int getSize() {
-		ConfigurationSection menuSection = FlowerCore.getInstance().getConfig("settings.yml").getConfigurationSection("menus.news");
-
-		if (menuSection != null && menuSection.contains("size")) {
-			return menuSection.getInt("size", 9 * 3);
+		FileConfiguration newsConfig = FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/news.yml");
+		if (newsConfig != null) {
+			return newsConfig.getInt("size", 9 * 3);
 		}
 
 		return 9 * 3;

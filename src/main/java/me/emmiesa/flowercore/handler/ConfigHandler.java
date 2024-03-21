@@ -25,7 +25,7 @@ public class ConfigHandler {
     private final Map<String, FileConfiguration> fileConfigurations = new HashMap<>();
 
     private final String[] configFileNames = {
-            "settings.yml", "messages.yml", "commands.yml", "database.yml", "ranks.yml", "placeholders.yml"
+            "settings.yml", "messages.yml", "commands.yml", "database.yml", "ranks.yml", "menus/news.yml"
     };
 
     public ConfigHandler() {
@@ -41,6 +41,7 @@ public class ConfigHandler {
             configFile.getParentFile().mkdirs();
             plugin.saveResource(fileName, false);
         }
+
         FileConfiguration config = YamlConfiguration.loadConfiguration(configFile);
         fileConfigurations.put(fileName, config);
     }

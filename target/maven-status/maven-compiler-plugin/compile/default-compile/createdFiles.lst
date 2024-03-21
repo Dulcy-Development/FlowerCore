@@ -69,7 +69,6 @@ me\emmiesa\flowercore\commands\admin\punishments\BlacklistCommand.class
 me\emmiesa\flowercore\commands\global\worldtime\NightCommand.class
 me\emmiesa\flowercore\commands\admin\troll\RocketCommand.class
 me\emmiesa\flowercore\commands\admin\spawn\TeleportSpawnCommand.class
-me\emmiesa\flowercore\utils\AntiTabCompleter.class
 me\emmiesa\flowercore\utils\chat\JSONMessage$ReflectionHelper.class
 me\emmiesa\flowercore\utils\chat\JSONMessage.class
 me\emmiesa\flowercore\commands\admin\punishments\pardon\UnbanCommand.class
@@ -115,6 +114,7 @@ me\emmiesa\flowercore\FlowerCore.class
 me\emmiesa\flowercore\menus\grant\GrantMenu.class
 me\emmiesa\flowercore\announcements\AnnouncementManager$1.class
 me\emmiesa\flowercore\commands\admin\rank\subcommands\RankSetStaffCommand.class
+me\emmiesa\flowercore\anticompleter\AntiTabCompleter.class
 me\emmiesa\flowercore\utils\command\BukkitCommand.class
 me\emmiesa\flowercore\commands\admin\punishments\BanCommand.class
 me\emmiesa\flowercore\listeners\WeatherListener.class

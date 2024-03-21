@@ -82,73 +82,7 @@ sudo:
 listeners:
   disable-rain: false
 
-menus:
-  news:
-    title: "&fNews &r| &fChangelog"
-    size: 27
-    servers:
-      update-1:
-        name: "&c&lUpdate #1 &f&lSKYWARS"
-        slot: 11
-        material: EYE_OF_ENDER
-        data: 0
-        lore:
-          - "&7A Brand new Update!"
-          - "&7SkyWars has been revamped."
-          - ""
-          - "&fNew features:"
-          - " &c* &fParty system"
-          - " &c* &fKits"
-          - " &c* &fNew perks"
-          - " &c* &fand more!"
-          - ""
-          - "&fClick to read &cmore&f!"
-        command: "command-to-send-link"
-      update-2:
-        name: "&e&lUpdate #2 &f&lBEDWARS"
-        slot: 15
-        material: BED
-        data: 0
-        lore:
-          - "&7A Brand new Update!"
-          - "&7BedWars has been revamped."
-          - ""
-          - "&fNew features:"
-          - " &e* &fParty system"
-          - " &e* &fKits"
-          - " &e* &fNew perks"
-          - " &e* &fand more!"
-          - ""
-          - "&fClick to read &emore&f!"
-        command: "command-to-send-link"
-    refill-glass:
-      enabled: true
-      data: 15
-      slots:
-        - "0"
-        - "1"
-        - "2"
-        - "3"
-        - "4"
-        - "5"
-        - "6"
-        - "7"
-        - "8"
-        - "9"
-        - "10"
-        #- "11"
-        - "12"
-        - "13"
-        - "14"
-        #- "15"
-        - "16"
-        - "17"
-        - "18"
-        - "19"
-        - "20"
-        - "21"
-        - "22"
-        - "23"
-        - "24"
-        - "25"
-        - "26"
+placeholders:
+  flower_is_staff:
+    true: "&aTrue"
+    false: "&cFalse"
