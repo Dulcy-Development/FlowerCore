@@ -4,7 +4,7 @@
 #
 #
 no-perms: "&cNo permission."
-anti-syntax: "&cNope."
+anti-syntax: "&cNo no no no no no. You won't."
 anti-syntax-bypass-perm: flowercore.staff
 
 reload:
@@ -13,9 +13,8 @@ reload:
     - "&8&m-----------------------------------------------------"
     - " &7[&cWARNING&7] &fReloading the configuration files..."
     - "&r"
-    - " &8[&bConfig.yml, Commands.yml, Database.yml, Extras.yml,"
-    - " &bMessages.yml, Placeholders.yml, Ranks.yml,"
-    - " &bSettings.yml&8]"
+    - " &8[&bMenus folder, Commands.yml, Database.yml"
+    - " &bMessages.yml, Ranks.yml, &bSettings.yml&8]"
     - "&8&m-----------------------------------------------------"
     - "&r"
   finished:
@@ -157,15 +156,26 @@ clear-chat: "&aThe chat has been cleared by %player%."
 clear-chat-staff: "&8[%server%] &7&o[%player%: Clear chat)"
 
 instance-command:
-  - ""
-  - "&b&lServer Details:"
-  - " &fVersion: &b%version%"
-  - " &fBukkit Server name: &b%bukkit-server-name%"
-  - " &fServer Region: &b%server-region%"
-  - " &fServer Name: &b%server-name%"
-  - " &fSoftware: &b%spigot%"
-  - " &fPlayers: &b%online-players%&f/&b%max-players%"
-  - ""
+  seperator-format: "&f, &b" #The seperator format of the %plugins-name% and %ops-name% placeholder.
+  lines:
+    - " "
+    - "&b&l&m-------&f&l&m-----------------------------&b&l&m-------»&r&b&l>"
+    - " "
+    - "&b&lServer Details:"
+    - " &fVersion: &b%version%"
+    - " &fBukkit Server name: &b%bukkit-server-name%"
+    - " &fServer Region: &b%server-region%"
+    - " &fServer Name: &b%server-name%"
+    - " &fSoftware: &b%spigot%"
+    - " &fPlayers: &b%online-players%&f/&b%max-players%"
+    - " "
+    - "&fOP players: &f(&b%ops%&f)"
+    - " &f- &b%ops-name%"
+    - " "
+    - "&fInstalled Plugins: &f(&b%plugins%&f)"
+    - " &f- &b%plugins-name%"
+    - " "
+    - "&b&l&m-------&f&l&m-----------------------------&b&l&m-------»&r&b&l>"
 
 ping:
   enabled: true

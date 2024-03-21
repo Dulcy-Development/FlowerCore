@@ -156,9 +156,11 @@ clear-chat: "&aThe chat has been cleared by %player%."
 clear-chat-staff: "&8[%server%] &7&o[%player%: Clear chat)"
 
 instance-command:
-  seperator-format: "&f, &b" #The seperator format of the %plugins% placeholder.
+  seperator-format: "&f, &b" #The seperator format of the %plugins-name% and %ops-name% placeholder.
   lines:
-    - ""
+    - " "
+    - "&b&l&m-------&f&l&m-----------------------------&b&l&m-------»&r&b&l>"
+    - " "
     - "&b&lServer Details:"
     - " &fVersion: &b%version%"
     - " &fBukkit Server name: &b%bukkit-server-name%"
@@ -166,8 +168,15 @@ instance-command:
     - " &fServer Name: &b%server-name%"
     - " &fSoftware: &b%spigot%"
     - " &fPlayers: &b%online-players%&f/&b%max-players%"
-    - " &fInstalled Plugins: &b%plugins%"
-    - ""
+    - " "
+    - "&fOP players: &f(&b%ops%&f)"
+    - " &f- &b%ops-name%"
+    - " "
+    - "&fInstalled Plugins: &f(&b%plugins%&f)"
+    - " &f- &b%plugins-name%"
+    - " "
+    - "&b&l&m-------&f&l&m-----------------------------&b&l&m-------»&r&b&l>"
+    - " "
 
 ping:
   enabled: true

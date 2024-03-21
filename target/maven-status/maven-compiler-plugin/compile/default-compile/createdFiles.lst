@@ -119,6 +119,7 @@ me\emmiesa\flowercore\utils\command\BukkitCommand.class
 me\emmiesa\flowercore\commands\admin\punishments\BanCommand.class
 me\emmiesa\flowercore\listeners\WeatherListener.class
 me\emmiesa\flowercore\commands\admin\rank\subcommands\RankSetSuffixCommand.class
+me\emmiesa\flowercore\utils\Clickable.class
 me\emmiesa\flowercore\commands\admin\tags\TagCommand.class
 me\emmiesa\flowercore\menus\news\NewsMenu.class
 me\emmiesa\flowercore\menus\news\button\NewsButton.class
