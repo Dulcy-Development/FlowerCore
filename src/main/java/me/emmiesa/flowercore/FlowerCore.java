@@ -11,6 +11,7 @@ import me.emmiesa.flowercore.commands.admin.essential.BroadcastCommand;
 import me.emmiesa.flowercore.commands.admin.essential.ClearChatCommand;
 import me.emmiesa.flowercore.commands.admin.spawn.TeleportSpawnCommand;
 import me.emmiesa.flowercore.commands.global.conversation.ReplyCommand;
+import me.emmiesa.flowercore.commands.global.server.JoinCommand;
 import me.emmiesa.flowercore.commands.global.settings.SettingsCommand;
 import me.emmiesa.flowercore.commands.global.worldtime.SunsetCommand;
 import me.emmiesa.flowercore.commands.global.worldtime.NightCommand;
@@ -133,6 +134,14 @@ public class FlowerCore extends JavaPlugin {
 
         new AnnouncementManager(this);
 
+        /*if (getConfig("settings.yml").getBoolean("listeners.disable-rain")) {
+            for (World world : Bukkit.getWorlds()) {
+                world.setGameRuleValue("doDaylightCycle", "false");
+                world.setGameRuleValue("doMobSpawning", "false");
+                world.setTime(6000L);
+            }
+        }*/
+
         long end = System.currentTimeMillis();
         long timeTaken = end - start;
 
@@ -177,6 +186,7 @@ public class FlowerCore extends JavaPlugin {
         new TagCommand();
         new gmspCommand();
         new HealCommand();
+        new JoinCommand();
         new FeedCommand();
         new PingCommand();
         new MoreCommand();
