@@ -55,7 +55,7 @@ public class ClearCommand extends BaseCommand {
 
         for (ItemStack item : inventory.getContents()) {
             if (item != null && item.getType() != Material.AIR) {
-                return false; // Found an item, inventory isn't clear
+                return false;
             }
         }
 

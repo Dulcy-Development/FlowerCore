@@ -35,7 +35,6 @@ public class InstanceCommand extends BaseCommand {
             pluginsList.append(plugin.getName());
         }
 
-        // Count ops regardless of whether they are online or not
         int opCount = 0;
         List<String> opNames = new ArrayList<>();
         for (OfflinePlayer offlinePlayer : Bukkit.getServer().getOfflinePlayers()) {

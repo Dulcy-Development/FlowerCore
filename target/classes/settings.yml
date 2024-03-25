@@ -25,6 +25,10 @@ rank-settings:
     send-as-message: false
     open-menu: true
 
+bungee-servers:
+  - "eu-hub-1"
+  - "eu-practice"
+
 default-permissions: #Experimental, better not use it.
   - "none"
 

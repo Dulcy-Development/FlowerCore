@@ -176,6 +176,7 @@ instance-command:
     - " &f- &b%plugins-name%"
     - " "
     - "&b&l&m-------&f&l&m-----------------------------&b&l&m-------»&r&b&l>"
+    - " "
 
 ping:
   enabled: true
@@ -200,7 +201,7 @@ teleport:
 socials:
   discord:
     enabled: true
-    enabled_message: "&fDiscord: &b%discord%"
+    enabled_message: "&fDiscord: &b%link%"
     disabled_message: '&fUnknown &d%link% &flink. Type "/links" for help.'
     placeholder-format: "discord" #%link%
   store:

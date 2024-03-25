@@ -25,12 +25,12 @@ public class BungeeUtil {
             out.writeUTF(server);
         } catch (IOException e) {
         }
-        player.sendMessage(CC.translate("&fJoining &b" + server + "&f..."));
+        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("join.joining").replace("%server%", server)));
         player.sendPluginMessage(FlowerCore.getInstance(), "BungeeCord", b.toByteArray());
         BukkitRunnable task = new BukkitRunnable() {
             @Override
             public void run() {
-                player.sendMessage(CC.translate("&cFailed to connect " + server + "."));
+                player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("join.failed").replace("%server%", server)));
             }
         };
         task.runTaskLater(FlowerCore.getInstance(), 20);

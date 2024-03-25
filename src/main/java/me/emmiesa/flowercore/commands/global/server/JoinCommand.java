@@ -1,11 +1,16 @@
 package me.emmiesa.flowercore.commands.global.server;
 
+import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.CommandArgs;
 import me.emmiesa.flowercore.utils.command.Command;
 import me.emmiesa.flowercore.utils.BungeeUtil;
 import me.emmiesa.flowercore.utils.chat.CC;
+import me.emmiesa.flowercore.utils.command.Completer;
 import org.bukkit.entity.Player;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Emmy
@@ -14,6 +19,16 @@ import org.bukkit.entity.Player;
  */
 
 public class JoinCommand extends BaseCommand {
+
+    @Completer(name = "join", aliases = "joinserver")
+    public List<String> joinCompleter(CommandArgs args) {
+        List<String> commands = new ArrayList<>();
+        if (args.getPlayer().hasPermission("flowercore.staff")) {
+            commands.addAll(FlowerCore.getInstance().getConfig("settings.yml").getStringList("bungee-servers"));
+        }
+
+        return commands;
+    }
 
     //TODO: The completer needs to display the available bungeecord servers.
 
