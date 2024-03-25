@@ -25,7 +25,7 @@ public class ConfigHandler {
     private final Map<String, FileConfiguration> fileConfigurations = new HashMap<>();
 
     private final String[] configFileNames = {
-            "settings.yml", "messages.yml", "commands.yml", "database.yml", "ranks.yml", "menus/news.yml"
+            "settings.yml", "messages.yml", "commands.yml", "database.yml", "ranks.yml", "menus/news.yml", "menus/grant.yml"
     };
 
     public ConfigHandler() {

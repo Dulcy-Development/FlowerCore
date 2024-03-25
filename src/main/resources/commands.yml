@@ -19,10 +19,6 @@ vanilla-commands-blocker:
 
 #This overwrites /ver, /bukkit:ver /version, /bukkit:version, /about, /bukkit:about, /? and sends the following message.
 version-command:
-  # Available Placeholders:
-  # - %player% (Player name of who executed the command)
-  # - %spigot% (Name of the spigot)
-  # - %version% (Version of the spigot)
   enabled: true
   perm-to-bypass: "flower.bypasscmd.ver"
   message:
@@ -37,15 +33,9 @@ bungee-command:
   perm-to-bypass: "flower.bypasscmd.bungee"
   message:
     - "&cYou don't have permission to execute this command!"
-    #- ""
-    #- "&eThis server is running &dXeBungee&e."
-    #- ""
 
 plugins-command:
   enabled: true
   perm-to-bypass: "flower.bypasscmd.pl"
   message:
     - "&cYou don't have permission to execute this command!"
-    #- ""
-    #- "&cNuh uh, &4%player%&c!"
-    #- ""

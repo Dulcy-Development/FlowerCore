@@ -1,4 +1,4 @@
-package me.emmiesa.flowercore.nametag;
+/*package me.emmiesa.flowercore.nametag;
 
 import me.emmiesa.flowercore.FlowerCore;
 import org.bukkit.Bukkit;
@@ -8,19 +8,8 @@ import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
 import org.bukkit.scoreboard.Team;
 
-/**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
- */
 
 public class NametagManager {
-
-    /*
-     *
-     * This is terrible and needs to be redone in a better way.
-     *
-     */
 
     public static void updatePlayerNametag(Player player) {
 
@@ -57,3 +46,4 @@ public class NametagManager {
         }
     }
 }
+*/

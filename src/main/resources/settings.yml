@@ -25,7 +25,7 @@ rank-settings:
     send-as-message: false
     open-menu: true
 
-bungee-servers:
+bungee-servers: #Must equal actual bungee servers because this is the completer of admins for the join command.
   - eu-hub-1
   - eu-hub-2
   - eu-sg-1

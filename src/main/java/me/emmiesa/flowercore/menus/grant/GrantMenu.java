@@ -7,6 +7,7 @@ import me.emmiesa.flowercore.utils.menu.Button;
 import me.emmiesa.flowercore.utils.menu.Menu;
 import me.emmiesa.flowercore.utils.menu.button.RefillGlassButton;
 import org.bukkit.Material;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
@@ -30,7 +31,7 @@ public class GrantMenu extends Menu {
 
     @Override
     public String getTitle(Player player) {
-        return "Grant " + playerName;
+        return FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/grant.yml").getString("title").replace("%player%", playerName);
     }
 
     @Override
@@ -55,6 +56,11 @@ public class GrantMenu extends Menu {
 
     @Override
     public int getSize() {
-        return 9 * 5;
+        FileConfiguration newsConfig = FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/grant.yml");
+        if (newsConfig != null) {
+            return newsConfig.getInt("size", 9 * 3);
+        }
+
+        return 9 * 3;
     }
 }
