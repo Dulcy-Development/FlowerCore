@@ -35,16 +35,27 @@ public class TagsButton extends Button {
                 .name(tag.getColor() + tag.getName() + " &r┃ " + tag.getDisplayName())
                 .lore(customLore)
                 .build();
+
     }
 
     @Override
     public void clicked(Player player, int slot, ClickType clickType, int hotbarSlot) {
-        if (clickType == ClickType.MIDDLE || clickType == ClickType.RIGHT || clickType == ClickType.NUMBER_KEY || clickType == ClickType.DROP || clickType == ClickType.SHIFT_LEFT || clickType == ClickType.SHIFT_RIGHT) {
+        if (clickType == ClickType.MIDDLE || clickType == ClickType.NUMBER_KEY || clickType == ClickType.DROP || clickType == ClickType.SHIFT_LEFT || clickType == ClickType.SHIFT_RIGHT) {
+            return;
+        }
+
+        if (clickType == ClickType.RIGHT) {
+            UUID playerUUID = Bukkit.getPlayerExact(playerName).getUniqueId();
+            FlowerCore.getInstance().getPlayerManager().resetTag(playerUUID);
+            player.sendMessage(CC.translate("&aYour tag has been reset."));
+            player.closeInventory();
             return;
         }
 
         UUID playerToGrantUUID = Bukkit.getPlayerExact(playerName).getUniqueId();
         FlowerCore.getInstance().getPlayerManager().setTag(playerToGrantUUID, tag);
+
+        player.sendMessage(CC.translate("&aYou've selected the " + tag.getColor() + tag.getName() + " &atag!"));
     }
 
     private String replacePlaceholders(String line) {

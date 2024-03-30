@@ -54,6 +54,10 @@ public class PlayerManager {
         getProfiles().get(playerUUID).setTag(tag);
     }
 
+    public void resetTag(UUID playerUUID) {
+        getProfiles().get(playerUUID).setTag(null);
+    }
+
     public void addPunishment(UUID playerUUID, Punishment punishment) {
         Profile profile = profiles.get(playerUUID);
         if (profile == null) {

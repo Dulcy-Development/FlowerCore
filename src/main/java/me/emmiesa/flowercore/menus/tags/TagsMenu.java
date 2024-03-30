@@ -1,6 +1,7 @@
 package me.emmiesa.flowercore.menus.tags;
 
 import me.emmiesa.flowercore.FlowerCore;
+import me.emmiesa.flowercore.menus.settings.button.SettingsButton;
 import me.emmiesa.flowercore.menus.tags.button.TagsButton;
 import me.emmiesa.flowercore.ranks.Rank;
 import me.emmiesa.flowercore.tags.Tag;
@@ -11,6 +12,7 @@ import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 

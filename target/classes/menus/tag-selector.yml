@@ -9,5 +9,6 @@ tags-lore:
   - "   &f● Appearance:"
   - "       {prefix}{player_color}{player_name} {tag_format}&7: &fGG!"
   - " "
-  - "    &fClick to select the &r{tag_color}{tag_name} &ftag."
+  - "    &fLeft-Click to select the &r{tag_color}{tag_name} &ftag."
+  - "    &cRight-Click to reset your tag!"
   - "{flower_bar}"
