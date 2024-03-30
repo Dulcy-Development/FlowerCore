@@ -6,6 +6,10 @@ import lombok.Setter;
 import me.emmiesa.flowercore.commands.admin.punishments.pardon.UnblacklistCommand;
 import me.emmiesa.flowercore.commands.admin.punishments.pardon.UnbanCommand;
 import me.emmiesa.flowercore.commands.admin.punishments.BlacklistCommand;
+import me.emmiesa.flowercore.commands.admin.tags.TagCommand;
+import me.emmiesa.flowercore.commands.admin.tags.subcommands.TagCreateCommand;
+import me.emmiesa.flowercore.commands.admin.tags.subcommands.TagListCommand;
+import me.emmiesa.flowercore.commands.admin.tags.subcommands.TagSaveCommand;
 import me.emmiesa.flowercore.commands.global.conversation.MessageCommand;
 import me.emmiesa.flowercore.commands.admin.essential.BroadcastCommand;
 import me.emmiesa.flowercore.commands.admin.essential.ClearChatCommand;
@@ -32,7 +36,8 @@ import me.emmiesa.flowercore.commands.global.menus.NewsCommand;
 import me.emmiesa.flowercore.commands.donator.AnnounceCommand;
 import me.emmiesa.flowercore.commands.global.server.PingCommand;
 import me.emmiesa.flowercore.commands.admin.rank.RankCommand;
-import me.emmiesa.flowercore.commands.admin.tags.TagCommand;
+import me.emmiesa.flowercore.commands.admin.tags.TagAdminCommand;
+import me.emmiesa.flowercore.tags.TagsManager;
 import me.emmiesa.flowercore.utils.command.CommandFramework;
 import me.emmiesa.flowercore.database.mongo.MongoManager;
 import me.emmiesa.flowercore.handler.ConversationHandler;
@@ -73,6 +78,7 @@ public class FlowerCore extends JavaPlugin {
     private ConfigHandler configHandler;
     private MongoManager mongoManager;
     private RanksManager ranksManager;
+    private TagsManager tagsManager;
     private PlayerManager playerManager;
     private Location spawnLocation;
     private String prefix = "§f[§bFlowerCore§f]§r ";
@@ -123,6 +129,9 @@ public class FlowerCore extends JavaPlugin {
             Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Successfully registered PlaceholderAPI expansion."));
             new ProfilePlaceholders().register();
         }
+
+        this.tagsManager = new TagsManager();
+        this.tagsManager.load();
 
         this.ranksManager = new RanksManager();
         this.ranksManager.load();
@@ -183,7 +192,6 @@ public class FlowerCore extends JavaPlugin {
         new gmcCommand();
         new gmsCommand();
         new gmaCommand();
-        new TagCommand();
         new gmspCommand();
         new HealCommand();
         new JoinCommand();
@@ -224,6 +232,12 @@ public class FlowerCore extends JavaPlugin {
         new TeleportSpawnCommand();
         new TrollEverybodyCommand();
         new TeleportPositionCommand();
+
+        new TagCommand();
+        new TagListCommand();
+        new TagSaveCommand();
+        new TagAdminCommand();
+        new TagCreateCommand();
 
         new RankCommand();
         new GrantCommand();

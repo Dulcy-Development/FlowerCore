@@ -1,0 +1,13 @@
+title: "Select a tag, %player%&r."
+size: 27
+
+tags-lore:
+  - "{flower_bar}"
+  - " "
+  - "   &f● Tag name: {tag_color}{tag_name}"
+  - "   &f● Tag format: &b{tag_format}"
+  - "   &f● Appearance:"
+  - "       {prefix}{player_color}{player_name} {tag_format}&7: &fGG!"
+  - " "
+  - "    &fClick to select the &r{tag_color}{tag_name} &ftag."
+  - "{flower_bar}"

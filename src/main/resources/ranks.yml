@@ -29,7 +29,7 @@ ranks:
       - none
   Developer:
     displayName: '&bDeveloper'
-    icon: APPLE
+    icon: DOUBLE_PLANT
     prefix: '&7[&bDeveloper&7] &b'
     suffix: '&7'
     priority: 40

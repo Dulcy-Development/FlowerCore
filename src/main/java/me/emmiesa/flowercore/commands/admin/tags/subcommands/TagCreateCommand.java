@@ -1,10 +1,18 @@
 package me.emmiesa.flowercore.commands.admin.tags.subcommands;
 
+import me.emmiesa.flowercore.FlowerCore;
+import me.emmiesa.flowercore.ranks.Rank;
+import me.emmiesa.flowercore.tags.Tag;
+import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
 import me.emmiesa.flowercore.utils.command.CommandArgs;
+import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by Emmy
@@ -15,8 +23,27 @@ import org.bukkit.entity.Player;
 public class TagCreateCommand extends BaseCommand {
     @Override
     @Command(name = "tag.create", permission = "flower.staff")
-    public void onCommand(CommandArgs command) {
-        //CommandSender sender = command.getSender();
-        //Player player = command.getPlayer();
+    public void onCommand(CommandArgs args) {
+        Player player = args.getPlayer();
+
+        if (args.length() > 0) {
+            create(player, args.getArgs(0));
+        } else {
+            player.sendMessage(CC.translate("&cUsage: /tag create (tag-name)"));
+        }
+    }
+
+    public void create(Player player, String tagName) {
+        List<String> permissions = Collections.singletonList("none");
+        Tag tag = new Tag(tagName, "&7", Material.NAME_TAG, "&b");
+
+        FlowerCore.getInstance().getTagsManager().getTags().add(tag);
+
+        player.sendMessage(CC.translate("tag created"));
+        //player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.created")).replace("%rank%", tagName));
+        player.sendMessage(CC.translate("dont forget to save the tag"));
+        //if (FlowerCore.getInstance().getConfig("messages.yml").getBoolean("rank.save-reminder.enabled")) {
+        //    player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.save-reminder.message")));
+        //}
     }
 }

@@ -61,6 +61,7 @@ public class MongoManager {
         return Profile.builder()
                 .uuid(playerUUID)
                 .rank(FlowerCore.getInstance().getRanksManager().getDefaultRank())
+                .tag(null)
                 .build();
     }
 
@@ -69,6 +70,7 @@ public class MongoManager {
                 .uuid(playerUUID)
                 .rank(FlowerCore.getInstance().getRanksManager().getRank(doc.getString("rank")))
                 .punishments(PunishmentSerializer.deserialize(doc.getList("punishments", String.class)))
+                .tag(FlowerCore.getInstance().getTagsManager().getTag(doc.getString("tag")))
                 .build();
     }
 
@@ -97,9 +99,17 @@ public class MongoManager {
     }
 
     private Document createDocument(UUID playerUUID, Profile profile) {
-        return new Document("UUID", playerUUID.toString())
+        Document doc = new Document("UUID", playerUUID.toString())
                 .append("punishments", PunishmentSerializer.serialize(profile.getPunishments()))
                 .append("rank", profile.getRank().getName());
+
+        if (profile.getTag() != null) {
+            doc.append("tag", profile.getTag().getName());
+        } else {
+            doc.append("tag", "none");
+        }
+
+        return doc;
     }
 
     private boolean collectionExists(MongoDatabase database, String collectionName) {

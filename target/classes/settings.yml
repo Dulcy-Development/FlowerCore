@@ -7,7 +7,7 @@ server-name: eu-hub-1
 server-region: Europe
 
 chat: # Available placeholders %prefix%, %player%, %message%, %suffix%
-  format: "%prefix%%player%%suffix%§7: §f%message%"
+  format: "{prefix}{player}{suffix}§r{tag}§7: §f{message}"
 
 #nametags:
 #  enabled: false
@@ -25,9 +25,16 @@ rank-settings:
     send-as-message: false
     open-menu: true
 
-bungee-servers:
-  - "eu-hub-1"
-  - "eu-practice"
+bungee-servers: #Must equal actual bungee servers because this is the completer of admins for the join command.
+  - eu-hub-1
+  - eu-hub-2
+  - eu-sg-1
+  - eu-psg-1
+  - eu-ug-1
+  - eu-um-1
+  - eu-sw-1
+  - eu-soup
+  - eu-practice
 
 default-permissions: #Experimental, better not use it.
   - "none"

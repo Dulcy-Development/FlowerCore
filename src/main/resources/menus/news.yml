@@ -35,6 +35,7 @@ items:
       - ""
       - "&fClick to read &emore&f!"
     command: "command-to-send-link"
+    #More items can be added.
 
 refill-glass:
   enabled: true

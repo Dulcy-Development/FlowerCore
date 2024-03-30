@@ -56,6 +56,10 @@ troll-everybody:
     - "&fEverybody on the server got trolled by &b%troller%&f!"
     - "&r "
 
+join:
+  joining: "&fJoining &b%server%&f..."
+  failed: "&fThere is no online server named &b%server%&f."
+
 sudo:
   command: "&aYou've made &b%target% &aexecute a command. (&b%arguments%&a)"
   message: "&aYou've made &b%target% &asay &b%arguments% &ain chat!"

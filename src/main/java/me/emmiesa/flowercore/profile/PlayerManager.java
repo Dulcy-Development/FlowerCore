@@ -6,6 +6,7 @@ import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.punishments.Punishment;
 import me.emmiesa.flowercore.punishments.PunishmentType;
 import me.emmiesa.flowercore.ranks.Rank;
+import me.emmiesa.flowercore.tags.Tag;
 import me.emmiesa.flowercore.utils.Utils;
 import org.bson.Document;
 import org.bukkit.Bukkit;
@@ -49,6 +50,9 @@ public class PlayerManager {
     public void setRank(UUID playerUUID, Rank rank) {
         getProfiles().get(playerUUID).setRank(rank);
     }
+    public void setTag(UUID playerUUID, Tag tag) {
+        getProfiles().get(playerUUID).setTag(tag);
+    }
 
     public void addPunishment(UUID playerUUID, Punishment punishment) {
         Profile profile = profiles.get(playerUUID);
@@ -87,6 +91,21 @@ public class PlayerManager {
             Document doc = FlowerCore.getInstance().getMongoManager().getCollection().find(eq("UUID", playerUUID.toString())).first();
             if(doc !=null){
                 return FlowerCore.getInstance().getRanksManager().getRank(doc.getString("rank"));
+            }
+            else {
+                return null;
+            }
+        }
+    }
+
+    public Tag getTag(UUID playerUUID) {
+        if(Bukkit.getPlayer(playerUUID) != null){
+            return getProfiles().get(playerUUID).getTag();
+        }
+        else{
+            Document doc = FlowerCore.getInstance().getMongoManager().getCollection().find(eq("UUID", playerUUID.toString())).first();
+            if(doc !=null){
+                return FlowerCore.getInstance().getTagsManager().getTag(doc.getString("tag"));
             }
             else {
                 return null;

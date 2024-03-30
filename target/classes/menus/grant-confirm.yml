@@ -1,0 +1,36 @@
+title: "Confirm Grant for %player%"
+size: 36
+
+confirm-button:
+  title: "&b&lConfirm"
+  material: DIAMOND_BLOCK
+  slot: 11
+  lore:
+    - " &fTo be granted Player &b{player_name}"
+    - " &fTo be granted Rank: &b{rank}"
+    - " &fRank Type: &b{rank-type}"
+    - " "
+    - "&bClick to confirm the grant!"
+  placeholder: #replaces {rank-type}
+    staff: "Staff"
+    non-staff: "Non-Staff"
+
+cancel-button:
+  title: "&c&lCancel"
+  material: REDSTONE_BLOCK
+  slot: 15
+  lore:
+    - " "
+    - "&cClick to cancel the grant!"
+    - " "
+
+change-button:
+  title: "&e&lChanged your mind?"
+  material: PAPER
+  slot: 22
+  lore:
+    - " "
+    - "&eClick to select another rank for {player_name}&e!"
+    - " "
+
+#More items can't be added.

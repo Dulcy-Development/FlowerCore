@@ -1,6 +1,7 @@
 package me.emmiesa.flowercore.listeners;
 
 import me.emmiesa.flowercore.FlowerCore;
+import me.emmiesa.flowercore.tags.Tag;
 import me.emmiesa.flowercore.utils.chat.CC;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -26,14 +27,17 @@ public class ChatListener implements Listener {
 
         String prefix = CC.translate(FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix());
         String suffix = CC.translate(FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getSuffix());
+        Tag tag = FlowerCore.getInstance().getPlayerManager().getTag(playerUUID);
+        String tagPlaceholder = (tag != null) ? CC.translate(tag.getDisplayName()) : "";
 
         String message = translate ? CC.translate(event.getMessage()) : event.getMessage();
 
         String chatFormat = FlowerCore.getInstance().getConfig("settings.yml").getString("chat.format")
-                .replace("%prefix%", prefix)
-                .replace("%player%", player.getName())
-                .replace("%message%", message)
-                .replace("%suffix%", suffix);
+                .replace("{prefix}", prefix)
+                .replace("{player}", player.getName())
+                .replace("{message}", message)
+                .replace("{suffix}", suffix)
+                .replace("{tag}", tagPlaceholder);
 
         event.setFormat(chatFormat);
     }
