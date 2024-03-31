@@ -9,6 +9,10 @@ tags-lore:
   - "   &f● Appearance:"
   - "       {prefix}{player_color}{player_name}{tag_format}&7: &fGG!"
   - " "
-  - "   &f► Left-Click to select the &r{tag_color}{tag_name} &ftag."
-  - "   &f► Right-Click to &creset &fyour tag!"
+  - "{permission-status}"
   - "{flower_bar}"
+
+permission-lore:
+  has-permission: "   &f► Click to select the &r{tag_color}{tag_name} &ftag."
+  no-permission: "   &c► You don't have permission to use the {tag_name} tag!"
+  already-selected: "   &a► You have already selected the &r{tag_color}{tag_name} &atag!"

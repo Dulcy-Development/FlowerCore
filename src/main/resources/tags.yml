@@ -3,3 +3,7 @@ tags:
     displayName: ' &7[&4❤&7]'
     icon: NAME_TAG
     color: '&4'
+  test:
+    displayName: ' &7[&eTEST&7]'
+    icon: WATCH
+    color: '&e'

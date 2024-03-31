@@ -2,7 +2,6 @@ package me.emmiesa.flowercore.menus.tags.button;
 
 import lombok.AllArgsConstructor;
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.menus.grantconfirm.GrantConfirmMenu;
 import me.emmiesa.flowercore.tags.Tag;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.item.ItemBuilder;
@@ -29,13 +28,12 @@ public class TagsButton extends Button {
     @Override
     public ItemStack getButtonItem(Player player) {
         List<String> customLore = FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/tag-selector.yml").getStringList("tags-lore");
-        customLore.replaceAll(this::replacePlaceholders);
+        customLore.replaceAll(line -> replacePlaceholders(line, player));
 
         return new ItemBuilder(tag.getIcon())
-                .name(tag.getColor() + tag.getName() + " &r┃ " + tag.getDisplayName())
+                .name("&fTag: &r" + tag.getColor() + tag.getName())
                 .lore(customLore)
                 .build();
-
     }
 
     @Override
@@ -44,8 +42,13 @@ public class TagsButton extends Button {
             return;
         }
 
+        UUID playerUUID = Bukkit.getPlayerExact(playerName).getUniqueId();
+
+        if (!player.hasPermission("flowercore.tag." + tag.getName())) {
+            return;
+        }
+
         if (clickType == ClickType.RIGHT) {
-            UUID playerUUID = Bukkit.getPlayerExact(playerName).getUniqueId();
             FlowerCore.getInstance().getPlayerManager().resetTag(playerUUID);
             FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
             player.sendMessage(CC.translate("&aYour tag has been reset."));
@@ -53,14 +56,20 @@ public class TagsButton extends Button {
             return;
         }
 
-        UUID playerUUID = Bukkit.getPlayerExact(playerName).getUniqueId();
+        boolean hasTagSelected = FlowerCore.getInstance().getPlayerManager().getTag(playerUUID) != null && FlowerCore.getInstance().getPlayerManager().getTag(playerUUID).equals(tag);
+
+        if (hasTagSelected) {
+            player.sendMessage(CC.translate("&cYou have already selected that tag!"));
+            return;
+        }
+
         FlowerCore.getInstance().getPlayerManager().setTag(playerUUID, tag);
         FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
         player.sendMessage(CC.translate("&aYou've selected the " + tag.getColor() + tag.getName() + " &atag!"));
         player.closeInventory();
     }
 
-    private String replacePlaceholders(String line) {
+    private String replacePlaceholders(String line, Player player) {
         UUID playerUUID = Bukkit.getPlayerExact(playerName).getUniqueId();
         line = line.replace("{flower_bar}", CC.FLOWER_BAR_LONG);
         line = line.replace("{tag_format}", tag.getDisplayName());
@@ -69,6 +78,27 @@ public class TagsButton extends Button {
         line = line.replace("{player_name}", playerName);
         line = line.replace("{prefix}", FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix());
         line = line.replace("{player_color}", FlowerCore.getInstance().getPlayerManager().getPlayerRankColor(playerUUID));
+        boolean hasTagSelected = FlowerCore.getInstance().getPlayerManager().getTag(playerUUID) != null && FlowerCore.getInstance().getPlayerManager().getTag(playerUUID).equals(tag);
+
+        if (hasTagSelected) {
+            line = line.replace("{permission-status}", FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/tag-selector.yml").getString("permission-lore.already-selected")
+                    .replace("{tag_name}", tag.getName())
+                    .replace("{tag_color}", tag.getColor())
+            );
+        } else {
+            if (player.hasPermission("flowercore.tag." + tag.getName())) {
+                line = line.replace("{permission-status}", FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/tag-selector.yml").getString("permission-lore.has-permission")
+                        .replace("{tag_name}", tag.getName())
+                        .replace("{tag_color}", tag.getColor())
+                );
+            } else {
+                line = line.replace("{permission-status}", FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/tag-selector.yml").getString("permission-lore.no-permission")
+                        .replace("{tag_name}", tag.getName())
+                        .replace("{tag_color}", tag.getColor())
+                );
+            }
+        }
+
         return line;
     }
 }
