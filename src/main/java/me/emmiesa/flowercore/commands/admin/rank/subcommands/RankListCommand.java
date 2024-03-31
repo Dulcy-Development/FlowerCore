@@ -47,7 +47,7 @@ public class RankListCommand extends BaseCommand {
 
         player.sendMessage(" ");
         player.sendMessage(CC.FLOWER_BAR);
-        player.sendMessage(CC.translate("   &b&lRank list"));
+        player.sendMessage(CC.translate("   &b&lRank list &f(" + FlowerCore.getInstance().getConfig("ranks.yml").getConfigurationSection("ranks").getKeys(false).size()) + CC.translate("&f)"));
 
         for (Rank rank : ranks) {
             String paddedName = StringUtil.padRight(rank.getColor() + rank.getName() + " &8&l┃&r " + rank.getPrefix(), maxLength);

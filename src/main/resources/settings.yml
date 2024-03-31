@@ -22,8 +22,8 @@ grant-settings:
 
 rank-settings:
   list:
-    send-as-message: false
-    open-menu: true
+    send-as-message: true
+    open-menu: false
 
 bungee-servers: #Must equal actual bungee servers because this is the completer of admins for the join command.
   - eu-hub-1

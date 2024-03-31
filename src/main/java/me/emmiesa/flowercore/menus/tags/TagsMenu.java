@@ -1,18 +1,13 @@
 package me.emmiesa.flowercore.menus.tags;
 
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.menus.settings.button.SettingsButton;
 import me.emmiesa.flowercore.menus.tags.button.TagsButton;
-import me.emmiesa.flowercore.ranks.Rank;
 import me.emmiesa.flowercore.tags.Tag;
 import me.emmiesa.flowercore.utils.menu.Button;
-import me.emmiesa.flowercore.utils.menu.Menu;
-import me.emmiesa.flowercore.utils.menu.button.RefillGlassButton;
-import org.bukkit.Material;
+import me.emmiesa.flowercore.utils.pagination.PaginatedMenu;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,36 +17,25 @@ import java.util.Map;
  * Discord: dsc.gg/emmiesa
  */
 
-public class TagsMenu extends Menu {
+public class TagsMenu extends PaginatedMenu {
 
-    private final RefillGlassButton refillGlassButton;
     private final String playerName;
 
     public TagsMenu(String playerName) {
         this.playerName = playerName;
-        this.refillGlassButton = new RefillGlassButton(Material.STAINED_GLASS_PANE, 15);
     }
 
     @Override
-    public String getTitle(Player player) {
+    public String getPrePaginatedTitle(Player player) {
         return FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/tag-selector.yml").getString("title").replace("%player%", playerName);
     }
 
     @Override
-    public Map<Integer, Button> getButtons(Player player) {
+    public Map<Integer, Button> getAllPagesButtons(Player player) {
         Map<Integer, Button> buttons = new HashMap<>();
 
-        int slot = 10;
-
         for (Tag tag : FlowerCore.getInstance().getTagsManager().getTags()) {
-            buttons.put(slot, new TagsButton(tag, playerName));
-            slot++;
-        }
-
-        for (int i = 0; i < getSize(); i++) {
-            if (!buttons.containsKey(i)) {
-                buttons.put(i, refillGlassButton);
-            }
+            buttons.put(buttons.size(), new TagsButton(tag, playerName));
         }
 
         return buttons;

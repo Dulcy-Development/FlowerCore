@@ -8,7 +8,7 @@ ranks:
     displayName: '&4Owner'
     icon: REDSTONE
     prefix: '&7[&4Owner&7] &4'
-    suffix: '&7'
+    suffix: '&4'
     priority: 100
     default: false
     staff: true
@@ -27,6 +27,17 @@ ranks:
     color: "&c"
     permissions:
       - none
+  Moderator:
+    displayName: '&3Moderator'
+    icon: IRON_SWORD
+    prefix: '&7[&3Mod&7] &3'
+    suffix: '&7'
+    priority: 45
+    default: false
+    staff: true
+    color: "&3"
+    permissions:
+      - none
   Developer:
     displayName: '&bDeveloper'
     icon: DOUBLE_PLANT
@@ -38,6 +49,28 @@ ranks:
     color: "&b"
     permissions:
       - none
+  TrialAdmin:
+    displayName: '&9Trial Admin'
+    icon: BARRIER
+    prefix: '&7[&9Trial Admin&7] &9'
+    suffix: '&7'
+    priority: 30
+    default: false
+    staff: true
+    color: "&9"
+    permissions:
+      - none
+  TrialMOD:
+    displayName: '&9Trial Moderator'
+    icon: IRON_SWORD
+    prefix: '&7[&9Trial Mod&7] &9'
+    suffix: '&7'
+    priority: 25
+    default: false
+    staff: true
+    color: "&9"
+    permissions:
+      - none
   MVP:
     displayName: '&bMVP'
     icon: DIAMOND
@@ -47,6 +80,17 @@ ranks:
     default: false
     staff: false
     color: "&b"
+    permissions:
+      - none
+  VIP:
+    displayName: '&aVIP'
+    icon: EMERALD
+    prefix: '&7[&aVIP&7] &a'
+    suffix: '&7'
+    priority: 5
+    default: false
+    staff: false
+    color: "&a"
     permissions:
       - none
   Default:

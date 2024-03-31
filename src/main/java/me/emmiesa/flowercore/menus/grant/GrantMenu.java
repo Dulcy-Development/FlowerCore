@@ -4,9 +4,7 @@ import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.menus.grant.button.GrantButton;
 import me.emmiesa.flowercore.ranks.Rank;
 import me.emmiesa.flowercore.utils.menu.Button;
-import me.emmiesa.flowercore.utils.menu.Menu;
-import me.emmiesa.flowercore.utils.menu.button.RefillGlassButton;
-import org.bukkit.Material;
+import me.emmiesa.flowercore.utils.pagination.PaginatedMenu;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
@@ -19,36 +17,25 @@ import java.util.Map;
  * Discord: dsc.gg/emmiesa
  */
 
-public class GrantMenu extends Menu {
+public class GrantMenu extends PaginatedMenu {
 
-    private final RefillGlassButton refillGlassButton;
     private final String playerName;
 
     public GrantMenu(String playerName) {
         this.playerName = playerName;
-        this.refillGlassButton = new RefillGlassButton(Material.STAINED_GLASS_PANE, 15);
     }
 
     @Override
-    public String getTitle(Player player) {
+    public String getPrePaginatedTitle(Player player) {
         return FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/grant.yml").getString("title").replace("%player%", playerName);
     }
 
     @Override
-    public Map<Integer, Button> getButtons(Player player) {
+    public Map<Integer, Button> getAllPagesButtons(Player player) {
         Map<Integer, Button> buttons = new HashMap<>();
 
-        int slot = 10;
-
         for (Rank rank : FlowerCore.getInstance().getRanksManager().getRanks()) {
-            buttons.put(slot, new GrantButton(rank, playerName));
-            slot++;
-        }
-
-        for (int i = 0; i < getSize(); i++) {
-            if (!buttons.containsKey(i)) {
-                buttons.put(i, refillGlassButton);
-            }
+            buttons.put(buttons.size(), new GrantButton(rank, playerName));
         }
 
         return buttons;

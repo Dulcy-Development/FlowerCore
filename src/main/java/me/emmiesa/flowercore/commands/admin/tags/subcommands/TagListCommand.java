@@ -1,7 +1,6 @@
 package me.emmiesa.flowercore.commands.admin.tags.subcommands;
 
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.ranks.Rank;
 import me.emmiesa.flowercore.tags.Tag;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.chat.StringUtil;
@@ -37,7 +36,7 @@ public class TagListCommand extends BaseCommand {
 
         player.sendMessage(" ");
         player.sendMessage(CC.FLOWER_BAR);
-        player.sendMessage(CC.translate("   &b&lTag list"));
+        player.sendMessage(CC.translate("   &b&lTag list &f(" + FlowerCore.getInstance().getConfig("tags.yml").getConfigurationSection("tags").getKeys(false).size()) + CC.translate("&f)"));
 
         for (Tag tag : tags) {
             String paddedName = StringUtil.padRight(tag.getColor() + tag.getName() + " &8&l┃&r " + tag.getDisplayName(), maxLength);
