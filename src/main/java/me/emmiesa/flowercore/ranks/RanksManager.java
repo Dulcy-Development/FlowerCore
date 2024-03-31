@@ -36,8 +36,8 @@ public class RanksManager {
                     config.getString(key + ".displayName"),
                     Material.matchMaterial(config.getString(key + ".icon")),
                     config.getString(key + ".prefix"),
-                    config.getString(key + ".suffix"),
                     config.getString(key + ".color"),
+                    config.getString(key + ".suffix"),
                     config.getInt(key + ".priority"),
                     config.getBoolean(key + ".default"),
                     config.getBoolean(key + ".staff"),
@@ -70,8 +70,8 @@ public class RanksManager {
         config.set(key + ".displayName", rank.getDisplayName());
         config.set(key + ".icon", rank.getIcon().toString());
         config.set(key + ".prefix", rank.getPrefix());
-        config.set(key + ".suffix", rank.getSuffix());
         config.set(key + ".color", rank.getColor());
+        config.set(key + ".suffix", rank.getSuffix());
         config.set(key + ".priority", rank.getPriority());
         config.set(key + ".default", rank.isDefaultRank());
         config.set(key + ".staff", rank.isStaff());

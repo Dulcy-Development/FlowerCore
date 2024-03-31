@@ -8,7 +8,7 @@ ranks:
     displayName: '&4Owner'
     icon: REDSTONE
     prefix: '&7[&4Owner&7] &4'
-    suffix: '&7'
+    suffix: '&4'
     priority: 100
     default: false
     staff: true
@@ -49,6 +49,57 @@ ranks:
     color: "&b"
     permissions:
       - none
+  Beginner:
+    displayName: '&aBeginner'
+    icon: GRASS
+    prefix: '&a'
+    suffix: '&7'
+    priority: 1
+    default: true
+    staff: false
+    color: "&a"
+    permissions:
+      - beginner.permission1
+      - beginner.permission2
+  Intermediate:
+    displayName: '&bIntermediate'
+    icon: GRASS
+    prefix: '&b'
+    suffix: '&7'
+    priority: 2
+    default: false
+    staff: false
+    color: "&b"
+    permissions:
+      - intermediate.permission1
+      - intermediate.permission2
+
+  Advanced:
+    displayName: '&cAdvanced'
+    icon: GRASS
+    prefix: '&c'
+    suffix: '&7'
+    priority: 3
+    default: false
+    staff: false
+    color: "&c"
+    permissions:
+      - advanced.permission1
+      - advanced.permission2
+
+  Expert:
+    displayName: '&dExpert'
+    icon: GRASS
+    prefix: '&d'
+    suffix: '&7'
+    priority: 4
+    default: false
+    staff: false
+    color: "&d"
+    permissions:
+      - expert.permission1
+      - expert.permission2
+
   Default:
     displayName: '&aDefault'
     icon: GRASS

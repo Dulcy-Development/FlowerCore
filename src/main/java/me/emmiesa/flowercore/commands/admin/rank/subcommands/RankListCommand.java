@@ -45,15 +45,17 @@ public class RankListCommand extends BaseCommand {
                 .max()
                 .orElse(0);
 
+        player.sendMessage(" ");
         player.sendMessage(CC.FLOWER_BAR);
         player.sendMessage(CC.translate("   &b&lRank list"));
 
         for (Rank rank : ranks) {
-            String paddedName = StringUtil.padRight(rank.getDisplayName(), maxLength);
-            String rankLine = "    &f┃ " + paddedName;
+            String paddedName = StringUtil.padRight(rank.getColor() + rank.getName() + " &8&l┃&r " + rank.getPrefix(), maxLength);
+            String rankLine = "    &f► " + paddedName;
             player.sendMessage(CC.translate(rankLine));
         }
 
         player.sendMessage(CC.FLOWER_BAR);
+        player.sendMessage(" ");
     }
 }

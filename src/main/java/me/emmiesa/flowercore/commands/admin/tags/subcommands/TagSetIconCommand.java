@@ -12,7 +12,7 @@ import me.emmiesa.flowercore.utils.command.CommandArgs;
 
 public class TagSetIconCommand extends BaseCommand {
     @Override
-    @Command(name = "tag.seticon", permission = "flower.staff")
+    @Command(name = "tagadmin.seticon", permission = "flower.staff")
     public void onCommand(CommandArgs command) {
         //CommandSender sender = command.getSender();
         //Player player = command.getPlayer();

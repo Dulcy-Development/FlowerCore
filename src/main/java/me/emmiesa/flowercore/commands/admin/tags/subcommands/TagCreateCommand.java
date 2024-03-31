@@ -22,7 +22,7 @@ import java.util.List;
 
 public class TagCreateCommand extends BaseCommand {
     @Override
-    @Command(name = "tag.create", permission = "flower.staff")
+    @Command(name = "tagadmin.create", permission = "flower.staff")
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
 

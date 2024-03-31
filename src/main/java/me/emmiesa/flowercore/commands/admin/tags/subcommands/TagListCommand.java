@@ -21,7 +21,7 @@ import java.util.List;
 
 public class TagListCommand extends BaseCommand {
     @Override
-    @Command(name = "tag.list", permission = "flower.staff")
+    @Command(name = "tagadmin.list", permission = "flower.staff")
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         sendAsMessage(player);
@@ -31,19 +31,21 @@ public class TagListCommand extends BaseCommand {
         List<Tag> tags = FlowerCore.getInstance().getTagsManager().getTags();
 
         int maxLength = tags.stream()
-                .mapToInt(rank -> ChatColor.stripColor(rank.getDisplayName()).length())
+                .mapToInt(tag -> ChatColor.stripColor(tag.getDisplayName()).length())
                 .max()
                 .orElse(0);
 
+        player.sendMessage(" ");
         player.sendMessage(CC.FLOWER_BAR);
         player.sendMessage(CC.translate("   &b&lTag list"));
 
         for (Tag tag : tags) {
-            String paddedName = StringUtil.padRight(tag.getDisplayName(), maxLength);
-            String rankLine = "    &f┃ " + paddedName;
+            String paddedName = StringUtil.padRight(tag.getColor() + tag.getName() + " &8&l┃&r " + tag.getDisplayName(), maxLength);
+            String rankLine = "    &f► " + paddedName;
             player.sendMessage(CC.translate(rankLine));
         }
 
         player.sendMessage(CC.FLOWER_BAR);
+        player.sendMessage(" ");
     }
 }
