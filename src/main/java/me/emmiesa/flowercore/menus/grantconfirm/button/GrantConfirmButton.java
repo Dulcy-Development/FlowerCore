@@ -58,10 +58,10 @@ public class GrantConfirmButton extends Button {
         if (isConfirmButton) {
             FlowerCore.getInstance().getPlayerManager().setRank(playerToGrantUUID, rank);
             Player targetPlayer = Bukkit.getServer().getPlayer(playerToGrantUUID);
+            FlowerCore.getInstance().getMongoManager().saveProfile(playerToGrantUUID);
             if (targetPlayer != null) {
                 player.sendMessage(CC.translate("&aYou have successfully granted " + playerName + " &athe " + rank.getDisplayName() + " &arank!"));
                 targetPlayer.sendMessage(CC.translate("&aYour rank has been set to " + rank.getDisplayName() + " &aby " + FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix() + player.getDisplayName() + "&a."));
-
                 Button.playSuccess(player);
                 player.closeInventory();
 

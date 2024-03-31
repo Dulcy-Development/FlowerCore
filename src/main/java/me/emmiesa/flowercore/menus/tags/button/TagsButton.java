@@ -47,15 +47,17 @@ public class TagsButton extends Button {
         if (clickType == ClickType.RIGHT) {
             UUID playerUUID = Bukkit.getPlayerExact(playerName).getUniqueId();
             FlowerCore.getInstance().getPlayerManager().resetTag(playerUUID);
+            FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
             player.sendMessage(CC.translate("&aYour tag has been reset."));
             player.closeInventory();
             return;
         }
 
-        UUID playerToGrantUUID = Bukkit.getPlayerExact(playerName).getUniqueId();
-        FlowerCore.getInstance().getPlayerManager().setTag(playerToGrantUUID, tag);
-
+        UUID playerUUID = Bukkit.getPlayerExact(playerName).getUniqueId();
+        FlowerCore.getInstance().getPlayerManager().setTag(playerUUID, tag);
+        FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
         player.sendMessage(CC.translate("&aYou've selected the " + tag.getColor() + tag.getName() + " &atag!"));
+        player.closeInventory();
     }
 
     private String replacePlaceholders(String line) {

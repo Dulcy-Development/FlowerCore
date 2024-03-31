@@ -7,7 +7,7 @@ tags-lore:
   - "   &f● Tag name: {tag_color}{tag_name}"
   - "   &f● Tag format: &b{tag_format}"
   - "   &f● Appearance:"
-  - "       {prefix}{player_color}{player_name} {tag_format}&7: &fGG!"
+  - "       {prefix}{player_color}{player_name}{tag_format}&7: &fGG!"
   - " "
   - "   &f► Left-Click to select the &r{tag_color}{tag_name} &ftag."
   - "   &f► Right-Click to &creset &fyour tag!"
