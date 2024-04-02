@@ -2,11 +2,9 @@ package me.emmiesa.flowercore.handler;
 
 import lombok.Getter;
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.Locale;
-import me.emmiesa.flowercore.utils.Utils;
 import me.emmiesa.flowercore.utils.chat.CC;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import java.util.HashMap;
 import java.util.UUID;
@@ -19,12 +17,6 @@ import java.util.UUID;
 
 @Getter
 public class ConversationHandler {
-
-    /*
-     *
-     * This needs to be re-done. It is basic as +as#dv+!
-     *
-     */
 
     private final HashMap<UUID, UUID> conversations;
 
@@ -46,19 +38,33 @@ public class ConversationHandler {
             return;
         }
 
-        //targetPlayer.sendMessage(CC.translate("&f(&bFrom " + FlowerCore.getInstance().getPlayerManager().getRank(senderPlayer.getUniqueId()).getPrefix() + senderPlayer.getName() + "&f) " + message));
+        if (!FlowerCore.getInstance().getPlayerManager().getProfile(senderPlayer.getUniqueId()).getPlayerSettingsManager().isPrivateMessagesEnabled()) {
+            senderPlayer.sendMessage(CC.translate("&cYou don't have your private messages enabled."));
+            return;
+        }
+
+        if (!FlowerCore.getInstance().getPlayerManager().getProfile(targetPlayer.getUniqueId()).getPlayerSettingsManager().isPrivateMessagesEnabled()) {
+            senderPlayer.sendMessage(CC.translate("&cThat player doesn't have their private messages enabled."));
+            return;
+        }
 
         targetPlayer.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("private-messages.conversation.from")
                 .replace("%sender%", FlowerCore.getInstance().getPlayerManager().getPlayerRankColor(senderPlayer.getUniqueId()) + senderPlayer.getName())
                 .replace("%message%", message)
         ));
 
-        //senderPlayer.sendMessage(CC.translate("&f(&bTo " + FlowerCore.getInstance().getPlayerManager().getRank(targetPlayer.getUniqueId()).getPrefix() + targetPlayer.getName() + "&f) " + message));
+        if (FlowerCore.getInstance().getPlayerManager().getProfile(senderPlayer.getUniqueId()).getPlayerSettingsManager().isMessageSoundsEnabled()) {
+            targetPlayer.playSound(targetPlayer.getLocation(), Sound.ORB_PICKUP, 1.0F, 1.0F);
+        }
 
         senderPlayer.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("private-messages.conversation.to")
                 .replace("%target%", FlowerCore.getInstance().getPlayerManager().getPlayerRankColor(targetPlayer.getUniqueId()) + targetPlayer.getName())
                 .replace("%message%", message)
         ));
+
+        if (FlowerCore.getInstance().getPlayerManager().getProfile(senderPlayer.getUniqueId()).getPlayerSettingsManager().isMessageSoundsEnabled()) {
+            senderPlayer.playSound(senderPlayer.getLocation(), Sound.ORB_PICKUP, 1.0F, 1.0F);
+        }
     }
 
     public UUID getLastConversant(UUID player) {

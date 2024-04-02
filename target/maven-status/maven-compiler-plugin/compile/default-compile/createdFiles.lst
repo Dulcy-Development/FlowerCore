@@ -37,6 +37,7 @@ me\emmiesa\flowercore\listeners\ChatListener.class
 me\emmiesa\flowercore\utils\menu\MenuListener.class
 me\emmiesa\flowercore\commands\admin\essential\SpeedCommand.class
 me\emmiesa\flowercore\commands\admin\troll\RocketCommand$1.class
+me\emmiesa\flowercore\commands\global\toggle\TogglePrivateMessageSounds.class
 me\emmiesa\flowercore\commands\global\socials\TwitterCommand.class
 me\emmiesa\flowercore\commands\admin\essential\ClearChatCommand.class
 me\emmiesa\flowercore\commands\admin\rank\subcommands\RankSetPrefixCommand.class
@@ -108,6 +109,7 @@ me\emmiesa\flowercore\menus\ranklist\RankListMenu.class
 me\emmiesa\flowercore\commands\admin\rank\subcommands\RankCreateCommand.class
 me\emmiesa\flowercore\commands\admin\essential\RenameCommand.class
 me\emmiesa\flowercore\commands\admin\gamemode\gmcCommand.class
+me\emmiesa\flowercore\utils\PlayerUtil.class
 me\emmiesa\flowercore\listeners\PlayerListeners.class
 me\emmiesa\flowercore\menus\grantconfirm\GrantConfirmMenu.class
 me\emmiesa\flowercore\commands\admin\tags\subcommands\TagDeleteCommand.class
@@ -138,6 +140,7 @@ me\emmiesa\flowercore\menus\news\NewsMenu.class
 me\emmiesa\flowercore\menus\news\button\NewsButton.class
 me\emmiesa\flowercore\commands\admin\teleport\TeleportAllCommand.class
 me\emmiesa\flowercore\utils\menu\button\RefillGlassButton.class
+me\emmiesa\flowercore\commands\admin\management\InfoCommand.class
 me\emmiesa\flowercore\utils\pagination\JumpToPageButton.class
 me\emmiesa\flowercore\commands\admin\essential\SudoCommand.class
 me\emmiesa\flowercore\menus\grantconfirm\button\GrantConfirmButton.class
@@ -149,6 +152,7 @@ me\emmiesa\flowercore\profile\Profile$ProfileBuilder.class
 me\emmiesa\flowercore\utils\command\BaseCommand.class
 me\emmiesa\flowercore\utils\menu\Menu.class
 me\emmiesa\flowercore\utils\pagination\PageFilter.class
+me\emmiesa\flowercore\playersettings\PlayerSettingsManager.class
 me\emmiesa\flowercore\utils\Utils.class
 me\emmiesa\flowercore\commands\global\menus\NewsCommand.class
 me\emmiesa\flowercore\commands\admin\tags\subcommands\TagCreateCommand.class

@@ -3,6 +3,7 @@ package me.emmiesa.flowercore;
 import lombok.Getter;
 import lombok.Setter;
 // -----------
+import me.emmiesa.flowercore.commands.admin.management.InfoCommand;
 import me.emmiesa.flowercore.commands.admin.punishments.pardon.UnblacklistCommand;
 import me.emmiesa.flowercore.commands.admin.punishments.pardon.UnbanCommand;
 import me.emmiesa.flowercore.commands.admin.punishments.BlacklistCommand;
@@ -16,6 +17,9 @@ import me.emmiesa.flowercore.commands.admin.essential.ClearChatCommand;
 import me.emmiesa.flowercore.commands.admin.spawn.TeleportSpawnCommand;
 import me.emmiesa.flowercore.commands.global.conversation.ReplyCommand;
 import me.emmiesa.flowercore.commands.global.menus.SettingsCommand;
+import me.emmiesa.flowercore.commands.global.toggle.ToggleGlobalChatCommand;
+import me.emmiesa.flowercore.commands.global.toggle.TogglePrivateMessageSounds;
+import me.emmiesa.flowercore.commands.global.toggle.TogglePrivateMessagesCommand;
 import me.emmiesa.flowercore.commands.global.worldtime.SunsetCommand;
 import me.emmiesa.flowercore.commands.global.worldtime.NightCommand;
 import me.emmiesa.flowercore.commands.admin.punishments.KickCommand;
@@ -99,6 +103,7 @@ public class FlowerCore extends JavaPlugin {
         long end = System.currentTimeMillis();
         long timeTaken = end - start;
 
+        CC.connect();
         CC.on(timeTaken);
     }
 
@@ -192,6 +197,7 @@ public class FlowerCore extends JavaPlugin {
         new gmcCommand();
         new gmsCommand();
         new gmaCommand();
+        new InfoCommand();
         new gmspCommand();
         new HealCommand();
         new JoinCommand();
@@ -254,6 +260,10 @@ public class FlowerCore extends JavaPlugin {
         new RankSetPriorityCommand();
         new RankAddPermissionsCommand();
 
+        new ToggleGlobalChatCommand();
+        new TogglePrivateMessageSounds();
+        new TogglePrivateMessagesCommand();
+
         new BanCommand();
         new KickCommand();
         new BlacklistCommand();
@@ -268,7 +278,7 @@ public class FlowerCore extends JavaPlugin {
         new NightCommand();
         new SunsetCommand();
 
-        new AlertCommand(this);
+        new AlertCommand();
         new GodModeCommand(this);
 
         long end = System.currentTimeMillis();

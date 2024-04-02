@@ -8,6 +8,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -22,6 +24,13 @@ public class ChatListener implements Listener {
     public void onPlayerChat(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
         UUID playerUUID = player.getUniqueId();
+
+        if (!FlowerCore.getInstance().getPlayerManager().getProfile(playerUUID).getPlayerSettingsManager().isGlobalChatEnabled()) {
+            player.sendMessage(CC.translate("&cYou've disabled global chat!"));
+            event.getRecipients().remove(event.getPlayer());
+            event.setCancelled(true);
+            return;
+        }
 
         boolean translate = player.hasPermission("flowercore.staff");
 
@@ -42,16 +51,3 @@ public class ChatListener implements Listener {
         event.setFormat(chatFormat);
     }
 }
-
-    /*@EventHandler
-    public void onPlayerChat(AsyncPlayerChatEvent event) {
-        Player player = event.getPlayer();
-        UUID playerUUID = player.getUniqueId();
-
-        event.setFormat(CC.translate(FlowerCore.getInstance().getConfig("settings.yml").getString("chat.format")
-                .replace("%prefix%", FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix())
-                .replace("%player%", player.getName())
-                .replace("%message%", event.getMessage())
-                .replace("%suffix%", FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getSuffix())));
-    }
-}*/

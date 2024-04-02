@@ -18,12 +18,6 @@ import java.util.List;
 
 public class AlertCommand extends BaseCommand {
 
-    private final FlowerCore plugin;
-
-    public AlertCommand(FlowerCore plugin) {
-        this.plugin = plugin;
-    }
-
     @Command(name = "alert", inGameOnly = false, permission = "flower.command.alert", aliases = "serveralert")
     public void onCommand(CommandArgs args) {
         CommandSender sender = args.getSender();
@@ -38,7 +32,7 @@ public class AlertCommand extends BaseCommand {
                 String formattedMessage = message
                         .replace("%text%", String.join(" ", text))
                         .replace("%bars%", barsFormat);
-                plugin.getServer().broadcastMessage(CC.translate(formattedMessage));
+                FlowerCore.getInstance().getServer().broadcastMessage(CC.translate(formattedMessage));
             }
         } else {
             sender.sendMessage(CC.translate("&cUsage: /alert (text)"));

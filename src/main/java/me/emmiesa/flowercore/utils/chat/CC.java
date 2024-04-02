@@ -132,6 +132,25 @@ public class CC {
         }
     }
 
+    public static void connect() {
+        Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getPrefix() + "&fConnecting to Mongo Database..."));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getPrefix() + " &fMongo Database"));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getPrefix() + "  &f> Host: &f" + FlowerCore.getInstance().getConfig("database.yml").getString("database.uri")));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getPrefix() + "  &f> Database: &f" + FlowerCore.getInstance().getConfig("database.yml").getString("database.database-name")));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getPrefix() + "&fSuccessfully connected to Mongo Database!"));
+    }
+
+    public static void sendCustomFont() {
+        Bukkit.getConsoleSender().sendMessage(CC.translate(""));
+        Bukkit.getConsoleSender().sendMessage(CC.translate("&b  ______ _                        "));
+        Bukkit.getConsoleSender().sendMessage(CC.translate("&b |  ____| |                       "));
+        Bukkit.getConsoleSender().sendMessage(CC.translate("&b | |__  | | _____      _____ _ __ "));
+        Bukkit.getConsoleSender().sendMessage(CC.translate("&b |  __| | |/ _ \\ \\ /\\ / / _ \\ '__|"));
+        Bukkit.getConsoleSender().sendMessage(CC.translate("&b | |    | | (_) \\ V  V /  __/ |   "));
+        Bukkit.getConsoleSender().sendMessage(CC.translate("&b |_|    |_|\\___/ \\_/\\_/ \\___|_|   "));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(""));
+    }
+
     public static void on(long timeTaken) {
         Bukkit.getConsoleSender().sendMessage(" ");
         Bukkit.getConsoleSender().sendMessage(CC.translate("&8&m-----------------------------------------------"));

@@ -35,7 +35,7 @@ public class MessageCommand extends BaseCommand {
         String target = command.getArgs(0);
         String message = String.join(" ", java.util.Arrays.copyOfRange(command.getArgs(), 1, command.getArgs().length));
 
-        Player targetPlayer = FlowerCore.getInstance().getServer().getPlayer(target);
+        Player targetPlayer = FlowerCore.getInstance().getServer().getPlayerExact(target);
 
         if (sender.equals(targetPlayer)){
             sender.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("private-messages.target-self")));
