@@ -7,6 +7,7 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.ReplaceOptions;
 import lombok.Getter;
 import me.emmiesa.flowercore.FlowerCore;
+import me.emmiesa.flowercore.playersettings.PlayerSettingsManager;
 import me.emmiesa.flowercore.profile.Profile;
 import me.emmiesa.flowercore.punishments.PunishmentSerializer;
 import org.bson.Document;
@@ -34,8 +35,8 @@ public class MongoManager {
         String uri = FlowerCore.getInstance().getConfig("database.yml").getString("database.uri");
         mongoClient = MongoClients.create(uri);
 
-        MongoDatabase database = getMongoClient().getDatabase(FlowerCore.getInstance().getConfig("database.yml").getString("database.collection"));
-        String collectionName = FlowerCore.getInstance().getConfig("database.yml").getString("database.collection");
+        MongoDatabase database = getMongoClient().getDatabase(FlowerCore.getInstance().getConfig("database.yml").getString("database.database-name"));
+        String collectionName = "profile";
 
         if (!collectionExists(database, collectionName)) {
             database.createCollection(collectionName);
@@ -49,27 +50,37 @@ public class MongoManager {
         Profile profile;
 
         if (doc == null) {
-            profile = createDefaultProfile(playerUUID);
+            PlayerSettingsManager defaultSettings = new PlayerSettingsManager(true, true, true);
+            profile = createDefaultProfile(playerUUID, defaultSettings);
             saveProfile(profile);
         } else {
-            profile = createProfile(playerUUID, doc);
+            Document optionDoc = doc.get("option", Document.class);
+            boolean privateMessagesEnabled = optionDoc.getBoolean("privateMessagesEnabled", true);
+            boolean soundsEnabled = optionDoc.getBoolean("soundsEnabled", true);
+            boolean globalChatEnabled = optionDoc.getBoolean("globalChatEnabled", true);
+
+            // (global, private, sounds) needs to be in the correct order as line 53 because otherwise it will set the wrong settings to false or true
+            PlayerSettingsManager playerSettingsManager = new PlayerSettingsManager(globalChatEnabled, privateMessagesEnabled, soundsEnabled);
+            profile = createProfile(playerUUID, doc, playerSettingsManager);
         }
         FlowerCore.getInstance().getPlayerManager().addRank(profile);
     }
 
-    private Profile createDefaultProfile(UUID playerUUID) {
+    private Profile createDefaultProfile(UUID playerUUID, PlayerSettingsManager playerSettingsManager) {
         return Profile.builder()
                 .uuid(playerUUID)
                 .rank(FlowerCore.getInstance().getRanksManager().getDefaultRank())
                 .tag(null)
+                .playerSettingsManager(playerSettingsManager)
                 .build();
     }
 
-    private Profile createProfile(UUID playerUUID, Document doc) {
+    private Profile createProfile(UUID playerUUID, Document doc, PlayerSettingsManager playerSettingsManager) {
         return Profile.builder()
                 .uuid(playerUUID)
                 .rank(FlowerCore.getInstance().getRanksManager().getRank(doc.getString("rank")))
                 .punishments(PunishmentSerializer.deserialize(doc.getList("punishments", String.class)))
+                .playerSettingsManager(playerSettingsManager)
                 .tag(FlowerCore.getInstance().getTagsManager().getTag(doc.getString("tag")))
                 .build();
     }
@@ -99,9 +110,19 @@ public class MongoManager {
     }
 
     private Document createDocument(UUID playerUUID, Profile profile) {
+        String username = Bukkit.getOfflinePlayer(playerUUID).getName();
+        PlayerSettingsManager playerSettingsManager = profile.getPlayerSettingsManager();
         Document doc = new Document("UUID", playerUUID.toString())
+                .append("username", username)
+                .append("firstjoined", System.currentTimeMillis())
                 .append("punishments", PunishmentSerializer.serialize(profile.getPunishments()))
                 .append("rank", profile.getRank().getName());
+
+        Document optionDocument = new Document();
+        optionDocument.append("privateMessagesEnabled", playerSettingsManager.isPrivateMessagesEnabled());
+        optionDocument.append("soundsEnabled", playerSettingsManager.isMessageSoundsEnabled());
+        optionDocument.append("globalChatEnabled", playerSettingsManager.isGlobalChatEnabled());
+        doc.append("option", optionDocument);
 
         if (profile.getTag() != null) {
             doc.append("tag", profile.getTag().getName());
@@ -111,6 +132,7 @@ public class MongoManager {
 
         return doc;
     }
+
 
     private boolean collectionExists(MongoDatabase database, String collectionName) {
         return database.listCollectionNames().into(new ArrayList<>()).contains(collectionName);
