@@ -1,8 +1,8 @@
 package me.emmiesa.flowercore.commands.global.toggle;
 
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.profile.Profile;
 import me.emmiesa.flowercore.playersettings.PlayerSettingsManager;
+import me.emmiesa.flowercore.profile.Profile;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
@@ -14,12 +14,12 @@ import java.util.UUID;
 /**
  * Created by Emmy
  * Project: FlowerCore
- * Date: 02/04/2024 - 12:10
+ * Date: 02/04/2024 - 14:08
  */
 
-public class TogglePrivateMessagesCommand extends BaseCommand {
+public class TogglePrivateMessageSounds extends BaseCommand {
     @Override
-    @Command(name = "tpm", aliases = "toggleprivatemessages")
+    @Command(name = "tpms", aliases = {"toggleprivatemessagesounds"})
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         UUID playerUUID = player.getUniqueId();
@@ -27,10 +27,10 @@ public class TogglePrivateMessagesCommand extends BaseCommand {
         Profile profile = FlowerCore.getInstance().getPlayerManager().getProfile(playerUUID);
         PlayerSettingsManager playerSettingsManager = profile.getPlayerSettingsManager();
 
-        playerSettingsManager.setPrivateMessagesEnabled(!playerSettingsManager.isPrivateMessagesEnabled());
+        playerSettingsManager.setMessageSoundsEnabled(!playerSettingsManager.isMessageSoundsEnabled());
         FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
 
-        String context = playerSettingsManager.isPrivateMessagesEnabled() ? CC.translate("&aenabled") : CC.translate("&cdisabled");
-        player.sendMessage(CC.translate("&bYou've {context} your private messages.").replace("{context}", context));
+        String context = playerSettingsManager.isMessageSoundsEnabled() ? CC.translate("&aenabled") : CC.translate("&cdisabled");
+        player.sendMessage(CC.translate("&bYou've {context} &byour message sounds.").replace("{context}", context));
     }
 }
