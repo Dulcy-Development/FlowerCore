@@ -6,25 +6,3 @@ description: '${project.description}'
 website: https://dsg.gg/emmiesa
 softdepend:
   - PlaceholderAPI
-loadbefore:
-  - Aspirin
-  - AquaCore
-  - Basic
-  - Clubs
-  - Core
-  - cCore
-  - eCore
-  - FlowerHub
-  - Glorious
-  - iCore
-  - mCore
-  - nCore
-  - Phoenix
-  - pxCore
-  - Synth
-  - SharkCore
-  - Volcano
-  - Voltic
-  - xCore
-  - zoom
-  - zoot
