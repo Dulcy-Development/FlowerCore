@@ -112,6 +112,8 @@ public class PlayerListeners implements Listener {
             event.getPlayer().teleport(spawnLocation);
         }
 
+        plugin.getMongoManager().initializeProfile(playerUUID);
+
         if (plugin.getRanksManager().getDefaultRank() == null) {
             joinedPlayer.sendMessage(CC.translate(Locale.RANK_NOT_SET));
         }

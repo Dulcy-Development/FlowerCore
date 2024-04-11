@@ -145,14 +145,6 @@ public class FlowerCore extends JavaPlugin {
 
         new AnnouncementManager(this);
 
-        /*if (getConfig("settings.yml").getBoolean("listeners.disable-rain")) {
-            for (World world : Bukkit.getWorlds()) {
-                world.setGameRuleValue("doDaylightCycle", "false");
-                world.setGameRuleValue("doMobSpawning", "false");
-                world.setTime(6000L);
-            }
-        }*/
-
         long end = System.currentTimeMillis();
         long timeTaken = end - start;
 
