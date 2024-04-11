@@ -61,7 +61,7 @@ public class PlayerManager {
     public void addPunishment(UUID playerUUID, Punishment punishment) {
         Profile profile = profiles.get(playerUUID);
         if (profile == null) {
-            Utils.broadcastMessage("Profile for UUID " + playerUUID + " not found.");
+            Bukkit.getConsoleSender().sendMessage("Profile for UUID " + playerUUID + " not found.");
             return;
         }
         List<Punishment> punishments = profile.getPunishments();

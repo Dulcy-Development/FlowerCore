@@ -48,6 +48,7 @@ public class CC {
     public static final String FLOWER_BAR;
     public static final String FLOWER_BAR_LONG;
     public static final String FLOWER_BAR_VERY_LONG;
+    public static final String FLOWER_BAR_LONG_RED;
     private static final Map<String, ChatColor> MAP;
 
     static {
@@ -90,6 +91,8 @@ public class CC {
         FLOWER_BAR = translate("&b&lೋღ&b&l&m«-------&f&l&m-------&b&l&m-------»&r&b&lღೋ");
         FLOWER_BAR_LONG = translate("&b&lೋღ&b&l&m«-------&f&l&m-----------------&b&l&m-------»&r&b&lღೋ");
         FLOWER_BAR_VERY_LONG = translate("&b&lೋღ&b&l&m«-------&f&l&m----------------------------&b&l&m-------»&r&b&lღೋ");
+
+        FLOWER_BAR_LONG_RED = translate("&4&lೋღ&4&l&m«-------&f&l&m-----------------&4&l&m-------»&r&4&lღೋ");
     }
 
     public static void sendError(String message) {

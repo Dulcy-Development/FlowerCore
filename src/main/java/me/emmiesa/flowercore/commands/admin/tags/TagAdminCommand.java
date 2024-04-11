@@ -44,15 +44,15 @@ public class TagAdminCommand extends BaseCommand {
         player.sendMessage(" ");
         player.sendMessage(CC.FLOWER_BAR_LONG);
         player.sendMessage(CC.translate("&b&lTag Creation Help:"));
-        player.sendMessage(CC.translate(" &f● &b/tag create &8<&7name&8> &8| &7Create Tag"));
-        player.sendMessage(CC.translate(" &f● &b/tag delete &8<&7name&8> &8| &7Delete Tag"));
-        player.sendMessage(CC.translate(" &f● &b/tag save &8<&7name&8> &8| &7Save tags to file."));
-        player.sendMessage(CC.translate(" &f● &b/tag list &8| &7See all ranks."));
+        player.sendMessage(CC.translate(" &f● &b/tagadmin create &8<&7name&8> &8| &7Create Tag"));
+        player.sendMessage(CC.translate(" &f● &b/tagadmin delete &8<&7name&8> &8| &7Delete Tag"));
+        player.sendMessage(CC.translate(" &f● &b/tagadmin save &8<&7name&8> &8| &7Save tags to file."));
+        player.sendMessage(CC.translate(" &f● &b/tagadmin list &8| &7See all ranks."));
         player.sendMessage(" ");
         player.sendMessage(CC.translate("&b&lTag Customization Help:"));
-        player.sendMessage(CC.translate(" &f● &b/tag setTag &8<&7name&8> &8<&7tag-format&8>  &8| &7Set the way the tag should look."));
-        player.sendMessage(CC.translate(" &f● &b/tag setIcon &8<&7name&8> &8| &7Set icon."));
-        player.sendMessage(CC.translate(" &f● &b/tag setDisplayname &8<&7name&8> &8<&7displayname&8> &8| &7Set display name."));
+        player.sendMessage(CC.translate(" &f● &b/tagadmin setTag &8<&7name&8> &8<&7tag-format&8>  &8| &7Set the way the tag should look."));
+        player.sendMessage(CC.translate(" &f● &b/tagadmin setIcon &8<&7name&8> &8| &7Set icon."));
+        player.sendMessage(CC.translate(" &f● &b/tagadmin setDisplayname &8<&7name&8> &8<&7displayname&8> &8| &7Set display name."));
         player.sendMessage(CC.FLOWER_BAR_LONG);
         player.sendMessage(" ");
     }

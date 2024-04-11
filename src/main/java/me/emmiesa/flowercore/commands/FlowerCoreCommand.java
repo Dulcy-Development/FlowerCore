@@ -41,7 +41,7 @@ public class FlowerCoreCommand extends BaseCommand {
             sender.sendMessage(" ");
             sender.sendMessage(CC.FLOWER_BAR);
             sender.sendMessage(CC.translate("  &b&l   FlowerCore"));
-            sender.sendMessage(CC.translate("      &f┃ Authors: &b" + plugin.getDescription().getAuthors().toString().replace("[", "").replace("]", "")));
+            sender.sendMessage(CC.translate("      &f┃ Authors: &b" + plugin.getDescription().getAuthors().get(0)/*.toString().replace("[", "").replace("]", "")*/));
             sender.sendMessage(CC.translate("      &f┃ Version: &b" + plugin.getDescription().getVersion()));
             sender.sendMessage(CC.translate(" "));
             sender.sendMessage(CC.translate("  &b&l   Description:"));

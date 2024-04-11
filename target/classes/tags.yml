@@ -1,9 +1,61 @@
 tags:
-  heart:
-    displayName: ' &7[&4❤&7]'
+  blood:
+    displayName: ' &c&lBLOOD'
+    icon: EMERALD
+    color: '&c'
+  "Arlantacious' Bald":
+    displayName: ' &e&lBALD'
+    icon: EMERALD
+    color: '&e'
+  "Calvin's Heart":
+    displayName: ' &0&l❤'
+    icon: EMERALD
+    color: '&0'
+  "ItzOwo's Goat":
+    displayName: ' &b&lGOAT'
+    icon: EMERALD
+    color: '&b'
+  "LeonardGHG's Godly":
+    displayName: ' &4&lGODLY'
+    icon: EMERALD
+    color: '&4'
+  "#1":
+    displayName: ' &c&l#1'
+    icon: DIAMOND
+    color: '&c'
+  Police:
+    displayName: ' &f&k|&r&f&lPOLICE&r&k|&r'
+    icon: DIAMOND
+    color: '&f'
+  Immortal:
+    displayName: ' &f&k|&r&5Immortal&r&k|&r'
+    icon: DIAMOND
+    color: '&4'
+  Legend:
+    displayName: ' &r&k|&r&9Legend&r&k|&r'
+    icon: DIAMOND
+    color: '&9'
+  Heart:
+    displayName: ' &c❤'
+    icon: PAPER
+    color: '&c'
+  Banana:
+    displayName: ' &e&lBanana'
+    icon: NAME_TAG
+    color: '&e'
+  BestWW:
+    displayName: ' &4&lBESTWW'
     icon: NAME_TAG
     color: '&4'
-  test:
-    displayName: ' &7[&eTEST&7]'
-    icon: WATCH
-    color: '&e'
+  Love:
+    displayName: ' &c&lLOVE'
+    icon: NAME_TAG
+    color: '&c'
+  Yurrrrrrr:
+    displayName: ' &ayurrrrrrr'
+    icon: NAME_TAG
+    color: '&a'
+  Vampire:
+    displayName: ' &4&lVAMPIRE'
+    icon: NAME_TAG
+    color: '&4'

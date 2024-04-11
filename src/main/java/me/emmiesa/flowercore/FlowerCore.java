@@ -3,7 +3,7 @@ package me.emmiesa.flowercore;
 import lombok.Getter;
 import lombok.Setter;
 // -----------
-import me.emmiesa.flowercore.commands.admin.management.InfoCommand;
+import me.emmiesa.flowercore.commands.admin.management.*;
 import me.emmiesa.flowercore.commands.admin.punishments.pardon.UnblacklistCommand;
 import me.emmiesa.flowercore.commands.admin.punishments.pardon.UnbanCommand;
 import me.emmiesa.flowercore.commands.admin.punishments.BlacklistCommand;
@@ -12,8 +12,6 @@ import me.emmiesa.flowercore.commands.admin.tags.subcommands.TagCreateCommand;
 import me.emmiesa.flowercore.commands.admin.tags.subcommands.TagListCommand;
 import me.emmiesa.flowercore.commands.admin.tags.subcommands.TagSaveCommand;
 import me.emmiesa.flowercore.commands.global.conversation.MessageCommand;
-import me.emmiesa.flowercore.commands.admin.essential.BroadcastCommand;
-import me.emmiesa.flowercore.commands.admin.essential.ClearChatCommand;
 import me.emmiesa.flowercore.commands.admin.spawn.TeleportSpawnCommand;
 import me.emmiesa.flowercore.commands.global.conversation.ReplyCommand;
 import me.emmiesa.flowercore.commands.global.menus.SettingsCommand;
@@ -25,7 +23,6 @@ import me.emmiesa.flowercore.commands.global.worldtime.NightCommand;
 import me.emmiesa.flowercore.commands.admin.punishments.KickCommand;
 import me.emmiesa.flowercore.commands.admin.punishments.BanCommand;
 import me.emmiesa.flowercore.commands.admin.server.InstanceCommand;
-import me.emmiesa.flowercore.commands.admin.essential.AlertCommand;
 import me.emmiesa.flowercore.commands.admin.spawn.SetJoinLocation;
 import me.emmiesa.flowercore.commands.global.worldtime.DayCommand;
 import me.emmiesa.flowercore.commands.admin.gamemode.gmspCommand;
@@ -267,6 +264,8 @@ public class FlowerCore extends JavaPlugin {
         new BanCommand();
         new KickCommand();
         new BlacklistCommand();
+
+        new RebootCommand();
 
         new UnbanCommand();
         new UnblacklistCommand();

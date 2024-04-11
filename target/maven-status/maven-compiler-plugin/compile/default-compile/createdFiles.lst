@@ -1,5 +1,4 @@
 me\emmiesa\flowercore\utils\command\CommandArgs.class
-me\emmiesa\flowercore\commands\admin\essential\AlertCommand.class
 me\emmiesa\flowercore\commands\admin\troll\TrapCommand.class
 me\emmiesa\flowercore\commands\admin\gamemode\gmaCommand.class
 me\emmiesa\flowercore\commands\admin\teleport\TeleportHereCommand.class
@@ -13,7 +12,6 @@ me\emmiesa\flowercore\commands\global\socials\TeamSpeakCommand.class
 me\emmiesa\flowercore\menus\ranklist\button\RankListButton.class
 me\emmiesa\flowercore\punishments\PunishmentSerializer.class
 me\emmiesa\flowercore\utils\others\NumberUtils.class
-me\emmiesa\flowercore\commands\admin\essential\BroadcastCommand.class
 me\emmiesa\flowercore\commands\admin\tags\subcommands\TagSettagCommand.class
 me\emmiesa\flowercore\commands\global\socials\YouTubeCommand.class
 me\emmiesa\flowercore\commands\admin\essential\FlyCommand.class
@@ -24,6 +22,7 @@ me\emmiesa\flowercore\commands\admin\tags\TagAdminCommand.class
 me\emmiesa\flowercore\commands\admin\punishments\pardon\UnblacklistCommand.class
 me\emmiesa\flowercore\commands\admin\spawn\SetJoinLocation.class
 me\emmiesa\flowercore\commands\global\socials\DiscordCommand.class
+me\emmiesa\flowercore\commands\admin\management\BroadcastCommand.class
 me\emmiesa\flowercore\commands\admin\troll\CaptureCommand.class
 me\emmiesa\flowercore\commands\global\toggle\ToggleGlobalChatCommand.class
 me\emmiesa\flowercore\commands\admin\spawn\SetJoinLocation$1.class
@@ -38,8 +37,9 @@ me\emmiesa\flowercore\utils\menu\MenuListener.class
 me\emmiesa\flowercore\commands\admin\essential\SpeedCommand.class
 me\emmiesa\flowercore\commands\admin\troll\RocketCommand$1.class
 me\emmiesa\flowercore\commands\global\toggle\TogglePrivateMessageSounds.class
+me\emmiesa\flowercore\commands\admin\management\ClearChatCommand.class
 me\emmiesa\flowercore\commands\global\socials\TwitterCommand.class
-me\emmiesa\flowercore\commands\admin\essential\ClearChatCommand.class
+me\emmiesa\flowercore\commands\admin\management\RebootCommand.class
 me\emmiesa\flowercore\commands\admin\rank\subcommands\RankSetPrefixCommand.class
 me\emmiesa\flowercore\utils\chat\JSONMessage$ClickEvent.class
 me\emmiesa\flowercore\commands\admin\gamemode\gmspCommand.class
@@ -56,6 +56,7 @@ me\emmiesa\flowercore\utils\command\Command.class
 me\emmiesa\flowercore\commands\global\worldtime\DayCommand.class
 me\emmiesa\flowercore\menus\tags\TagsMenu.class
 me\emmiesa\flowercore\tags\Tag.class
+me\emmiesa\flowercore\commands\admin\management\RebootCommand$1.class
 me\emmiesa\flowercore\commands\admin\rank\GrantCommand.class
 me\emmiesa\flowercore\commands\admin\essential\LocationCommand.class
 me\emmiesa\flowercore\utils\pagination\ViewAllPagesMenu.class
@@ -142,6 +143,7 @@ me\emmiesa\flowercore\commands\admin\teleport\TeleportAllCommand.class
 me\emmiesa\flowercore\utils\menu\button\RefillGlassButton.class
 me\emmiesa\flowercore\commands\admin\management\InfoCommand.class
 me\emmiesa\flowercore\utils\pagination\JumpToPageButton.class
+me\emmiesa\flowercore\commands\admin\management\AlertCommand.class
 me\emmiesa\flowercore\commands\admin\essential\SudoCommand.class
 me\emmiesa\flowercore\menus\grantconfirm\button\GrantConfirmButton.class
 me\emmiesa\flowercore\utils\others\Cooldown.class

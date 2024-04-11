@@ -45,7 +45,6 @@ on-join:
     sound: LEVEL_UP
   clear-chat:
     enabled: false
-    #This text should always be empty (" "), but let's make it customizable :)
     text: " "
     lines: 500
   teleport:
