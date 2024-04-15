@@ -148,16 +148,14 @@ public class MongoManager {
                 .append("username", username)
                 .append("firstjoined", firstJoined)
                 .append("punishments", PunishmentSerializer.serialize(profile.getPunishments()))
-                .append("rank", profile.getRank().getName());
+                .append("rank", profile.getRank().getName())
+                .append("tag", (profile.getTag() != null) ? profile.getTag().getName() : "none");
 
         Document optionDocument = new Document();
         optionDocument.append("privateMessagesEnabled", playerSettingsManager.isPrivateMessagesEnabled());
         optionDocument.append("soundsEnabled", playerSettingsManager.isMessageSoundsEnabled());
         optionDocument.append("globalChatEnabled", playerSettingsManager.isGlobalChatEnabled());
         doc.append("option", optionDocument);
-
-        // Use ternary operator for setting tag
-        doc.append("tag", (profile.getTag() != null) ? profile.getTag().getName() : "none");
 
         return doc;
     }
