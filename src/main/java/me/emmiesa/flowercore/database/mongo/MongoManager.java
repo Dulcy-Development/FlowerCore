@@ -65,7 +65,7 @@ public class MongoManager {
         } else {
             Document optionDoc = doc.get("option", Document.class);
             boolean privateMessagesEnabled = optionDoc.getBoolean("privateMessagesEnabled", true);
-            boolean soundsEnabled = optionDoc.getBoolean("soundsEnabled", true);
+            boolean soundsEnabled = optionDoc.getBoolean("messageSoundsEnabled", true);
             boolean globalChatEnabled = optionDoc.getBoolean("globalChatEnabled", true);
 
             // (global, private, sounds) needs to be in the correct order as above because otherwise it will set the wrong settings to false or true
@@ -129,7 +129,7 @@ public class MongoManager {
 
         Document optionDocument = new Document();
         optionDocument.append("privateMessagesEnabled", "null");
-        optionDocument.append("soundsEnabled", "null");
+        optionDocument.append("messageSoundsEnabled", "null");
         optionDocument.append("globalChatEnabled", "null");
         doc.append("option", optionDocument);
 
@@ -153,7 +153,7 @@ public class MongoManager {
 
         Document optionDocument = new Document();
         optionDocument.append("privateMessagesEnabled", playerSettingsManager.isPrivateMessagesEnabled());
-        optionDocument.append("soundsEnabled", playerSettingsManager.isMessageSoundsEnabled());
+        optionDocument.append("messageSoundsEnabled", playerSettingsManager.isMessageSoundsEnabled());
         optionDocument.append("globalChatEnabled", playerSettingsManager.isGlobalChatEnabled());
         doc.append("option", optionDocument);
 
