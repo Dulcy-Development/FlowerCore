@@ -9,6 +9,7 @@ import org.bson.Document;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -43,22 +44,32 @@ public class InfoCommand extends BaseCommand {
             sender.sendMessage(CC.translate(" "));
             sender.sendMessage(CC.translate("&cPlayer profile document for &4" + target + " &cnot found."));
             sender.sendMessage(CC.translate(" &f► First Joined: &cHaven't joined before."));
-            sender.sendMessage(CC.translate(" &f► UUID: &c" + offlinePlayer.getUniqueId()));
             sender.sendMessage(CC.translate(" &f► Rank: &cNone"));
             sender.sendMessage(CC.translate(" &f► Tag: &cNone"));
+            sender.sendMessage(CC.translate(" &7► UUID: &8" + offlinePlayer.getUniqueId()));
             sender.sendMessage(CC.translate(" "));
             return;
         }
 
         long firstJoined = doc.getLong("firstjoined");
-        String firstJoinedDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(firstJoined));
+        String firstJoinedDate = new SimpleDateFormat("yyyy-MM-dd - HH:mm:ss").format(new Date(firstJoined));
+
+        String lastSeenDate;
+        Player player = Bukkit.getPlayer(playerUUID);
+        if (player != null && player.isOnline()) {
+            lastSeenDate = CC.translate("&aCurrently Online");
+        } else {
+            long lastSeen = doc.getLong("lastOnline");
+            lastSeenDate = new SimpleDateFormat("yyyy-MM-dd - HH:mm:ss").format(new Date(lastSeen));
+        }
 
         sender.sendMessage(CC.translate(""));
         sender.sendMessage(CC.translate("&bPlayer Information for " + FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getColor() + target + "&b:"));
         sender.sendMessage(CC.translate(" &f► First Joined: &b" + firstJoinedDate));
-        sender.sendMessage(CC.translate(" &f► UUID: &b" + offlinePlayer.getUniqueId()));
+        sender.sendMessage(CC.translate(" &f► Last Seen: &b" + lastSeenDate));
         sender.sendMessage(CC.translate(" &f► Rank: &b" + FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getDisplayName()));
         sender.sendMessage(CC.translate(" &f► Tag: &b" + (FlowerCore.getInstance().getPlayerManager().getTag(playerUUID) != null ? FlowerCore.getInstance().getPlayerManager().getTag(playerUUID).getColor() + FlowerCore.getInstance().getPlayerManager().getTag(playerUUID).getName() : "&cNone")));
+        sender.sendMessage(CC.translate(" &7► UUID: &8" + offlinePlayer.getUniqueId()));
         sender.sendMessage(CC.translate(""));
     }
 }

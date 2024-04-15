@@ -45,15 +45,6 @@ public class MongoManager {
         collection = database.getCollection(collectionName);
     }
 
-    /*public void initializeOfflineProfile(UUID playerUUID) {
-        Profile profile;
-        PlayerSettingsManager defaultSettings = new PlayerSettingsManager(true, true, true);
-        profile = createDefaultProfile(playerUUID, defaultSettings);
-        saveProfile(profile);
-
-        FlowerCore.getInstance().getPlayerManager().addRank(profile);
-    }*/
-
     public void initializeProfile(UUID playerUUID) {
         Document doc = getCollection().find(eq("UUID", playerUUID.toString())).first();
         Profile profile;
@@ -118,24 +109,6 @@ public class MongoManager {
         }
     }
 
-    /*private Document createOfflineDocument(UUID playerUUID, Profile profile) {
-        String username = Bukkit.getOfflinePlayer(playerUUID).getName();
-        Document doc = new Document("UUID", playerUUID.toString())
-                .append("username", username)
-                .append("firstjoined", "null")
-                .append("punishments", PunishmentSerializer.serialize(profile.getPunishments()))
-                .append("rank", "null")
-                .append("tag", "null");
-
-        Document optionDocument = new Document();
-        optionDocument.append("privateMessagesEnabled", "null");
-        optionDocument.append("messageSoundsEnabled", "null");
-        optionDocument.append("globalChatEnabled", "null");
-        doc.append("option", optionDocument);
-
-        return doc;
-    }*/
-
     private Document createDocument(UUID playerUUID, Profile profile) {
         String username = Bukkit.getOfflinePlayer(playerUUID).getName();
         PlayerSettingsManager playerSettingsManager = profile.getPlayerSettingsManager();
@@ -144,12 +117,19 @@ public class MongoManager {
         Document getDoc = FlowerCore.getInstance().getMongoManager().getCollection().find(eq("UUID", playerUUID.toString())).first();
         firstJoined = (getDoc != null) ? getDoc.getLong("firstjoined") : firstJoined;
 
+        long lastOnline = 0;
+        Player player = Bukkit.getPlayer(playerUUID);
+        if (player != null) {
+            lastOnline = player.getLastPlayed();
+        }
+
         Document doc = new Document("UUID", playerUUID.toString())
                 .append("username", username)
                 .append("firstjoined", firstJoined)
-                .append("punishments", PunishmentSerializer.serialize(profile.getPunishments()))
+                .append("lastOnline", lastOnline)
                 .append("rank", profile.getRank().getName())
-                .append("tag", (profile.getTag() != null) ? profile.getTag().getName() : "none");
+                .append("tag", (profile.getTag() != null) ? profile.getTag().getName() : "none")
+                .append("punishments", PunishmentSerializer.serialize(profile.getPunishments()));
 
         Document optionDocument = new Document();
         optionDocument.append("privateMessagesEnabled", playerSettingsManager.isPrivateMessagesEnabled());
