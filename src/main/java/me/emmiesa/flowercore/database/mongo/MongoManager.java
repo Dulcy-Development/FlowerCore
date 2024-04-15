@@ -139,13 +139,10 @@ public class MongoManager {
     private Document createDocument(UUID playerUUID, Profile profile) {
         String username = Bukkit.getOfflinePlayer(playerUUID).getName();
         PlayerSettingsManager playerSettingsManager = profile.getPlayerSettingsManager();
+        long firstJoined = System.currentTimeMillis();
 
         Document getDoc = FlowerCore.getInstance().getMongoManager().getCollection().find(eq("UUID", playerUUID.toString())).first();
-        long firstJoined = getDoc.getLong("firstjoined");
-
-        if (firstJoined == 0) {
-            firstJoined = System.currentTimeMillis();
-        }
+        firstJoined = (getDoc != null) ? getDoc.getLong("firstjoined") : firstJoined;
 
         Document doc = new Document("UUID", playerUUID.toString())
                 .append("username", username)
@@ -159,11 +156,8 @@ public class MongoManager {
         optionDocument.append("globalChatEnabled", playerSettingsManager.isGlobalChatEnabled());
         doc.append("option", optionDocument);
 
-        if (profile.getTag() != null) {
-            doc.append("tag", profile.getTag().getName());
-        } else {
-            doc.append("tag", "none");
-        }
+        // Use ternary operator for setting tag
+        doc.append("tag", (profile.getTag() != null) ? profile.getTag().getName() : "none");
 
         return doc;
     }
