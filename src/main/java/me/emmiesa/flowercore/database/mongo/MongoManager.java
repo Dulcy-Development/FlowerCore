@@ -68,7 +68,7 @@ public class MongoManager {
             boolean soundsEnabled = optionDoc.getBoolean("soundsEnabled", true);
             boolean globalChatEnabled = optionDoc.getBoolean("globalChatEnabled", true);
 
-            // (global, private, sounds) needs to be in the correct order as line 53 because otherwise it will set the wrong settings to false or true
+            // (global, private, sounds) needs to be in the correct order as above because otherwise it will set the wrong settings to false or true
             PlayerSettingsManager playerSettingsManager = new PlayerSettingsManager(globalChatEnabled, privateMessagesEnabled, soundsEnabled);
             profile = createProfile(playerUUID, doc, playerSettingsManager);
         }
@@ -139,9 +139,17 @@ public class MongoManager {
     private Document createDocument(UUID playerUUID, Profile profile) {
         String username = Bukkit.getOfflinePlayer(playerUUID).getName();
         PlayerSettingsManager playerSettingsManager = profile.getPlayerSettingsManager();
+
+        Document getDoc = FlowerCore.getInstance().getMongoManager().getCollection().find(eq("UUID", playerUUID.toString())).first();
+        long firstJoined = getDoc.getLong("firstjoined");
+
+        if (firstJoined == 0) {
+            firstJoined = System.currentTimeMillis();
+        }
+
         Document doc = new Document("UUID", playerUUID.toString())
                 .append("username", username)
-                .append("firstjoined", System.currentTimeMillis())
+                .append("firstjoined", firstJoined)
                 .append("punishments", PunishmentSerializer.serialize(profile.getPunishments()))
                 .append("rank", profile.getRank().getName());
 

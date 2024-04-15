@@ -102,6 +102,6 @@ public class RebootCommand extends BaseCommand {
 
         countdownTask.cancel();
         rebootInProgress = false;
-        Utils.broadcastMessage(CC.translate("&cThe reboot was canceled by &4" + command.getSender().getName() + "&c."));
+        Bukkit.broadcastMessage(CC.translate("&cThe reboot was canceled by &4" + command.getSender().getName() + "&c."));
     }
 }
