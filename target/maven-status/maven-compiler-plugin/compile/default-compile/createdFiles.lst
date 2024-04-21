@@ -27,6 +27,7 @@ me\emmiesa\flowercore\commands\admin\troll\CaptureCommand.class
 me\emmiesa\flowercore\commands\global\toggle\ToggleGlobalChatCommand.class
 me\emmiesa\flowercore\commands\admin\spawn\SetJoinLocation$1.class
 me\emmiesa\flowercore\commands\admin\rank\RankCommand.class
+me\emmiesa\flowercore\profile\HostAddressSerializer.class
 me\emmiesa\flowercore\handler\ConfigHandler.class
 me\emmiesa\flowercore\commands\admin\essential\FeedCommand.class
 me\emmiesa\flowercore\commands\admin\tags\subcommands\TagSetIconCommand.class
@@ -54,6 +55,7 @@ me\emmiesa\flowercore\commands\admin\rank\subcommands\RankListCommand.class
 me\emmiesa\flowercore\commands\global\server\JoinCommand.class
 me\emmiesa\flowercore\utils\command\Command.class
 me\emmiesa\flowercore\commands\global\worldtime\DayCommand.class
+me\emmiesa\flowercore\profile\HostAddressSerializer$1.class
 me\emmiesa\flowercore\menus\tags\TagsMenu.class
 me\emmiesa\flowercore\tags\Tag.class
 me\emmiesa\flowercore\commands\admin\management\RebootCommand$1.class

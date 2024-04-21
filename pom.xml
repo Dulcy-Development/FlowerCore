@@ -87,7 +87,8 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.12</version>
-            <scope>provided</scope>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/lombok-1.18.12.jar</systemPath>
         </dependency>
 
         <dependency>

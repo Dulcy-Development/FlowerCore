@@ -3,6 +3,6 @@ version: '1.0-SNAPSHOT'
 main: me.emmiesa.flowercore.FlowerCore
 authors: ["Emmy", "Remi"]
 description: 'A custom server core'
-website: https://dsg.gg/emmiesa
+website: https://dsg.gg/dulcy
 softdepend:
   - PlaceholderAPI

@@ -8,6 +8,7 @@ import com.mongodb.client.model.ReplaceOptions;
 import lombok.Getter;
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.playersettings.PlayerSettingsManager;
+import me.emmiesa.flowercore.profile.HostAddressSerializer;
 import me.emmiesa.flowercore.profile.Profile;
 import me.emmiesa.flowercore.punishments.PunishmentSerializer;
 import org.bson.Document;
@@ -15,6 +16,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import static com.mongodb.client.model.Filters.eq;
@@ -123,8 +125,16 @@ public class MongoManager {
             lastOnline = player.getLastPlayed();
         }
 
+        String ip = (player != null) ? player.getAddress().getAddress().getHostAddress() : "null";
+
+        //IP List
+        List<String> ipList = getPlayerIpList(player);
+        String ipListJson = HostAddressSerializer.serialize(ipList);
+
         Document doc = new Document("UUID", playerUUID.toString())
                 .append("username", username)
+                .append("currentIpAddress", ip)
+                //.append("ipAddresses", ipListJson)
                 .append("firstjoined", firstJoined)
                 .append("lastOnline", lastOnline)
                 .append("rank", profile.getRank().getName())
@@ -149,5 +159,13 @@ public class MongoManager {
         if (getMongoClient() != null) {
             getMongoClient().close();
         }
+    }
+
+    private List<String> getPlayerIpList(Player player) {
+        List<String> ipList = new ArrayList<>();
+        if (player != null) {
+            ipList.add(player.getAddress().getAddress().getHostAddress());
+        }
+        return ipList;
     }
 }
