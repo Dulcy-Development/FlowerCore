@@ -4,17 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38eb9cb5-5e70-4f19-9d68-f03a6958635d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/libs/lombok-1.18.12.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/profile/HostAddressSerializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/discord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    <list default="true" id="38eb9cb5-5e70-4f19-9d68-f03a6958635d" name="Changes" comment="IP Address list (not finished)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/management/AltsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/FlowerCore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/FlowerCore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/database/mongo/MongoManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/database/mongo/MongoManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/emmiesa/flowercore/commands/FlowerCoreCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/emmiesa/flowercore/commands/FlowerCoreCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/utils/PlayerUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/utils/PlayerUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/FlowerCore-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/FlowerCore-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/emmiesa/flowercore/FlowerCore.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/emmiesa/flowercore/FlowerCore.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/emmiesa/flowercore/database/mongo/MongoManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/emmiesa/flowercore/database/mongo/MongoManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/emmiesa/flowercore/utils/PlayerUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/emmiesa/flowercore/utils/PlayerUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/original-FlowerCore-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-FlowerCore-1.0-SNAPSHOT.jar" afterDir="false" />
@@ -103,6 +102,19 @@
       <option name="presentableId" value="Default" />
       <updated>1713705875111</updated>
     </task>
+    <task id="LOCAL-00001" summary="IP Address list (not finished)">
+      <option name="closed" value="true" />
+      <created>1713732404795</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1713732404795</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="IP Address list (not finished)" />
+    <option name="LAST_COMMIT_MESSAGE" value="IP Address list (not finished)" />
   </component>
 </project>

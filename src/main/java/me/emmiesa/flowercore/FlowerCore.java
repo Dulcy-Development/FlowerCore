@@ -255,6 +255,7 @@ public class FlowerCore extends JavaPlugin {
 
         new BanCommand();
         new KickCommand();
+        new AltsCommand();
         new BlacklistCommand();
 
         new RebootCommand();

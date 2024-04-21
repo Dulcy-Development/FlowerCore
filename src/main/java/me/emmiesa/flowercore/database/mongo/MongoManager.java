@@ -127,14 +127,13 @@ public class MongoManager {
 
         String ip = (player != null) ? player.getAddress().getAddress().getHostAddress() : "null";
 
-        //IP List
         List<String> ipList = getPlayerIpList(player);
         String ipListJson = HostAddressSerializer.serialize(ipList);
 
         Document doc = new Document("UUID", playerUUID.toString())
                 .append("username", username)
                 .append("currentIpAddress", ip)
-                //.append("ipAddresses", ipListJson)
+                .append("ipAddresses", ipListJson)
                 .append("firstjoined", firstJoined)
                 .append("lastOnline", lastOnline)
                 .append("rank", profile.getRank().getName())

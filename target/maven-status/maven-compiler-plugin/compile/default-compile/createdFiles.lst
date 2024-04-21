@@ -85,6 +85,7 @@ me\emmiesa\flowercore\utils\pagination\FilterablePaginatedMenu.class
 me\emmiesa\flowercore\commands\admin\spawn\TeleportSpawnCommand.class
 me\emmiesa\flowercore\utils\chat\JSONMessage$ReflectionHelper.class
 me\emmiesa\flowercore\utils\chat\JSONMessage.class
+me\emmiesa\flowercore\commands\admin\management\AltsCommand.class
 me\emmiesa\flowercore\commands\admin\punishments\pardon\UnbanCommand.class
 me\emmiesa\flowercore\listeners\CommandListener.class
 me\emmiesa\flowercore\utils\command\CommandFramework.class
