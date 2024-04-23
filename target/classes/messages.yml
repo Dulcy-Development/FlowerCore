@@ -4,7 +4,7 @@
 #
 #
 no-perms: "&cNo permission."
-anti-syntax: "&cNo no no no no no. You won't."
+anti-syntax: "&cI cannot believe you tryed to execute %agument%"
 anti-syntax-bypass-perm: flowercore.staff
 
 reload:
@@ -83,6 +83,14 @@ feed:
   fed: "&aYou've been fed."
   target-fed: "&aYou've fed &b%target%&a."
   target-not-found: "&fNo player matching &b%target% &fis connected to this server."
+
+clear:
+  cleared: "&fYou've cleared &byour &finventory!"
+  cleared-by: "&aYour inventory has been cleared by &r%player-color%%player%&c!"
+  already-clear: "&cYour inventory is already clear."
+  target-cleared: "&aYou've cleared &r%target-color%%target%&a's inventory!"
+  target-not-found: "&fNo player matching &b%target% &fis connected to this server."
+  target-already-clear: "&c%target%'s inventory is already clear."
 
 more-command:
   given: "&aThere you go."

@@ -4,6 +4,7 @@ import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.Locale;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import java.util.ArrayList;
@@ -125,12 +126,42 @@ public class CC {
         return toReturn;
     }
 
+    public static void listRanks(CommandSender sender) {
+        sender.sendMessage(" ");
+        sender.sendMessage(CC.translate("&fAll registered FlowerCore ranks:"));
+        FileConfiguration ranksConfig = FlowerCore.getInstance().getConfig("ranks.yml");
+        for (String rankName : ranksConfig.getConfigurationSection("ranks").getKeys(false)) {
+            String displayName = ranksConfig.getString("ranks." + rankName + ".displayName", rankName);
+            sender.sendMessage(CC.translate(" &f- &b" + displayName));
+        }
+    }
+
+    public static void listTags(CommandSender sender) {
+        sender.sendMessage(" ");
+        sender.sendMessage(CC.translate("&fAll registered FlowerCore tags:"));
+        FileConfiguration tagsConfig = FlowerCore.getInstance().getConfig("tags.yml");
+        for (String tagName : tagsConfig.getConfigurationSection("tags").getKeys(false)) {
+            String displayName = tagsConfig.getString("tags." + tagName + ".displayName", tagName);
+            sender.sendMessage(CC.translate(" &f- &b" + displayName));
+        }
+    }
+
     public static void listRanks() {
         Bukkit.getConsoleSender().sendMessage(" ");
         Bukkit.getConsoleSender().sendMessage(CC.translate("&fAll registered FlowerCore ranks:"));
         FileConfiguration ranksConfig = FlowerCore.getInstance().getConfig("ranks.yml");
         for (String rankName : ranksConfig.getConfigurationSection("ranks").getKeys(false)) {
             String displayName = ranksConfig.getString("ranks." + rankName + ".displayName", rankName);
+            Bukkit.getConsoleSender().sendMessage(CC.translate(" &f- &b" + displayName));
+        }
+    }
+
+    public static void listTags() {
+        Bukkit.getConsoleSender().sendMessage(" ");
+        Bukkit.getConsoleSender().sendMessage(CC.translate("&fAll registered FlowerCore tags:"));
+        FileConfiguration tagsConfig = FlowerCore.getInstance().getConfig("tags.yml");
+        for (String tagName : tagsConfig.getConfigurationSection("tags").getKeys(false)) {
+            String displayName = tagsConfig.getString("tags." + tagName + ".displayName", tagName);
             Bukkit.getConsoleSender().sendMessage(CC.translate(" &f- &b" + displayName));
         }
     }

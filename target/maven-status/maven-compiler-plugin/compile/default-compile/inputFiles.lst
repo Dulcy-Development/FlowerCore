@@ -1,6 +1,7 @@
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\item\ItemBuilder.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\rank\RankCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\command\CommandFramework.java
+C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\management\DebugCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\pagination\ViewAllPagesMenu.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\BungeeUtil.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\rank\subcommands\RankSetStaffCommand.java
@@ -28,6 +29,7 @@ C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmie
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\essential\LocationCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\profile\PlayerManager.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\rank\subcommands\RankSetPrefixCommand.java
+C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\playersettings\PlayerSettings.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\announcements\AnnouncementManager.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\rank\subcommands\RankSetSuffixCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\punishments\pardon\UnbanCommand.java
@@ -35,7 +37,6 @@ C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmie
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\database\redis\packet\Packet.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\tags\TagsManager.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\tags\subcommands\TagListCommand.java
-C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\Clickable.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\menu\button\DisplayButton.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\rank\subcommands\RankSetDisplayCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\global\socials\TikTokCommand.java
@@ -67,6 +68,7 @@ C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmie
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\command\CommandArgs.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\global\server\JoinCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\ranks\RanksManager.java
+C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\FlowerCoreAPI.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\Locale.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\global\menus\NewsCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\gamemode\gmspCommand.java
@@ -93,7 +95,6 @@ C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmie
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\global\conversation\ReplyCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\troll\LaunchCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\menus\settings\button\SettingsButton.java
-C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\playersettings\PlayerSettingsManager.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\command\BukkitCompleter.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\global\socials\YouTubeCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\menus\grantconfirm\button\GrantConfirmButton.java
@@ -129,6 +130,7 @@ C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmie
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\pagination\PageInfoButton.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\pagination\FilterablePaginatedMenu.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\global\conversation\MessageCommand.java
+C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\others\Clickable.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\essential\ClearCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\global\socials\StoreCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\tags\TagAdminCommand.java

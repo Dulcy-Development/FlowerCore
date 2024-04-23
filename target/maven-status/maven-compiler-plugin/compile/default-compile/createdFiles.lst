@@ -18,6 +18,7 @@ me\emmiesa\flowercore\commands\admin\essential\FlyCommand.class
 me\emmiesa\flowercore\commands\admin\rank\subcommands\RankSaveCommand.class
 me\emmiesa\flowercore\utils\menu\Button.class
 me\emmiesa\flowercore\commands\admin\rank\subcommands\RankSetPriorityCommand.class
+me\emmiesa\flowercore\commands\admin\management\DebugCommand.class
 me\emmiesa\flowercore\commands\admin\tags\TagAdminCommand.class
 me\emmiesa\flowercore\commands\admin\punishments\pardon\UnblacklistCommand.class
 me\emmiesa\flowercore\commands\admin\spawn\SetJoinLocation.class
@@ -49,6 +50,7 @@ me\emmiesa\flowercore\commands\admin\essential\HealCommand.class
 me\emmiesa\flowercore\utils\command\BukkitCompleter.class
 me\emmiesa\flowercore\commands\admin\tags\subcommands\TagSetDisplayCommand.class
 me\emmiesa\flowercore\commands\admin\teleport\TeleportPositionCommand.class
+me\emmiesa\flowercore\FlowerCoreAPI.class
 me\emmiesa\flowercore\utils\BungeeUtil$1.class
 me\emmiesa\flowercore\utils\chat\CC.class
 me\emmiesa\flowercore\commands\admin\rank\subcommands\RankListCommand.class
@@ -137,8 +139,8 @@ me\emmiesa\flowercore\anticompleter\AntiTabCompleter.class
 me\emmiesa\flowercore\utils\command\BukkitCommand.class
 me\emmiesa\flowercore\commands\admin\punishments\BanCommand.class
 me\emmiesa\flowercore\listeners\WeatherListener.class
+me\emmiesa\flowercore\playersettings\PlayerSettings.class
 me\emmiesa\flowercore\commands\admin\rank\subcommands\RankSetSuffixCommand.class
-me\emmiesa\flowercore\utils\Clickable.class
 me\emmiesa\flowercore\commands\admin\tags\TagCommand.class
 me\emmiesa\flowercore\menus\news\NewsMenu.class
 me\emmiesa\flowercore\menus\news\button\NewsButton.class
@@ -155,9 +157,9 @@ me\emmiesa\flowercore\commands\admin\teleport\TeleportUpCommand.class
 me\emmiesa\flowercore\commands\global\server\PingCommand.class
 me\emmiesa\flowercore\profile\Profile$ProfileBuilder.class
 me\emmiesa\flowercore\utils\command\BaseCommand.class
+me\emmiesa\flowercore\utils\others\Clickable.class
 me\emmiesa\flowercore\utils\menu\Menu.class
 me\emmiesa\flowercore\utils\pagination\PageFilter.class
-me\emmiesa\flowercore\playersettings\PlayerSettingsManager.class
 me\emmiesa\flowercore\utils\Utils.class
 me\emmiesa\flowercore\commands\global\menus\NewsCommand.class
 me\emmiesa\flowercore\commands\admin\tags\subcommands\TagCreateCommand.class
