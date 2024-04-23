@@ -177,6 +177,7 @@ public class PlayerListeners implements Listener {
             event.setJoinMessage(null);
             Bukkit.getConsoleSender().sendMessage(CC.translate("&6[Player Join-logs] " + joinedPlayer.getName() + " joined. &8(" + joinedPlayer.getUniqueId() + "&8)"));
         }
+
     }
 
     @EventHandler

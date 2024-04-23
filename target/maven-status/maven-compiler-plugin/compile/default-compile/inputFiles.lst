@@ -1,7 +1,6 @@
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\item\ItemBuilder.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\rank\RankCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\command\CommandFramework.java
-C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\management\DebugCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\pagination\ViewAllPagesMenu.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\BungeeUtil.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\rank\subcommands\RankSetStaffCommand.java
@@ -124,6 +123,7 @@ C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmie
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\Utils.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\global\socials\DiscordCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\punishments\Punishment.java
+C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\management\UsernameHistoryCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\troll\TrapCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\pagination\PageFilterButton.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\listeners\WeatherListener.java

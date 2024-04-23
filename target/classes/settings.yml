@@ -10,7 +10,7 @@ chat: # Available placeholders %prefix%, %player%, %message%, %suffix%
   format: "{prefix}{player}{suffix}§r{tag}§7: §f{message}"
 
 #nametags:
-#  enabled: false
+#  enabled: true
 
 grant-settings:
   broadcast: #If somebody is being granted a rank, alert the entire server.

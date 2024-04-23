@@ -18,7 +18,6 @@ me\emmiesa\flowercore\commands\admin\essential\FlyCommand.class
 me\emmiesa\flowercore\commands\admin\rank\subcommands\RankSaveCommand.class
 me\emmiesa\flowercore\utils\menu\Button.class
 me\emmiesa\flowercore\commands\admin\rank\subcommands\RankSetPriorityCommand.class
-me\emmiesa\flowercore\commands\admin\management\DebugCommand.class
 me\emmiesa\flowercore\commands\admin\tags\TagAdminCommand.class
 me\emmiesa\flowercore\commands\admin\punishments\pardon\UnblacklistCommand.class
 me\emmiesa\flowercore\commands\admin\spawn\SetJoinLocation.class
@@ -166,6 +165,7 @@ me\emmiesa\flowercore\commands\admin\tags\subcommands\TagCreateCommand.class
 me\emmiesa\flowercore\profile\PlayerManager.class
 me\emmiesa\flowercore\tags\TagsManager.class
 me\emmiesa\flowercore\commands\admin\troll\TrollEverybodyCommand.class
+me\emmiesa\flowercore\commands\admin\management\UsernameHistoryCommand.class
 me\emmiesa\flowercore\utils\item\ItemBuilder.class
 me\emmiesa\flowercore\utils\chat\JSONMessage$MessagePart.class
 me\emmiesa\flowercore\announcements\AnnouncementManager.class

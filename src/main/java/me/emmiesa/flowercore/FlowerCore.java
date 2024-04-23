@@ -182,6 +182,7 @@ public class FlowerCore extends JavaPlugin {
         long start = System.currentTimeMillis();
 
         new FlowerCoreCommand();
+
         new FlyCommand();
         new gmcCommand();
         new gmsCommand();
