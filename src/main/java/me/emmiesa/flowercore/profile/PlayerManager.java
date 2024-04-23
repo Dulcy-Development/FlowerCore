@@ -47,6 +47,15 @@ public class PlayerManager {
         return profiles.get(playerUUID);
     }
 
+    public Profile getProfileByUsername(String username) {
+        for (Profile profile : profiles.values()) {
+            if (profile.getUsername().equalsIgnoreCase(username)) {
+                return profile;
+            }
+        }
+        return null;
+    }
+
     public void setRank(UUID playerUUID, Rank rank) {
         getProfiles().get(playerUUID).setRank(rank);
     }

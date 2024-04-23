@@ -6,7 +6,10 @@ import org.bson.Document;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import static com.mongodb.client.model.Filters.eq;
@@ -44,6 +47,14 @@ public class PlayerUtil {
         } else {
             return null;
         }
+    }
+
+    public static List<String> getPlayerIpList(Player player) {
+        List<String> ipList = new ArrayList<>();
+        if (player != null) {
+            ipList.add(player.getAddress().getAddress().getHostAddress());
+        }
+        return ipList;
     }
 
 }

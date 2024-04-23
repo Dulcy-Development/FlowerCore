@@ -2,7 +2,7 @@ package me.emmiesa.flowercore.commands.global.toggle;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.profile.Profile;
-import me.emmiesa.flowercore.playersettings.PlayerSettingsManager;
+import me.emmiesa.flowercore.playersettings.PlayerSettings;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
@@ -25,12 +25,12 @@ public class TogglePrivateMessagesCommand extends BaseCommand {
         UUID playerUUID = player.getUniqueId();
 
         Profile profile = FlowerCore.getInstance().getPlayerManager().getProfile(playerUUID);
-        PlayerSettingsManager playerSettingsManager = profile.getPlayerSettingsManager();
+        PlayerSettings playerSettings = profile.getPlayerSettings();
 
-        playerSettingsManager.setPrivateMessagesEnabled(!playerSettingsManager.isPrivateMessagesEnabled());
+        playerSettings.setPrivateMessagesEnabled(!playerSettings.isPrivateMessagesEnabled());
         FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
 
-        String context = playerSettingsManager.isPrivateMessagesEnabled() ? CC.translate("&aenabled") : CC.translate("&cdisabled");
+        String context = playerSettings.isPrivateMessagesEnabled() ? CC.translate("&aenabled") : CC.translate("&cdisabled");
         player.sendMessage(CC.translate("&bYou've {context} your private messages.").replace("{context}", context));
     }
 }

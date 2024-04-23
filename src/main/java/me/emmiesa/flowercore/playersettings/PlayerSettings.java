@@ -13,7 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class PlayerSettingsManager {
+public class PlayerSettings {
 
     private boolean globalChatEnabled, privateMessagesEnabled, messageSoundsEnabled;
 }

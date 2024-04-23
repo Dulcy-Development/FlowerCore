@@ -1,7 +1,7 @@
 package me.emmiesa.flowercore.commands.global.toggle;
 
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.playersettings.PlayerSettingsManager;
+import me.emmiesa.flowercore.playersettings.PlayerSettings;
 import me.emmiesa.flowercore.profile.Profile;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
@@ -25,12 +25,12 @@ public class TogglePrivateMessageSounds extends BaseCommand {
         UUID playerUUID = player.getUniqueId();
 
         Profile profile = FlowerCore.getInstance().getPlayerManager().getProfile(playerUUID);
-        PlayerSettingsManager playerSettingsManager = profile.getPlayerSettingsManager();
+        PlayerSettings playerSettings = profile.getPlayerSettings();
 
-        playerSettingsManager.setMessageSoundsEnabled(!playerSettingsManager.isMessageSoundsEnabled());
+        playerSettings.setMessageSoundsEnabled(!playerSettings.isMessageSoundsEnabled());
         FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
 
-        String context = playerSettingsManager.isMessageSoundsEnabled() ? CC.translate("&aenabled") : CC.translate("&cdisabled");
+        String context = playerSettings.isMessageSoundsEnabled() ? CC.translate("&aenabled") : CC.translate("&cdisabled");
         player.sendMessage(CC.translate("&bYou've {context} &byour message sounds.").replace("{context}", context));
     }
 }

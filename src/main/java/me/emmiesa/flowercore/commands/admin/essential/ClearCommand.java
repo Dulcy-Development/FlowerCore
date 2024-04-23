@@ -25,28 +25,33 @@ public class ClearCommand extends BaseCommand {
 
         if (command.getArgs().length == 0) {
             if (isInventoryClear(player)) {
-                player.sendMessage(CC.translate("&cYour inventory is already clear."));
+                player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("clear.already-clear")));
                 return;
             }
 
             player.getInventory().clear();
-            player.sendMessage(CC.translate("&fYou've cleared &byour &finventory!"));
+            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("clear.cleared")));
 
         } else if (command.getArgs().length == 1) {
             Player targetPlayer = player.getServer().getPlayer(command.getArgs()[0]);
             if (targetPlayer == null) {
-                player.sendMessage(CC.translate("&fNo player matching &b" + command.getArgs()[0] + " &fis connected to this server."));
+                player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("clear.target-not-found")).replace("%target%", command.getArgs()[0]));
                 return;
             }
 
             if (isInventoryClear(targetPlayer)) {
-                player.sendMessage(CC.translate("&c" + targetPlayer.getDisplayName() + "'s inventory is already clear."));
+                player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("clear.target-already-clear")).replace("%target%", targetPlayer.getDisplayName()));
                 return;
             }
 
             targetPlayer.getInventory().clear();
-            targetPlayer.sendMessage(CC.translate("&aYour inventory has been cleared by &r" + FlowerCore.getInstance().getPlayerManager().getRank(player.getUniqueId()).getPrefix() + player.getDisplayName() + "&c!"));
-            player.sendMessage(CC.translate("&aYou've cleared " + FlowerCore.getInstance().getPlayerManager().getRank(targetPlayer.getUniqueId()).getPrefix() + targetPlayer.getDisplayName() + "&a's inventory!"));
+            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("clear.cleared-by"))
+                    .replace("%player%", targetPlayer.getDisplayName())
+                    .replace("%player-color%", CC.translate(FlowerCore.getInstance().getPlayerManager().getRank(player.getUniqueId()).getColor())));
+
+            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("clear.target-cleared"))
+                    .replace("%target%", targetPlayer.getDisplayName())
+                    .replace("%target-color%", CC.translate(FlowerCore.getInstance().getPlayerManager().getRank(targetPlayer.getUniqueId()).getColor())));
         }
     }
 

@@ -38,12 +38,12 @@ public class ConversationHandler {
             return;
         }
 
-        if (!FlowerCore.getInstance().getPlayerManager().getProfile(senderPlayer.getUniqueId()).getPlayerSettingsManager().isPrivateMessagesEnabled()) {
+        if (!FlowerCore.getInstance().getPlayerManager().getProfile(senderPlayer.getUniqueId()).getPlayerSettings().isPrivateMessagesEnabled()) {
             senderPlayer.sendMessage(CC.translate("&cYou don't have your private messages enabled."));
             return;
         }
 
-        if (!FlowerCore.getInstance().getPlayerManager().getProfile(targetPlayer.getUniqueId()).getPlayerSettingsManager().isPrivateMessagesEnabled()) {
+        if (!FlowerCore.getInstance().getPlayerManager().getProfile(targetPlayer.getUniqueId()).getPlayerSettings().isPrivateMessagesEnabled()) {
             senderPlayer.sendMessage(CC.translate("&cThat player doesn't have their private messages enabled."));
             return;
         }
@@ -53,7 +53,7 @@ public class ConversationHandler {
                 .replace("%message%", message)
         ));
 
-        if (FlowerCore.getInstance().getPlayerManager().getProfile(senderPlayer.getUniqueId()).getPlayerSettingsManager().isMessageSoundsEnabled()) {
+        if (FlowerCore.getInstance().getPlayerManager().getProfile(senderPlayer.getUniqueId()).getPlayerSettings().isMessageSoundsEnabled()) {
             targetPlayer.playSound(targetPlayer.getLocation(), Sound.ORB_PICKUP, 1.0F, 1.0F);
         }
 
@@ -62,7 +62,7 @@ public class ConversationHandler {
                 .replace("%message%", message)
         ));
 
-        if (FlowerCore.getInstance().getPlayerManager().getProfile(senderPlayer.getUniqueId()).getPlayerSettingsManager().isMessageSoundsEnabled()) {
+        if (FlowerCore.getInstance().getPlayerManager().getProfile(senderPlayer.getUniqueId()).getPlayerSettings().isMessageSoundsEnabled()) {
             senderPlayer.playSound(senderPlayer.getLocation(), Sound.ORB_PICKUP, 1.0F, 1.0F);
         }
     }

@@ -12,7 +12,7 @@ import me.emmiesa.flowercore.utils.command.CommandArgs;
 
 public class TagDeleteCommand extends BaseCommand {
     @Override
-    @Command(name = "tagadmin.delete", permission = "flower.staff")
+    @Command(name = "tagadmin.delete", permission = "flowercore.staff")
     public void onCommand(CommandArgs command) {
         //CommandSender sender = command.getSender();
         //Player player = command.getPlayer();

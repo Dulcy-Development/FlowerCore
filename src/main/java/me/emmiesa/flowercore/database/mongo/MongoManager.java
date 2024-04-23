@@ -7,8 +7,7 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.ReplaceOptions;
 import lombok.Getter;
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.playersettings.PlayerSettingsManager;
-import me.emmiesa.flowercore.profile.HostAddressSerializer;
+import me.emmiesa.flowercore.playersettings.PlayerSettings;
 import me.emmiesa.flowercore.profile.Profile;
 import me.emmiesa.flowercore.punishments.PunishmentSerializer;
 import org.bson.Document;
@@ -52,7 +51,7 @@ public class MongoManager {
         Profile profile;
 
         if (doc == null) {
-            PlayerSettingsManager defaultSettings = new PlayerSettingsManager(true, true, true);
+            PlayerSettings defaultSettings = new PlayerSettings(true, true, true);
             profile = createDefaultProfile(playerUUID, defaultSettings);
             saveProfile(profile);
         } else {
@@ -62,27 +61,27 @@ public class MongoManager {
             boolean globalChatEnabled = optionDoc.getBoolean("globalChatEnabled", true);
 
             // (global, private, sounds) needs to be in the correct order as above because otherwise it will set the wrong settings to false or true
-            PlayerSettingsManager playerSettingsManager = new PlayerSettingsManager(globalChatEnabled, privateMessagesEnabled, soundsEnabled);
-            profile = createProfile(playerUUID, doc, playerSettingsManager);
+            PlayerSettings playerSettings = new PlayerSettings(globalChatEnabled, privateMessagesEnabled, soundsEnabled);
+            profile = createProfile(playerUUID, doc, playerSettings);
         }
         FlowerCore.getInstance().getPlayerManager().addRank(profile);
     }
 
-    private Profile createDefaultProfile(UUID playerUUID, PlayerSettingsManager playerSettingsManager) {
+    private Profile createDefaultProfile(UUID playerUUID, PlayerSettings playerSettings) {
         return Profile.builder()
                 .uuid(playerUUID)
                 .rank(FlowerCore.getInstance().getRanksManager().getDefaultRank())
                 .tag(null)
-                .playerSettingsManager(playerSettingsManager)
+                .playerSettings(playerSettings)
                 .build();
     }
 
-    private Profile createProfile(UUID playerUUID, Document doc, PlayerSettingsManager playerSettingsManager) {
+    private Profile createProfile(UUID playerUUID, Document doc, PlayerSettings playerSettings) {
         return Profile.builder()
                 .uuid(playerUUID)
                 .rank(FlowerCore.getInstance().getRanksManager().getRank(doc.getString("rank")))
                 .punishments(PunishmentSerializer.deserialize(doc.getList("punishments", String.class)))
-                .playerSettingsManager(playerSettingsManager)
+                .playerSettings(playerSettings)
                 .tag(FlowerCore.getInstance().getTagsManager().getTag(doc.getString("tag")))
                 .build();
     }
@@ -113,7 +112,7 @@ public class MongoManager {
 
     private Document createDocument(UUID playerUUID, Profile profile) {
         String username = Bukkit.getOfflinePlayer(playerUUID).getName();
-        PlayerSettingsManager playerSettingsManager = profile.getPlayerSettingsManager();
+        PlayerSettings playerSettings = profile.getPlayerSettings();
         long firstJoined = System.currentTimeMillis();
 
         Document getDoc = FlowerCore.getInstance().getMongoManager().getCollection().find(eq("UUID", playerUUID.toString())).first();
@@ -127,13 +126,13 @@ public class MongoManager {
 
         String ip = (player != null) ? player.getAddress().getAddress().getHostAddress() : "null";
 
-        List<String> ipList = getPlayerIpList(player);
-        String ipListJson = HostAddressSerializer.serialize(ipList);
+        /*List<String> ipList = PlayerUtil.getPlayerIpList(player);
+        String ipListJson = HostAddressSerializer.serialize(ipList);*/
 
         Document doc = new Document("UUID", playerUUID.toString())
                 .append("username", username)
                 .append("currentIpAddress", ip)
-                .append("ipAddresses", ipListJson)
+                //.append("ipAddresses", ipListJson)
                 .append("firstjoined", firstJoined)
                 .append("lastOnline", lastOnline)
                 .append("rank", profile.getRank().getName())
@@ -141,9 +140,9 @@ public class MongoManager {
                 .append("punishments", PunishmentSerializer.serialize(profile.getPunishments()));
 
         Document optionDocument = new Document();
-        optionDocument.append("privateMessagesEnabled", playerSettingsManager.isPrivateMessagesEnabled());
-        optionDocument.append("messageSoundsEnabled", playerSettingsManager.isMessageSoundsEnabled());
-        optionDocument.append("globalChatEnabled", playerSettingsManager.isGlobalChatEnabled());
+        optionDocument.append("privateMessagesEnabled", playerSettings.isPrivateMessagesEnabled());
+        optionDocument.append("messageSoundsEnabled", playerSettings.isMessageSoundsEnabled());
+        optionDocument.append("globalChatEnabled", playerSettings.isGlobalChatEnabled());
         doc.append("option", optionDocument);
 
         return doc;
@@ -158,13 +157,5 @@ public class MongoManager {
         if (getMongoClient() != null) {
             getMongoClient().close();
         }
-    }
-
-    private List<String> getPlayerIpList(Player player) {
-        List<String> ipList = new ArrayList<>();
-        if (player != null) {
-            ipList.add(player.getAddress().getAddress().getHostAddress());
-        }
-        return ipList;
     }
 }

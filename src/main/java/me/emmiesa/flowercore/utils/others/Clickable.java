@@ -1,4 +1,4 @@
-package me.emmiesa.flowercore.utils;
+package me.emmiesa.flowercore.utils.others;
 
 
 import java.util.ArrayList;
