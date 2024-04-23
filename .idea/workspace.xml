@@ -4,22 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38eb9cb5-5e70-4f19-9d68-f03a6958635d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/FlowerCore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/FlowerCore.java" afterDir="false" />
+    <list default="true" id="38eb9cb5-5e70-4f19-9d68-f03a6958635d" name="Changes" comment="update FlowerCoreAPI.java">
       <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/FlowerCoreAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/FlowerCoreAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/listeners/PlayerListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/listeners/PlayerListeners.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/settings.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/settings.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FlowerCore-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/FlowerCore-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/emmiesa/flowercore/FlowerCore.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/emmiesa/flowercore/FlowerCore.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/emmiesa/flowercore/commands/admin/management/DebugCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/emmiesa/flowercore/listeners/PlayerListeners.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/emmiesa/flowercore/listeners/PlayerListeners.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/emmiesa/flowercore/utils/chat/CC.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/emmiesa/flowercore/utils/chat/CC.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/settings.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/settings.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/original-FlowerCore-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-FlowerCore-1.0-SNAPSHOT.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +131,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713860412147</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="update FlowerCoreAPI.java">
+      <option name="closed" value="true" />
+      <created>1713885562060</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1713885562060</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -154,6 +148,7 @@
     <MESSAGE value="Added FlowerCoreAPI" />
     <MESSAGE value="changed permissions &amp; made clear command customizable" />
     <MESSAGE value="Update listTags and listRanks method in CC so that a sender can recieve it as a message rather than just a consolesender" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update listTags and listRanks method in CC so that a sender can recieve it as a message rather than just a consolesender" />
+    <MESSAGE value="update FlowerCoreAPI.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="update FlowerCoreAPI.java" />
   </component>
 </project>

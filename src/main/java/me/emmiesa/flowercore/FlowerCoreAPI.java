@@ -4,6 +4,7 @@ import me.emmiesa.flowercore.profile.Profile;
 import me.emmiesa.flowercore.ranks.Rank;
 import me.emmiesa.flowercore.tags.Tag;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
@@ -15,6 +16,14 @@ import java.util.UUID;
 
 public class FlowerCoreAPI {
     static FlowerCore instance = FlowerCore.getInstance();
+
+    public static Profile getProfile(Player player){
+        if(player == null) {
+            return null;
+        }
+
+        return instance.getPlayerManager().getProfileByUsername(player.getName());
+    }
 
     public static Profile getProfileByUsername(String username){
         if (Bukkit.getPlayer(username) == null) {
@@ -47,27 +56,22 @@ public class FlowerCoreAPI {
         return instance.getPlayerManager().getRank(profile.getUuid()).getColor() + instance.getPlayerManager().getProfile(uuid).getUsername();
     }
 
-    //Rank prefix of the player
     public static String getPlayerPrefix(UUID uuid) {
         return instance.getPlayerManager().getRank(uuid).getPrefix();
     }
 
-    //Rank name of the player with color codes
     public static String getPlayerRank(UUID uuid) {
         return instance.getPlayerManager().getRank(uuid).getDisplayName();
     }
 
-    //Rank name of the player without color codes
     public static String getPlayerRankName(UUID uuid) {
         return instance.getPlayerManager().getRank(uuid).getName();
     }
 
-    //Tag format of the player. The same which is displayed in chat when A tag is selected.
     public static String getPlayerTag(UUID uuid) {
         return instance.getPlayerManager().getTag(uuid).getDisplayName();
     }
 
-    //Tag name of the player without color codes
     public static String getPlayerTagName(UUID uuid) {
         return instance.getPlayerManager().getTag(uuid).getName();
     }
