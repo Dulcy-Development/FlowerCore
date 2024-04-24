@@ -1,7 +1,6 @@
 package me.emmiesa.flowercore.menus.ranklist.button;
 
 import lombok.AllArgsConstructor;
-import me.emmiesa.flowercore.Locale;
 import me.emmiesa.flowercore.ranks.Rank;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.item.ItemBuilder;

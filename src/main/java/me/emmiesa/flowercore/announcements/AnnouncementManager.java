@@ -1,7 +1,7 @@
 package me.emmiesa.flowercore.announcements;
 
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.Locale;
+import me.emmiesa.flowercore.locale.Locale;
 import me.emmiesa.flowercore.utils.Utils;
 import me.emmiesa.flowercore.utils.chat.CC;
 import org.bukkit.Bukkit;

@@ -1,5 +1,6 @@
-package me.emmiesa.flowercore;
+package me.emmiesa.flowercore.api;
 
+import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.profile.Profile;
 import me.emmiesa.flowercore.ranks.Rank;
 import me.emmiesa.flowercore.tags.Tag;

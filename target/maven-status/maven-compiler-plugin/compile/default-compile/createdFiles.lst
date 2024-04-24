@@ -165,7 +165,6 @@ me\emmiesa\flowercore\commands\admin\tags\subcommands\TagCreateCommand.class
 me\emmiesa\flowercore\profile\PlayerManager.class
 me\emmiesa\flowercore\tags\TagsManager.class
 me\emmiesa\flowercore\commands\admin\troll\TrollEverybodyCommand.class
-me\emmiesa\flowercore\commands\admin\management\UsernameHistoryCommand.class
 me\emmiesa\flowercore\utils\item\ItemBuilder.class
 me\emmiesa\flowercore\utils\chat\JSONMessage$MessagePart.class
 me\emmiesa\flowercore\announcements\AnnouncementManager.class

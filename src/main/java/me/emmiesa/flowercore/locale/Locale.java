@@ -1,5 +1,6 @@
-package me.emmiesa.flowercore;
+package me.emmiesa.flowercore.locale;
 
+import me.emmiesa.flowercore.FlowerCore;
 import org.bukkit.configuration.file.FileConfiguration;
 
 /**

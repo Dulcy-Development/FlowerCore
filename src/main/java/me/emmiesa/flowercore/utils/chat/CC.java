@@ -1,7 +1,7 @@
 package me.emmiesa.flowercore.utils.chat;
 
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.Locale;
+import me.emmiesa.flowercore.locale.Locale;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;

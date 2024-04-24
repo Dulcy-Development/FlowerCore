@@ -1,7 +1,7 @@
 package me.emmiesa.flowercore.listeners;
 
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.Locale;
+import me.emmiesa.flowercore.locale.Locale;
 import me.emmiesa.flowercore.profile.Profile;
 import me.emmiesa.flowercore.punishments.Punishment;
 import me.emmiesa.flowercore.punishments.PunishmentType;

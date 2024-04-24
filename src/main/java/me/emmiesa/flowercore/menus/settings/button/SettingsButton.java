@@ -1,7 +1,7 @@
 package me.emmiesa.flowercore.menus.settings.button;
 
 import lombok.AllArgsConstructor;
-import me.emmiesa.flowercore.Locale;
+import me.emmiesa.flowercore.locale.Locale;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.item.ItemBuilder;
 import me.emmiesa.flowercore.utils.menu.Button;

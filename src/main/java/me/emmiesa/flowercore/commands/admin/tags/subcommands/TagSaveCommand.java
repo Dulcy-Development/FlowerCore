@@ -1,7 +1,6 @@
 package me.emmiesa.flowercore.commands.admin.tags.subcommands;
 
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.Locale;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
