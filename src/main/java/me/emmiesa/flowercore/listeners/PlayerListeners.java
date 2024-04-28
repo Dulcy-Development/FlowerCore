@@ -91,6 +91,9 @@ public class PlayerListeners implements Listener {
         Player joinedPlayer = event.getPlayer();
         UUID playerUUID = joinedPlayer.getUniqueId();
 
+        if (FlowerCore.getInstance().getRanksManager().getDefaultRank() == null) {
+            joinedPlayer.sendMessage(Locale.RANK_NOT_SET);
+        }
         FlowerCore.getInstance().getPlayerManager().addPermissions(playerUUID);
 
         if (FlowerCore.getInstance().getConfig("settings.yml").getBoolean("on-join.play-sound.enabled")) {
