@@ -23,12 +23,15 @@ reload:
 
 punish-broadcasts:
   kicked: "&a%punisher% &7has kicked &a%target% &7for &a%reason%&7."
+  kicked-silent: "&7[SILENT] &a%punisher% &7has kicked &a%target% &7for &a%reason%&7."
   blacklisted: "&4%punisher% &chas blacklisted &4%target% &cfor &4%reason%&7."
+  blacklisted-silent: "&7[SILENT] &4%punisher% &chas banned &4%target% &cfor &4%reason%&7."
   banned: "&4%punisher% &chas banned &4%target% &cfor &4%reason%&7."
+  banned-silent: "&7[SILENT] &4%punisher% &chas banned &4%target% &cfor &4%reason%&7."
   un-blacklisted: "&a%pardoner% &7has un-blacklisted &a%target%&7."
   un-banned: "&a%pardoner% &7has un-banned &a%target%&7."
 
-punishments:
+punishments: #Punishment titles. If a player is banned they will be kicked and these will appear on screen.
   blacklist: "\n&4You've been blacklisted from the Flower Network! \n&4Blacklisted by %punisher% for &c%reason%&4! \n&7You may not appeal for this!"
   ban: "\n&cYou've been banned from the Flower Network! \n&cBanned by %punisher% for %reason%! \n&7If you believe this was false, join our discord and appeal!"
   kick: "&7You've been kicked! \n&7Kicked by &a%punisher% &7for &a%reason%&7!"

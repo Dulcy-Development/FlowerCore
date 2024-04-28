@@ -79,17 +79,19 @@ public class PlayerListeners implements Listener {
     }
 
     private String banPunishMessage(Punishment punishment) {
-        return CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punishments.ban").replace("%punisher%", Bukkit.getOfflinePlayer(punishment.getBy()).getName()).replace("%reason%", punishment.getReason()));
+        return CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punishments.ban").replace("%punisher%", punishment.getByString()).replace("%reason%", punishment.getReason()));
     }
 
     private String blacklistPunishMessage(Punishment punishment) {
-        return CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punishments.blacklist").replace("%punisher%", Bukkit.getOfflinePlayer(punishment.getBy()).getName()).replace("%reason%", punishment.getReason()));
+        return CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punishments.blacklist").replace("%punisher%", punishment.getByString()).replace("%reason%", punishment.getReason()));
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onJoin(PlayerJoinEvent event) {
         Player joinedPlayer = event.getPlayer();
         UUID playerUUID = joinedPlayer.getUniqueId();
+
+        FlowerCore.getInstance().getPlayerManager().addPermissions(playerUUID);
 
         if (FlowerCore.getInstance().getConfig("settings.yml").getBoolean("on-join.play-sound.enabled")) {
             String sound = FlowerCore.getInstance().getConfig("settings.yml").getString("on-join.play-sound.sound");
@@ -110,10 +112,6 @@ public class PlayerListeners implements Listener {
 
         if (spawnLocation != null) {
             event.getPlayer().teleport(spawnLocation);
-        }
-
-        if (plugin.getRanksManager().getDefaultRank() == null) {
-            joinedPlayer.sendMessage(CC.translate(Locale.RANK_NOT_SET));
         }
 
         if (plugin.getConfig("messages.yml").getBoolean("on-join.title-sender.enabled")) {

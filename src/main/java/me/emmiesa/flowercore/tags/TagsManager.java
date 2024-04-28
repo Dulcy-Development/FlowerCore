@@ -3,10 +3,8 @@ package me.emmiesa.flowercore.tags;
 import lombok.Getter;
 import lombok.Setter;
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.ranks.Rank;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,9 +60,5 @@ public class TagsManager {
         config.set(key + ".color", tag.getColor());
 
         plugin.getConfigHandler().saveConfig(plugin.getConfigHandler().getConfigFileByName("tags.yml"), config);
-    }
-
-    public Tag getPlayerTag(Player player) {
-        return FlowerCore.getInstance().getTagsManager().getTag(player.getName());
     }
 }

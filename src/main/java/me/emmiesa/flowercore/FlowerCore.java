@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 // -----------
 import me.emmiesa.flowercore.commands.admin.management.*;
+import me.emmiesa.flowercore.commands.admin.punishments.MuteCommand;
+import me.emmiesa.flowercore.commands.admin.punishments.pardon.UnMuteCommand;
 import me.emmiesa.flowercore.commands.admin.punishments.pardon.UnblacklistCommand;
 import me.emmiesa.flowercore.commands.admin.punishments.pardon.UnbanCommand;
 import me.emmiesa.flowercore.commands.admin.punishments.BlacklistCommand;
@@ -54,7 +56,7 @@ import me.emmiesa.flowercore.commands.admin.troll.*;
 import me.emmiesa.flowercore.listeners.ChatListener;
 import me.emmiesa.flowercore.profile.PlayerManager;
 import me.emmiesa.flowercore.handler.ConfigHandler;
-import me.emmiesa.flowercore.utils.others.Cooldown;
+import me.emmiesa.flowercore.utils.Cooldown;
 import me.emmiesa.flowercore.ranks.RanksManager;
 import me.emmiesa.flowercore.utils.chat.CC;
 // -----------
@@ -107,8 +109,8 @@ public class FlowerCore extends JavaPlugin {
     @Override
     public void onDisable() {
         ranksManager.saveToFile();
-        mongoManager.close();
         mongoManager.saveAllPlayerData();
+        mongoManager.close();
         CC.off();
     }
 
@@ -200,15 +202,18 @@ public class FlowerCore extends JavaPlugin {
         new TrollCommand();
         new StoreCommand();
         new SpeedCommand();
+        new ReplyCommand();
         new CraftCommand();
         new ClearCommand();
         new TikTokCommand();
         new LaunchCommand();
         new RocketCommand();
         new RenameCommand();
+        new RebootCommand();
         new CaptureCommand();
         new YouTubeCommand();
         new DiscordCommand();
+        new MessageCommand();
         new TwitterCommand();
         new WebsiteCommand();
         new SettingsCommand();
@@ -255,17 +260,14 @@ public class FlowerCore extends JavaPlugin {
         new TogglePrivateMessagesCommand();
 
         new BanCommand();
-        new KickCommand();
         new AltsCommand();
+        new KickCommand();
+        new MuteCommand();
         new BlacklistCommand();
 
-        new RebootCommand();
-
         new UnbanCommand();
+        new UnMuteCommand();
         new UnblacklistCommand();
-
-        new ReplyCommand();
-        new MessageCommand();
 
         new DayCommand();
         new NightCommand();

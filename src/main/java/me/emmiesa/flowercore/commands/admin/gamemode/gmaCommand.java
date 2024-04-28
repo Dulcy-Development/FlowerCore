@@ -26,7 +26,7 @@ public class gmaCommand extends BaseCommand {
     public List<String> gmCompleter(CommandArgs args) {
         List<String> commands = new ArrayList<>();
         if (args.length() == 1) {
-            if (args.getPlayer().hasPermission("flowercore.admin")) {
+            if (args.getPlayer().hasPermission("flowercore.staff")) {
                 commands.add("creative");
                 commands.add("survival");
                 commands.add("adventure");

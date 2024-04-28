@@ -1,4 +1,4 @@
-package me.emmiesa.flowercore.utils.others;
+package me.emmiesa.flowercore.utils;
 
 import lombok.Getter;
 import lombok.Setter;

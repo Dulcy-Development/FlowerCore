@@ -6,7 +6,7 @@ import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
 import me.emmiesa.flowercore.utils.command.CommandArgs;
 import me.emmiesa.flowercore.utils.command.Completer;
-import me.emmiesa.flowercore.utils.others.NumberUtils;
+import me.emmiesa.flowercore.utils.NumberUtils;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;

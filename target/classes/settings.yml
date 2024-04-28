@@ -36,7 +36,7 @@ bungee-servers: #Must equal actual bungee servers because this is the completer 
   - eu-soup
   - eu-practice
 
-default-permissions: #Experimental, better not use it.
+default-permissions: #Everyone on the server has these perms. It does NOT depend on their rank.
   - "none"
 
 on-join:
@@ -85,6 +85,7 @@ punishments:
     blacklist: "no reason"
     ban: "no reason"
     kick: "absolutely no reason"
+    mute: "staff wanted to :P"
 
 sudo:
   exclude-op: false #This prevents OP players to be sudo-ed.

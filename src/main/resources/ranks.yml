@@ -15,7 +15,7 @@ ranks:
     color: "&4"
     permissions:
       - '*'
-      - none
+      - 'flowercore.staff'
   Admin:
     displayName: '&cAdmin'
     icon: APPLE

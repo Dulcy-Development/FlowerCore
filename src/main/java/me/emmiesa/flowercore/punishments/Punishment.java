@@ -22,14 +22,14 @@ import java.util.UUID;
 @Setter
 public class Punishment {
 
-    @SerializedName("uuid")
-    private UUID uuid;
-
     @SerializedName("name")
     private String name;
 
+    @SerializedName("bannedUUID")
+    private UUID bannedUUID;
+
     @SerializedName("by")
-    private UUID by;
+    private Object by;
 
     @SerializedName("type")
     private PunishmentType type;
@@ -42,4 +42,22 @@ public class Punishment {
 
     @SerializedName("ip")
     private boolean ip;
+
+    @SerializedName("duration")
+    private String duration;
+
+    public Punishment(String name, UUID bannedUUID, String by, PunishmentType type, String reason) {
+        this.name = name;
+        this.by = by;
+        this.type = type;
+        this.reason = reason;
+    }
+
+    public UUID getByUUID() {
+        return by instanceof UUID ? (UUID) by : null;
+    }
+
+    public String getByString() {
+        return by instanceof UUID ? ((UUID) by).toString() : (String) by;
+    }
 }

@@ -1,6 +1,7 @@
 package me.emmiesa.flowercore.commands.admin.punishments.pardon;
 
 import me.emmiesa.flowercore.FlowerCore;
+import me.emmiesa.flowercore.profile.Profile;
 import me.emmiesa.flowercore.punishments.PunishmentType;
 import me.emmiesa.flowercore.utils.Utils;
 import me.emmiesa.flowercore.utils.chat.CC;
@@ -10,6 +11,7 @@ import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
@@ -30,26 +32,36 @@ public class UnbanCommand extends BaseCommand {
             return;
         }
 
-        String targetName = args.getArgs(0);
+        String playerName = args.getArgs()[0];
+        OfflinePlayer targetPlayer = offlinePlayerName(playerName); //To not make it "deprecated". Kept default in UnBlacklist command
 
-        UUID playerUUID = findUUIDByName(targetName);
+        Profile profile = FlowerCore.getInstance().getPlayerManager().getProfile(targetPlayer.getUniqueId());
 
-        if (playerUUID == null) {
-            sender.sendMessage(CC.translate("&4" + targetName + " &chas never joined this server before or the username is invalid."));
+        if (profile == null) {
+            sender.sendMessage(CC.translate("&4" + playerName + " &chas never joined this server before."));
             return;
         }
 
-        Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.un-banned").replace("%pardoner%", sender.getName()).replace("%target%", targetName)));
-        Utils.broadcastMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.un-banned").replace("%pardoner%", sender.getName()).replace("%target%", targetName)));
-        //Utils.broadcastMessage(CC.translate("&4" + targetName + " &cwas unbanned by &4" + sender.getName() + "&c."));
-        FlowerCore.getInstance().getPlayerManager().removePunishment(playerUUID, PunishmentType.BAN, targetName);
-        FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
+        if (targetPlayer.isOnline()) {
+            Player onlinePlayer = targetPlayer.getPlayer();
+            UUID playerUUID = onlinePlayer.getUniqueId();
+            Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.un-banned").replace("%pardoner%", sender.getName()).replace("%target%", onlinePlayer.getDisplayName())));
+            Utils.broadcastMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.un-banned").replace("%pardoner%", sender.getName()).replace("%target%", onlinePlayer.getDisplayName())));
+            FlowerCore.getInstance().getPlayerManager().removePunishment(playerUUID, PunishmentType.BAN, onlinePlayer.getDisplayName());
+            FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
+        } else {
+            UUID playerUUID = targetPlayer.getUniqueId();
+            Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.un-banned").replace("%pardoner%", sender.getName()).replace("%target%", targetPlayer.getName())));
+            Utils.broadcastMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.un-banned").replace("%pardoner%", sender.getName()).replace("%target%", targetPlayer.getName())));
+            FlowerCore.getInstance().getPlayerManager().removePunishment(playerUUID, PunishmentType.BAN, targetPlayer.getName());
+            FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
+        }
     }
 
-    public UUID findUUIDByName(String playerName) {
+    public OfflinePlayer offlinePlayerName(String playerName) {
         for (OfflinePlayer player : Bukkit.getOfflinePlayers()) {
             if (player.getName() != null && player.getName().equalsIgnoreCase(playerName)) {
-                return player.getUniqueId();
+                return player;
             }
         }
         return null;

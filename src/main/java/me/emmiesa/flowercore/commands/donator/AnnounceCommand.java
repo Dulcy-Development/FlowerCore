@@ -6,7 +6,7 @@ import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
 import me.emmiesa.flowercore.utils.command.CommandArgs;
-import me.emmiesa.flowercore.utils.others.Cooldown;
+import me.emmiesa.flowercore.utils.Cooldown;
 import org.bukkit.entity.Player;
 
 import java.util.UUID;

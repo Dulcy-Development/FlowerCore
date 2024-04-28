@@ -11,8 +11,6 @@ import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-import java.util.UUID;
-
 /**
  * Created by Emmy
  * Project: FlowerCore
@@ -28,22 +26,30 @@ public class KickCommand extends BaseCommand {
 
         String target = args.getArgs(0);
         String reason = args.length() > 1 ? args.getArgs(1) : defaultreason;
-        String silentornot = args.length() > 2 ? args.getArgs(2) : "";
+        boolean silent = args.length() > 2 && args.getArgs(2).equalsIgnoreCase("-s");
 
         Player kickedBy = args.getPlayer();
 
         Player targetPlayer = FlowerCore.getInstance().getServer().getPlayer(target);
-        if (target == null) {
+
+        if (targetPlayer == null) {
             kickedBy.sendMessage(CC.translate("&cPlayer not found!"));
             return;
         }
 
-        Punishment punishment = new Punishment(UUID.randomUUID(), targetPlayer == null ? target : targetPlayer.getName(), kickedBy.getUniqueId(), PunishmentType.KICK, reason, targetPlayer == null ? "No IP" : targetPlayer.getAddress().getAddress().getHostAddress(), silentornot.equalsIgnoreCase("-s"));
+        Punishment punishment = new Punishment(targetPlayer.getName(), targetPlayer.getUniqueId(), kickedBy.getDisplayName(), PunishmentType.KICK, reason);
 
-        if (targetPlayer != null) {
-            targetPlayer.kickPlayer(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punishments.kick").replace("%punisher%", Bukkit.getOfflinePlayer(punishment.getBy()).getName()).replace("%reason%", punishment.getReason())));
+        targetPlayer.kickPlayer(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punishments.kick").replace("%punisher%", punishment.getByString()).replace("%reason%", punishment.getReason())));
 
-            Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.kicked").replace("%punisher%", kickedBy.getDisplayName()).replace("%target%", target).replace("%reason%", reason)));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.kicked").replace("%punisher%", kickedBy.getDisplayName()).replace("%target%", target).replace("%reason%", reason)));
+
+        if (silent) {
+            for (Player player : Bukkit.getOnlinePlayers()) {
+                if (player.hasPermission("flowercore.staff")) {
+                    player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.kicked-silent").replace("%punisher%", kickedBy.getDisplayName()).replace("%target%", target).replace("%reason%", reason)));
+                }
+            }
+        } else {
             Utils.broadcastMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.kicked").replace("%punisher%", kickedBy.getDisplayName()).replace("%target%", target).replace("%reason%", reason)));
         }
     }
