@@ -1,6 +1,9 @@
 package me.emmiesa.flowercore.listeners;
 
 import me.emmiesa.flowercore.FlowerCore;
+import me.emmiesa.flowercore.profile.Profile;
+import me.emmiesa.flowercore.punishments.Punishment;
+import me.emmiesa.flowercore.punishments.PunishmentType;
 import me.emmiesa.flowercore.tags.Tag;
 import me.emmiesa.flowercore.utils.chat.CC;
 import org.bukkit.entity.Player;
@@ -8,6 +11,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -22,6 +26,24 @@ public class ChatListener implements Listener {
     public void onPlayerChat(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
         UUID playerUUID = player.getUniqueId();
+
+        Profile profile = FlowerCore.getInstance().getPlayerManager().getProfile(playerUUID);
+        List<Punishment> punishments = profile.getPunishments();
+        if (punishments == null) {
+            return;
+        }
+
+        for (Punishment punishment : punishments) {
+            if (punishment != null && (punishment.getType().equals(PunishmentType.MUTE))) {
+                player.sendMessage("");
+                player.sendMessage(CC.translate("&cYou've been muted by &4" + punishment.getBy()));
+                player.sendMessage(CC.translate(" &7Duration: &c" + punishment.getDuration()));
+                player.sendMessage(CC.translate(" &7Reason: &c" + punishment.getReason()));
+                player.sendMessage("");
+                event.setCancelled(true);
+                return;
+            }
+        }
 
         if (!FlowerCore.getInstance().getPlayerManager().getProfile(playerUUID).getPlayerSettings().isGlobalChatEnabled()) {
             player.sendMessage(CC.translate("&cYou've disabled global chat!"));
