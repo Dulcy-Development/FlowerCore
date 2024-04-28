@@ -11,7 +11,6 @@ import me.emmiesa.flowercore.utils.Utils;
 import org.bson.Document;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.permissions.Permission;
 import org.bukkit.permissions.PermissionAttachment;
 
 import java.util.ArrayList;
@@ -158,12 +157,6 @@ public class PlayerManager {
         if (rank != null && rank.getPermissions() != null) {
             for (String permission : rank.getPermissions()) {
                 attachment.setPermission(permission, true);
-            }
-
-            if (rank.getPermissions().contains("*")) {
-                for (Permission perm : Bukkit.getServer().getPluginManager().getPermissions()) {
-                    attachment.setPermission(perm, true);
-                }
             }
         }
     }
