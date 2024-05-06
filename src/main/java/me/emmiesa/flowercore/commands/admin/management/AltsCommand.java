@@ -50,8 +50,12 @@ public class AltsCommand extends BaseCommand {
             alts.add(username);
         }
 
+        alts.removeIf(alt -> alt.equalsIgnoreCase(targetPlayerName));
+
         if (alts.isEmpty()) {
+            sender.sendMessage("");
             sender.sendMessage(CC.translate("&c" + FlowerCore.getInstance().getPlayerManager().getRank(targetPlayerUUID).getColor() + targetPlayerName + " &chas no alt accounts!"));
+            sender.sendMessage("");
             return;
         }
 

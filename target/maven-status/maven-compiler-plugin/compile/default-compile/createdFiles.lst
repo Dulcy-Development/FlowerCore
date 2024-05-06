@@ -41,6 +41,7 @@ me\emmiesa\flowercore\commands\admin\essential\SpeedCommand.class
 me\emmiesa\flowercore\commands\admin\troll\RocketCommand$1.class
 me\emmiesa\flowercore\commands\global\toggle\TogglePrivateMessageSounds.class
 me\emmiesa\flowercore\commands\admin\management\ClearChatCommand.class
+me\emmiesa\flowercore\commands\admin\rank\subcommands\RankDeleteCommand.class
 me\emmiesa\flowercore\commands\global\socials\TwitterCommand.class
 me\emmiesa\flowercore\locale\Locale.class
 me\emmiesa\flowercore\commands\admin\management\RebootCommand.class
@@ -61,6 +62,7 @@ me\emmiesa\flowercore\commands\global\worldtime\DayCommand.class
 me\emmiesa\flowercore\profile\HostAddressSerializer$1.class
 me\emmiesa\flowercore\menus\tags\TagsMenu.class
 me\emmiesa\flowercore\tags\Tag.class
+me\emmiesa\flowercore\utils\player\PlayerUtil.class
 me\emmiesa\flowercore\commands\admin\management\RebootCommand$1.class
 me\emmiesa\flowercore\commands\admin\rank\GrantCommand.class
 me\emmiesa\flowercore\commands\admin\essential\LocationCommand.class
@@ -77,6 +79,7 @@ me\emmiesa\flowercore\utils\item\ItemCreator.class
 me\emmiesa\flowercore\punishments\PunishmentType.class
 me\emmiesa\flowercore\utils\pagination\PaginatedMenu.class
 me\emmiesa\flowercore\utils\pagination\PageFilterButton.class
+me\emmiesa\flowercore\utils\player\OfflinePlayerUtil.class
 me\emmiesa\flowercore\commands\admin\essential\ClearCommand.class
 me\emmiesa\flowercore\commands\FlowerCoreCommand.class
 me\emmiesa\flowercore\commands\global\worldtime\SunsetCommand.class
@@ -116,7 +119,6 @@ me\emmiesa\flowercore\menus\ranklist\RankListMenu.class
 me\emmiesa\flowercore\commands\admin\rank\subcommands\RankCreateCommand.class
 me\emmiesa\flowercore\commands\admin\essential\RenameCommand.class
 me\emmiesa\flowercore\commands\admin\gamemode\gmcCommand.class
-me\emmiesa\flowercore\utils\PlayerUtil.class
 me\emmiesa\flowercore\listeners\PlayerListeners.class
 me\emmiesa\flowercore\menus\grantconfirm\GrantConfirmMenu.class
 me\emmiesa\flowercore\commands\admin\tags\subcommands\TagDeleteCommand.class

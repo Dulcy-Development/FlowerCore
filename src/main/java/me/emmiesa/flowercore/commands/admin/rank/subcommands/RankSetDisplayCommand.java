@@ -27,10 +27,7 @@ public class RankSetDisplayCommand extends BaseCommand {
 
         String rankName = args.getArgs(0);
         String displayName = args.getArgs(1);
-        setDisplayName(player, rankName, displayName);
-    }
 
-    private void setDisplayName(Player player, String rankName, String displayName) {
         if (FlowerCore.getInstance().getRanksManager().getRank(rankName) == null) {
             player.sendMessage(CC.translate(Locale.RANK_NOT_FOUND).replace("%rank%", rankName));
             return;

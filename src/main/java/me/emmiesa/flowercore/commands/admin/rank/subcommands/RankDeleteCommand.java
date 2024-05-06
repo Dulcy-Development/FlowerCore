@@ -1,6 +1,7 @@
 package me.emmiesa.flowercore.commands.admin.rank.subcommands;
 
 import me.emmiesa.flowercore.FlowerCore;
+import me.emmiesa.flowercore.locale.Locale;
 import me.emmiesa.flowercore.ranks.Rank;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
@@ -29,7 +30,9 @@ public class RankDeleteCommand extends BaseCommand {
         }
 
         if (rank == null) {
-            player.sendMessage(CC.translate("&cThat rank does not exist!"));
+            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfigHandler().getConfigByName("messages.yml").getString("rank.deleted")
+                    .replace("%rank%", FlowerCore.getInstance().getRanksManager().getRank(rankName).getColor() + rankName))
+            );
             return;
         }
 

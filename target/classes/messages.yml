@@ -148,7 +148,7 @@ spawn.not-set.reminder:
   message: "&c(Reminder) The join location was not set. Players won't be teleported! &8(TIP) &7&oYou can disable this message in the 'messages' config file."
 
 rank:
-  not-set-error: "&c(Error) Your rank was not set."
+  not-set-error: "&c(Error) Your rank was not set. &7[Probably because default rank is NULL]"
   does-not-exist: "&cThe %rank% &crank does not exist!"
   add-perm: "&aSuccessfully added the &r%perm% &apermission to the &r%rank% &arank!"
   created: "&aSuccessfully created the &r%rank% &arank!"

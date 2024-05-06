@@ -10,9 +10,7 @@ import me.emmiesa.flowercore.commands.admin.punishments.pardon.UnblacklistComman
 import me.emmiesa.flowercore.commands.admin.punishments.pardon.UnbanCommand;
 import me.emmiesa.flowercore.commands.admin.punishments.BlacklistCommand;
 import me.emmiesa.flowercore.commands.admin.tags.TagCommand;
-import me.emmiesa.flowercore.commands.admin.tags.subcommands.TagCreateCommand;
-import me.emmiesa.flowercore.commands.admin.tags.subcommands.TagListCommand;
-import me.emmiesa.flowercore.commands.admin.tags.subcommands.TagSaveCommand;
+import me.emmiesa.flowercore.commands.admin.tags.subcommands.*;
 import me.emmiesa.flowercore.commands.global.conversation.MessageCommand;
 import me.emmiesa.flowercore.commands.admin.spawn.TeleportSpawnCommand;
 import me.emmiesa.flowercore.commands.global.conversation.ReplyCommand;
@@ -239,12 +237,15 @@ public class FlowerCore extends JavaPlugin {
         new TagSaveCommand();
         new TagAdminCommand();
         new TagCreateCommand();
+        new TagDeleteCommand();
+        new TagSetDisplayCommand();
 
         new RankCommand();
         new GrantCommand();
         new RankListCommand();
         new RankSaveCommand();
         new RankCreateCommand();
+        new RankDeleteCommand();
         new RankSetIconCommand();
         new RankSetStaffCommand();
         new RankSetColorCommand();
