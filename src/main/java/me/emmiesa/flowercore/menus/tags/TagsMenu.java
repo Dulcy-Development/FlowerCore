@@ -27,14 +27,14 @@ public class TagsMenu extends PaginatedMenu {
 
     @Override
     public String getPrePaginatedTitle(Player player) {
-        return FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/tag-selector.yml").getString("title").replace("%player%", playerName);
+        return FlowerCore.getINSTANCE().getConfigHandler().getConfigByName("menus/tag-selector.yml").getString("title").replace("%player%", playerName);
     }
 
     @Override
     public Map<Integer, Button> getAllPagesButtons(Player player) {
         Map<Integer, Button> buttons = new HashMap<>();
 
-        for (Tag tag : FlowerCore.getInstance().getTagsManager().getTags()) {
+        for (Tag tag : FlowerCore.getINSTANCE().getTagsManager().getTags()) {
             buttons.put(buttons.size(), new TagsButton(tag, playerName));
         }
 
@@ -43,7 +43,7 @@ public class TagsMenu extends PaginatedMenu {
 
     @Override
     public int getSize() {
-        FileConfiguration newsConfig = FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/tag-selector.yml");
+        FileConfiguration newsConfig = FlowerCore.getINSTANCE().getConfigHandler().getConfigByName("menus/tag-selector.yml");
         if (newsConfig != null) {
             return newsConfig.getInt("size", 9 * 3);
         }

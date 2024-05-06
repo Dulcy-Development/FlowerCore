@@ -21,15 +21,15 @@ public class YouTubeCommand extends BaseCommand {
         CommandSender sender = args.getSender();
         String commandName = "discord";
 
-        boolean enableCommand = FlowerCore.getInstance().getConfig("messages.yml").getBoolean("socials." + commandName + ".enabled", true);
-        String disabledMessageTemplate = FlowerCore.getInstance().getConfig().getString("socials." + commandName + ".disabled_message");
+        boolean enableCommand = FlowerCore.getINSTANCE().getConfig("messages.yml").getBoolean("socials." + commandName + ".enabled", true);
+        String disabledMessageTemplate = FlowerCore.getINSTANCE().getConfig().getString("socials." + commandName + ".disabled_message");
 
         if (!enableCommand) {
             String disabledMessage = disabledMessageTemplate.replace("%link%", commandName);
 
             sender.sendMessage(CC.translate(disabledMessage));
         } else {
-            String link = FlowerCore.getInstance().getConfig("messages.yml").getString("socials." + commandName + ".enabled_message").replace("%link%", Locale.YOUTUBE);
+            String link = FlowerCore.getINSTANCE().getConfig("messages.yml").getString("socials." + commandName + ".enabled_message").replace("%link%", Locale.YOUTUBE);
             sender.sendMessage(CC.translate(link));
         }
     }

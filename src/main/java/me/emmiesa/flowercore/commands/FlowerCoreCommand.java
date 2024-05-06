@@ -20,7 +20,7 @@ import java.util.List;
 
 public class FlowerCoreCommand extends BaseCommand {
 
-    private final FlowerCore plugin = FlowerCore.getInstance();
+    private final FlowerCore plugin = FlowerCore.getINSTANCE();
 
     @Completer(name = "flower", aliases = {"flowercore", "core"})
     public List<String> flowerCompleter(CommandArgs args) {
@@ -49,11 +49,11 @@ public class FlowerCoreCommand extends BaseCommand {
             sender.sendMessage(CC.FLOWER_BAR);
             sender.sendMessage(" ");
         } else if (args.length() >= 1) {
-            noperm(sender, args);
+            noPermission(sender, args);
         }
     }
 
-    private void noperm(CommandSender sender, CommandArgs args) {
+    private void noPermission(CommandSender sender, CommandArgs args) {
         if (args.getArgs(0).equalsIgnoreCase("reload")) {
             if (!sender.hasPermission("flowercore.admin")) {
                 sender.sendMessage(CC.translate(Locale.NO_PERM));
@@ -66,7 +66,7 @@ public class FlowerCoreCommand extends BaseCommand {
                 sender.sendMessage(CC.translate(message));
             }
 
-            FlowerCore.getInstance().getConfigHandler().reloadConfigs();
+            FlowerCore.getINSTANCE().getConfigHandler().reloadConfigs();
 
             long end = System.currentTimeMillis();
             long timeTaken = end - start;

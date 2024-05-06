@@ -10,8 +10,8 @@ import org.bukkit.configuration.file.FileConfiguration;
  */
 
 public class Locale {
-    private static final FileConfiguration messagesConfig = FlowerCore.getInstance().getConfigHandler().getConfigByName("messages.yml");
-    private static final FileConfiguration settingsConfig = FlowerCore.getInstance().getConfigHandler().getConfigByName("settings.yml");
+    private static final FileConfiguration messagesConfig = FlowerCore.getINSTANCE().getConfigHandler().getConfigByName("messages.yml");
+    private static final FileConfiguration settingsConfig = FlowerCore.getINSTANCE().getConfigHandler().getConfigByName("settings.yml");
 
     public static String DEBUG = "&7(Debug) This is not being handled yet.";
     public static String CMD_CANT_BE_USED = "&4This command cannot be used currently because It's still in development.";

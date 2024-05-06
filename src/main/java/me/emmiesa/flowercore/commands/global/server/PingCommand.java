@@ -22,14 +22,14 @@ public class PingCommand extends BaseCommand {
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
 
-        final boolean enablePing = FlowerCore.getInstance().getConfig("messages.yml").getBoolean("ping.enabled");
+        final boolean enablePing = FlowerCore.getINSTANCE().getConfig("messages.yml").getBoolean("ping.enabled");
 
         if (!enablePing) {
             player.sendMessage(CC.translate(getConfigMessage("ping.disabled_message")));
             return;
         }
 
-        final boolean requirePingPermission = FlowerCore.getInstance().getConfig("messages.yml").getBoolean("ping.require_permission", true);
+        final boolean requirePingPermission = FlowerCore.getINSTANCE().getConfig("messages.yml").getBoolean("ping.require_permission", true);
 
         if (requirePingPermission && !player.hasPermission(getConfigMessage("ping.permission"))) {
             player.sendMessage(CC.translate(Locale.NO_PERM));
@@ -69,6 +69,6 @@ public class PingCommand extends BaseCommand {
     }
 
     private String getConfigMessage(String path) {
-        return FlowerCore.getInstance().getConfig("messages.yml").getString(path, "");
+        return FlowerCore.getINSTANCE().getConfig("messages.yml").getString(path, "");
     }
 }

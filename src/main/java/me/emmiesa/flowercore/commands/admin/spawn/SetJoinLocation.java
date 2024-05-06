@@ -25,9 +25,9 @@ public class SetJoinLocation extends BaseCommand {
     public void onCommand(CommandArgs cmd) {
         Player player = (Player) cmd.getSender();
         Location loc = player.getLocation();
-        FlowerCore.getInstance().setSpawnLocation(loc);
+        FlowerCore.getINSTANCE().setSpawnLocation(loc);
 
-        String message = FlowerCore.getInstance().getConfig("messages.yml").getString("spawn-set");
+        String message = FlowerCore.getINSTANCE().getConfig("messages.yml").getString("spawn-set");
         message = message.replace("{world}", loc.getWorld().getName())
                 .replace("{x}", String.format("%.2f", loc.getX()))
                 .replace("{y}", String.format("%.2f", loc.getY()))
@@ -35,10 +35,10 @@ public class SetJoinLocation extends BaseCommand {
                 .replace("{yaw}", String.format("%.2f", loc.getYaw()))
                 .replace("{pitch}", String.format("%.2f", loc.getPitch()));
 
-        if (FlowerCore.getInstance().getConfig("messages.yml").getBoolean("spawn-set-action-bar.enabled")) {
-            String sendMsg = CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("spawn-set-action-bar.message"));
+        if (FlowerCore.getINSTANCE().getConfig("messages.yml").getBoolean("spawn-set-action-bar.enabled")) {
+            String sendMsg = CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("spawn-set-action-bar.message"));
 
-            int duration = FlowerCore.getInstance().getConfig("messages.yml").getInt("spawn-set-action-bar.duration");
+            int duration = FlowerCore.getINSTANCE().getConfig("messages.yml").getInt("spawn-set-action-bar.duration");
 
             sendActionBar(player, sendMsg, duration);
             player.sendMessage(CC.translate(message));
@@ -61,7 +61,7 @@ public class SetJoinLocation extends BaseCommand {
                     }
                     ticksLeft -= 2;
                 }
-            }.runTaskTimer(FlowerCore.getInstance(), 0L, 2L);
+            }.runTaskTimer(FlowerCore.getINSTANCE(), 0L, 2L);
         } catch (Exception e) {
             e.printStackTrace();
         }

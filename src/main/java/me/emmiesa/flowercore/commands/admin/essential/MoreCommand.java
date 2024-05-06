@@ -25,16 +25,16 @@ public class MoreCommand extends BaseCommand {
         ItemStack item = player.getItemInHand();
 
         if (item == null || item.getType() == Material.AIR) {
-            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("more-command.no-item-held")));
+            player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("more-command.no-item-held")));
             return;
         }
         if (item.getAmount() >= 64) {
-            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("more-command.already-a-stack")));
+            player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("more-command.already-a-stack")));
             return;
         }
 
         item.setAmount(64);
         player.updateInventory();
-        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("more-command.given")));
+        player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("more-command.given")));
     }
 }

@@ -29,14 +29,14 @@ public class SudoCommand extends BaseCommand {
         String target = command.getArgs(0);
         String arguments = String.join(" ", java.util.Arrays.copyOfRange(command.getArgs(), 1, command.getArgs().length));
 
-        Player targetPlayer = FlowerCore.getInstance().getServer().getPlayer(target);
+        Player targetPlayer = FlowerCore.getINSTANCE().getServer().getPlayer(target);
 
         if (targetPlayer == null) {
             sender.sendMessage(CC.translate(Locale.PLAYER_NOT_ONLINE).replace("%player%", target));
             return;
         }
 
-        if (FlowerCore.getInstance().getConfig("settings.yml").getBoolean("sudo.exclude-op")) {
+        if (FlowerCore.getINSTANCE().getConfig("settings.yml").getBoolean("sudo.exclude-op")) {
             if (sender instanceof Player && targetPlayer.isOp()) {
                 sender.sendMessage(CC.translate("&c" + targetPlayer.getName() + " &cis too overpowered! You cannot do this action on them!"));
                 return;
@@ -49,9 +49,9 @@ public class SudoCommand extends BaseCommand {
         }
 
         if (command.getArgs(1).startsWith("/")) {
-            sender.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("sudo.command").replace("%target%", targetPlayer.getName()).replace("%arguments%", arguments)));
+            sender.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("sudo.command").replace("%target%", targetPlayer.getName()).replace("%arguments%", arguments)));
         } else {
-            sender.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("sudo.message").replace("%target%", targetPlayer.getName()).replace("%arguments%", arguments)));
+            sender.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("sudo.message").replace("%target%", targetPlayer.getName()).replace("%arguments%", arguments)));
         }
 
         targetPlayer.chat(arguments);

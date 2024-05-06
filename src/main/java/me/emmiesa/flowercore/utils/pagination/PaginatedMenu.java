@@ -68,8 +68,8 @@ public abstract class PaginatedMenu extends Menu {
             }
         }
 
-        buttons.put(0, new PageButton(-1, this));
-        buttons.put(8, new PageButton(1, this));
+        buttons.put(0, new PageButton(this, -1));
+        buttons.put(8, new PageButton(this, 1));
 
 
         Map<Integer, Button> global = getGlobalButtons(player);

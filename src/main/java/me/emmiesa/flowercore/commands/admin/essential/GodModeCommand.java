@@ -36,11 +36,11 @@ public class GodModeCommand extends BaseCommand implements Listener {
         if (godModePlayers.contains(player)) {
             disableGodMode(player);
             player.setAllowFlight(false);
-            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("god-mode.disabled")));
+            player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("god-mode.disabled")));
         } else {
             enableGodMode(player);
             player.setAllowFlight(true);
-            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("god-mode.enabled")));
+            player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("god-mode.enabled")));
         }
     }
 

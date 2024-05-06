@@ -2,10 +2,9 @@ package me.emmiesa.flowercore.menus.ranklist;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.menus.ranklist.button.RankListButton;
-import me.emmiesa.flowercore.ranks.Rank;
+import me.emmiesa.flowercore.rank.Rank;
 import me.emmiesa.flowercore.utils.menu.Button;
 import me.emmiesa.flowercore.utils.pagination.PaginatedMenu;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
@@ -30,7 +29,7 @@ public class RankListMenu extends PaginatedMenu {
 
         int slot = 0;
 
-        for (Rank rank : FlowerCore.getInstance().getRanksManager().getRanks()) {
+        for (Rank rank : FlowerCore.getINSTANCE().getRanksManager().getRanks()) {
             buttons.put(slot, new RankListButton(rank));
             slot++;
         }

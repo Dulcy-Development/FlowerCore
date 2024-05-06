@@ -31,38 +31,37 @@ public class ConversationHandler {
         Player senderPlayer = Bukkit.getServer().getPlayer(sender);
         Player targetPlayer = Bukkit.getServer().getPlayer(target);
 
-        if (targetPlayer == null) {
-            if (senderPlayer != null) {
-                senderPlayer.sendMessage(CC.translate("&cThat player is currently offline."));
-            }
+        if (targetPlayer == null && senderPlayer != null) {
+            senderPlayer.sendMessage(CC.translate("&cThat player is currently offline."));
             return;
         }
 
-        if (!FlowerCore.getInstance().getPlayerManager().getProfile(senderPlayer.getUniqueId()).getPlayerSettings().isPrivateMessagesEnabled()) {
+        assert senderPlayer != null;
+        if (!FlowerCore.getINSTANCE().getPlayerManager().getProfile(senderPlayer.getUniqueId()).getPlayerSettings().isPrivateMessagesEnabled()) {
             senderPlayer.sendMessage(CC.translate("&cYou don't have your private messages enabled."));
             return;
         }
 
-        if (!FlowerCore.getInstance().getPlayerManager().getProfile(targetPlayer.getUniqueId()).getPlayerSettings().isPrivateMessagesEnabled()) {
+        if (!FlowerCore.getINSTANCE().getPlayerManager().getProfile(targetPlayer.getUniqueId()).getPlayerSettings().isPrivateMessagesEnabled()) {
             senderPlayer.sendMessage(CC.translate("&cThat player doesn't have their private messages enabled."));
             return;
         }
 
-        targetPlayer.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("private-messages.conversation.from")
-                .replace("%sender%", FlowerCore.getInstance().getPlayerManager().getPlayerRankColor(senderPlayer.getUniqueId()) + senderPlayer.getName())
+        targetPlayer.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("private-messages.conversation.from")
+                .replace("%sender%", FlowerCore.getINSTANCE().getPlayerManager().getPlayerRankColor(senderPlayer.getUniqueId()) + senderPlayer.getName())
                 .replace("%message%", message)
         ));
 
-        if (FlowerCore.getInstance().getPlayerManager().getProfile(senderPlayer.getUniqueId()).getPlayerSettings().isMessageSoundsEnabled()) {
+        if (FlowerCore.getINSTANCE().getPlayerManager().getProfile(senderPlayer.getUniqueId()).getPlayerSettings().isMessageSoundsEnabled()) {
             targetPlayer.playSound(targetPlayer.getLocation(), Sound.ORB_PICKUP, 1.0F, 1.0F);
         }
 
-        senderPlayer.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("private-messages.conversation.to")
-                .replace("%target%", FlowerCore.getInstance().getPlayerManager().getPlayerRankColor(targetPlayer.getUniqueId()) + targetPlayer.getName())
+        senderPlayer.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("private-messages.conversation.to")
+                .replace("%target%", FlowerCore.getINSTANCE().getPlayerManager().getPlayerRankColor(targetPlayer.getUniqueId()) + targetPlayer.getName())
                 .replace("%message%", message)
         ));
 
-        if (FlowerCore.getInstance().getPlayerManager().getProfile(senderPlayer.getUniqueId()).getPlayerSettings().isMessageSoundsEnabled()) {
+        if (FlowerCore.getINSTANCE().getPlayerManager().getProfile(senderPlayer.getUniqueId()).getPlayerSettings().isMessageSoundsEnabled()) {
             senderPlayer.playSound(senderPlayer.getLocation(), Sound.ORB_PICKUP, 1.0F, 1.0F);
         }
     }

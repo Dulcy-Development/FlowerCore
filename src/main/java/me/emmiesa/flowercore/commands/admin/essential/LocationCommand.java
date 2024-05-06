@@ -23,7 +23,7 @@ public class LocationCommand extends BaseCommand {
         Player player = cmd.getPlayer();
         Location loc = player.getLocation();
 
-        String message = FlowerCore.getInstance().getConfig("messages.yml").getString("current-location");
+        String message = FlowerCore.getINSTANCE().getConfig("messages.yml").getString("current-location");
         message = message.replace("{world}", loc.getWorld().getName())
                 .replace("{x}", String.format("%.2f", loc.getX()))
                 .replace("{y}", String.format("%.2f", loc.getY()))

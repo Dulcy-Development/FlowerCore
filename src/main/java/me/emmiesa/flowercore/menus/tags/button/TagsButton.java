@@ -27,7 +27,7 @@ public class TagsButton extends Button {
 
     @Override
     public ItemStack getButtonItem(Player player) {
-        List<String> customLore = FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/tag-selector.yml").getStringList("tags-lore");
+        List<String> customLore = FlowerCore.getINSTANCE().getConfigHandler().getConfigByName("menus/tag-selector.yml").getStringList("tags-lore");
         customLore.replaceAll(line -> replacePlaceholders(line, player));
 
         return new ItemBuilder(tag.getIcon())
@@ -49,22 +49,22 @@ public class TagsButton extends Button {
         }
 
         if (clickType == ClickType.RIGHT) {
-            FlowerCore.getInstance().getPlayerManager().resetTag(playerUUID);
-            FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
+            FlowerCore.getINSTANCE().getPlayerManager().resetTag(playerUUID);
+            FlowerCore.getINSTANCE().getMongoManager().saveProfile(playerUUID);
             player.sendMessage(CC.translate("&aYour tag has been reset."));
             player.closeInventory();
             return;
         }
 
-        boolean hasTagSelected = FlowerCore.getInstance().getPlayerManager().getTag(playerUUID) != null && FlowerCore.getInstance().getPlayerManager().getTag(playerUUID).equals(tag);
+        boolean hasTagSelected = FlowerCore.getINSTANCE().getPlayerManager().getTag(playerUUID) != null && FlowerCore.getINSTANCE().getPlayerManager().getTag(playerUUID).equals(tag);
 
         if (hasTagSelected) {
             player.sendMessage(CC.translate("&cYou have already selected that tag!"));
             return;
         }
 
-        FlowerCore.getInstance().getPlayerManager().setTag(playerUUID, tag);
-        FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
+        FlowerCore.getINSTANCE().getPlayerManager().setTag(playerUUID, tag);
+        FlowerCore.getINSTANCE().getMongoManager().saveProfile(playerUUID);
         player.sendMessage(CC.translate("&aYou've selected the " + tag.getColor() + tag.getName() + " &atag!"));
         player.closeInventory();
     }
@@ -76,23 +76,23 @@ public class TagsButton extends Button {
         line = line.replace("{tag_color}", tag.getColor());
         line = line.replace("{tag_name}", tag.getName());
         line = line.replace("{player_name}", playerName);
-        line = line.replace("{prefix}", FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix());
-        line = line.replace("{player_color}", FlowerCore.getInstance().getPlayerManager().getPlayerRankColor(playerUUID));
-        boolean hasTagSelected = FlowerCore.getInstance().getPlayerManager().getTag(playerUUID) != null && FlowerCore.getInstance().getPlayerManager().getTag(playerUUID).equals(tag);
+        line = line.replace("{prefix}", FlowerCore.getINSTANCE().getPlayerManager().getRank(playerUUID).getPrefix());
+        line = line.replace("{player_color}", FlowerCore.getINSTANCE().getPlayerManager().getPlayerRankColor(playerUUID));
+        boolean hasTagSelected = FlowerCore.getINSTANCE().getPlayerManager().getTag(playerUUID) != null && FlowerCore.getINSTANCE().getPlayerManager().getTag(playerUUID).equals(tag);
 
         if (hasTagSelected) {
-            line = line.replace("{permission-status}", FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/tag-selector.yml").getString("permission-lore.already-selected")
+            line = line.replace("{permission-status}", FlowerCore.getINSTANCE().getConfigHandler().getConfigByName("menus/tag-selector.yml").getString("permission-lore.already-selected")
                     .replace("{tag_name}", tag.getName())
                     .replace("{tag_color}", tag.getColor())
             );
         } else {
             if (player.hasPermission("flowercore.tag." + tag.getName())) {
-                line = line.replace("{permission-status}", FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/tag-selector.yml").getString("permission-lore.has-permission")
+                line = line.replace("{permission-status}", FlowerCore.getINSTANCE().getConfigHandler().getConfigByName("menus/tag-selector.yml").getString("permission-lore.has-permission")
                         .replace("{tag_name}", tag.getName())
                         .replace("{tag_color}", tag.getColor())
                 );
             } else {
-                line = line.replace("{permission-status}", FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/tag-selector.yml").getString("permission-lore.no-permission")
+                line = line.replace("{permission-status}", FlowerCore.getINSTANCE().getConfigHandler().getConfigByName("menus/tag-selector.yml").getString("permission-lore.no-permission")
                         .replace("{tag_name}", tag.getName())
                         .replace("{tag_color}", tag.getColor())
                 );

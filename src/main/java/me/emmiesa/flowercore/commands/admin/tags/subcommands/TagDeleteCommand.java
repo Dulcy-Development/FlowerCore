@@ -21,7 +21,7 @@ public class TagDeleteCommand extends BaseCommand {
         Player player = command.getPlayer();
 
         String tagName = command.getArgs()[0];
-        Tag tag = FlowerCore.getInstance().getTagsManager().getTag(tagName);
+        Tag tag = FlowerCore.getINSTANCE().getTagsManager().getTag(tagName);
 
         if (command.getArgs().length < 1) {
             player.sendMessage(CC.translate("&cUsage: /tag delete (tag-name)"));
@@ -33,7 +33,7 @@ public class TagDeleteCommand extends BaseCommand {
             return;
         }
 
-        FlowerCore.getInstance().getTagsManager().removeTag(tagName);
+        FlowerCore.getINSTANCE().getTagsManager().removeTag(tagName);
         player.sendMessage(CC.translate("&aSuccessfully deleted the &b" + tagName + " &atag!"));
     }
 }

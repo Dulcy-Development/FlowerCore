@@ -31,20 +31,20 @@ public class NewsMenu extends Menu {
 	public NewsMenu() {
 		this.refillGlassButton = new RefillGlassButton(
 				Material.STAINED_GLASS_PANE,
-				FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/news.yml").getInt("refill-glass.data", 15)
+				FlowerCore.getINSTANCE().getConfigHandler().getConfigByName("menus/news.yml").getInt("refill-glass.data", 15)
 		);
 	}
 
 	@Override
 	public String getTitle(Player player) {
-		return CC.translate(FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/news.yml").getString("title"));
+		return CC.translate(FlowerCore.getINSTANCE().getConfigHandler().getConfigByName("menus/news.yml").getString("title"));
 	}
 
 	@Override
 	public Map<Integer, Button> getButtons(Player player) {
 		Map<Integer, Button> buttons = new HashMap<>();
 
-		ConfigurationSection serversSection = FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/news.yml").getConfigurationSection("items");
+		ConfigurationSection serversSection = FlowerCore.getINSTANCE().getConfigHandler().getConfigByName("menus/news.yml").getConfigurationSection("items");
 
 		if (serversSection != null) {
 			for (String serverKey : serversSection.getKeys(false)) {
@@ -66,7 +66,7 @@ public class NewsMenu extends Menu {
 		}
 
 		// Add refill glass button
-		ConfigurationSection refillGlassSection = FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/news.yml").getConfigurationSection("refill-glass");
+		ConfigurationSection refillGlassSection = FlowerCore.getINSTANCE().getConfigHandler().getConfigByName("menus/news.yml").getConfigurationSection("refill-glass");
 		if (refillGlassSection != null && refillGlassSection.getBoolean("enabled", true)) {
 			List<String> refillSlots = refillGlassSection.getStringList("slots");
 			for (String refillSlot : refillSlots) {
@@ -80,7 +80,7 @@ public class NewsMenu extends Menu {
 
 	@Override
 	public int getSize() {
-		FileConfiguration newsConfig = FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/news.yml");
+		FileConfiguration newsConfig = FlowerCore.getINSTANCE().getConfigHandler().getConfigByName("menus/news.yml");
 		if (newsConfig != null) {
 			return newsConfig.getInt("size", 9 * 3);
 		}

@@ -19,8 +19,7 @@ import java.util.Map;
 @Getter
 public class ConfigHandler {
 
-    private final FlowerCore plugin = FlowerCore.getInstance();
-
+    private final FlowerCore plugin = FlowerCore.getINSTANCE();
     private final Map<String, File> configFiles = new HashMap<>();
     private final Map<String, FileConfiguration> fileConfigurations = new HashMap<>();
 
@@ -34,33 +33,35 @@ public class ConfigHandler {
         }
     }
 
-    private void loadConfig(String fileName) {
-        File configFile = new File(plugin.getDataFolder(), fileName);
-        configFiles.put(fileName, configFile);
-        if (!configFile.exists()) {
-            configFile.getParentFile().mkdirs();
-            plugin.saveResource(fileName, false);
-        }
-
-        FileConfiguration config = YamlConfiguration.loadConfiguration(configFile);
-        fileConfigurations.put(fileName, config);
-    }
-
     public void reloadConfigs() {
         for (String fileName : configFileNames) {
             loadConfig(fileName);
         }
     }
 
-    public void saveConfigs() {
-        for (Map.Entry<String, FileConfiguration> entry : fileConfigurations.entrySet()) {
-            String fileName = entry.getKey();
-            FileConfiguration config = entry.getValue();
-            File configFile = configFiles.get(fileName);
-            saveConfig(configFile, config);
+    /**
+     * Load a config
+     *
+     * @param fileName the name of the config
+     */
+    private void loadConfig(String fileName) {
+        File configFile = new File(plugin.getDataFolder(), fileName);
+        this.configFiles.put(fileName, configFile);
+        if (!configFile.exists()) {
+            configFile.getParentFile().mkdirs();
+            plugin.saveResource(fileName, false);
         }
+
+        FileConfiguration config = YamlConfiguration.loadConfiguration(configFile);
+        this.fileConfigurations.put(fileName, config);
     }
 
+    /**
+     * Save a config
+     *
+     * @param configFile        the config file to save
+     * @param fileConfiguration the config to save
+     */
     public void saveConfig(File configFile, FileConfiguration fileConfiguration) {
         try {
             fileConfiguration.save(configFile);
@@ -70,11 +71,23 @@ public class ConfigHandler {
         }
     }
 
+    /**
+     * Get a config by its name
+     *
+     * @param fileName the name of the config
+     * @return the config
+     */
     public FileConfiguration getConfigByName(String fileName) {
-        return fileConfigurations.get(fileName);
+        return this.fileConfigurations.get(fileName);
     }
 
+    /**
+     * Get a config file by its name
+     *
+     * @param fileName the name of the config
+     * @return the config file
+     */
     public File getConfigFileByName(String fileName) {
-        return configFiles.get(fileName);
+        return this.configFiles.get(fileName);
     }
 }

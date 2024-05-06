@@ -22,7 +22,7 @@ public class PageFilter<T> {
 
     @Override
     public boolean equals(Object object) {
-        return object instanceof PageFilter && ((PageFilter) object).getName().equals(name);
+        return object instanceof PageFilter && ((PageFilter<?>) object).getName().equals(name);
     }
 
 }

@@ -13,9 +13,9 @@ public class NumberUtils {
         try {
             int i = Integer.parseInt(s);
         } catch (NumberFormatException e) {
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 
     public static boolean checkDouble(String s) {

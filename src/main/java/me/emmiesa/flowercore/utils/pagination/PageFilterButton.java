@@ -27,7 +27,7 @@ public class PageFilterButton<T> extends Button {
         List<String> lore = new ArrayList<>();
         lore.add(CC.MENU_BAR);
 
-        for (PageFilter filter : menu.getFilters()) {
+        for (PageFilter<?> filter : menu.getFilters()) {
             String color;
             String decoration = "";
             String icon;
@@ -53,7 +53,7 @@ public class PageFilterButton<T> extends Button {
         lore.add(CC.MENU_BAR);
 
         return new ItemBuilder(Material.HOPPER)
-                .name("&7Filters")
+                .displayName("&7Filters")
                 .lore(lore)
                 .build();
     }

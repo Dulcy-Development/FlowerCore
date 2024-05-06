@@ -30,7 +30,7 @@ public class MuteCommand extends BaseCommand {
             return;
         }
 
-        String defaultReason = FlowerCore.getInstance().getConfig("settings.yml").getString("punishments.default-reason.mute");
+        String defaultReason = FlowerCore.getINSTANCE().getConfig("settings.yml").getString("punishments.default-reason.mute");
 
         String targetName = args.getArgs(0);
         String reason = args.length() > 1 ? args.getArgs(1) : defaultReason;
@@ -42,7 +42,7 @@ public class MuteCommand extends BaseCommand {
         String mutedByName = sender instanceof Player ? ((Player) sender).getName() : "CONSOLE";
 
         Punishment punishment = new Punishment(targetPlayerOffline.getName(), targetPlayerOffline.getUniqueId(), mutedByName, PunishmentType.MUTE, reason, targetPlayer != null ? targetPlayer.getAddress().getAddress().getHostAddress() : "null", false, duration);
-        FlowerCore.getInstance().getPlayerManager().addPunishment(targetPlayerOffline.getUniqueId(), punishment);
+        FlowerCore.getINSTANCE().getPlayerManager().addPunishment(targetPlayerOffline.getUniqueId(), punishment);
 
         if (silent) {
             for (Player player : Bukkit.getOnlinePlayers()) {

@@ -22,11 +22,7 @@ import java.util.List;
 public class Utils {
 
     public static List<Player> getOnlinePlayers() {
-        List<Player> players = new ArrayList<>();
-        for (Player online : Bukkit.getServer().getOnlinePlayers()) {
-            players.add(online);
-        }
-        return players;
+        return new ArrayList<>(Bukkit.getServer().getOnlinePlayers());
     }
 
     public static String formatTime(int timer) {
@@ -63,11 +59,11 @@ public class Utils {
         dataOutput.writeUTF("MessageRaw");
         dataOutput.writeUTF("ALL");
         dataOutput.writeUTF(JSONMessage.create(CC.translate(message))
-                .tooltip(CC.translate(FlowerCore.getInstance().getConfig("settings.yml").getString("announce.hover")))
+                .tooltip(CC.translate(FlowerCore.getINSTANCE().getConfig("settings.yml").getString("announce.hover")))
                 .runCommand("/" + command).toString());
 
         if (player != null) {
-            player.sendPluginMessage(FlowerCore.getInstance(), "BungeeCord", dataOutput.toByteArray());
+            player.sendPluginMessage(FlowerCore.getINSTANCE(), "BungeeCord", dataOutput.toByteArray());
         }
     }
 

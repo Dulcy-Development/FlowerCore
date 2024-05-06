@@ -24,7 +24,7 @@ public class JoinCommand extends BaseCommand {
     public List<String> joinCompleter(CommandArgs args) {
         List<String> commands = new ArrayList<>();
         if (args.getPlayer().hasPermission("flowercore.staff")) {
-            commands.addAll(FlowerCore.getInstance().getConfig("settings.yml").getStringList("bungee-servers"));
+            commands.addAll(FlowerCore.getINSTANCE().getConfig("settings.yml").getStringList("bungee-servers"));
         }
 
         return commands;

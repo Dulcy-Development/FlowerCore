@@ -35,7 +35,7 @@ public class UnMuteCommand extends BaseCommand {
         String playerName = args.getArgs()[0];
         OfflinePlayer targetPlayer = offlinePlayerName(playerName); //To not make it "deprecated". Kept default in UnBlacklist command
 
-        Profile profile = FlowerCore.getInstance().getPlayerManager().getProfile(targetPlayer.getUniqueId());
+        Profile profile = FlowerCore.getINSTANCE().getPlayerManager().getProfile(targetPlayer.getUniqueId());
 
         if (profile == null) {
             sender.sendMessage(CC.translate("&4" + playerName + " &chas never joined this server before."));
@@ -47,14 +47,14 @@ public class UnMuteCommand extends BaseCommand {
             Player onlinePlayer = targetPlayer.getPlayer();
             Utils.broadcastMessage("&c" + targetPlayer.getName() + " &fwas unmuted by &c" + sender.getName());
 
-            FlowerCore.getInstance().getPlayerManager().removePunishment(playerUUID, PunishmentType.MUTE, onlinePlayer.getDisplayName());
-            FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
+            FlowerCore.getINSTANCE().getPlayerManager().removePunishment(playerUUID, PunishmentType.MUTE, onlinePlayer.getDisplayName());
+            FlowerCore.getINSTANCE().getMongoManager().saveProfile(playerUUID);
         } else {
             UUID playerUUID = targetPlayer.getUniqueId();
             Utils.broadcastMessage("&c" + targetPlayer.getName() + " &fwas unmuted by &c" + sender.getName());
 
-            FlowerCore.getInstance().getPlayerManager().removePunishment(playerUUID, PunishmentType.MUTE, targetPlayer.getName());
-            FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
+            FlowerCore.getINSTANCE().getPlayerManager().removePunishment(playerUUID, PunishmentType.MUTE, targetPlayer.getName());
+            FlowerCore.getINSTANCE().getMongoManager().saveProfile(playerUUID);
         }
     }
 

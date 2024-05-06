@@ -2,7 +2,7 @@ package me.emmiesa.flowercore.api;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.profile.Profile;
-import me.emmiesa.flowercore.ranks.Rank;
+import me.emmiesa.flowercore.rank.Rank;
 import me.emmiesa.flowercore.tags.Tag;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -16,65 +16,137 @@ import java.util.UUID;
  */
 
 public class FlowerCoreAPI {
-    static FlowerCore instance = FlowerCore.getInstance();
+    private static final FlowerCore INSTANCE = FlowerCore.getINSTANCE();
 
-    public static Profile getProfile(Player player){
-        if(player == null) {
+    /**
+     * Get the profile of a player
+     *
+     * @param player the player
+     * @return the profile
+     */
+    public static Profile getProfile(Player player) {
+        if (player == null) {
             return null;
         }
 
-        return instance.getPlayerManager().getProfileByUsername(player.getName());
+        return INSTANCE.getPlayerManager().getProfileByUsername(player.getName());
     }
 
-    public static Profile getProfileByUsername(String username){
+    /**
+     * Get the profile of a player by their username
+     *
+     * @param username the username
+     * @return the profile
+     */
+    public static Profile getProfileByUsername(String username) {
         if (Bukkit.getPlayer(username) == null) {
             return null;
         }
 
-        return instance.getPlayerManager().getProfileByUsername(username);
+        return INSTANCE.getPlayerManager().getProfileByUsername(username);
     }
 
-    public static Profile getProfileByUUID(UUID uuid){
+    /**
+     * Get the profile of a player by their UUID
+     *
+     * @param uuid the UUID
+     * @return the profile
+     */
+    public static Profile getProfileByUUID(UUID uuid) {
         if (Bukkit.getPlayer(uuid) == null) {
             return null;
         }
-        return instance.getPlayerManager().getProfile(uuid);
+        return INSTANCE.getPlayerManager().getProfile(uuid);
     }
 
-    public static Rank getRankByName(String name){
-        return instance.getRanksManager().getRank(name);
+    /**
+     * Get a rank by its name
+     *
+     * @param name the name of the rank
+     * @return the rank
+     */
+    public static Rank getRankByName(String name) {
+        return INSTANCE.getRanksManager().getRank(name);
     }
 
-    public static Tag getTagByName(String name){
-        return instance.getTagsManager().getTag(name);
+    /**
+     * Get a tag by its name
+     *
+     * @param name the name of the tag
+     * @return the tag
+     */
+    public static Tag getTagByName(String name) {
+        return INSTANCE.getTagsManager().getTag(name);
     }
 
-    public static boolean isDefaultRank(Rank rank){
-        return rank.getName().equalsIgnoreCase(FlowerCore.getInstance().getRanksManager().getDefaultRank().getName());
+    /**
+     * Check if a rank is the default rank
+     *
+     * @param rank the rank
+     * @return if the rank is the default rank
+     */
+    public static boolean isDefaultRank(Rank rank) {
+        return rank.getName().equalsIgnoreCase(FlowerCore.getINSTANCE().getRanksManager().getDefaultRank().getName());
     }
 
-    public static String getPlayerDisplayName(Profile profile, UUID uuid){
-        return instance.getPlayerManager().getRank(profile.getUuid()).getColor() + instance.getPlayerManager().getProfile(uuid).getUsername();
+    /**
+     * Get the display name of a player
+     *
+     * @param profile the profile of the player
+     * @param uuid    the UUID of the player
+     * @return the display name
+     */
+    public static String getPlayerDisplayName(Profile profile, UUID uuid) {
+        return INSTANCE.getPlayerManager().getRank(profile.getUuid()).getColor() + INSTANCE.getPlayerManager().getProfile(uuid).getUsername();
     }
 
+    /**
+     * Get the prefix of a player
+     *
+     * @param uuid the UUID of the player
+     * @return the prefix
+     */
     public static String getPlayerPrefix(UUID uuid) {
-        return instance.getPlayerManager().getRank(uuid).getPrefix();
+        return INSTANCE.getPlayerManager().getRank(uuid).getPrefix();
     }
 
+    /**
+     * Get the rank of a player
+     *
+     * @param uuid the UUID of the player
+     * @return the rank
+     */
     public static String getPlayerRank(UUID uuid) {
-        return instance.getPlayerManager().getRank(uuid).getDisplayName();
+        return INSTANCE.getPlayerManager().getRank(uuid).getDisplayName();
     }
 
+    /**
+     * Get the name of the rank of a player
+     *
+     * @param uuid the UUID of the player
+     * @return the name of the rank
+     */
     public static String getPlayerRankName(UUID uuid) {
-        return instance.getPlayerManager().getRank(uuid).getName();
+        return INSTANCE.getPlayerManager().getRank(uuid).getName();
     }
 
+    /**
+     * Get the tag of a player
+     *
+     * @param uuid the UUID of the player
+     * @return the tag
+     */
     public static String getPlayerTag(UUID uuid) {
-        return instance.getPlayerManager().getTag(uuid).getDisplayName();
+        return INSTANCE.getPlayerManager().getTag(uuid).getDisplayName();
     }
 
+    /**
+     * Get the name of the tag of a player
+     *
+     * @param uuid the UUID of the player
+     * @return the name of the tag
+     */
     public static String getPlayerTagName(UUID uuid) {
-        return instance.getPlayerManager().getTag(uuid).getName();
+        return INSTANCE.getPlayerManager().getTag(uuid).getName();
     }
-
 }

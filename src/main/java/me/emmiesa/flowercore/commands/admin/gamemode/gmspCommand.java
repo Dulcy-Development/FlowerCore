@@ -36,9 +36,9 @@ public class gmspCommand extends BaseCommand {
             if (target.getGameMode().equals(GameMode.SPECTATOR)) {
                 args.getPlayer().sendMessage(CC.translate("&c" + target.getName() + " is already in Spectator mode."));
             } else {
-                args.getPlayer().sendMessage(CC.translate("&bYou've set &r" + FlowerCore.getInstance().getPlayerManager().getRank(targetUUID).getPrefix() + target.getName() + "&b's gamemode to &3Spectator&b."));
+                args.getPlayer().sendMessage(CC.translate("&bYou've set &r" + FlowerCore.getINSTANCE().getPlayerManager().getRank(targetUUID).getPrefix() + target.getName() + "&b's gamemode to &3Spectator&b."));
                 target.setGameMode(GameMode.SPECTATOR);
-                target.sendMessage(CC.translate("&bYour gamemode has been set to &3spectator &bby &r" + FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix() + args.getPlayer().getName() + " &b."));
+                target.sendMessage(CC.translate("&bYour gamemode has been set to &3spectator &bby &r" + FlowerCore.getINSTANCE().getPlayerManager().getRank(playerUUID).getPrefix() + args.getPlayer().getName() + " &b."));
                 for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
                     if (onlinePlayer.hasPermission("flowercore.staff")) {
                         onlinePlayer.sendMessage(CC.translate("&7&o(" + args.getPlayer().getDisplayName() + "&7&o: Set " + target.getDisplayName() + "&7&o's gamemode spectator)")/*.replace("%prefix%", FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix())))*/);
@@ -48,9 +48,9 @@ public class gmspCommand extends BaseCommand {
         } else {
             Player player = args.getPlayer();
             if (player.getGameMode().equals(GameMode.SPECTATOR)) {
-                player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("gamemode.spectator.is_already")));
+                player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("gamemode.spectator.is_already")));
             } else {
-                player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("gamemode.spectator.switched")));
+                player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("gamemode.spectator.switched")));
                 player.setGameMode(GameMode.SPECTATOR);
                 for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
                     if (onlinePlayer.hasPermission("flowercore.staff")) {

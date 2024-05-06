@@ -27,7 +27,7 @@ public class TeleportPositionCommand extends BaseCommand {
             player.sendMessage("§cUsage: /tppos (x) (y) (z)");
             return;
         }
-        if (!NumberUtils.checkInt(args[0]) || !NumberUtils.checkInt(args[1]) || !NumberUtils.checkInt(args[2])) {
+        if (NumberUtils.checkInt(args[0]) || NumberUtils.checkInt(args[1]) || NumberUtils.checkInt(args[2])) {
             player.sendMessage(CC.translate("&cInvalid value. Please specify numbers."));
             return;
         }
@@ -42,7 +42,7 @@ public class TeleportPositionCommand extends BaseCommand {
         }
 
         player.teleport(loc);
-        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("teleport.tp-pos")
+        player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("teleport.tp-pos")
                 .replace("%x%", String.valueOf(x))
                 .replace("%y%", String.valueOf(y))
                 .replace("%z%", String.valueOf(z)))

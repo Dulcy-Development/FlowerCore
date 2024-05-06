@@ -152,8 +152,8 @@ rank:
   does-not-exist: "&cThe %rank% &crank does not exist!"
   add-perm: "&aSuccessfully added the &r%perm% &apermission to the &r%rank% &arank!"
   created: "&aSuccessfully created the &r%rank% &arank!"
-  saving: "&7Saving all ranks..."
-  saved: "&aSuccessfully saved all ranks!"
+  saving: "&7Saving all rank..."
+  saved: "&aSuccessfully saved all rank!"
   deleted: "&aSuccessfully deleted %rank% &arank!"
   set-color: "&aSuccessfully set &r%color%&l● &aas color of the &r%rank% &arank!"
   set-default: "&aSuccessfully set default &r%state% &afor the &r%rank% &arank!"
@@ -166,7 +166,7 @@ rank:
   save-reminder:
     #A message that gets sent each time you create a new rank.
     enabled: true
-    message: "&c(!) Don't forget to save your ranks by doing /rank save when you're done setting them up (!)"
+    message: "&c(!) Don't forget to save your rank by doing /rank save when you're done setting them up (!)"
 
 clear-chat: "&aThe chat has been cleared by %player%."
 clear-chat-staff: "&8[%server%] &7&o[%player%: Clear chat)"
@@ -306,7 +306,7 @@ on-leave:
 
 announcements:
   enabled: true
-  console-enabled: false #Decides if the announcements should be sent to the console aswell.
+  console-enabled: false #Decides if the announcement should be sent to the console aswell.
   send-every: 120
   bars-format: "&7&m------------------------------"
   announcements:
@@ -334,7 +334,7 @@ announcements:
       - " "
       #- "%bars%"
       - "&b&lAnnouncement:"
-      - " &fBuy ranks and more to get more feature access!"
+      - " &fBuy rank and more to get more feature access!"
       - "  &7► &b%store%"
       #- "%bars%"
       - " "

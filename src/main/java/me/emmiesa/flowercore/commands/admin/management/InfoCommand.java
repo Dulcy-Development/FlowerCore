@@ -39,7 +39,7 @@ public class InfoCommand extends BaseCommand {
 
         UUID playerUUID = offlinePlayer.getUniqueId();
 
-        Document doc = FlowerCore.getInstance().getMongoManager().getCollection().find(eq("UUID", playerUUID.toString())).first();
+        Document doc = FlowerCore.getINSTANCE().getMongoManager().getCollection().find(eq("UUID", playerUUID.toString())).first();
         if (doc == null) {
             sender.sendMessage(CC.translate(" "));
             sender.sendMessage(CC.translate("&cPlayer profile document for &4" + target + " &cnot found."));
@@ -64,11 +64,11 @@ public class InfoCommand extends BaseCommand {
         }
 
         sender.sendMessage(CC.translate(""));
-        sender.sendMessage(CC.translate("&bPlayer Information for " + FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getColor() + target + "&b:"));
+        sender.sendMessage(CC.translate("&bPlayer Information for " + FlowerCore.getINSTANCE().getPlayerManager().getRank(playerUUID).getColor() + target + "&b:"));
         sender.sendMessage(CC.translate(" &f► First Joined: &b" + firstJoinedDate));
         sender.sendMessage(CC.translate(" &f► Last Seen: &b" + lastSeenDate));
-        sender.sendMessage(CC.translate(" &f► Rank: &b" + FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getDisplayName()));
-        sender.sendMessage(CC.translate(" &f► Tag: &b" + (FlowerCore.getInstance().getPlayerManager().getTag(playerUUID) != null ? FlowerCore.getInstance().getPlayerManager().getTag(playerUUID).getColor() + FlowerCore.getInstance().getPlayerManager().getTag(playerUUID).getName() : "&cNone")));
+        sender.sendMessage(CC.translate(" &f► Rank: &b" + FlowerCore.getINSTANCE().getPlayerManager().getRank(playerUUID).getDisplayName()));
+        sender.sendMessage(CC.translate(" &f► Tag: &b" + (FlowerCore.getINSTANCE().getPlayerManager().getTag(playerUUID) != null ? FlowerCore.getINSTANCE().getPlayerManager().getTag(playerUUID).getColor() + FlowerCore.getINSTANCE().getPlayerManager().getTag(playerUUID).getName() : "&cNone")));
         sender.sendMessage(CC.translate(" &7► UUID: &8" + offlinePlayer.getUniqueId()));
         sender.sendMessage(CC.translate(""));
     }

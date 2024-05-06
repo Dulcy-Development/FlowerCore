@@ -2,7 +2,7 @@ package me.emmiesa.flowercore.menus.grant;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.menus.grant.button.GrantButton;
-import me.emmiesa.flowercore.ranks.Rank;
+import me.emmiesa.flowercore.rank.Rank;
 import me.emmiesa.flowercore.utils.menu.Button;
 import me.emmiesa.flowercore.utils.pagination.PaginatedMenu;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -27,14 +27,14 @@ public class GrantMenu extends PaginatedMenu {
 
     @Override
     public String getPrePaginatedTitle(Player player) {
-        return FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/grant.yml").getString("title").replace("%player%", playerName);
+        return FlowerCore.getINSTANCE().getConfigHandler().getConfigByName("menus/grant.yml").getString("title").replace("%player%", playerName);
     }
 
     @Override
     public Map<Integer, Button> getAllPagesButtons(Player player) {
         Map<Integer, Button> buttons = new HashMap<>();
 
-        for (Rank rank : FlowerCore.getInstance().getRanksManager().getRanks()) {
+        for (Rank rank : FlowerCore.getINSTANCE().getRanksManager().getRanks()) {
             buttons.put(buttons.size(), new GrantButton(rank, playerName));
         }
 
@@ -43,7 +43,7 @@ public class GrantMenu extends PaginatedMenu {
 
     @Override
     public int getSize() {
-        FileConfiguration newsConfig = FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/grant.yml");
+        FileConfiguration newsConfig = FlowerCore.getINSTANCE().getConfigHandler().getConfigByName("menus/grant.yml");
         if (newsConfig != null) {
             return newsConfig.getInt("size", 9 * 3);
         }

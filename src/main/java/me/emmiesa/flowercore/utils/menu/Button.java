@@ -11,7 +11,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 public abstract class Button {
 
     public static Button placeholder(final Material material, final byte data, String... title) {
-        return (new Button() {
+        return new Button() {
             public ItemStack getButtonItem(Player player) {
                 ItemStack it = new ItemStack(material, 1, data);
                 ItemMeta meta = it.getItemMeta();
@@ -21,7 +21,7 @@ public abstract class Button {
 
                 return it;
             }
-        });
+        };
     }
 
     public static void playFail(Player player) {
@@ -39,10 +39,6 @@ public abstract class Button {
 
     public static void playNeutral(Player player) {
         player.playSound(player.getLocation(), Sound.NOTE_STICKS, 20F, 15F);
-    }
-
-    public static void playerHightoneExplode(Player player) {
-        player.playSound(player.getLocation(), Sound.EXPLODE, 2.0F, 1.5F);
     }
 
     public abstract ItemStack getButtonItem(Player player);

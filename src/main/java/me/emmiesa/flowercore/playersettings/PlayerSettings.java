@@ -15,5 +15,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class PlayerSettings {
 
-    private boolean globalChatEnabled, privateMessagesEnabled, messageSoundsEnabled;
+    private boolean globalChatEnabled;
+    private boolean privateMessagesEnabled;
+    private boolean messageSoundsEnabled;
 }

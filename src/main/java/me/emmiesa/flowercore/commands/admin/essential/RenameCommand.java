@@ -26,7 +26,7 @@ public class RenameCommand extends BaseCommand {
         Player player = command.getPlayer();
 
         if (command.getArgs().length == 0) {
-            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rename-item.missing-arguments")));
+            player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("rename-item.missing-arguments")));
             return;
         }
 
@@ -34,7 +34,7 @@ public class RenameCommand extends BaseCommand {
 
         ItemStack itemStack = player.getItemInHand();
         if (itemStack == null || itemStack.getType() == Material.AIR) {
-            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rename-item.no-item")));
+            player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("rename-item.no-item")));
             return;
         }
 
@@ -51,7 +51,7 @@ public class RenameCommand extends BaseCommand {
 
         player.updateInventory();
 
-        String renameMessage = FlowerCore.getInstance().getConfig("messages.yml").getString("rename-item.renamed")
+        String renameMessage = FlowerCore.getINSTANCE().getConfig("messages.yml").getString("rename-item.renamed")
                 .replace("%item%", originalName)
                 .replace("%renamed%", itemRename);
         player.sendMessage(CC.translate(renameMessage));

@@ -14,9 +14,9 @@ import java.util.Arrays;
 @AllArgsConstructor
 public class JumpToPageButton extends Button {
 
-    private int page;
     private PaginatedMenu menu;
     private boolean current;
+    private int page;
 
     @Override
     public ItemStack getButtonItem(Player player) {

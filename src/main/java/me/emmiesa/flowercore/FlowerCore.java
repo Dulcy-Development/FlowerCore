@@ -1,70 +1,68 @@
 package me.emmiesa.flowercore;
-// -----------
+
 import lombok.Getter;
 import lombok.Setter;
-// -----------
-import me.emmiesa.flowercore.commands.admin.management.*;
-import me.emmiesa.flowercore.commands.admin.punishments.MuteCommand;
-import me.emmiesa.flowercore.commands.admin.punishments.pardon.UnMuteCommand;
-import me.emmiesa.flowercore.commands.admin.punishments.pardon.UnblacklistCommand;
-import me.emmiesa.flowercore.commands.admin.punishments.pardon.UnbanCommand;
-import me.emmiesa.flowercore.commands.admin.punishments.BlacklistCommand;
-import me.emmiesa.flowercore.commands.admin.tags.TagCommand;
-import me.emmiesa.flowercore.commands.admin.tags.subcommands.*;
-import me.emmiesa.flowercore.commands.global.conversation.MessageCommand;
-import me.emmiesa.flowercore.commands.admin.spawn.TeleportSpawnCommand;
-import me.emmiesa.flowercore.commands.global.conversation.ReplyCommand;
-import me.emmiesa.flowercore.commands.global.menus.SettingsCommand;
-import me.emmiesa.flowercore.commands.global.toggle.ToggleGlobalChatCommand;
-import me.emmiesa.flowercore.commands.global.toggle.TogglePrivateMessageSounds;
-import me.emmiesa.flowercore.commands.global.toggle.TogglePrivateMessagesCommand;
-import me.emmiesa.flowercore.commands.global.worldtime.SunsetCommand;
-import me.emmiesa.flowercore.commands.global.worldtime.NightCommand;
-import me.emmiesa.flowercore.commands.admin.punishments.KickCommand;
-import me.emmiesa.flowercore.commands.admin.punishments.BanCommand;
-import me.emmiesa.flowercore.commands.admin.server.InstanceCommand;
-import me.emmiesa.flowercore.commands.admin.spawn.SetJoinLocation;
-import me.emmiesa.flowercore.commands.global.worldtime.DayCommand;
-import me.emmiesa.flowercore.commands.admin.gamemode.gmspCommand;
+import me.emmiesa.flowercore.announcement.AnnouncementManager;
+import me.emmiesa.flowercore.commands.FlowerCoreCommand;
+import me.emmiesa.flowercore.commands.admin.essential.*;
 import me.emmiesa.flowercore.commands.admin.gamemode.gmaCommand;
 import me.emmiesa.flowercore.commands.admin.gamemode.gmcCommand;
 import me.emmiesa.flowercore.commands.admin.gamemode.gmsCommand;
-import me.emmiesa.flowercore.commands.global.server.JoinCommand;
-import me.emmiesa.flowercore.announcements.AnnouncementManager;
-import me.emmiesa.flowercore.commands.admin.rank.subcommands.*;
+import me.emmiesa.flowercore.commands.admin.gamemode.gmspCommand;
+import me.emmiesa.flowercore.commands.admin.management.*;
+import me.emmiesa.flowercore.commands.admin.punishments.BanCommand;
+import me.emmiesa.flowercore.commands.admin.punishments.BlacklistCommand;
+import me.emmiesa.flowercore.commands.admin.punishments.KickCommand;
+import me.emmiesa.flowercore.commands.admin.punishments.MuteCommand;
+import me.emmiesa.flowercore.commands.admin.punishments.pardon.UnMuteCommand;
+import me.emmiesa.flowercore.commands.admin.punishments.pardon.UnbanCommand;
+import me.emmiesa.flowercore.commands.admin.punishments.pardon.UnblacklistCommand;
 import me.emmiesa.flowercore.commands.admin.rank.GrantCommand;
-import me.emmiesa.flowercore.commands.global.menus.NewsCommand;
-import me.emmiesa.flowercore.commands.donator.AnnounceCommand;
-import me.emmiesa.flowercore.commands.global.server.PingCommand;
 import me.emmiesa.flowercore.commands.admin.rank.RankCommand;
+import me.emmiesa.flowercore.commands.admin.rank.subcommands.*;
+import me.emmiesa.flowercore.commands.admin.server.InstanceCommand;
+import me.emmiesa.flowercore.commands.admin.spawn.SetJoinLocation;
+import me.emmiesa.flowercore.commands.admin.spawn.TeleportSpawnCommand;
 import me.emmiesa.flowercore.commands.admin.tags.TagAdminCommand;
-import me.emmiesa.flowercore.tags.TagsManager;
-import me.emmiesa.flowercore.utils.command.CommandFramework;
-import me.emmiesa.flowercore.database.mongo.MongoManager;
-import me.emmiesa.flowercore.handler.ConversationHandler;
-import me.emmiesa.flowercore.commands.FlowerCoreCommand;
-import me.emmiesa.flowercore.commands.admin.essential.*;
+import me.emmiesa.flowercore.commands.admin.tags.TagCommand;
+import me.emmiesa.flowercore.commands.admin.tags.subcommands.*;
 import me.emmiesa.flowercore.commands.admin.teleport.*;
-import me.emmiesa.flowercore.listeners.CommandListener;
-import me.emmiesa.flowercore.commands.global.socials.*;
-import me.emmiesa.flowercore.listeners.PlayerListeners;
-import me.emmiesa.flowercore.papi.ProfilePlaceholders;
-import me.emmiesa.flowercore.utils.menu.MenuListener;
 import me.emmiesa.flowercore.commands.admin.troll.*;
-import me.emmiesa.flowercore.listeners.ChatListener;
-import me.emmiesa.flowercore.profile.PlayerManager;
+import me.emmiesa.flowercore.commands.donator.AnnounceCommand;
+import me.emmiesa.flowercore.commands.global.conversation.MessageCommand;
+import me.emmiesa.flowercore.commands.global.conversation.ReplyCommand;
+import me.emmiesa.flowercore.commands.global.menus.NewsCommand;
+import me.emmiesa.flowercore.commands.global.menus.SettingsCommand;
+import me.emmiesa.flowercore.commands.global.server.JoinCommand;
+import me.emmiesa.flowercore.commands.global.server.PingCommand;
+import me.emmiesa.flowercore.commands.global.socials.*;
+import me.emmiesa.flowercore.commands.global.toggle.ToggleGlobalChatCommand;
+import me.emmiesa.flowercore.commands.global.toggle.TogglePrivateMessageSounds;
+import me.emmiesa.flowercore.commands.global.toggle.TogglePrivateMessagesCommand;
+import me.emmiesa.flowercore.commands.global.worldtime.DayCommand;
+import me.emmiesa.flowercore.commands.global.worldtime.NightCommand;
+import me.emmiesa.flowercore.commands.global.worldtime.SunsetCommand;
+import me.emmiesa.flowercore.database.mongo.MongoManager;
 import me.emmiesa.flowercore.handler.ConfigHandler;
+import me.emmiesa.flowercore.handler.ConversationHandler;
+import me.emmiesa.flowercore.listeners.ChatListener;
+import me.emmiesa.flowercore.listeners.CommandListener;
+import me.emmiesa.flowercore.listeners.PlayerListener;
+import me.emmiesa.flowercore.placeholder.Placeholder;
+import me.emmiesa.flowercore.profile.PlayerManager;
+import me.emmiesa.flowercore.rank.RanksManager;
+import me.emmiesa.flowercore.tags.TagsManager;
 import me.emmiesa.flowercore.utils.Cooldown;
-import me.emmiesa.flowercore.ranks.RanksManager;
 import me.emmiesa.flowercore.utils.chat.CC;
-// -----------
+import me.emmiesa.flowercore.utils.command.CommandFramework;
+import me.emmiesa.flowercore.utils.menu.MenuListener;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.Location;
-import org.bukkit.Bukkit;
-import org.bukkit.World;
-// -----------
+
 import java.io.File;
 
 @Getter
@@ -72,7 +70,7 @@ import java.io.File;
 public class FlowerCore extends JavaPlugin {
 
     @Getter
-    private static FlowerCore instance;
+    private static FlowerCore INSTANCE;
     private Cooldown announceCooldown;
     private CommandFramework framework;
     private ConversationHandler conversationHandler;
@@ -86,7 +84,7 @@ public class FlowerCore extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        instance = this;
+        INSTANCE = this;
 
         long start = System.currentTimeMillis();
 
@@ -115,7 +113,6 @@ public class FlowerCore extends JavaPlugin {
     private void checkDescription() {
         if (!getDescription().getAuthors().contains("Emmy") || !getDescription().getName().contains("FlowerCore")) {
             System.exit(0);
-            Bukkit.shutdown();
         } else {
             Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Loading..."));
         }
@@ -125,41 +122,37 @@ public class FlowerCore extends JavaPlugin {
         long start = System.currentTimeMillis();
         configHandler = new ConfigHandler();
 
-        framework = new CommandFramework(this);
+        framework = new CommandFramework();
 
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
             Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Successfully registered PlaceholderAPI expansion."));
-            new ProfilePlaceholders().register();
+            new Placeholder().register();
         }
 
         this.tagsManager = new TagsManager();
-        this.tagsManager.load();
+        this.tagsManager.loadConfig();
 
         this.ranksManager = new RanksManager();
-        this.ranksManager.load();
+        this.ranksManager.loadConfig();
 
         this.mongoManager = new MongoManager();
-        this.mongoManager.startMongo();
+        this.mongoManager.initializeMongo();
 
         this.playerManager = new PlayerManager();
 
-        new AnnouncementManager(this);
+        new AnnouncementManager();
 
         long end = System.currentTimeMillis();
         long timeTaken = end - start;
-
         Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Registered all managers in " + timeTaken + "ms."));
     }
 
-
     private void registerHandlers() {
         long start = System.currentTimeMillis();
-
         conversationHandler = new ConversationHandler();
 
         long end = System.currentTimeMillis();
         long timeTaken = end - start;
-
         Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Registered all handlers in " + timeTaken + "ms."));
     }
 
@@ -167,7 +160,7 @@ public class FlowerCore extends JavaPlugin {
         long start = System.currentTimeMillis();
 
         getServer().getPluginManager().registerEvents(new MenuListener(), this);
-        getServer().getPluginManager().registerEvents(new PlayerListeners(this), this);
+        getServer().getPluginManager().registerEvents(new PlayerListener(), this);
         getServer().getPluginManager().registerEvents(new ChatListener(), this);
         getServer().getPluginManager().registerEvents(new CommandListener(), this);
         getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
@@ -182,7 +175,6 @@ public class FlowerCore extends JavaPlugin {
         long start = System.currentTimeMillis();
 
         new FlowerCoreCommand();
-
         new FlyCommand();
         new gmcCommand();
         new gmsCommand();

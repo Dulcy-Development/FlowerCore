@@ -1,14 +1,12 @@
 package me.emmiesa.flowercore.commands.admin.tags.subcommands;
 
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.ranks.Rank;
 import me.emmiesa.flowercore.tags.Tag;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
 import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.Material;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import java.util.Collections;
@@ -37,7 +35,7 @@ public class TagCreateCommand extends BaseCommand {
         List<String> permissions = Collections.singletonList("none");
         Tag tag = new Tag(tagName, "&7", Material.NAME_TAG, "&b");
 
-        FlowerCore.getInstance().getTagsManager().getTags().add(tag);
+        FlowerCore.getINSTANCE().getTagsManager().getTags().add(tag);
 
         player.sendMessage(CC.translate("tag created"));
         //player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.created")).replace("%rank%", tagName));

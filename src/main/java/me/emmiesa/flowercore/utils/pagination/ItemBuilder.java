@@ -19,30 +19,30 @@ import java.util.List;
 
 public class ItemBuilder implements Listener {
 
-    private final ItemStack is;
+    private final ItemStack itemStack;
 
-    public ItemBuilder(Material mat) {
-        is = new ItemStack(mat);
+    public ItemBuilder(Material material) {
+        itemStack = new ItemStack(material);
     }
 
-    public ItemBuilder(ItemStack is) {
-        this.is = is;
+    public ItemBuilder(ItemStack itemStack) {
+        this.itemStack = itemStack;
     }
 
-    public ItemBuilder amount(int amount) {
-        is.setAmount(amount);
+    public ItemBuilder itemAmount(int amount) {
+        itemStack.setAmount(amount);
         return this;
     }
 
-    public ItemBuilder name(String name) {
-        ItemMeta meta = is.getItemMeta();
+    public ItemBuilder displayName(String name) {
+        ItemMeta meta = itemStack.getItemMeta();
         meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
-        is.setItemMeta(meta);
+        itemStack.setItemMeta(meta);
         return this;
     }
 
     public ItemBuilder lore(String name) {
-        ItemMeta meta = is.getItemMeta();
+        ItemMeta meta = itemStack.getItemMeta();
         List<String> lore = meta.getLore();
 
         if (lore == null) {
@@ -52,88 +52,87 @@ public class ItemBuilder implements Listener {
         lore.add(ChatColor.translateAlternateColorCodes('&', name));
         meta.setLore(lore);
 
-        is.setItemMeta(meta);
+        itemStack.setItemMeta(meta);
 
         return this;
     }
 
     public ItemBuilder lore(String... lore) {
         List<String> toSet = new ArrayList<>();
-        ItemMeta meta = is.getItemMeta();
+        ItemMeta meta = itemStack.getItemMeta();
 
         for (String string : lore) {
             toSet.add(ChatColor.translateAlternateColorCodes('&', string));
         }
 
         meta.setLore(toSet);
-        is.setItemMeta(meta);
+        itemStack.setItemMeta(meta);
 
         return this;
     }
 
     public ItemBuilder lore(List<String> lore) {
         List<String> toSet = new ArrayList<>();
-        ItemMeta meta = is.getItemMeta();
+        ItemMeta meta = itemStack.getItemMeta();
 
         for (String string : lore) {
             toSet.add(ChatColor.translateAlternateColorCodes('&', string));
         }
 
         meta.setLore(toSet);
-        is.setItemMeta(meta);
+        itemStack.setItemMeta(meta);
 
         return this;
     }
 
     public ItemBuilder durability(int durability) {
-        is.setDurability((short) durability);
+        itemStack.setDurability((short) durability);
         return this;
     }
 
     public ItemBuilder enchantment(Enchantment enchantment, int level) {
-        is.addUnsafeEnchantment(enchantment, level);
+        itemStack.addUnsafeEnchantment(enchantment, level);
         return this;
     }
 
     public ItemBuilder enchantment(Enchantment enchantment) {
-        is.addUnsafeEnchantment(enchantment, 1);
+        itemStack.addUnsafeEnchantment(enchantment, 1);
         return this;
     }
 
     public ItemBuilder type(Material material) {
-        is.setType(material);
+        itemStack.setType(material);
         return this;
     }
 
     public ItemBuilder clearLore() {
-        ItemMeta meta = is.getItemMeta();
+        ItemMeta meta = itemStack.getItemMeta();
 
         meta.setLore(new ArrayList<>());
-        is.setItemMeta(meta);
+        itemStack.setItemMeta(meta);
 
         return this;
     }
 
     public ItemBuilder clearEnchantments() {
-        for (Enchantment e : is.getEnchantments().keySet()) {
-            is.removeEnchantment(e);
+        for (Enchantment e : itemStack.getEnchantments().keySet()) {
+            itemStack.removeEnchantment(e);
         }
 
         return this;
     }
 
     public ItemBuilder clearFlags() {
-        ItemMeta itemMeta = is.getItemMeta();
+        ItemMeta itemMeta = itemStack.getItemMeta();
         itemMeta.addItemFlags(ItemFlag.values());
 
-        is.setItemMeta(itemMeta);
+        itemStack.setItemMeta(itemMeta);
 
         return this;
     }
 
 
     public ItemStack build() {
-        return is;
+        return itemStack;
     }
-
 }

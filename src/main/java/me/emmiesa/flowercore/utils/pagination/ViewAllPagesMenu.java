@@ -32,7 +32,7 @@ public class ViewAllPagesMenu extends Menu {
         int index = 10;
 
         for (int i = 1; i <= menu.getPages(player); i++) {
-            buttons.put(index++, new JumpToPageButton(i, menu, menu.getPage() == i));
+            buttons.put(index++, new JumpToPageButton(menu, menu.getPage() == i, i));
 
             if ((index - 8) % 9 == 0) {
                 index += 2;

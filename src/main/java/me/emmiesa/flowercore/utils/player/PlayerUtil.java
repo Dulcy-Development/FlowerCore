@@ -21,7 +21,7 @@ import static com.mongodb.client.model.Filters.eq;
  */
 
 public class PlayerUtil {
-    public static UUID findUUIDByName(String playerName) {
+    public static UUID getUUIDByName(String playerName) {
         for (OfflinePlayer player : Bukkit.getOfflinePlayers()) {
             if (player.getName() != null && player.getName().equalsIgnoreCase(playerName)) {
                 return player.getUniqueId();
@@ -30,31 +30,24 @@ public class PlayerUtil {
         return null;
     }
 
-    public static String getPlayerIpAddressFromDoc(Document playerDoc) {
-        return playerDoc.getString("currentIpAddress");
+    public static String getPlayerIpAddressFromDocument(Document playerDocument) {
+        return playerDocument.getString("currentIpAddress");
     }
 
     public static Document getPlayerDocument(CommandSender sender, String playerName) {
-        MongoCollection<Document> collection = FlowerCore.getInstance().getMongoManager().getCollection();
+        MongoCollection<Document> collection = FlowerCore.getINSTANCE().getMongoManager().getCollection();
         return collection.find(eq("username", playerName)).first();
     }
 
-    public static UUID getPlayerUUIDfromDocument(String playerName) {
-        MongoCollection<Document> collection = FlowerCore.getInstance().getMongoManager().getCollection();
+    public static UUID getPlayerUUIDFromDocument(String playerName) {
+        MongoCollection<Document> collection = FlowerCore.getINSTANCE().getMongoManager().getCollection();
         Document playerDoc = collection.find(eq("username", playerName)).first();
-        if (playerDoc != null) {
-            return UUID.fromString(playerDoc.getString("UUID"));
-        } else {
-            return null;
-        }
+        return playerDoc != null ? UUID.fromString(playerDoc.getString("UUID")) : null;
     }
 
     public static List<String> getPlayerIpList(Player player) {
         List<String> ipList = new ArrayList<>();
-        if (player != null) {
-            ipList.add(player.getAddress().getAddress().getHostAddress());
-        }
+        if (player != null) ipList.add(player.getAddress().getAddress().getHostAddress());
         return ipList;
     }
-
 }

@@ -22,12 +22,14 @@ import java.util.UUID;
 
 public class ChatListener implements Listener {
 
+    private final FlowerCore plugin = FlowerCore.getINSTANCE();
+
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
         UUID playerUUID = player.getUniqueId();
 
-        Profile profile = FlowerCore.getInstance().getPlayerManager().getProfile(playerUUID);
+        Profile profile = plugin.getPlayerManager().getProfile(playerUUID);
         List<Punishment> punishments = profile.getPunishments();
         if (punishments == null) {
             return;
@@ -45,7 +47,7 @@ public class ChatListener implements Listener {
             }
         }
 
-        if (!FlowerCore.getInstance().getPlayerManager().getProfile(playerUUID).getPlayerSettings().isGlobalChatEnabled()) {
+        if (!plugin.getPlayerManager().getProfile(playerUUID).getPlayerSettings().isGlobalChatEnabled()) {
             player.sendMessage(CC.translate("&cYou've disabled global chat!"));
             event.getRecipients().remove(event.getPlayer());
             event.setCancelled(true);
@@ -53,15 +55,14 @@ public class ChatListener implements Listener {
         }
 
         boolean translate = player.hasPermission("flowercore.staff");
+        String prefix = CC.translate(plugin.getPlayerManager().getRank(playerUUID).getPrefix());
+        String suffix = CC.translate(plugin.getPlayerManager().getRank(playerUUID).getSuffix());
 
-        String prefix = CC.translate(FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix());
-        String suffix = CC.translate(FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getSuffix());
-        Tag tag = FlowerCore.getInstance().getPlayerManager().getTag(playerUUID);
+        Tag tag = plugin.getPlayerManager().getTag(playerUUID);
         String tagPlaceholder = (tag != null) ? CC.translate(tag.getDisplayName()) : "";
 
         String message = translate ? CC.translate(event.getMessage()) : event.getMessage();
-
-        String chatFormat = FlowerCore.getInstance().getConfig("settings.yml").getString("chat.format")
+        String chatFormat = plugin.getConfig("settings.yml").getString("chat.format")
                 .replace("{prefix}", prefix)
                 .replace("{player}", player.getName())
                 .replace("{message}", message)

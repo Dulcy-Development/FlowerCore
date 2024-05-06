@@ -24,16 +24,16 @@ public class TeleportSpawnCommand extends BaseCommand {
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
 
-        if (FlowerCore.getInstance().getConfig("settings.yml").getBoolean("on-join.teleport.enabled")) {
-            player.teleport(FlowerCore.getInstance().getSpawnLocation());
-            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("teleport.tp-spawn")));
+        if (FlowerCore.getINSTANCE().getConfig("settings.yml").getBoolean("on-join.teleport.enabled")) {
+            player.teleport(FlowerCore.getINSTANCE().getSpawnLocation());
+            player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("teleport.tp-spawn")));
 
-            String sendMsg = CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("teleport.tp-spawn-action-bar"));
+            String sendMsg = CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("teleport.tp-spawn-action-bar"));
 
             sendActionBar(player, sendMsg, 5);
 
         } else {
-            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("spawn.not-set.reminder.message")));
+            player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("spawn.not-set.reminder.message")));
         }
     }
 
@@ -51,7 +51,7 @@ public class TeleportSpawnCommand extends BaseCommand {
                         PacketPlayOutChat clearPacket = new PacketPlayOutChat(clearChatBaseComponent, (byte) 2);
                         ((CraftPlayer) player).getHandle().playerConnection.sendPacket(clearPacket);
                     }
-                }.runTaskLater(FlowerCore.getInstance(), durationSeconds * 20L);
+                }.runTaskLater(FlowerCore.getINSTANCE(), durationSeconds * 20L);
             }
         } catch (Exception e) {
             e.printStackTrace();

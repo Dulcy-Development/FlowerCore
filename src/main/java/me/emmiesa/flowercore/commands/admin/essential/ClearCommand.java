@@ -25,33 +25,33 @@ public class ClearCommand extends BaseCommand {
 
         if (command.getArgs().length == 0) {
             if (isInventoryClear(player)) {
-                player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("clear.already-clear")));
+                player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("clear.already-clear")));
                 return;
             }
 
             player.getInventory().clear();
-            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("clear.cleared")));
+            player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("clear.cleared")));
 
         } else if (command.getArgs().length == 1) {
             Player targetPlayer = player.getServer().getPlayer(command.getArgs()[0]);
             if (targetPlayer == null) {
-                player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("clear.target-not-found")).replace("%target%", command.getArgs()[0]));
+                player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("clear.target-not-found")).replace("%target%", command.getArgs()[0]));
                 return;
             }
 
             if (isInventoryClear(targetPlayer)) {
-                player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("clear.target-already-clear")).replace("%target%", targetPlayer.getDisplayName()));
+                player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("clear.target-already-clear")).replace("%target%", targetPlayer.getDisplayName()));
                 return;
             }
 
             targetPlayer.getInventory().clear();
-            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("clear.cleared-by"))
+            player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("clear.cleared-by"))
                     .replace("%player%", targetPlayer.getDisplayName())
-                    .replace("%player-color%", CC.translate(FlowerCore.getInstance().getPlayerManager().getRank(player.getUniqueId()).getColor())));
+                    .replace("%player-color%", CC.translate(FlowerCore.getINSTANCE().getPlayerManager().getRank(player.getUniqueId()).getColor())));
 
-            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("clear.target-cleared"))
+            player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("clear.target-cleared"))
                     .replace("%target%", targetPlayer.getDisplayName())
-                    .replace("%target-color%", CC.translate(FlowerCore.getInstance().getPlayerManager().getRank(targetPlayer.getUniqueId()).getColor())));
+                    .replace("%target-color%", CC.translate(FlowerCore.getINSTANCE().getPlayerManager().getRank(targetPlayer.getUniqueId()).getColor())));
         }
     }
 

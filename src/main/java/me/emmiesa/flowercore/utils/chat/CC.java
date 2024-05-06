@@ -128,10 +128,10 @@ public class CC {
 
     public static void listRanks(CommandSender sender) {
         sender.sendMessage(" ");
-        sender.sendMessage(CC.translate("&fAll registered FlowerCore ranks:"));
-        FileConfiguration ranksConfig = FlowerCore.getInstance().getConfig("ranks.yml");
-        for (String rankName : ranksConfig.getConfigurationSection("ranks").getKeys(false)) {
-            String displayName = ranksConfig.getString("ranks." + rankName + ".displayName", rankName);
+        sender.sendMessage(CC.translate("&fAll registered FlowerCore rank:"));
+        FileConfiguration ranksConfig = FlowerCore.getINSTANCE().getConfig("ranks.yml");
+        for (String rankName : ranksConfig.getConfigurationSection("rank").getKeys(false)) {
+            String displayName = ranksConfig.getString("rank." + rankName + ".displayName", rankName);
             sender.sendMessage(CC.translate(" &f- &b" + displayName));
         }
     }
@@ -139,7 +139,7 @@ public class CC {
     public static void listTags(CommandSender sender) {
         sender.sendMessage(" ");
         sender.sendMessage(CC.translate("&fAll registered FlowerCore tags:"));
-        FileConfiguration tagsConfig = FlowerCore.getInstance().getConfig("tags.yml");
+        FileConfiguration tagsConfig = FlowerCore.getINSTANCE().getConfig("tags.yml");
         for (String tagName : tagsConfig.getConfigurationSection("tags").getKeys(false)) {
             String displayName = tagsConfig.getString("tags." + tagName + ".displayName", tagName);
             sender.sendMessage(CC.translate(" &f- &b" + displayName));
@@ -148,10 +148,10 @@ public class CC {
 
     public static void listRanks() {
         Bukkit.getConsoleSender().sendMessage(" ");
-        Bukkit.getConsoleSender().sendMessage(CC.translate("&fAll registered FlowerCore ranks:"));
-        FileConfiguration ranksConfig = FlowerCore.getInstance().getConfig("ranks.yml");
-        for (String rankName : ranksConfig.getConfigurationSection("ranks").getKeys(false)) {
-            String displayName = ranksConfig.getString("ranks." + rankName + ".displayName", rankName);
+        Bukkit.getConsoleSender().sendMessage(CC.translate("&fAll registered FlowerCore rank:"));
+        FileConfiguration ranksConfig = FlowerCore.getINSTANCE().getConfig("ranks.yml");
+        for (String rankName : ranksConfig.getConfigurationSection("rank").getKeys(false)) {
+            String displayName = ranksConfig.getString("rank." + rankName + ".displayName", rankName);
             Bukkit.getConsoleSender().sendMessage(CC.translate(" &f- &b" + displayName));
         }
     }
@@ -159,7 +159,7 @@ public class CC {
     public static void listTags() {
         Bukkit.getConsoleSender().sendMessage(" ");
         Bukkit.getConsoleSender().sendMessage(CC.translate("&fAll registered FlowerCore tags:"));
-        FileConfiguration tagsConfig = FlowerCore.getInstance().getConfig("tags.yml");
+        FileConfiguration tagsConfig = FlowerCore.getINSTANCE().getConfig("tags.yml");
         for (String tagName : tagsConfig.getConfigurationSection("tags").getKeys(false)) {
             String displayName = tagsConfig.getString("tags." + tagName + ".displayName", tagName);
             Bukkit.getConsoleSender().sendMessage(CC.translate(" &f- &b" + displayName));
@@ -167,11 +167,11 @@ public class CC {
     }
 
     public static void connect() {
-        Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getPrefix() + "&fConnecting to Mongo Database..."));
-        Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getPrefix() + " &fMongo Database"));
-        Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getPrefix() + "  &f> Host: &f" + FlowerCore.getInstance().getConfig("database.yml").getString("database.uri")));
-        Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getPrefix() + "  &f> Database: &f" + FlowerCore.getInstance().getConfig("database.yml").getString("database.database-name")));
-        Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getPrefix() + "&fSuccessfully connected to Mongo Database!"));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getINSTANCE().getPrefix() + "&fConnecting to Mongo Database..."));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getINSTANCE().getPrefix() + " &fMongo Database"));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getINSTANCE().getPrefix() + "  &f> Host: &f" + FlowerCore.getINSTANCE().getConfig("database.yml").getString("database.uri")));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getINSTANCE().getPrefix() + "  &f> Database: &f" + FlowerCore.getINSTANCE().getConfig("database.yml").getString("database.database-name")));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getINSTANCE().getPrefix() + "&fSuccessfully connected to Mongo Database!"));
     }
 
     public static void sendCustomFont() {
@@ -188,18 +188,18 @@ public class CC {
     public static void on(long timeTaken) {
         Bukkit.getConsoleSender().sendMessage(" ");
         Bukkit.getConsoleSender().sendMessage(CC.translate("&8&m-----------------------------------------------"));
-        Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Plugin: &b" + FlowerCore.getInstance().getDescription().getName()));
-        Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Authors: &b" + FlowerCore.getInstance().getDescription().getAuthors().toString().replace("[", "").replace("]", "")));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Plugin: &b" + FlowerCore.getINSTANCE().getDescription().getName()));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Authors: &b" + FlowerCore.getINSTANCE().getDescription().getAuthors().toString().replace("[", "").replace("]", "")));
         Bukkit.getConsoleSender().sendMessage(CC.translate(" "));
-        Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Version: &b" + FlowerCore.getInstance().getDescription().getVersion()));
-        Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Link: &b" + FlowerCore.getInstance().getDescription().getWebsite()));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Version: &b" + FlowerCore.getINSTANCE().getDescription().getVersion()));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Link: &b" + FlowerCore.getINSTANCE().getDescription().getWebsite()));
         Bukkit.getConsoleSender().sendMessage(CC.translate(" "));
         Bukkit.getConsoleSender().sendMessage(CC.translate(" &7| Bukkit Server Name: &b" + Bukkit.getServerName()));
         Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Server Name: &b" + Locale.SERVER_NAME));
         Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Spigot: &b" + Bukkit.getName()));
         Bukkit.getConsoleSender().sendMessage(CC.translate(" "));
-        Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Ranks: &b" + FlowerCore.getInstance().getConfig("ranks.yml").getConfigurationSection("ranks").getKeys(false).size()));
-        Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Tags: &b" + FlowerCore.getInstance().getConfig("tags.yml").getConfigurationSection("tags").getKeys(false).size()));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Ranks: &b" + FlowerCore.getINSTANCE().getConfig("ranks.yml").getConfigurationSection("rank").getKeys(false).size()));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Tags: &b" + FlowerCore.getINSTANCE().getConfig("tags.yml").getConfigurationSection("tags").getKeys(false).size()));
         Bukkit.getConsoleSender().sendMessage(CC.translate(" "));
         Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Load time: &b" + (timeTaken) + " &bms"));
         Bukkit.getConsoleSender().sendMessage(CC.translate("&8&m-----------------------------------------------"));

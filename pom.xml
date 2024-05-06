@@ -61,6 +61,10 @@
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
         <repository>
+            <id>placeholderapi</id>
+            <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
+        </repository>
+        <repository>
             <id>sonatype</id>
             <url>https://oss.sonatype.org/content/groups/public/</url>
         </repository>
@@ -87,16 +91,13 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.12</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/lombok-1.18.12.jar</systemPath>
         </dependency>
 
         <dependency>
             <groupId>me.clip</groupId>
             <artifactId>placeholderapi</artifactId>
-            <version>3.8.2</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/PlaceHolderAPI.jar</systemPath>
+            <version>2.11.5</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>

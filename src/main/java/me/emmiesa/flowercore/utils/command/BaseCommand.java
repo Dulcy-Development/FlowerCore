@@ -4,7 +4,7 @@ import me.emmiesa.flowercore.FlowerCore;
 
 public abstract class BaseCommand {
 
-    public FlowerCore main = FlowerCore.getInstance();
+    public FlowerCore main = FlowerCore.getINSTANCE();
 
     public BaseCommand() {
         main.getFramework().registerCommands(this);

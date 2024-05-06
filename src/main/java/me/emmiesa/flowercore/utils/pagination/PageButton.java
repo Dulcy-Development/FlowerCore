@@ -2,7 +2,6 @@ package me.emmiesa.flowercore.utils.pagination;
 
 import lombok.AllArgsConstructor;
 import me.emmiesa.flowercore.utils.chat.CC;
-import me.emmiesa.flowercore.utils.pagination.ItemBuilder;
 import me.emmiesa.flowercore.utils.menu.Button;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -15,15 +14,15 @@ import java.util.Arrays;
 @AllArgsConstructor
 public class PageButton extends Button {
 
-    private int mod;
     private PaginatedMenu menu;
+    private int mod;
 
     @Override
     public ItemStack getButtonItem(Player player) {
         if (this.mod > 0) {
             if (hasNext(player)) {
                 return new ItemBuilder(Material.REDSTONE_TORCH_ON)
-                        .name(CC.translate("&bNext Page"))
+                        .displayName(CC.translate("&bNext Page"))
                         .lore(Arrays.asList(
                                 CC.translate("&aClick here to jump"),
                                 CC.translate("&ato the next page.")
@@ -32,7 +31,7 @@ public class PageButton extends Button {
                         .build();
             } else {
                 return new ItemBuilder(Material.LEVER)
-                        .name(CC.translate("&cNext Page"))
+                        .displayName(CC.translate("&cNext Page"))
                         .lore(Arrays.asList(
                                 ChatColor.RED + "There is no available",
                                 ChatColor.RED + "next page."
@@ -43,7 +42,7 @@ public class PageButton extends Button {
         } else {
             if (hasPrevious(player)) {
                 return new ItemBuilder(Material.REDSTONE_TORCH_ON)
-                        .name(CC.translate("&6Previous Page"))
+                        .displayName(CC.translate("&6Previous Page"))
                         .lore(Arrays.asList(
                                 ChatColor.GOLD + "Click here to jump",
                                 ChatColor.GOLD + "to the previous page."
@@ -52,7 +51,7 @@ public class PageButton extends Button {
                         .build();
             } else {
                 return new ItemBuilder(Material.LEVER)
-                        .name(CC.translate("&cPrevious Page"))
+                        .displayName(CC.translate("&cPrevious Page"))
                         .lore(Arrays.asList(
                                 ChatColor.RED + "There is no available",
                                 ChatColor.RED + "previous page."

@@ -25,12 +25,12 @@ public class FlyCommand extends BaseCommand {
             player.setAllowFlight(!player.getAllowFlight());
 
             if (player.getAllowFlight()) {
-                player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("fly.enabled")));
+                player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("fly.enabled")));
             } else {
-                player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("fly.disabled")));
+                player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("fly.disabled")));
             }
         } else {
-            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("fly.not-in-survival")));
+            player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("fly.not-in-survival")));
         }
     }
 }

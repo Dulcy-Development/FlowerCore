@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import me.emmiesa.flowercore.playersettings.PlayerSettings;
 import me.emmiesa.flowercore.punishments.Punishment;
-import me.emmiesa.flowercore.ranks.Rank;
+import me.emmiesa.flowercore.rank.Rank;
 import me.emmiesa.flowercore.tags.Tag;
 
 import java.util.List;

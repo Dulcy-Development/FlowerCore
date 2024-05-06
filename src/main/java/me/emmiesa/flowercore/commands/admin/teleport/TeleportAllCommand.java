@@ -22,6 +22,6 @@ public class TeleportAllCommand extends BaseCommand {
         Player player = cmd.getPlayer();
 
         for (Player onlinePlayers : Bukkit.getOnlinePlayers()) onlinePlayers.teleport(player.getLocation());
-        Utils.broadcastMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("teleport.tp-all").replace("%player%", player.getDisplayName())));
+        Utils.broadcastMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("teleport.tp-all").replace("%player%", player.getDisplayName())));
     }
 }

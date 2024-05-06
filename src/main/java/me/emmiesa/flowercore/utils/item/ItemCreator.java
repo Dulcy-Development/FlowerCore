@@ -17,7 +17,7 @@ import java.util.List;
 
 public class ItemCreator {
 
-    private ItemStack itemStack;
+    private final ItemStack itemStack;
 
     public ItemCreator(Material material) {
         this.itemStack = new ItemStack(material, 1);

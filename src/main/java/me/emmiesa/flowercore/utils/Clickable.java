@@ -17,16 +17,7 @@ import org.bukkit.entity.Player;
  */
 
 public class Clickable {
-    private List<TextComponent> components = new ArrayList();
-
-    public Clickable(String msg) {
-        TextComponent message = new TextComponent(msg);
-        this.components.add(message);
-    }
-
-    public Clickable(String msg, String hoverMsg, String clickString) {
-        this.add(msg, hoverMsg, clickString);
-    }
+    private final List<TextComponent> components = new ArrayList<>();
 
     public TextComponent add(String msg, String hoverMsg, String clickString) {
         TextComponent message = new TextComponent(msg);
@@ -51,9 +42,6 @@ public class Clickable {
     }
 
     public TextComponent[] asComponents() {
-        return (TextComponent[])this.components.toArray(new TextComponent[0]);
-    }
-
-    public Clickable() {
+        return this.components.toArray(new TextComponent[0]);
     }
 }

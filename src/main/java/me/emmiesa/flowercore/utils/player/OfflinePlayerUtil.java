@@ -10,7 +10,7 @@ import org.bukkit.OfflinePlayer;
  */
 
 public class OfflinePlayerUtil {
-    public static OfflinePlayer offlinePlayerName(String playerName) {
+    public static OfflinePlayer getOfflinePlayer(String playerName) {
         for (OfflinePlayer player : Bukkit.getOfflinePlayers()) {
             if (player.getName() != null && player.getName().equalsIgnoreCase(playerName)) {
                 return player;

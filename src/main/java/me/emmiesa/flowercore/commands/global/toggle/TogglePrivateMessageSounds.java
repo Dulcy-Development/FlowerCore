@@ -24,11 +24,11 @@ public class TogglePrivateMessageSounds extends BaseCommand {
         Player player = command.getPlayer();
         UUID playerUUID = player.getUniqueId();
 
-        Profile profile = FlowerCore.getInstance().getPlayerManager().getProfile(playerUUID);
+        Profile profile = FlowerCore.getINSTANCE().getPlayerManager().getProfile(playerUUID);
         PlayerSettings playerSettings = profile.getPlayerSettings();
 
         playerSettings.setMessageSoundsEnabled(!playerSettings.isMessageSoundsEnabled());
-        FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
+        FlowerCore.getINSTANCE().getMongoManager().saveProfile(playerUUID);
 
         String context = playerSettings.isMessageSoundsEnabled() ? CC.translate("&aenabled") : CC.translate("&cdisabled");
         player.sendMessage(CC.translate("&bYou've {context} &byour message sounds.").replace("{context}", context));

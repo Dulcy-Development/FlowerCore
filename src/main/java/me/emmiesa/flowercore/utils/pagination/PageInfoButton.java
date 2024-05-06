@@ -18,7 +18,7 @@ public class PageInfoButton extends Button {
         int pages = menu.getPages(player);
 
         return new ItemBuilder(Material.PAPER)
-                .name(ChatColor.GOLD + "Page Info")
+                .displayName(ChatColor.GOLD + "Page Info")
                 .lore(
                         ChatColor.YELLOW + "You are viewing page #" + menu.getPage() + ".",
                         ChatColor.YELLOW + (pages == 1 ? "There is 1 page." : "There are " + pages + " pages."),

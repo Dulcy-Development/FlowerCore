@@ -5,7 +5,7 @@ import lombok.Getter;
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.punishments.Punishment;
 import me.emmiesa.flowercore.punishments.PunishmentType;
-import me.emmiesa.flowercore.ranks.Rank;
+import me.emmiesa.flowercore.rank.Rank;
 import me.emmiesa.flowercore.tags.Tag;
 import me.emmiesa.flowercore.utils.Utils;
 import org.bson.Document;
@@ -29,8 +29,8 @@ import static com.mongodb.client.model.Filters.eq;
 
 @Getter
 public class PlayerManager {
-    private final FlowerCore plugin = FlowerCore.getInstance();
-    public Map<UUID, Profile> profiles = new ConcurrentHashMap<>();
+    private final FlowerCore plugin = FlowerCore.getINSTANCE();
+    private final Map<UUID, Profile> profiles = new ConcurrentHashMap<>();
 
     public void setupPlayer(UUID playerUUID) {
         getPlugin().getMongoManager().initializeProfile(playerUUID);
@@ -59,6 +59,7 @@ public class PlayerManager {
     public void setRank(UUID playerUUID, Rank rank) {
         getProfiles().get(playerUUID).setRank(rank);
     }
+
     public void setTag(UUID playerUUID, Tag tag) {
         getProfiles().get(playerUUID).setTag(tag);
     }
@@ -97,30 +98,26 @@ public class PlayerManager {
     }
 
     public Rank getRank(UUID playerUUID) {
-        if(Bukkit.getPlayer(playerUUID) != null){
+        if (Bukkit.getPlayer(playerUUID) != null) {
             return getProfiles().get(playerUUID).getRank();
-        }
-        else{
-            Document doc = FlowerCore.getInstance().getMongoManager().getCollection().find(eq("UUID", playerUUID.toString())).first();
-            if(doc !=null){
-                return FlowerCore.getInstance().getRanksManager().getRank(doc.getString("rank"));
-            }
-            else {
+        } else {
+            Document doc = FlowerCore.getINSTANCE().getMongoManager().getCollection().find(eq("UUID", playerUUID.toString())).first();
+            if (doc != null) {
+                return FlowerCore.getINSTANCE().getRanksManager().getRank(doc.getString("rank"));
+            } else {
                 return null;
             }
         }
     }
 
     public Tag getTag(UUID playerUUID) {
-        if(Bukkit.getPlayer(playerUUID) != null){
+        if (Bukkit.getPlayer(playerUUID) != null) {
             return getProfiles().get(playerUUID).getTag();
-        }
-        else{
-            Document doc = FlowerCore.getInstance().getMongoManager().getCollection().find(eq("UUID", playerUUID.toString())).first();
-            if(doc !=null){
-                return FlowerCore.getInstance().getTagsManager().getTag(doc.getString("tag"));
-            }
-            else {
+        } else {
+            Document doc = FlowerCore.getINSTANCE().getMongoManager().getCollection().find(eq("UUID", playerUUID.toString())).first();
+            if (doc != null) {
+                return FlowerCore.getINSTANCE().getTagsManager().getTag(doc.getString("tag"));
+            } else {
                 return null;
             }
         }
@@ -129,7 +126,7 @@ public class PlayerManager {
     public String getPlayerRankColor(UUID playerUUID) {
         Rank rank = getRank(playerUUID);
         if (rank != null) {
-            String color = plugin.getConfig("ranks.yml").getString("ranks." + rank.getName() + ".color");
+            String color = plugin.getConfig("ranks.yml").getString("rank." + rank.getName() + ".color");
             if (color != null) {
                 return color;
             }

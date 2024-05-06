@@ -22,9 +22,9 @@ import java.util.List;
 @Setter
 public class TagsManager {
     private final List<Tag> tags = new ArrayList<>();
-    private final FlowerCore plugin = FlowerCore.getInstance();
+    private final FlowerCore plugin = FlowerCore.getINSTANCE();
 
-    public void load() {
+    public void loadConfig() {
         FileConfiguration config = plugin.getConfigHandler().getConfigByName("tags.yml");
         if (config == null || config.getConfigurationSection("tags") == null) {
             return;
@@ -60,13 +60,13 @@ public class TagsManager {
 
         tags.remove(tag);
 
-        FileConfiguration config = FlowerCore.getInstance().getConfigHandler().getConfigByName("tags.yml");
-        File file = FlowerCore.getInstance().getConfigHandler().getConfigFileByName("tags.yml");
+        FileConfiguration config = FlowerCore.getINSTANCE().getConfigHandler().getConfigByName("tags.yml");
+        File file = FlowerCore.getINSTANCE().getConfigHandler().getConfigFileByName("tags.yml");
 
         String key = "tags." + tagName;
         config.set(key, null);
 
-        FlowerCore.getInstance().getConfigHandler().saveConfig(file, config);
+        FlowerCore.getINSTANCE().getConfigHandler().saveConfig(file, config);
     }
 
     public void saveToFile() {

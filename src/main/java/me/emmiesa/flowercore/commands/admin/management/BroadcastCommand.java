@@ -24,9 +24,9 @@ public class BroadcastCommand extends BaseCommand {
         CommandSender sender = args.getSender();
 
         List<String> text = Arrays.asList(args.getArgs());
-        List<String> broadcastMessages = FlowerCore.getInstance().getConfig("messages.yml").getStringList("broadcast.message");
+        List<String> broadcastMessages = FlowerCore.getINSTANCE().getConfig("messages.yml").getStringList("broadcast.message");
 
-        String barsFormat = CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("broadcast.bars-format"));
+        String barsFormat = CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("broadcast.bars-format"));
 
         if (!text.isEmpty()) {
             for (String message : broadcastMessages) {

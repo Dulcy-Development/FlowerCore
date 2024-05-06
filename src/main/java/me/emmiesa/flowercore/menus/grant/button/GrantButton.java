@@ -3,7 +3,7 @@ package me.emmiesa.flowercore.menus.grant.button;
 import lombok.AllArgsConstructor;
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.menus.grantconfirm.GrantConfirmMenu;
-import me.emmiesa.flowercore.ranks.Rank;
+import me.emmiesa.flowercore.rank.Rank;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.item.ItemBuilder;
 import me.emmiesa.flowercore.utils.menu.Button;
@@ -28,7 +28,7 @@ public class GrantButton extends Button {
 
     @Override
     public ItemStack getButtonItem(Player player) {
-        List<String> customLore = FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/grant.yml").getStringList("grant-lore");
+        List<String> customLore = FlowerCore.getINSTANCE().getConfigHandler().getConfigByName("menus/grant.yml").getStringList("grant-lore");
         customLore.replaceAll(this::replacePlaceholders);
 
         return new ItemBuilder(rank.getIcon())
@@ -61,8 +61,8 @@ public class GrantButton extends Button {
         line = line.replace("{staff_rank}", rank.isStaff() ? "Yes" : "No");
         line = line.replace("{default_rank}", rank.isDefaultRank() ? "Yes" : "No");
         line = line.replace("{player_name}", playerName);
-        line = line.replace("{player_color}", FlowerCore.getInstance().getPlayerManager().getPlayerRankColor(playerToGrantUUID));
-        line = line.replace("{current_rank}", FlowerCore.getInstance().getPlayerManager().getRank(playerToGrantUUID).getDisplayName());
+        line = line.replace("{player_color}", FlowerCore.getINSTANCE().getPlayerManager().getPlayerRankColor(playerToGrantUUID));
+        line = line.replace("{current_rank}", FlowerCore.getINSTANCE().getPlayerManager().getRank(playerToGrantUUID).getDisplayName());
         return line;
     }
 }

@@ -2,7 +2,7 @@ package me.emmiesa.flowercore.commands.admin.rank.subcommands;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.locale.Locale;
-import me.emmiesa.flowercore.ranks.Rank;
+import me.emmiesa.flowercore.rank.Rank;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
@@ -33,7 +33,7 @@ public class RankSetPriorityCommand extends BaseCommand {
     }
 
     public void setPriority(Player player, String rankName, int priority) {
-        Rank rank = FlowerCore.getInstance().getRanksManager().getRank(rankName);
+        Rank rank = FlowerCore.getINSTANCE().getRanksManager().getRank(rankName);
 
         if (rank == null) {
             player.sendMessage(CC.translate(Locale.RANK_NOT_FOUND).replace("%rank%", rankName));
@@ -41,7 +41,7 @@ public class RankSetPriorityCommand extends BaseCommand {
         }
 
         rank.setPriority(priority);
-        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.set-priority")
+        player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("rank.set-priority")
                 .replace("%rank%", rankName)
                 .replace("%priority%", String.valueOf(priority))
         ));

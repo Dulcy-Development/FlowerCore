@@ -28,12 +28,12 @@ public class TagSetDisplayCommand extends BaseCommand {
         String tagName = args[0];
         String displayName = args[1];
 
-        Tag tag = FlowerCore.getInstance().getTagsManager().getTag(tagName);
+        Tag tag = FlowerCore.getINSTANCE().getTagsManager().getTag(tagName);
         if (tag == null) {
             player.sendMessage(CC.translate("&cThat Tag does not exist"));
             return;
         }
 
-        FlowerCore.getInstance().getTagsManager().getTag(tagName).setDisplayName(displayName);
+        FlowerCore.getINSTANCE().getTagsManager().getTag(tagName).setDisplayName(displayName);
     }
 }

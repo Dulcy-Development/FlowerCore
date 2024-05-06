@@ -154,6 +154,7 @@ rank:
   created: "&aSuccessfully created the &r%rank% &arank!"
   saving: "&7Saving all ranks..."
   saved: "&aSuccessfully saved all ranks!"
+  deleted: "&aSuccessfully deleted %rank% &arank!"
   set-color: "&aSuccessfully set &r%color%&l● &aas color of the &r%rank% &arank!"
   set-default: "&aSuccessfully set default &r%state% &afor the &r%rank% &arank!"
   set-display-name: "&aSuccessfully set &r%display-name% &aas display name of the &r%rank% &arank!"

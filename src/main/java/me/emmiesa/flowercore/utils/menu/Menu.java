@@ -21,7 +21,7 @@ public abstract class Menu {
     public static Map<String, Menu> currentlyOpenedMenus = new HashMap<>();
 
     @Getter
-    protected FlowerCore ricardo = FlowerCore.getInstance();
+    protected FlowerCore ricardo = FlowerCore.getINSTANCE();
     private Map<Integer, Button> buttons = new HashMap<>();
     private boolean autoUpdate = false;
     private boolean updateAfterClick = true;
