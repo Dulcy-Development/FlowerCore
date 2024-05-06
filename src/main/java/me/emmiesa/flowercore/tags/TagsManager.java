@@ -3,9 +3,12 @@ package me.emmiesa.flowercore.tags;
 import lombok.Getter;
 import lombok.Setter;
 import me.emmiesa.flowercore.FlowerCore;
+import me.emmiesa.flowercore.utils.chat.CC;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,6 +48,25 @@ public class TagsManager {
                 .filter(tag -> tag.getName().equalsIgnoreCase(name))
                 .findFirst()
                 .orElse(null);
+    }
+
+    public void removeTag(String tagName) {
+        Tag tag = getTag(tagName);
+
+        if (tag == null) {
+            Bukkit.getConsoleSender().sendMessage(CC.translate("&cTag is null."));
+            return;
+        }
+
+        tags.remove(tag);
+
+        FileConfiguration config = FlowerCore.getInstance().getConfigHandler().getConfigByName("tags.yml");
+        File file = FlowerCore.getInstance().getConfigHandler().getConfigFileByName("tags.yml");
+
+        String key = "tags." + tagName;
+        config.set(key, null);
+
+        FlowerCore.getInstance().getConfigHandler().saveConfig(file, config);
     }
 
     public void saveToFile() {

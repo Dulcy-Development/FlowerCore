@@ -1,4 +1,4 @@
-package me.emmiesa.flowercore.utils;
+package me.emmiesa.flowercore.utils.player;
 
 import com.mongodb.client.MongoCollection;
 import me.emmiesa.flowercore.FlowerCore;

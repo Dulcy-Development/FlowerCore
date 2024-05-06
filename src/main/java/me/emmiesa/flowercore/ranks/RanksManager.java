@@ -3,10 +3,14 @@ package me.emmiesa.flowercore.ranks;
 import lombok.Getter;
 import lombok.Setter;
 import me.emmiesa.flowercore.FlowerCore;
+import me.emmiesa.flowercore.tags.Tag;
+import me.emmiesa.flowercore.utils.chat.CC;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,6 +82,25 @@ public class RanksManager {
         config.set(key + ".permissions", rank.getPermissions());
 
         getPlugin().getConfigHandler().saveConfig(getPlugin().getConfigHandler().getConfigFileByName("ranks.yml"), config);
+    }
+
+    public void removeRank(String rankName) {
+        Rank rank = getRank(rankName);
+
+        if (rank == null) {
+            Bukkit.getConsoleSender().sendMessage(CC.translate("&cTag is null."));
+            return;
+        }
+
+        ranks.remove(rank);
+
+        FileConfiguration config = FlowerCore.getInstance().getConfigHandler().getConfigByName("ranks.yml");
+        File file = FlowerCore.getInstance().getConfigHandler().getConfigFileByName("ranks.yml");
+
+        String key = "ranks." + rankName;
+        config.set(key, null);
+
+        FlowerCore.getInstance().getConfigHandler().saveConfig(file, config);
     }
 
     public Rank getPlayerRank(Player player) {

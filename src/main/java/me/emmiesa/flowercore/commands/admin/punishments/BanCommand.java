@@ -35,7 +35,7 @@ public class BanCommand extends BaseCommand {
         String targetName = args.getArgs(0);
         String reason = args.length() > 1 ? args.getArgs(1) : defaultReason;
         String duration = args.length() > 2 ? args.getArgs(2) : "permanent";
-        boolean silent = args.length() > 2 && args.getArgs(2).equalsIgnoreCase("-s");
+        boolean silent = args.length() > 3 && args.getArgs(3).equalsIgnoreCase("-s");
 
         OfflinePlayer targetPlayerOffline = Bukkit.getOfflinePlayer(targetName);
         Player targetPlayer = Bukkit.getPlayer(targetName);

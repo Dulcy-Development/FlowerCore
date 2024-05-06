@@ -33,7 +33,7 @@ public class UnMuteCommand extends BaseCommand {
         }
 
         String playerName = args.getArgs()[0];
-        OfflinePlayer targetPlayer = Bukkit.getOfflinePlayer(playerName);
+        OfflinePlayer targetPlayer = offlinePlayerName(playerName); //To not make it "deprecated". Kept default in UnBlacklist command
 
         Profile profile = FlowerCore.getInstance().getPlayerManager().getProfile(targetPlayer.getUniqueId());
 
@@ -56,5 +56,14 @@ public class UnMuteCommand extends BaseCommand {
             FlowerCore.getInstance().getPlayerManager().removePunishment(playerUUID, PunishmentType.MUTE, targetPlayer.getName());
             FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
         }
+    }
+
+    public OfflinePlayer offlinePlayerName(String playerName) {
+        for (OfflinePlayer player : Bukkit.getOfflinePlayers()) {
+            if (player.getName() != null && player.getName().equalsIgnoreCase(playerName)) {
+                return player;
+            }
+        }
+        return null;
     }
 }
