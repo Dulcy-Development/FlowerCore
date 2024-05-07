@@ -97,6 +97,7 @@ C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmie
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\menus\settings\button\SettingsButton.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\command\BukkitCompleter.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\global\socials\YouTubeCommand.java
+C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\rank\SetRankPurchasedCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\menus\grantconfirm\button\GrantConfirmButton.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\menus\settings\SettingsMenu.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\server\InstanceCommand.java
@@ -121,6 +122,7 @@ C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmie
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\global\worldtime\DayCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\profile\HostAddressSerializer.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\chat\StringUtil.java
+C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\rank\SetRankCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\Utils.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\global\socials\DiscordCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\punishments\Punishment.java

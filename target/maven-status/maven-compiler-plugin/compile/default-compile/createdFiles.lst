@@ -115,6 +115,7 @@ me\emmiesa\flowercore\commands\admin\troll\TrollSilentCommand.class
 me\emmiesa\flowercore\commands\global\menus\SettingsCommand.class
 me\emmiesa\flowercore\utils\BungeeUtil.class
 me\emmiesa\flowercore\announcement\AnnouncementManager$1.class
+me\emmiesa\flowercore\commands\admin\rank\SetRankPurchasedCommand.class
 me\emmiesa\flowercore\commands\admin\rank\subcommands\RankAddPermissionsCommand.class
 me\emmiesa\flowercore\commands\admin\punishments\pardon\UnMuteCommand.class
 me\emmiesa\flowercore\menus\ranklist\RankListMenu.class
@@ -130,6 +131,7 @@ me\emmiesa\flowercore\commands\admin\spawn\TeleportSpawnCommand$1.class
 me\emmiesa\flowercore\commands\admin\troll\TrollCommand.class
 me\emmiesa\flowercore\commands\global\socials\WebsiteCommand.class
 me\emmiesa\flowercore\menus\grant\button\GrantButton.class
+me\emmiesa\flowercore\commands\admin\rank\SetRankCommand.class
 me\emmiesa\flowercore\commands\admin\tags\subcommands\TagSaveCommand.class
 me\emmiesa\flowercore\commands\admin\punishments\KickCommand.class
 me\emmiesa\flowercore\commands\admin\essential\GodModeCommand.class

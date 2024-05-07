@@ -19,6 +19,8 @@ import me.emmiesa.flowercore.commands.admin.punishments.pardon.UnbanCommand;
 import me.emmiesa.flowercore.commands.admin.punishments.pardon.UnblacklistCommand;
 import me.emmiesa.flowercore.commands.admin.rank.GrantCommand;
 import me.emmiesa.flowercore.commands.admin.rank.RankCommand;
+import me.emmiesa.flowercore.commands.admin.rank.SetRankCommand;
+import me.emmiesa.flowercore.commands.admin.rank.SetRankPurchasedCommand;
 import me.emmiesa.flowercore.commands.admin.rank.subcommands.*;
 import me.emmiesa.flowercore.commands.admin.server.InstanceCommand;
 import me.emmiesa.flowercore.commands.admin.spawn.SetJoinLocation;
@@ -229,11 +231,13 @@ public class FlowerCore extends JavaPlugin {
         new TagSaveCommand();
         new TagAdminCommand();
         new TagCreateCommand();
+        new TagSettagCommand();
         new TagDeleteCommand();
         new TagSetDisplayCommand();
 
         new RankCommand();
         new GrantCommand();
+        new SetRankCommand();
         new RankListCommand();
         new RankSaveCommand();
         new RankCreateCommand();
@@ -246,6 +250,7 @@ public class FlowerCore extends JavaPlugin {
         new RankSetDisplayCommand();
         new RankSetDefaultCommand();
         new RankSetPriorityCommand();
+        new SetRankPurchasedCommand();
         new RankAddPermissionsCommand();
 
         new ToggleGlobalChatCommand();
