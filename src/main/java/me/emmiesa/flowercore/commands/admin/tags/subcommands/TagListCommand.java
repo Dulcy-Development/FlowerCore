@@ -27,7 +27,7 @@ public class TagListCommand extends BaseCommand {
     }
 
     public void sendAsMessage(Player player) {
-        List<Tag> tags = FlowerCore.getINSTANCE().getTagsManager().getTags();
+        List<Tag> tags = FlowerCore.getInstance().getTagsManager().getTags();
 
         int maxLength = tags.stream()
                 .mapToInt(tag -> ChatColor.stripColor(tag.getDisplayName()).length())
@@ -36,7 +36,7 @@ public class TagListCommand extends BaseCommand {
 
         player.sendMessage(" ");
         player.sendMessage(CC.FLOWER_BAR);
-        player.sendMessage(CC.translate("   &b&lTag list &f(" + FlowerCore.getINSTANCE().getConfig("tags.yml").getConfigurationSection("tags").getKeys(false).size()) + CC.translate("&f)"));
+        player.sendMessage(CC.translate("   &b&lTag list &f(" + FlowerCore.getInstance().getConfig("tags.yml").getConfigurationSection("tags").getKeys(false).size()) + CC.translate("&f)"));
 
         for (Tag tag : tags) {
             String paddedName = StringUtil.padRight(tag.getColor() + tag.getName() + " &8&l┃&r " + tag.getDisplayName(), maxLength);

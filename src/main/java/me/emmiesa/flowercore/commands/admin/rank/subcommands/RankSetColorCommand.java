@@ -31,12 +31,12 @@ public class RankSetColorCommand extends BaseCommand {
     }
 
     private void setColor(Player player, String rankName, String color) {
-        if (FlowerCore.getINSTANCE().getRanksManager().getRank(rankName) == null) {
+        if (FlowerCore.getInstance().getRanksManager().getRank(rankName) == null) {
             player.sendMessage(CC.translate(Locale.RANK_NOT_FOUND).replace("%rank%", rankName));
             return;
         }
 
-        FlowerCore.getINSTANCE().getRanksManager().getRank(rankName).setColor(color);
-        player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("rank.set-color").replace("%rank%", rankName).replace("%color%", color)));
+        FlowerCore.getInstance().getRanksManager().getRank(rankName).setColor(color);
+        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.set-color").replace("%rank%", rankName).replace("%color%", color)));
     }
 }

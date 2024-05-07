@@ -1,7 +1,7 @@
 package me.emmiesa.flowercore.commands.admin.rank.subcommands;
 
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.rank.Rank;
+import me.emmiesa.flowercore.ranks.Rank;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
@@ -17,25 +17,26 @@ import org.bukkit.entity.Player;
 public class RankDeleteCommand extends BaseCommand {
     @Override
     @Command(name = "rank.delete", permission = "flowercore.staff")
-    public void onCommand(CommandArgs args) {
-        Player player = args.getPlayer();
+    public void onCommand(CommandArgs command) {
+        Player player = command.getPlayer();
+        String[] args = command.getArgs();
 
-        String rankName = args.getArgs()[0];
-        Rank rank = FlowerCore.getINSTANCE().getRanksManager().getRank(rankName);
-
-        if (args.getArgs().length < 1) {
+        if (args.length < 1) {
             player.sendMessage(CC.translate("&cUsage: /rank delete (rank-name)"));
             return;
         }
 
+        String rankName = args[0];
+        Rank rank = FlowerCore.getInstance().getRanksManager().getRank(rankName);
+
         if (rank == null) {
-            player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfigHandler().getConfigByName("messages.yml").getString("rank.deleted")
-                    .replace("%rank%", FlowerCore.getINSTANCE().getRanksManager().getRank(rankName).getColor() + rankName))
+            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfigHandler().getConfigByName("messages.yml").getString("rank.deleted")
+                    .replace("%rank%", FlowerCore.getInstance().getRanksManager().getRank(rankName).getColor() + rankName))
             );
             return;
         }
 
-        FlowerCore.getINSTANCE().getRanksManager().removeRank(rankName);
+        FlowerCore.getInstance().getRanksManager().removeRank(rankName);
         player.sendMessage(CC.translate("&cDeleted the Rank!"));
     }
 }

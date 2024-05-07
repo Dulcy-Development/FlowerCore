@@ -19,6 +19,6 @@ public class DayCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         player.setPlayerTime(6000L, false);
-        player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("time-changer.day")));
+        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("time-changer.day")));
     }
 }

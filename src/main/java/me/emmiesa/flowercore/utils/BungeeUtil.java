@@ -26,14 +26,14 @@ public class BungeeUtil {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("join.joining").replace("%server%", server)));
-        player.sendPluginMessage(FlowerCore.getINSTANCE(), "BungeeCord", b.toByteArray());
+        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("join.joining").replace("%server%", server)));
+        player.sendPluginMessage(FlowerCore.getInstance(), "BungeeCord", b.toByteArray());
         BukkitRunnable task = new BukkitRunnable() {
             @Override
             public void run() {
-                player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("join.failed").replace("%server%", server)));
+                player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("join.failed").replace("%server%", server)));
             }
         };
-        task.runTaskLater(FlowerCore.getINSTANCE(), 20);
+        task.runTaskLater(FlowerCore.getInstance(), 20);
     }
 }

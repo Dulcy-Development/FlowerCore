@@ -20,7 +20,7 @@ import java.util.List;
 
 public class FlowerCoreCommand extends BaseCommand {
 
-    private final FlowerCore plugin = FlowerCore.getINSTANCE();
+    private final FlowerCore plugin = FlowerCore.getInstance();
 
     @Completer(name = "flower", aliases = {"flowercore", "core"})
     public List<String> flowerCompleter(CommandArgs args) {
@@ -66,7 +66,7 @@ public class FlowerCoreCommand extends BaseCommand {
                 sender.sendMessage(CC.translate(message));
             }
 
-            FlowerCore.getINSTANCE().getConfigHandler().reloadConfigs();
+            FlowerCore.getInstance().getConfigHandler().reloadConfigs();
 
             long end = System.currentTimeMillis();
             long timeTaken = end - start;

@@ -2,7 +2,7 @@ package me.emmiesa.flowercore.commands.admin.rank.subcommands;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.locale.Locale;
-import me.emmiesa.flowercore.rank.Rank;
+import me.emmiesa.flowercore.ranks.Rank;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
@@ -33,7 +33,7 @@ public class RankSetDefaultCommand extends BaseCommand {
     }
 
     public void setDefault(Player player, String rankName, boolean state) {
-        Rank rank = FlowerCore.getINSTANCE().getRanksManager().getRank(rankName);
+        Rank rank = FlowerCore.getInstance().getRanksManager().getRank(rankName);
 
         if (rank == null) {
             player.sendMessage(CC.translate(Locale.RANK_NOT_FOUND).replace("%rank%", rankName));
@@ -42,7 +42,7 @@ public class RankSetDefaultCommand extends BaseCommand {
 
         rank.setDefaultRank(state);
         //player.sendMessage(CC.translate("&bSuccessfully set default " + (state ? "&atrue" : "&cfalse") + "&b for the " + rankName + " &brank!"));
-        player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("rank.set-default")
+        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.set-default")
                         .replace("%state%", state ? "&atrue" : "&cfalse"))
                 .replace("%rank%", rankName)
         );

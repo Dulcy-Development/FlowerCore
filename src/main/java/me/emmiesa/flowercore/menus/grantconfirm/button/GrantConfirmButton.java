@@ -1,7 +1,7 @@
 package me.emmiesa.flowercore.menus.grantconfirm.button;
 
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.rank.Rank;
+import me.emmiesa.flowercore.ranks.Rank;
 import me.emmiesa.flowercore.utils.Utils;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.item.ItemBuilder;
@@ -56,19 +56,19 @@ public class GrantConfirmButton extends Button {
         UUID playerUUID = player.getUniqueId();
         UUID playerToGrantUUID = Bukkit.getPlayerExact(playerName).getUniqueId();
         if (isConfirmButton) {
-            FlowerCore.getINSTANCE().getPlayerManager().setRank(playerToGrantUUID, rank);
+            FlowerCore.getInstance().getPlayerManager().setRank(playerToGrantUUID, rank);
             Player targetPlayer = Bukkit.getServer().getPlayer(playerToGrantUUID);
-            FlowerCore.getINSTANCE().getMongoManager().saveProfile(playerToGrantUUID);
+            FlowerCore.getInstance().getMongoManager().saveProfile(playerToGrantUUID);
             if (targetPlayer != null) {
                 player.sendMessage(CC.translate("&aYou have successfully granted " + playerName + " &athe " + rank.getDisplayName() + " &arank!"));
-                targetPlayer.sendMessage(CC.translate("&aYour rank has been set to " + rank.getDisplayName() + " &aby " + FlowerCore.getINSTANCE().getPlayerManager().getRank(playerUUID).getPrefix() + player.getDisplayName() + "&a."));
+                targetPlayer.sendMessage(CC.translate("&aYour rank has been set to " + rank.getDisplayName() + " &aby " + FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix() + player.getDisplayName() + "&a."));
                 Button.playSuccess(player);
                 player.closeInventory();
 
-                if (FlowerCore.getINSTANCE().getConfig("settings.yml").getBoolean("grant-settings.broadcast.enabled")) {
-                    List<String> messages = FlowerCore.getINSTANCE().getConfig("settings.yml").getStringList("grant-settings.broadcast.message");
+                if (FlowerCore.getInstance().getConfig("settings.yml").getBoolean("grant-settings.broadcast.enabled")) {
+                    List<String> messages = FlowerCore.getInstance().getConfig("settings.yml").getStringList("grant-settings.broadcast.message");
 
-                    String grantedBy = FlowerCore.getINSTANCE().getPlayerManager().getRank(playerUUID).getPrefix() + player.getDisplayName();
+                    String grantedBy = FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix() + player.getDisplayName();
                     String grantedPlayer = playerName;
                     String rankDisplayName = rank.getDisplayName();
 

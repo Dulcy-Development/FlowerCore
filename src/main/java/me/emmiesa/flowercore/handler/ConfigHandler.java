@@ -19,7 +19,7 @@ import java.util.Map;
 @Getter
 public class ConfigHandler {
 
-    private final FlowerCore plugin = FlowerCore.getINSTANCE();
+    private final FlowerCore plugin = FlowerCore.getInstance();
     private final Map<String, File> configFiles = new HashMap<>();
     private final Map<String, FileConfiguration> fileConfigurations = new HashMap<>();
 

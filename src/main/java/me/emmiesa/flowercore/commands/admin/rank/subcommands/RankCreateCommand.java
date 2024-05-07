@@ -1,7 +1,7 @@
 package me.emmiesa.flowercore.commands.admin.rank.subcommands;
 
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.rank.Rank;
+import me.emmiesa.flowercore.ranks.Rank;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
@@ -35,12 +35,12 @@ public class RankCreateCommand extends BaseCommand {
         List<String> permissions = Collections.singletonList("none");
         Rank rank = new Rank(rankName, "&7" + rankName, Material.IRON_INGOT, "&7" + rankName, "&7", "&7", 0, false, false, permissions);
 
-        FlowerCore.getINSTANCE().getRanksManager().getRanks().add(rank);
+        FlowerCore.getInstance().getRanksManager().getRanks().add(rank);
 
-        player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("rank.created")).replace("%rank%", rankName));
+        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.created")).replace("%rank%", rankName));
 
-        if (FlowerCore.getINSTANCE().getConfig("messages.yml").getBoolean("rank.save-reminder.enabled")) {
-            player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("rank.save-reminder.message")));
+        if (FlowerCore.getInstance().getConfig("messages.yml").getBoolean("rank.save-reminder.enabled")) {
+            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.save-reminder.message")));
         }
     }
 }

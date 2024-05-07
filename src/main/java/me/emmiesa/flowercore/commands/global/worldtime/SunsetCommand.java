@@ -19,6 +19,6 @@ public class SunsetCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         player.setPlayerTime(12000, false);
-        player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("time-changer.sunset")));
+        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("time-changer.sunset")));
     }
 }

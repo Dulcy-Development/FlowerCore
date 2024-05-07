@@ -35,7 +35,7 @@ public class UnbanCommand extends BaseCommand {
         String playerName = args.getArgs()[0];
         OfflinePlayer targetPlayer = offlinePlayerName(playerName); //To not make it "deprecated". Kept default in UnBlacklist command
 
-        Profile profile = FlowerCore.getINSTANCE().getPlayerManager().getProfile(targetPlayer.getUniqueId());
+        Profile profile = FlowerCore.getInstance().getPlayerManager().getProfile(targetPlayer.getUniqueId());
 
         if (profile == null) {
             sender.sendMessage(CC.translate("&4" + playerName + " &chas never joined this server before."));
@@ -45,16 +45,16 @@ public class UnbanCommand extends BaseCommand {
         if (targetPlayer.isOnline()) {
             Player onlinePlayer = targetPlayer.getPlayer();
             UUID playerUUID = onlinePlayer.getUniqueId();
-            Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("punish-broadcasts.un-banned").replace("%pardoner%", sender.getName()).replace("%target%", onlinePlayer.getDisplayName())));
-            Utils.broadcastMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("punish-broadcasts.un-banned").replace("%pardoner%", sender.getName()).replace("%target%", onlinePlayer.getDisplayName())));
-            FlowerCore.getINSTANCE().getPlayerManager().removePunishment(playerUUID, PunishmentType.BAN, onlinePlayer.getDisplayName());
-            FlowerCore.getINSTANCE().getMongoManager().saveProfile(playerUUID);
+            Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.un-banned").replace("%pardoner%", sender.getName()).replace("%target%", onlinePlayer.getDisplayName())));
+            Utils.broadcastMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.un-banned").replace("%pardoner%", sender.getName()).replace("%target%", onlinePlayer.getDisplayName())));
+            FlowerCore.getInstance().getPlayerManager().removePunishment(playerUUID, PunishmentType.BAN, onlinePlayer.getDisplayName());
+            FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
         } else {
             UUID playerUUID = targetPlayer.getUniqueId();
-            Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("punish-broadcasts.un-banned").replace("%pardoner%", sender.getName()).replace("%target%", targetPlayer.getName())));
-            Utils.broadcastMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("punish-broadcasts.un-banned").replace("%pardoner%", sender.getName()).replace("%target%", targetPlayer.getName())));
-            FlowerCore.getINSTANCE().getPlayerManager().removePunishment(playerUUID, PunishmentType.BAN, targetPlayer.getName());
-            FlowerCore.getINSTANCE().getMongoManager().saveProfile(playerUUID);
+            Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.un-banned").replace("%pardoner%", sender.getName()).replace("%target%", targetPlayer.getName())));
+            Utils.broadcastMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.un-banned").replace("%pardoner%", sender.getName()).replace("%target%", targetPlayer.getName())));
+            FlowerCore.getInstance().getPlayerManager().removePunishment(playerUUID, PunishmentType.BAN, targetPlayer.getName());
+            FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
         }
     }
 

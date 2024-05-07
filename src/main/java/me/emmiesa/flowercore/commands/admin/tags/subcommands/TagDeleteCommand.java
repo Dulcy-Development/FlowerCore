@@ -19,21 +19,22 @@ public class TagDeleteCommand extends BaseCommand {
     @Command(name = "tagadmin.delete", permission = "flowercore.staff")
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
+        String[] args = command.getArgs();
 
-        String tagName = command.getArgs()[0];
-        Tag tag = FlowerCore.getINSTANCE().getTagsManager().getTag(tagName);
-
-        if (command.getArgs().length < 1) {
+        if (args.length < 1) {
             player.sendMessage(CC.translate("&cUsage: /tag delete (tag-name)"));
             return;
         }
+
+        String tagName = args[0];
+        Tag tag = FlowerCore.getInstance().getTagsManager().getTag(tagName);
 
         if (tag == null) {
             player.sendMessage(CC.translate("&cThat tag does not exist!"));
             return;
         }
 
-        FlowerCore.getINSTANCE().getTagsManager().removeTag(tagName);
+        FlowerCore.getInstance().getTagsManager().removeTag(tagName);
         player.sendMessage(CC.translate("&aSuccessfully deleted the &b" + tagName + " &atag!"));
     }
 }

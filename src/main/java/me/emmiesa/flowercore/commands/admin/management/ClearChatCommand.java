@@ -18,7 +18,7 @@ import org.bukkit.entity.Player;
 
 public class ClearChatCommand extends BaseCommand {
 
-    private final FlowerCore plugin = FlowerCore.getINSTANCE();
+    private final FlowerCore plugin = FlowerCore.getInstance();
 
     @Command(name = "clearchat", aliases = {"chatclear"}, permission = "flower.command.staff", inGameOnly = false)
     public void onCommand(CommandArgs args) {

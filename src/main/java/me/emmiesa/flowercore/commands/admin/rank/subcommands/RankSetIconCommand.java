@@ -2,7 +2,7 @@ package me.emmiesa.flowercore.commands.admin.rank.subcommands;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.locale.Locale;
-import me.emmiesa.flowercore.rank.Rank;
+import me.emmiesa.flowercore.ranks.Rank;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
@@ -33,7 +33,7 @@ public class RankSetIconCommand extends BaseCommand {
     }
 
     public void setMaterial(Player player, String rankName) {
-        Rank rank = FlowerCore.getINSTANCE().getRanksManager().getRank(rankName);
+        Rank rank = FlowerCore.getInstance().getRanksManager().getRank(rankName);
 
         if (rank == null) {
             player.sendMessage(CC.translate(Locale.RANK_NOT_FOUND).replace("%rank%", rankName));
@@ -46,7 +46,7 @@ public class RankSetIconCommand extends BaseCommand {
         }
 
         rank.setIcon(player.getItemInHand().getType());
-        player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("rank.set-icon")
+        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.set-icon")
                         .replace("%rank%", rankName))
                 //.replace("%icon%", player.getItemInHand().getItemMeta().getDisplayName())
         );

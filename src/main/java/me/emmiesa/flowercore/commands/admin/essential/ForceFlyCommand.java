@@ -22,9 +22,9 @@ public class ForceFlyCommand extends BaseCommand {
         player.setAllowFlight(!player.getAllowFlight());
 
         if (player.getAllowFlight()) {
-            player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("forcefly.enabled")));
+            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("forcefly.enabled")));
         } else {
-            player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("forcefly.disabled")));
+            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("forcefly.disabled")));
         }
     }
 }

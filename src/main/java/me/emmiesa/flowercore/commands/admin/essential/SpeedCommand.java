@@ -69,16 +69,16 @@ public class SpeedCommand extends BaseCommand {
                 }
                 if (args[0].equals("fly")) {
                     player.setFlySpeed(speedVelocity * 0.1F);
-                    player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("speed-set.fly").replace("%value%", String.valueOf(speedVelocity))));
+                    player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("speed-set.fly").replace("%value%", String.valueOf(speedVelocity))));
                 } else {
                     player.setWalkSpeed(speedVelocity * 0.1F);
-                    player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("speed-set.walk").replace("%value%", String.valueOf(speedVelocity))));
+                    player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("speed-set.walk").replace("%value%", String.valueOf(speedVelocity))));
                 }
                 break;
             case "reset":
                 player.setFlySpeed(0.1F);
                 player.setWalkSpeed(0.2F);
-                player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("speed-set.reset")));
+                player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("speed-set.reset")));
                 break;
             default:
                 player.sendMessage(" ");

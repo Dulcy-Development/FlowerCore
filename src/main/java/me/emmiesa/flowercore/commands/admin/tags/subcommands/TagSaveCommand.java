@@ -19,7 +19,7 @@ public class TagSaveCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         player.sendMessage(CC.translate("saving tag"));
-        FlowerCore.getINSTANCE().getTagsManager().saveToFile();
+        FlowerCore.getInstance().getTagsManager().saveToFile();
         player.sendMessage(CC.translate("saved tag"));
     }
 }

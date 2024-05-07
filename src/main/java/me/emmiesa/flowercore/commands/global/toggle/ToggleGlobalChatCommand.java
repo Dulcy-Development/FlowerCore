@@ -24,11 +24,11 @@ public class ToggleGlobalChatCommand extends BaseCommand {
         Player player = command.getPlayer();
         UUID playerUUID = player.getUniqueId();
 
-        Profile profile = FlowerCore.getINSTANCE().getPlayerManager().getProfile(playerUUID);
+        Profile profile = FlowerCore.getInstance().getPlayerManager().getProfile(playerUUID);
         PlayerSettings playerSettings = profile.getPlayerSettings();
 
         playerSettings.setGlobalChatEnabled(!playerSettings.isGlobalChatEnabled());
-        FlowerCore.getINSTANCE().getMongoManager().saveProfile(playerUUID);
+        FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
 
         String context = playerSettings.isGlobalChatEnabled() ? CC.translate("&aenabled") : CC.translate("&cdisabled");
         player.sendMessage(CC.translate("&bYou've {context} your global chat.").replace("{context}", context));

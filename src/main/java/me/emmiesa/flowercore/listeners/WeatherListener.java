@@ -15,7 +15,7 @@ import org.bukkit.event.weather.WeatherChangeEvent;
 
 public class WeatherListener implements Listener {
 
-    private final FlowerCore plugin = FlowerCore.getINSTANCE();
+    private final FlowerCore plugin = FlowerCore.getInstance();
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onWeatherChangeEvent(WeatherChangeEvent event) {

@@ -36,9 +36,9 @@ public class gmsCommand extends BaseCommand {
             if (target.getGameMode().equals(GameMode.SURVIVAL)) {
                 args.getPlayer().sendMessage(CC.translate("&c" + target.getName() + " is already in Survival mode."));
             } else {
-                args.getPlayer().sendMessage(CC.translate("&bYou've set &r" + FlowerCore.getINSTANCE().getPlayerManager().getRank(targetUUID).getPrefix() + target.getName() + "&b's gamemode to &3Survival&b."));
+                args.getPlayer().sendMessage(CC.translate("&bYou've set &r" + FlowerCore.getInstance().getPlayerManager().getRank(targetUUID).getPrefix() + target.getName() + "&b's gamemode to &3Survival&b."));
                 target.setGameMode(GameMode.SURVIVAL);
-                target.sendMessage(CC.translate("&bYour gamemode has been set to &3survival &bby &r" + FlowerCore.getINSTANCE().getPlayerManager().getRank(playerUUID).getPrefix() + args.getPlayer().getName() + " &b."));
+                target.sendMessage(CC.translate("&bYour gamemode has been set to &3survival &bby &r" + FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix() + args.getPlayer().getName() + " &b."));
                 for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
                     if (onlinePlayer.hasPermission("flowercore.staff")) {
                         onlinePlayer.sendMessage(CC.translate("&7&o(" + args.getPlayer().getDisplayName() + "&7&o: Set " + target.getDisplayName() + "&7&o's gamemode survival)")/*.replace("%prefix%", FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix())))*/);
@@ -48,9 +48,9 @@ public class gmsCommand extends BaseCommand {
         } else {
             Player player = args.getPlayer();
             if (player.getGameMode().equals(GameMode.SURVIVAL)) {
-                player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("gamemode.survival.is_already")));
+                player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("gamemode.survival.is_already")));
             } else {
-                player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("gamemode.survival.switched")));
+                player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("gamemode.survival.switched")));
                 player.setGameMode(GameMode.SURVIVAL);
                 for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
                     if (onlinePlayer.hasPermission("flowercore.staff")) {

@@ -26,34 +26,34 @@ public class AnnounceCommand extends BaseCommand {
         Player player = args.getPlayer();
         UUID playerUUID = player.getUniqueId();
 
-        if (!FlowerCore.getINSTANCE().getConfig("settings.yml").getBoolean("announce.enabled")) {
-            player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("settings.yml").getString("announce.disabled")));
+        if (!FlowerCore.getInstance().getConfig("settings.yml").getBoolean("announce.enabled")) {
+            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("settings.yml").getString("announce.disabled")));
             return;
         }
 
         if (!player.hasPermission("flowercore.bypass.cooldown")) {
-            if (FlowerCore.getINSTANCE().getAnnounceCooldown() != null && !FlowerCore.getINSTANCE().getAnnounceCooldown().hasExpired()) {
-                player.sendMessage(CC.translate("&cYou must wait " + FlowerCore.getINSTANCE().getAnnounceCooldown().getMiliSecondsLeft() + " seconds since the game has already been announced."));
+            if (FlowerCore.getInstance().getAnnounceCooldown() != null && !FlowerCore.getInstance().getAnnounceCooldown().hasExpired()) {
+                player.sendMessage(CC.translate("&cYou must wait " + FlowerCore.getInstance().getAnnounceCooldown().getMiliSecondsLeft() + " seconds since the game has already been announced."));
                 return;
             }
         }
 
-        String format = FlowerCore.getINSTANCE().getConfig("settings.yml").getString("announce.format");
-        format = format.replace("%server_name%", FlowerCore.getINSTANCE().getConfig("settings.yml").getString("server-name"));
-        format = format.replace("%prefix%", FlowerCore.getINSTANCE().getPlayerManager().getRank(playerUUID).getPrefix());
-        format = format.replace("%player-display-name%", FlowerCore.getINSTANCE().getPlayerManager().getPlayerRankColor(playerUUID));
+        String format = FlowerCore.getInstance().getConfig("settings.yml").getString("announce.format");
+        format = format.replace("%server_name%", FlowerCore.getInstance().getConfig("settings.yml").getString("server-name"));
+        format = format.replace("%prefix%", FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix());
+        format = format.replace("%player-display-name%", FlowerCore.getInstance().getPlayerManager().getPlayerRankColor(playerUUID));
         format = format.replace("%player_name%", player.getName());
 
-        String cmd = FlowerCore.getINSTANCE().getConfig("settings.yml").getString("announce.command");
+        String cmd = FlowerCore.getInstance().getConfig("settings.yml").getString("announce.command");
 
-        if (!FlowerCore.getINSTANCE().getConfig("settings.yml").getBoolean("announce.bungee")) {
-            player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("settings.yml").getString("announce.announced-message")));
+        if (!FlowerCore.getInstance().getConfig("settings.yml").getBoolean("announce.bungee")) {
+            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("settings.yml").getString("announce.announced-message")));
             Utils.broadcastMessage(format);
         } else {
-            player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("settings.yml").getString("announce.announced-message")));
+            player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("settings.yml").getString("announce.announced-message")));
             Utils.sendGlobalClickableMessage(player, format, cmd);
         }
 
-        FlowerCore.getINSTANCE().setAnnounceCooldown(new Cooldown(FlowerCore.getINSTANCE().getConfig("settings.yml").getInt("announce.cooldown")));
+        FlowerCore.getInstance().setAnnounceCooldown(new Cooldown(FlowerCore.getInstance().getConfig("settings.yml").getInt("announce.cooldown")));
     }
 }

@@ -22,45 +22,41 @@ import org.bukkit.entity.Player;
 public class BanCommand extends BaseCommand {
 
     @Command(name = "ban", permission = "flower.punishment.ban", inGameOnly = false)
-    public void onCommand(CommandArgs command) {
-        Player sender = command.getPlayer();
-        String[] args = command.getArgs();
+    public void onCommand(CommandArgs args) {
+        CommandSender sender = args.getSender();
 
-        if (args.length < 1) {
+        if (args.length() < 1) {
             sender.sendMessage(CC.translate("&cUsage: /ban (player) (reason) (duration) [-s]"));
             return;
         }
 
-        String defaultReason = FlowerCore.getINSTANCE().getConfig("settings.yml").getString("punishments.default-reason.ban");
+        String defaultReason = FlowerCore.getInstance().getConfig("settings.yml").getString("punishments.default-reason.ban");
 
-        String targetName = args[0];
-        String reason = args.length > 1 ? args[1] : defaultReason;
-        String duration = args.length > 2 ? args[2] : "permanent";
-        boolean silent = args.length > 3 && args[3].equalsIgnoreCase("-s");
+        String targetName = args.getArgs(0);
+        String reason = args.length() > 1 ? args.getArgs(1) : defaultReason;
+        String duration = args.length() > 2 ? args.getArgs(2) : "permanent";
+        boolean silent = args.length() > 3 && args.getArgs(3).equalsIgnoreCase("-s");
 
         OfflinePlayer targetPlayerOffline = Bukkit.getOfflinePlayer(targetName);
         Player targetPlayer = Bukkit.getPlayer(targetName);
-        String bannedByName = sender != null ? sender.getName() : "CONSOLE";
+        String bannedByName = sender instanceof Player ? ((Player) sender).getName() : "CONSOLE";
 
-        if (FlowerCore.getINSTANCE().getPlayerManager().getProfileByUsername(targetPlayer.getName()).getPunishments().stream().anyMatch(punishment -> punishment.getType() == PunishmentType.BAN)) {
-            sender.sendMessage(CC.translate("&cThat player is already banned!"));
-            return;
-        }
-
-        Punishment punishment = new Punishment(targetPlayerOffline.getName(), targetPlayerOffline.getUniqueId(), bannedByName, PunishmentType.BAN, reason, targetPlayer.getAddress() != null ? targetPlayer.getAddress().getAddress().getHostAddress() : "null", false, duration);
-        FlowerCore.getINSTANCE().getPlayerManager().addPunishment(targetPlayerOffline.getUniqueId(), punishment);
+        Punishment punishment = new Punishment(targetPlayerOffline.getName(), targetPlayerOffline.getUniqueId(), bannedByName, PunishmentType.BAN, reason, targetPlayer != null ? targetPlayer.getAddress().getAddress().getHostAddress() : "null", false, duration);
+        FlowerCore.getInstance().getPlayerManager().addPunishment(targetPlayerOffline.getUniqueId(), punishment);
 
         if (silent) {
             for (Player player : Bukkit.getOnlinePlayers()) {
                 if (player.hasPermission("flowercore.staff")) {
-                    player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("punish-broadcasts.banned-silent").replace("%punisher%", bannedByName).replace("%target%", targetName).replace("%reason%", reason)));
+                    player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.banned-silent").replace("%punisher%", bannedByName).replace("%target%", targetName).replace("%reason%", reason)));
                 }
             }
         } else {
-            Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("punish-broadcasts.banned").replace("%punisher%", bannedByName).replace("%target%", targetName).replace("%reason%", reason)));
-            Utils.broadcastMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("punish-broadcasts.banned").replace("%punisher%", bannedByName).replace("%target%", targetName).replace("%reason%", reason)));
+            Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.banned").replace("%punisher%", bannedByName).replace("%target%", targetName).replace("%reason%", reason)));
+            Utils.broadcastMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.banned").replace("%punisher%", bannedByName).replace("%target%", targetName).replace("%reason%", reason)));
         }
 
-        targetPlayer.kickPlayer(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("punishments.ban").replace("%punisher%", bannedByName).replace("%reason%", reason)));
+        if (targetPlayer != null) {
+            targetPlayer.kickPlayer(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punishments.ban").replace("%punisher%", bannedByName).replace("%reason%", reason)));
+        }
     }
 }

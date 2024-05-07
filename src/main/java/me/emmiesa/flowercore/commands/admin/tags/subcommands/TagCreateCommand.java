@@ -35,7 +35,7 @@ public class TagCreateCommand extends BaseCommand {
         List<String> permissions = Collections.singletonList("none");
         Tag tag = new Tag(tagName, "&7", Material.NAME_TAG, "&b");
 
-        FlowerCore.getINSTANCE().getTagsManager().getTags().add(tag);
+        FlowerCore.getInstance().getTagsManager().getTags().add(tag);
 
         player.sendMessage(CC.translate("tag created"));
         //player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.created")).replace("%rank%", tagName));

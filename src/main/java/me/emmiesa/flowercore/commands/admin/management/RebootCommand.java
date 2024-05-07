@@ -89,7 +89,7 @@ public class RebootCommand extends BaseCommand {
                 timeLeft--;
             }
         };
-        countdownTask.runTaskTimer(FlowerCore.getINSTANCE(), 0L, 20L);
+        countdownTask.runTaskTimer(FlowerCore.getInstance(), 0L, 20L);
     }
 
     private void cancelReboot(CommandArgs command) {

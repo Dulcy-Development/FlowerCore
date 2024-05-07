@@ -35,12 +35,12 @@ public class PlayerUtil {
     }
 
     public static Document getPlayerDocument(CommandSender sender, String playerName) {
-        MongoCollection<Document> collection = FlowerCore.getINSTANCE().getMongoManager().getCollection();
+        MongoCollection<Document> collection = FlowerCore.getInstance().getMongoManager().getCollection();
         return collection.find(eq("username", playerName)).first();
     }
 
     public static UUID getPlayerUUIDFromDocument(String playerName) {
-        MongoCollection<Document> collection = FlowerCore.getINSTANCE().getMongoManager().getCollection();
+        MongoCollection<Document> collection = FlowerCore.getInstance().getMongoManager().getCollection();
         Document playerDoc = collection.find(eq("username", playerName)).first();
         return playerDoc != null ? UUID.fromString(playerDoc.getString("UUID")) : null;
     }

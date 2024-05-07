@@ -23,12 +23,12 @@ public class Placeholder extends PlaceholderExpansion {
 
     @Override
     public @NotNull String getAuthor() {
-        return FlowerCore.getINSTANCE().getDescription().getAuthors().toString().replace("[", "").replace("]", "");
+        return FlowerCore.getInstance().getDescription().getAuthors().toString().replace("[", "").replace("]", "");
     }
 
     @Override
     public @NotNull String getVersion() {
-        return FlowerCore.getINSTANCE().getDescription().getVersion();
+        return FlowerCore.getInstance().getDescription().getVersion();
     }
 
     @Override
@@ -36,16 +36,16 @@ public class Placeholder extends PlaceholderExpansion {
         UUID playerUUID = player.getUniqueId();
         switch (params) {
             case "rank":
-                return FlowerCore.getINSTANCE().getPlayerManager().getRank(playerUUID).getDisplayName();
+                return FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getDisplayName();
             case "rank_raw":
-                return FlowerCore.getINSTANCE().getPlayerManager().getRank(playerUUID).getName();
+                return FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getName();
             case "bar":
                 return CC.FLOWER_BAR;
             case "is_staff":
-                if (FlowerCore.getINSTANCE().getPlayerManager().getRank(playerUUID).isStaff()) {
-                    return CC.translate(FlowerCore.getINSTANCE().getConfig("settings.yml").getString("placeholders.flower_is_staff.true"));
+                if (FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).isStaff()) {
+                    return CC.translate(FlowerCore.getInstance().getConfig("settings.yml").getString("placeholders.flower_is_staff.true"));
                 } else {
-                    return CC.translate(FlowerCore.getINSTANCE().getConfig("settings.yml").getString("placeholders.flower_is_staff.false"));
+                    return CC.translate(FlowerCore.getInstance().getConfig("settings.yml").getString("placeholders.flower_is_staff.false"));
                 }
             default:
                 return "&fNull";

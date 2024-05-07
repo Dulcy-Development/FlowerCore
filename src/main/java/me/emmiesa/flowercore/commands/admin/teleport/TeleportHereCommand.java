@@ -33,9 +33,9 @@ public class TeleportHereCommand extends BaseCommand {
             return;
         }
 
-        player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("teleport.tp-here.sender").replace("%target%", target.getDisplayName())));
+        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("teleport.tp-here.sender").replace("%target%", target.getDisplayName())));
         target.teleport(player.getLocation());
-        target.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("teleport.tp-here.target").replace("%player%", player.getName())));
+        target.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("teleport.tp-here.target").replace("%player%", player.getName())));
     }
 }
 

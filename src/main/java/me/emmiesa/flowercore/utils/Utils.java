@@ -59,11 +59,11 @@ public class Utils {
         dataOutput.writeUTF("MessageRaw");
         dataOutput.writeUTF("ALL");
         dataOutput.writeUTF(JSONMessage.create(CC.translate(message))
-                .tooltip(CC.translate(FlowerCore.getINSTANCE().getConfig("settings.yml").getString("announce.hover")))
+                .tooltip(CC.translate(FlowerCore.getInstance().getConfig("settings.yml").getString("announce.hover")))
                 .runCommand("/" + command).toString());
 
         if (player != null) {
-            player.sendPluginMessage(FlowerCore.getINSTANCE(), "BungeeCord", dataOutput.toByteArray());
+            player.sendPluginMessage(FlowerCore.getInstance(), "BungeeCord", dataOutput.toByteArray());
         }
     }
 

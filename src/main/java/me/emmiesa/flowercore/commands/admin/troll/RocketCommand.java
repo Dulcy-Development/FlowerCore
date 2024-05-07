@@ -64,7 +64,7 @@ public class RocketCommand extends BaseCommand {
                     count++;
                 }
             }
-        }.runTaskTimer(FlowerCore.getINSTANCE(), 0, 4);
+        }.runTaskTimer(FlowerCore.getInstance(), 0, 4);
     }
 
 }

@@ -22,7 +22,7 @@ import java.util.UUID;
 
 public class ChatListener implements Listener {
 
-    private final FlowerCore plugin = FlowerCore.getINSTANCE();
+    private final FlowerCore plugin = FlowerCore.getInstance();
 
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event) {

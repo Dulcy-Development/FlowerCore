@@ -2,7 +2,7 @@ package me.emmiesa.flowercore.commands.admin.rank.subcommands;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.locale.Locale;
-import me.emmiesa.flowercore.rank.Rank;
+import me.emmiesa.flowercore.ranks.Rank;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
@@ -33,7 +33,7 @@ public class RankSetStaffCommand extends BaseCommand {
     }
 
     public void setStaff(Player player, String rankName, boolean state) {
-        Rank rank = FlowerCore.getINSTANCE().getRanksManager().getRank(rankName);
+        Rank rank = FlowerCore.getInstance().getRanksManager().getRank(rankName);
 
         if (rank == null) {
             player.sendMessage(CC.translate(Locale.RANK_NOT_FOUND).replace("%rank%", rankName));
@@ -41,7 +41,7 @@ public class RankSetStaffCommand extends BaseCommand {
         }
 
         rank.setStaff(state);
-        player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("rank.set-staff")
+        player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.set-staff")
                         .replace("%state%", state ? "&atrue" : "&cfalse"))
                 .replace("%rank%", rankName)
         );

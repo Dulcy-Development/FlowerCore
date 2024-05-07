@@ -27,7 +27,7 @@ public class InstanceCommand extends BaseCommand {
         CommandSender sender = command.getSender();
 
         StringBuilder pluginsList = new StringBuilder();
-        String separator = FlowerCore.getINSTANCE().getConfig("messages.yml").getString("instance-command.seperator-format", ", ");
+        String separator = FlowerCore.getInstance().getConfig("messages.yml").getString("instance-command.seperator-format", ", ");
         for (Plugin plugin : Bukkit.getServer().getPluginManager().getPlugins()) {
             if (pluginsList.length() > 0) {
                 pluginsList.append(CC.translate(separator));
@@ -46,7 +46,7 @@ public class InstanceCommand extends BaseCommand {
 
         int pluginCount = Bukkit.getServer().getPluginManager().getPlugins().length;
 
-        for (String message : FlowerCore.getINSTANCE().getConfig("messages.yml").getStringList("instance-command.lines")) {
+        for (String message : FlowerCore.getInstance().getConfig("messages.yml").getStringList("instance-command.lines")) {
             sender.sendMessage(CC.translate(message)
                     .replace("%server-region%", Locale.SERVER_REGION)
                     .replace("%server-name%", Locale.SERVER_NAME)

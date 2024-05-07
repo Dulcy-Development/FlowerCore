@@ -24,11 +24,11 @@ public class TogglePrivateMessagesCommand extends BaseCommand {
         Player player = command.getPlayer();
         UUID playerUUID = player.getUniqueId();
 
-        Profile profile = FlowerCore.getINSTANCE().getPlayerManager().getProfile(playerUUID);
+        Profile profile = FlowerCore.getInstance().getPlayerManager().getProfile(playerUUID);
         PlayerSettings playerSettings = profile.getPlayerSettings();
 
         playerSettings.setPrivateMessagesEnabled(!playerSettings.isPrivateMessagesEnabled());
-        FlowerCore.getINSTANCE().getMongoManager().saveProfile(playerUUID);
+        FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
 
         String context = playerSettings.isPrivateMessagesEnabled() ? CC.translate("&aenabled") : CC.translate("&cdisabled");
         player.sendMessage(CC.translate("&bYou've {context} your private messages.").replace("{context}", context));

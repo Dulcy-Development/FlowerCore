@@ -293,6 +293,7 @@ on-join:
         #- "%bars%"
         - " "
     donator:
+      enabled: true
       joined-the-game: "&7» %prefix%%player% &fjoined the server!"
     staff:
       joined-the-game: "&3[&bS&3] &r%prefix%%player% &bhas joined &3%server%&b."
@@ -300,6 +301,7 @@ on-join:
 on-leave:
   messages:
     donator:
+      enabled: false
       left-the-game: "&7» %prefix%%player% &fleft the server!"
     staff:
       left-the-game: "&3[&bS&3] &r%prefix%%player% &bhas left &3%server%&b."

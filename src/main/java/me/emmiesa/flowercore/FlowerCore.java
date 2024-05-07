@@ -50,7 +50,7 @@ import me.emmiesa.flowercore.listeners.CommandListener;
 import me.emmiesa.flowercore.listeners.PlayerListener;
 import me.emmiesa.flowercore.placeholder.Placeholder;
 import me.emmiesa.flowercore.profile.PlayerManager;
-import me.emmiesa.flowercore.rank.RanksManager;
+import me.emmiesa.flowercore.ranks.RanksManager;
 import me.emmiesa.flowercore.tags.TagsManager;
 import me.emmiesa.flowercore.utils.Cooldown;
 import me.emmiesa.flowercore.utils.chat.CC;
@@ -70,7 +70,7 @@ import java.io.File;
 public class FlowerCore extends JavaPlugin {
 
     @Getter
-    private static FlowerCore INSTANCE;
+    private static FlowerCore instance;
     private Cooldown announceCooldown;
     private CommandFramework framework;
     private ConversationHandler conversationHandler;
@@ -84,7 +84,7 @@ public class FlowerCore extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        INSTANCE = this;
+        instance = this;
 
         long start = System.currentTimeMillis();
 

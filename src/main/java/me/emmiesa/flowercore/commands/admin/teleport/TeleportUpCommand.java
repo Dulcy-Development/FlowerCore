@@ -24,7 +24,7 @@ public class TeleportUpCommand extends BaseCommand {
 
         if (args.length == 0) {
             player.teleport(Utils.tptop(player.getLocation()));
-            String teleportMessage = FlowerCore.getINSTANCE().getConfig("messages.yml").getString("teleport.tp-up");
+            String teleportMessage = FlowerCore.getInstance().getConfig("messages.yml").getString("teleport.tp-up");
             player.sendMessage(CC.translate(teleportMessage));
         }
     }

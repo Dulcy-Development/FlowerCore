@@ -32,10 +32,10 @@ public class MongoManager {
     private MongoCollection<Document> collection;
 
     public void initializeMongo() {
-        String URI = FlowerCore.getINSTANCE().getConfig("database.yml").getString("database.uri");
+        String URI = FlowerCore.getInstance().getConfig("database.yml").getString("database.uri");
         this.mongoClient = MongoClients.create(URI);
 
-        MongoDatabase database = getMongoClient().getDatabase(FlowerCore.getINSTANCE()
+        MongoDatabase database = getMongoClient().getDatabase(FlowerCore.getInstance()
                 .getConfig("database.yml")
                 .getString("database.database-name"));
 
@@ -71,7 +71,7 @@ public class MongoManager {
             PlayerSettings playerSettings = new PlayerSettings(globalChatEnabled, privateMessagesEnabled, soundsEnabled);
             profile = createProfile(playerUUID, doc, playerSettings);
         }
-        FlowerCore.getINSTANCE().getPlayerManager().addRank(profile);
+        FlowerCore.getInstance().getPlayerManager().addRank(profile);
     }
 
     /**
@@ -84,7 +84,7 @@ public class MongoManager {
     private Profile createDefaultProfile(UUID playerUUID, PlayerSettings playerSettings) {
         return Profile.builder()
                 .uuid(playerUUID)
-                .rank(FlowerCore.getINSTANCE().getRanksManager().getDefaultRank())
+                .rank(FlowerCore.getInstance().getRanksManager().getDefaultRank())
                 .tag(null)
                 .playerSettings(playerSettings)
                 .build();
@@ -101,10 +101,10 @@ public class MongoManager {
     private Profile createProfile(UUID playerUUID, Document doc, PlayerSettings playerSettings) {
         return Profile.builder()
                 .uuid(playerUUID)
-                .rank(FlowerCore.getINSTANCE().getRanksManager().getRank(doc.getString("rank")))
+                .rank(FlowerCore.getInstance().getRanksManager().getRank(doc.getString("rank")))
                 .punishments(PunishmentSerializer.deserialize(doc.getList("punishments", String.class)))
                 .playerSettings(playerSettings)
-                .tag(FlowerCore.getINSTANCE().getTagsManager().getTag(doc.getString("tag")))
+                .tag(FlowerCore.getInstance().getTagsManager().getTag(doc.getString("tag")))
                 .build();
     }
 
@@ -134,7 +134,7 @@ public class MongoManager {
      * @param playerUUID the UUID of the player
      */
     public void saveProfile(UUID playerUUID) {
-        Profile profile = FlowerCore.getINSTANCE().getPlayerManager().getProfiles().get(playerUUID);
+        Profile profile = FlowerCore.getInstance().getPlayerManager().getProfiles().get(playerUUID);
 
         if (profile != null) {
             Document profileDoc = createDocument(playerUUID, profile);
@@ -154,7 +154,7 @@ public class MongoManager {
         PlayerSettings playerSettings = profile.getPlayerSettings();
         long firstJoined = System.currentTimeMillis();
 
-        Document getDoc = FlowerCore.getINSTANCE().getMongoManager().getCollection().find(eq("UUID", playerUUID.toString())).first();
+        Document getDoc = FlowerCore.getInstance().getMongoManager().getCollection().find(eq("UUID", playerUUID.toString())).first();
         firstJoined = (getDoc != null) ? getDoc.getLong("firstjoined") : firstJoined;
 
         long lastOnline = 0;

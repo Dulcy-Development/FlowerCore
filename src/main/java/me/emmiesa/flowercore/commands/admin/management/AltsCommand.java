@@ -40,7 +40,7 @@ public class AltsCommand extends BaseCommand {
         String targetPlayerIpAddress = PlayerUtil.getPlayerIpAddressFromDocument(targetPlayerDoc);
         UUID targetPlayerUUID = PlayerUtil.getPlayerUUIDFromDocument(targetPlayerName);
 
-        MongoCollection<Document> collection = FlowerCore.getINSTANCE().getMongoManager().getCollection();
+        MongoCollection<Document> collection = FlowerCore.getInstance().getMongoManager().getCollection();
         FindIterable<Document> documents = collection.find(eq("currentIpAddress", targetPlayerIpAddress));
 
         List<String> alts = new ArrayList<>();
@@ -54,13 +54,13 @@ public class AltsCommand extends BaseCommand {
 
         if (alts.isEmpty()) {
             sender.sendMessage("");
-            sender.sendMessage(CC.translate("&c" + FlowerCore.getINSTANCE().getPlayerManager().getRank(targetPlayerUUID).getColor() + targetPlayerName + " &chas no alt accounts!"));
+            sender.sendMessage(CC.translate("&c" + FlowerCore.getInstance().getPlayerManager().getRank(targetPlayerUUID).getColor() + targetPlayerName + " &chas no alt accounts!"));
             sender.sendMessage("");
             return;
         }
 
         sender.sendMessage(" ");
-        sender.sendMessage(CC.translate("&c" + FlowerCore.getINSTANCE().getPlayerManager().getRank(targetPlayerUUID).getColor() + targetPlayerName + "&c's alt accounts:"));
+        sender.sendMessage(CC.translate("&c" + FlowerCore.getInstance().getPlayerManager().getRank(targetPlayerUUID).getColor() + targetPlayerName + "&c's alt accounts:"));
 
         for (String alt : alts) {
             sender.sendMessage(CC.translate("&c► &f" + alt));

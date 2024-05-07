@@ -2,7 +2,7 @@ package me.emmiesa.flowercore.api;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.profile.Profile;
-import me.emmiesa.flowercore.rank.Rank;
+import me.emmiesa.flowercore.ranks.Rank;
 import me.emmiesa.flowercore.tags.Tag;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -16,7 +16,7 @@ import java.util.UUID;
  */
 
 public class FlowerCoreAPI {
-    private static final FlowerCore INSTANCE = FlowerCore.getINSTANCE();
+    private static final FlowerCore INSTANCE = FlowerCore.getInstance();
 
     /**
      * Get the profile of a player
@@ -86,7 +86,7 @@ public class FlowerCoreAPI {
      * @return if the rank is the default rank
      */
     public static boolean isDefaultRank(Rank rank) {
-        return rank.getName().equalsIgnoreCase(FlowerCore.getINSTANCE().getRanksManager().getDefaultRank().getName());
+        return rank.getName().equalsIgnoreCase(FlowerCore.getInstance().getRanksManager().getDefaultRank().getName());
     }
 
     /**

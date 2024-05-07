@@ -20,7 +20,7 @@ import java.util.Set;
 
 public class AnnouncementManager {
 
-    private final FlowerCore plugin = FlowerCore.getINSTANCE();
+    private final FlowerCore plugin = FlowerCore.getInstance();
     private final Random random = new Random();
 
     public AnnouncementManager() {

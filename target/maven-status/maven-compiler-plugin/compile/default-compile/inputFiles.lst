@@ -31,8 +31,8 @@ C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmie
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\profile\PlayerManager.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\rank\subcommands\RankSetPrefixCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\playersettings\PlayerSettings.java
-C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\announcements\AnnouncementManager.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\rank\subcommands\RankSetSuffixCommand.java
+C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\placeholder\Placeholder.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\punishments\pardon\UnbanCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\tags\TagCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\database\redis\packet\Packet.java
@@ -64,7 +64,6 @@ C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmie
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\troll\TrollCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\pagination\PaginatedMenu.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\gamemode\gmcCommand.java
-C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\listeners\PlayerListeners.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\profile\Profile.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\FlowerCore.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\command\CommandArgs.java
@@ -74,6 +73,7 @@ C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmie
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\gamemode\gmspCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\punishments\BlacklistCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\troll\TrollEverybodyCommand.java
+C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\listeners\PlayerListener.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\global\toggle\ToggleGlobalChatCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\spawn\SetJoinLocation.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\database\mongo\MongoHandler.java
@@ -119,7 +119,6 @@ C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmie
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\tags\subcommands\TagSaveCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\troll\RocketCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\global\worldtime\DayCommand.java
-C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\papi\ProfilePlaceholders.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\profile\HostAddressSerializer.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\chat\StringUtil.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\Utils.java
@@ -144,6 +143,7 @@ C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmie
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\command\BukkitCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\essential\CraftCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\menu\button\RefillGlassButton.java
+C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\announcement\AnnouncementManager.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\menus\ranklist\RankListMenu.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\management\AlertCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\punishments\IPBanCommand.java
@@ -158,7 +158,6 @@ C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmie
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\menu\button\BackButton.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\pagination\PageFilter.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\locale\Locale.java
-C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\nametag\NametagManager.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\spawn\TeleportSpawnCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\Cooldown.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\punishments\PunishmentSerializer.java

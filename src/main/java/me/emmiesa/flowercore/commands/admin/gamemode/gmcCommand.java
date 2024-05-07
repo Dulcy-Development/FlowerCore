@@ -36,9 +36,9 @@ public class gmcCommand extends BaseCommand {
             if (target.getGameMode().equals(GameMode.CREATIVE)) {
                 args.getPlayer().sendMessage(CC.translate("&c" + target.getName() + " is already in Creative mode."));
             } else {
-                args.getPlayer().sendMessage(CC.translate("&bYou've set &r" + FlowerCore.getINSTANCE().getPlayerManager().getRank(targetUUID).getPrefix() + target.getName() + "&b's gamemode to &3creative&b."));
+                args.getPlayer().sendMessage(CC.translate("&bYou've set &r" + FlowerCore.getInstance().getPlayerManager().getRank(targetUUID).getPrefix() + target.getName() + "&b's gamemode to &3creative&b."));
                 target.setGameMode(GameMode.CREATIVE);
-                target.sendMessage(CC.translate("&bYour gamemode has been set to &3creative &bby &r" + FlowerCore.getINSTANCE().getPlayerManager().getRank(playerUUID).getPrefix() + args.getPlayer().getName() + " &b."));
+                target.sendMessage(CC.translate("&bYour gamemode has been set to &3creative &bby &r" + FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix() + args.getPlayer().getName() + " &b."));
                 for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
                     if (onlinePlayer.hasPermission("flowercore.staff")) {
                         onlinePlayer.sendMessage(CC.translate("&7&o(" + args.getPlayer().getDisplayName() + "&7&o: Set " + target.getDisplayName() + "&7&o's gamemode creative)")/*.replace("%prefix%", FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix())))*/);
@@ -48,9 +48,9 @@ public class gmcCommand extends BaseCommand {
         } else {
             Player player = args.getPlayer();
             if (player.getGameMode().equals(GameMode.CREATIVE)) {
-                player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("gamemode.creative.is_already")));
+                player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("gamemode.creative.is_already")));
             } else {
-                player.sendMessage(CC.translate(FlowerCore.getINSTANCE().getConfig("messages.yml").getString("gamemode.creative.switched")));
+                player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("gamemode.creative.switched")));
                 player.setGameMode(GameMode.CREATIVE);
                 for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
                     if (onlinePlayer.hasPermission("flowercore.staff")) {

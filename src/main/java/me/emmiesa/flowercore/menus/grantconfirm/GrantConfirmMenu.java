@@ -2,7 +2,7 @@ package me.emmiesa.flowercore.menus.grantconfirm;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.menus.grantconfirm.button.GrantConfirmButton;
-import me.emmiesa.flowercore.rank.Rank;
+import me.emmiesa.flowercore.ranks.Rank;
 import me.emmiesa.flowercore.utils.menu.Button;
 import me.emmiesa.flowercore.utils.menu.Menu;
 import me.emmiesa.flowercore.utils.menu.button.RefillGlassButton;
@@ -33,20 +33,20 @@ public class GrantConfirmMenu extends Menu {
 
     @Override
     public String getTitle(Player player) {
-        return FlowerCore.getINSTANCE().getConfigHandler().getConfigByName("menus/grant-confirm.yml").getString("title").replace("%player%", playerName);
+        return FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/grant-confirm.yml").getString("title").replace("%player%", playerName);
     }
 
     @Override
     public Map<Integer, Button> getButtons(Player player) {
         Map<Integer, Button> buttons = new HashMap<>();
-        FileConfiguration config = FlowerCore.getINSTANCE().getConfigHandler().getConfigByName("menus/grant-confirm.yml");
+        FileConfiguration config = FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/grant-confirm.yml");
 
         String confirmTitle = config.getString("confirm-button.title", "&b&lConfirm");
         String confirmMaterialStr = config.getString("confirm-button.material", "DIAMOND_BLOCK");
         Material confirmMaterial = Material.matchMaterial(confirmMaterialStr);
         List<String> confirmLore = config.getStringList("confirm-button.lore");
-        String staff = FlowerCore.getINSTANCE().getConfigHandler().getConfigByName("menus/grant-confirm.yml").getString("confirm-button.placeholder.staff");
-        String nonStaff = FlowerCore.getINSTANCE().getConfigHandler().getConfigByName("menus/grant-confirm.yml").getString("confirm-button.placeholder.non-staff");
+        String staff = FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/grant-confirm.yml").getString("confirm-button.placeholder.staff");
+        String nonStaff = FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/grant-confirm.yml").getString("confirm-button.placeholder.non-staff");
         confirmLore.replaceAll(line -> line.replace("{player_name}", playerName).replace("{rank}", rank.getDisplayName()).replace("{rank-type}", rank.isStaff() ? staff : nonStaff));
 
         String cancelTitle = config.getString("cancel-button.title", "&c&lCancel");
@@ -76,7 +76,7 @@ public class GrantConfirmMenu extends Menu {
 
     @Override
     public int getSize() {
-        FileConfiguration newsConfig = FlowerCore.getINSTANCE().getConfigHandler().getConfigByName("menus/grant-confirm.yml");
+        FileConfiguration newsConfig = FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/grant-confirm.yml");
         if (newsConfig != null) {
             return newsConfig.getInt("size", 9 * 3);
         }

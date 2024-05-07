@@ -2,7 +2,7 @@ package me.emmiesa.flowercore.commands.admin.rank.subcommands;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.menus.ranklist.RankListMenu;
-import me.emmiesa.flowercore.rank.Rank;
+import me.emmiesa.flowercore.ranks.Rank;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.chat.StringUtil;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
@@ -21,14 +21,14 @@ import java.util.List;
 
 public class RankListCommand extends BaseCommand {
 
-    @Command(name = "rank.list", aliases = {"rank", "ranklist", "listranks"}, permission = "flowercore.staff")
+    @Command(name = "rank.list", aliases = {"ranklist", "listranks"}, permission = "flowercore.staff")
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
 
-        if (FlowerCore.getINSTANCE().getConfig("settings.yml").getBoolean("rank-settings.list.send-as-message")) {
+        if (FlowerCore.getInstance().getConfig("settings.yml").getBoolean("rank-settings.list.send-as-message")) {
             sendAsMessage(player);
         }
-        if (FlowerCore.getINSTANCE().getConfig("settings.yml").getBoolean("rank-settings.list.open-menu")) {
+        if (FlowerCore.getInstance().getConfig("settings.yml").getBoolean("rank-settings.list.open-menu")) {
             openListMenu(player);
         }
     }
@@ -38,7 +38,7 @@ public class RankListCommand extends BaseCommand {
     }
 
     public void sendAsMessage(Player player) {
-        List<Rank> ranks = FlowerCore.getINSTANCE().getRanksManager().getRanks();
+        List<Rank> ranks = FlowerCore.getInstance().getRanksManager().getRanks();
 
         int maxLength = ranks.stream()
                 .mapToInt(rank -> ChatColor.stripColor(rank.getDisplayName()).length())
@@ -47,7 +47,7 @@ public class RankListCommand extends BaseCommand {
 
         player.sendMessage(" ");
         player.sendMessage(CC.FLOWER_BAR);
-        player.sendMessage(CC.translate("   &b&lRank list &f(" + FlowerCore.getINSTANCE().getConfig("ranks.yml").getConfigurationSection("rank").getKeys(false).size()) + CC.translate("&f)"));
+        player.sendMessage(CC.translate("   &b&lRank list &f(" + FlowerCore.getInstance().getConfig("ranks.yml").getConfigurationSection("ranks").getKeys(false).size()) + CC.translate("&f)"));
 
         for (Rank rank : ranks) {
             String paddedName = StringUtil.padRight(rank.getColor() + rank.getName() + " &8&l┃&r " + rank.getPrefix(), maxLength);
