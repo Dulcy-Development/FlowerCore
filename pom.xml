@@ -19,7 +19,7 @@
     <url>https://dsc.gg/emmiesa</url>
 
     <build>
-        <finalName>FlowerCore-${project.version}</finalName>
+        <finalName>${project.name}-${project.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
