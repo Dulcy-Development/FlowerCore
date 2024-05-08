@@ -53,7 +53,7 @@ public class RankCommand extends BaseCommand {
         player.sendMessage(CC.translate(" &f● &b/rank create &8<&7name&8> &8| &7Create rank"));
         player.sendMessage(CC.translate(" &f● &b/rank delete &8<&7name&8> &8| &7Delete Rank"));
         player.sendMessage(CC.translate(" &f● &b/rank save &8<&7name&8> &8| &7Save rank to file."));
-        player.sendMessage(CC.translate(" &f● &b/rank list &8| &7See all rank."));
+        player.sendMessage(CC.translate(" &f● &b/rank list &8| &7See all ranks."));
         player.sendMessage(" ");
         player.sendMessage(CC.translate("&b&lRank Customization Help:"));
         player.sendMessage(CC.translate(" &f● &b/rank setDisplayName &8<&7name&8> &8<&7displayName&8>  &8| &7Set display name."));

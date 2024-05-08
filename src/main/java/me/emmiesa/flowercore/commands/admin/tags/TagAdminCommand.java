@@ -47,7 +47,7 @@ public class TagAdminCommand extends BaseCommand {
         player.sendMessage(CC.translate(" &f● &b/tagadmin create &8<&7name&8> &8| &7Create Tag"));
         player.sendMessage(CC.translate(" &f● &b/tagadmin delete &8<&7name&8> &8| &7Delete Tag"));
         player.sendMessage(CC.translate(" &f● &b/tagadmin save &8<&7name&8> &8| &7Save tags to file."));
-        player.sendMessage(CC.translate(" &f● &b/tagadmin list &8| &7See all rank."));
+        player.sendMessage(CC.translate(" &f● &b/tagadmin list &8| &7See all tags."));
         player.sendMessage(" ");
         player.sendMessage(CC.translate("&b&lTag Customization Help:"));
         player.sendMessage(CC.translate(" &f● &b/tagadmin setTag &8<&7name&8> &8<&7tag-format&8>  &8| &7Set the way the tag should look."));

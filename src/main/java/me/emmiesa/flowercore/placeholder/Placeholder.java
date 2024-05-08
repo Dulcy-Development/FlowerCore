@@ -16,6 +16,8 @@ import java.util.UUID;
 
 public class Placeholder extends PlaceholderExpansion {
 
+    //private final FlowerCore plugin = FlowerCore.getInstance();
+
     @Override
     public @NotNull String getIdentifier() {
         return "flower";
