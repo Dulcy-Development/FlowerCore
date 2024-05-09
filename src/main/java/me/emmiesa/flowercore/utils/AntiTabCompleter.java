@@ -1,4 +1,4 @@
-package me.emmiesa.flowercore.utils.anticompleter;
+package me.emmiesa.flowercore.utils;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;

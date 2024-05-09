@@ -21,7 +21,6 @@ me\emmiesa\flowercore\commands\admin\tags\TagAdminCommand.class
 me\emmiesa\flowercore\utils\Cooldown.class
 me\emmiesa\flowercore\commands\admin\punishments\pardon\UnblacklistCommand.class
 me\emmiesa\flowercore\commands\admin\spawn\SetJoinLocation.class
-me\emmiesa\flowercore\utils\anticompleter\AntiTabCompleter.class
 me\emmiesa\flowercore\commands\admin\punishments\MuteCommand.class
 me\emmiesa\flowercore\commands\global\socials\DiscordCommand.class
 me\emmiesa\flowercore\commands\admin\management\BroadcastCommand.class
@@ -90,6 +89,7 @@ me\emmiesa\flowercore\commands\global\worldtime\NightCommand.class
 me\emmiesa\flowercore\commands\admin\troll\RocketCommand.class
 me\emmiesa\flowercore\utils\pagination\FilterablePaginatedMenu.class
 me\emmiesa\flowercore\commands\admin\spawn\TeleportSpawnCommand.class
+me\emmiesa\flowercore\utils\AntiTabCompleter.class
 me\emmiesa\flowercore\utils\chat\JSONMessage$ReflectionHelper.class
 me\emmiesa\flowercore\utils\chat\JSONMessage.class
 me\emmiesa\flowercore\commands\admin\management\AltsCommand.class

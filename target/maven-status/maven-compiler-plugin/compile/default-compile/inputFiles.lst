@@ -19,7 +19,6 @@ C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmie
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\essential\RenameCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\pagination\ItemBuilder.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\rank\subcommands\RankSetColorCommand.java
-C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\anticompleter\AntiTabCompleter.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\management\ClearChatCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\troll\TrollSilentCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\NumberUtils.java
@@ -53,6 +52,7 @@ C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmie
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\rank\subcommands\RankAddPermissionsCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\global\socials\WebsiteCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\global\menus\SettingsCommand.java
+C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\utils\AntiTabCompleter.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\punishments\pardon\UnMuteCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\rank\subcommands\RankDeleteCommand.java
 C:\Users\Riesey\Desktop\Development\1 Projects\FlowerCore\src\main\java\me\emmiesa\flowercore\commands\admin\rank\subcommands\RankSetPriorityCommand.java
