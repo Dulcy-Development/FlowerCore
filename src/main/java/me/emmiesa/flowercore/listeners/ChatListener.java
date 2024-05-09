@@ -36,7 +36,7 @@ public class ChatListener implements Listener {
         }
 
         for (Punishment punishment : punishments) {
-            if (punishment != null && (punishment.getType().equals(PunishmentType.MUTE))) {
+            if (punishment.isActive() && punishment.getType().equals(PunishmentType.MUTE)) {
                 player.sendMessage("");
                 player.sendMessage(CC.translate("&cYou've been muted by &4" + punishment.getBy()));
                 player.sendMessage(CC.translate(" &7Duration: &c" + punishment.getDuration()));
