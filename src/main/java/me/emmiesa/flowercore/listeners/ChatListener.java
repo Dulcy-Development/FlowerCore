@@ -12,6 +12,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 import java.util.List;
+import java.lang.String;
 import java.util.UUID;
 
 /**
@@ -37,11 +38,18 @@ public class ChatListener implements Listener {
 
         for (Punishment punishment : punishments) {
             if (punishment.isActive() && punishment.getType().equals(PunishmentType.MUTE)) {
-                player.sendMessage("");
-                player.sendMessage(CC.translate("&cYou've been muted by &4" + punishment.getBy()));
-                player.sendMessage(CC.translate(" &7Duration: &c" + punishment.getDuration()));
-                player.sendMessage(CC.translate(" &7Reason: &c" + punishment.getReason()));
-                player.sendMessage("");
+                for (String message : plugin.getConfig("messages.yml").getStringList("punishments.mute")) {
+                    player.sendMessage(CC.translate(message)
+                            .replace("%duration%", punishment.getDuration())
+                            .replace("%reason%", punishment.getReason())
+                            .replace("%muted-by%", punishment.getByString())
+                    );
+                }
+
+                //                player.sendMessage(CC.translate("&cYou've been muted by &4" + punishment.getBy()));
+                //                player.sendMessage(CC.translate(" &7Duration: &c" + punishment.getDuration()));
+                //                player.sendMessage(CC.translate(" &7Reason: &c" + punishment.getReason()));
+                //                player.sendMessage("");
                 event.setCancelled(true);
                 return;
             }

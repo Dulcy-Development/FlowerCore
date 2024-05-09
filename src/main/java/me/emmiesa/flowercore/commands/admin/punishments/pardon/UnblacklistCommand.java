@@ -43,6 +43,13 @@ public class UnblacklistCommand extends BaseCommand {
             return;
         }
 
+        for (Punishment punishment : profile.getPunishments()) {
+            if (!punishment.isActive() && punishment.getType().equals(PunishmentType.BLACKLIST)) {
+                sender.sendMessage(CC.translate("&4" + targetPlayer.getName()+ " &cis already un-blacklisted!"));
+                return;
+            }
+        }
+
         if (targetPlayer.isOnline()) {
             UUID playerUUID = targetPlayer.getUniqueId();
             Player onlinePlayer = targetPlayer.getPlayer();
