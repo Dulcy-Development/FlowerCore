@@ -4,10 +4,8 @@ package me.emmiesa.flowercore.profile;
 import lombok.Getter;
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.punishments.Punishment;
-import me.emmiesa.flowercore.punishments.PunishmentType;
 import me.emmiesa.flowercore.ranks.Rank;
 import me.emmiesa.flowercore.tags.Tag;
-import me.emmiesa.flowercore.utils.Utils;
 import org.bson.Document;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -84,6 +82,12 @@ public class PlayerManager {
         profile.setPunishments(punishments);
     }
 
+
+    /**
+     * This completely removes the specific punishment, not the best idea if you need a punishment history... I FINALLY implemented something new.
+     * Instead of removing the punishment entirely, the unban command sets the active state to false, which is being checked in chat event & async join event.
+
+
     public void removePunishment(UUID playerUUID, PunishmentType type, String punishedName) {
         Profile profile = profiles.get(playerUUID);
         if (profile == null) {
@@ -95,7 +99,7 @@ public class PlayerManager {
             punishments.removeIf(p -> p.getType() == type && p.getName().equalsIgnoreCase(punishedName));
             profile.setPunishments(punishments);
         }
-    }
+    }*/
 
     public Rank getRank(UUID playerUUID) {
         if (Bukkit.getPlayer(playerUUID) != null) {
