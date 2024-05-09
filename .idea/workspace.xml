@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38eb9cb5-5e70-4f19-9d68-f03a6958635d" name="Changes" comment="Fixed the Punishments system.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/listeners/ChatListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/listeners/ChatListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages.yml" afterDir="false" />
-    </list>
+    <list default="true" id="38eb9cb5-5e70-4f19-9d68-f03a6958635d" name="Changes" comment="add already banned check to pardon commands" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -367,7 +363,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715266304428</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="add already banned check to pardon commands">
+      <option name="closed" value="true" />
+      <created>1715269373711</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1715269373711</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -389,7 +393,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update listTags and listRanks method in CC so that a sender can recieve it as a message rather than just a consolesender" />
     <MESSAGE value="update FlowerCoreAPI.java" />
     <MESSAGE value="refactor" />
     <MESSAGE value="Fixed the entire Punishments system (Except offline players and the punishment being stored properly, needs to be redone so that punishments save in a seperate mongo collection)" />
@@ -414,6 +417,7 @@
     <MESSAGE value="refactor &amp; small details (not important)" />
     <MESSAGE value="ChatListener.java: if punishment is active &amp; equals type &quot;mute&quot;, cancel AsyncPlayerChatEvent" />
     <MESSAGE value="Fixed the Punishments system." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed the Punishments system." />
+    <MESSAGE value="add already banned check to pardon commands" />
+    <option name="LAST_COMMIT_MESSAGE" value="add already banned check to pardon commands" />
   </component>
 </project>

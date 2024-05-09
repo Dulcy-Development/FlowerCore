@@ -53,6 +53,7 @@ public class UnbanCommand extends BaseCommand {
         if (targetPlayer.isOnline()) {
             Player onlinePlayer = targetPlayer.getPlayer();
             UUID playerUUID = onlinePlayer.getUniqueId();
+
             Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.un-banned").replace("%pardoner%", sender.getName()).replace("%target%", onlinePlayer.getDisplayName())));
             Utils.broadcastMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.un-banned").replace("%pardoner%", sender.getName()).replace("%target%", onlinePlayer.getDisplayName())));
 
@@ -64,6 +65,7 @@ public class UnbanCommand extends BaseCommand {
             FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
         } else {
             UUID playerUUID = targetPlayer.getUniqueId();
+
             Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.un-banned").replace("%pardoner%", sender.getName()).replace("%target%", targetPlayer.getName())));
             Utils.broadcastMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.un-banned").replace("%pardoner%", sender.getName()).replace("%target%", targetPlayer.getName())));
 
