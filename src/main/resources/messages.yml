@@ -37,7 +37,9 @@ punishments:
   kick: "&7You've been kicked! \n&7Kicked by &a%punisher% &7for &a%reason%&7!"
   mute:
     - ""
-    - ""
+    - "&cYou've been muted by &4%muted-by%"
+    - " &7Duration: &c%duration%"
+    - " &7Reason: &c%reason%"
     - ""
 
 private-messages:

@@ -45,11 +45,6 @@ public class ChatListener implements Listener {
                             .replace("%muted-by%", punishment.getByString())
                     );
                 }
-
-                //                player.sendMessage(CC.translate("&cYou've been muted by &4" + punishment.getBy()));
-                //                player.sendMessage(CC.translate(" &7Duration: &c" + punishment.getDuration()));
-                //                player.sendMessage(CC.translate(" &7Reason: &c" + punishment.getReason()));
-                //                player.sendMessage("");
                 event.setCancelled(true);
                 return;
             }
