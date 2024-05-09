@@ -1,6 +1,7 @@
 package me.emmiesa.flowercore.commands.admin.punishments;
 
 import me.emmiesa.flowercore.FlowerCore;
+import me.emmiesa.flowercore.profile.Profile;
 import me.emmiesa.flowercore.punishments.Punishment;
 import me.emmiesa.flowercore.punishments.PunishmentType;
 import me.emmiesa.flowercore.utils.Utils;
@@ -41,7 +42,16 @@ public class BanCommand extends BaseCommand {
         Player targetPlayer = Bukkit.getPlayer(targetName);
         String bannedByName = sender instanceof Player ? ((Player) sender).getName() : "CONSOLE";
 
-        Punishment punishment = new Punishment(targetPlayerOffline.getName(), targetPlayerOffline.getUniqueId(), bannedByName, PunishmentType.BAN, reason, targetPlayer != null ? targetPlayer.getAddress().getAddress().getHostAddress() : "null", false, duration);
+        Profile profile = FlowerCore.getInstance().getPlayerManager().getProfile(targetPlayer.getUniqueId());
+
+        for (Punishment punishment : profile.getPunishments()) {
+            if (punishment.isActive() && punishment.getType().equals(PunishmentType.BAN)) {
+                sender.sendMessage(CC.translate("&4" + targetName + " &cis already banned!"));
+                return;
+            }
+        }
+
+        Punishment punishment = new Punishment(targetPlayerOffline.getName(), targetPlayerOffline.getUniqueId(), bannedByName, PunishmentType.BAN, reason, targetPlayer != null ? targetPlayer.getAddress().getAddress().getHostAddress() : "null", false, duration, true);
         FlowerCore.getInstance().getPlayerManager().addPunishment(targetPlayerOffline.getUniqueId(), punishment);
 
         if (silent) {
