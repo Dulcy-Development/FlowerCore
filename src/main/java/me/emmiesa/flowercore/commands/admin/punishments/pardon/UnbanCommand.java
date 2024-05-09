@@ -43,12 +43,12 @@ public class UnbanCommand extends BaseCommand {
             return;
         }
 
-        for (Punishment punishment : profile.getPunishments()) {
+        /*for (Punishment punishment : profile.getPunishments()) {
             if (!punishment.isActive() && punishment.getType().equals(PunishmentType.BAN)) {
                 sender.sendMessage(CC.translate("&4" + targetPlayer.getName()+ " &cis already un-banned!"));
                 return;
             }
-        }
+        }*/
 
         if (targetPlayer.isOnline()) {
             Player onlinePlayer = targetPlayer.getPlayer();

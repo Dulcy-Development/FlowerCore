@@ -42,14 +42,14 @@ public class MuteCommand extends BaseCommand {
         Player targetPlayer = Bukkit.getPlayer(targetName);
         String mutedByName = sender instanceof Player ? ((Player) sender).getName() : "CONSOLE";
 
-        Profile profile = FlowerCore.getInstance().getPlayerManager().getProfile(targetPlayer.getUniqueId());
+        Profile profile = FlowerCore.getInstance().getPlayerManager().getProfile(targetPlayerOffline.getUniqueId());
 
-        for (Punishment punishment : profile.getPunishments()) {
+        /*for (Punishment punishment : profile.getPunishments()) {
             if (punishment.isActive() && punishment.getType().equals(PunishmentType.MUTE)) {
                 sender.sendMessage(CC.translate("&4" + targetName + " &cis already muted!"));
                 return;
             }
-        }
+        }*/
 
         Punishment punishment = new Punishment(targetPlayerOffline.getName(), targetPlayerOffline.getUniqueId(), mutedByName, PunishmentType.MUTE, reason, targetPlayer != null ? targetPlayer.getAddress().getAddress().getHostAddress() : "null", false, duration, true);
         FlowerCore.getInstance().getPlayerManager().addPunishment(targetPlayerOffline.getUniqueId(), punishment);

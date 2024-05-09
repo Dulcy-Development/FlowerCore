@@ -1,7 +1,6 @@
 package me.emmiesa.flowercore.commands.admin.management;
 
-import me.emmiesa.flowercore.menus.grant.GrantMenu;
-import me.emmiesa.flowercore.menus.punishmenthistory.PunishhistoryMenu;
+import me.emmiesa.flowercore.menus.punishmenthistory.PunishHistoryMenu;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
 import me.emmiesa.flowercore.utils.command.Command;
@@ -33,6 +32,6 @@ public class PunishHistoryCommand extends BaseCommand {
             return;
         }
 
-        new PunishhistoryMenu(playerName).openMenu(player);
+        new PunishHistoryMenu(playerName).openMenu(player);
     }
 }

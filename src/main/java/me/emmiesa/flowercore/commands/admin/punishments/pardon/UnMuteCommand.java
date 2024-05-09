@@ -42,12 +42,12 @@ public class UnMuteCommand extends BaseCommand {
             return;
         }
 
-        for (Punishment punishment : profile.getPunishments()) {
+        /*for (Punishment punishment : profile.getPunishments()) {
             if (!punishment.isActive() && punishment.getType().equals(PunishmentType.MUTE)) {
                 sender.sendMessage(CC.translate("&4" + targetPlayer.getName()+ " &cis already un-muted!"));
                 return;
             }
-        }
+        }*/
 
         if (targetPlayer.isOnline()) {
             UUID playerUUID = targetPlayer.getUniqueId();

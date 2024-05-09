@@ -4,59 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38eb9cb5-5e70-4f19-9d68-f03a6958635d" name="Changes" comment="aaaaaa">
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/management/PunishHistoryCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/menus/punishmenthistory/PunishhistoryMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/menus/punishmenthistory/button/PunishhistoryButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FlowerCore permissions.txt" afterDir="false" />
+    <list default="true" id="38eb9cb5-5e70-4f19-9d68-f03a6958635d" name="Changes" comment="ChatListener.java: Made the muted stringlist customizable">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/FlowerCore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/FlowerCore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/essential/ClearCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/essential/ClearCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/essential/FeedCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/essential/FeedCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/essential/FlyCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/essential/FlyCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/essential/ForceFlyCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/essential/ForceFlyCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/essential/GodModeCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/essential/GodModeCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/essential/HealCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/essential/HealCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/essential/LocationCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/essential/LocationCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/essential/RenameCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/essential/RenameCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/essential/SpeedCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/essential/SpeedCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/essential/SudoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/essential/SudoCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/gamemode/gmaCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/gamemode/gmaCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/gamemode/gmcCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/gamemode/gmcCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/gamemode/gmsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/gamemode/gmsCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/gamemode/gmspCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/gamemode/gmspCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/management/AltsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/management/AltsCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/management/ClearChatCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/management/ClearChatCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/management/InfoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/management/InfoCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/management/RebootCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/management/RebootCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/GrantCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/GrantCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/RankCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/RankCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/SetRankCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/SetRankCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/SetRankPurchasedCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/SetRankPurchasedCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/subcommands/RankAddPermissionsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/subcommands/RankAddPermissionsCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/subcommands/RankCreateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/subcommands/RankCreateCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/subcommands/RankDeleteCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/subcommands/RankDeleteCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/subcommands/RankListCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/subcommands/RankListCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/subcommands/RankSaveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/subcommands/RankSaveCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/subcommands/RankSetColorCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/subcommands/RankSetColorCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/subcommands/RankSetDefaultCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/subcommands/RankSetDefaultCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/subcommands/RankSetDisplayCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/subcommands/RankSetDisplayCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/subcommands/RankSetIconCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/subcommands/RankSetIconCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/subcommands/RankSetPrefixCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/subcommands/RankSetPrefixCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/subcommands/RankSetPriorityCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/subcommands/RankSetPriorityCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/subcommands/RankSetStaffCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/subcommands/RankSetStaffCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/subcommands/RankSetSuffixCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/rank/subcommands/RankSetSuffixCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/spawn/SetJoinLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/spawn/SetJoinLocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/spawn/TeleportSpawnCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/spawn/TeleportSpawnCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/tags/TagAdminCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/tags/TagAdminCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/tags/subcommands/TagCreateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/tags/subcommands/TagCreateCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/tags/subcommands/TagDeleteCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/tags/subcommands/TagDeleteCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/tags/subcommands/TagListCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/tags/subcommands/TagListCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/tags/subcommands/TagSaveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/tags/subcommands/TagSaveCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/tags/subcommands/TagSetDisplayCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/tags/subcommands/TagSetDisplayCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/tags/subcommands/TagSetIconCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/tags/subcommands/TagSetIconCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/tags/subcommands/TagSettagCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/tags/subcommands/TagSettagCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/donator/AnnounceCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/donator/AnnounceCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/management/PunishHistoryCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/management/PunishHistoryCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/punishments/BanCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/punishments/BanCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/punishments/BlacklistCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/punishments/BlacklistCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/punishments/MuteCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/punishments/MuteCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/punishments/pardon/UnMuteCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/punishments/pardon/UnMuteCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/punishments/pardon/UnbanCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/punishments/pardon/UnbanCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/punishments/pardon/UnblacklistCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/commands/admin/punishments/pardon/UnblacklistCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/menus/punishmenthistory/PunishhistoryMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/menus/punishmenthistory/PunishHistoryMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/menus/punishmenthistory/button/PunishhistoryButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/emmiesa/flowercore/menus/punishmenthistory/button/PunishHistoryButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/FlowerCore-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/FlowerCore-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/messages.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
@@ -441,7 +399,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715269531386</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Change permissions for most of the commands (57 classes)">
+      <option name="closed" value="true" />
+      <created>1715287480688</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1715287480688</updated>
+    </task>
+    <task id="LOCAL-00034" summary="ChatListener.java: Made the muted stringlist customizable">
+      <option name="closed" value="true" />
+      <created>1715287521745</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1715287521745</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -463,8 +437,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor" />
-    <MESSAGE value="Fixed the entire Punishments system (Except offline players and the punishment being stored properly, needs to be redone so that punishments save in a seperate mongo collection)" />
     <MESSAGE value="new IP-blacklist command &amp; IP-ban command" />
     <MESSAGE value="New Mute &amp; Un-Mute command" />
     <MESSAGE value="if player is muted, cancel PlayerChatEvent ()" />
@@ -488,6 +460,8 @@
     <MESSAGE value="Fixed the Punishments system." />
     <MESSAGE value="add already banned check to pardon commands" />
     <MESSAGE value="aaaaaa" />
-    <option name="LAST_COMMIT_MESSAGE" value="aaaaaa" />
+    <MESSAGE value="Change permissions for most of the commands (57 classes)" />
+    <MESSAGE value="ChatListener.java: Made the muted stringlist customizable" />
+    <option name="LAST_COMMIT_MESSAGE" value="ChatListener.java: Made the muted stringlist customizable" />
   </component>
 </project>

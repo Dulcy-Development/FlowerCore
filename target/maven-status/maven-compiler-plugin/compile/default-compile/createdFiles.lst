@@ -39,7 +39,6 @@ me\emmiesa\flowercore\utils\pagination\ViewAllPagesMenu.class
 me\emmiesa\flowercore\commands\global\socials\StoreCommand.class
 me\emmiesa\flowercore\commands\global\conversation\MessageCommand.class
 me\emmiesa\flowercore\utils\item\ItemCreator$Glow.class
-me\emmiesa\flowercore\menus\punishmenthistory\button\PunishhistoryButton.class
 me\emmiesa\flowercore\commands\admin\rank\subcommands\RankSetColorCommand.class
 me\emmiesa\flowercore\punishments\PunishmentType.class
 me\emmiesa\flowercore\utils\pagination\PaginatedMenu.class
@@ -92,8 +91,10 @@ me\emmiesa\flowercore\commands\global\server\PingCommand.class
 me\emmiesa\flowercore\profile\Profile$ProfileBuilder.class
 me\emmiesa\flowercore\utils\NumberUtils.class
 me\emmiesa\flowercore\announcement\AnnouncementManager.class
+me\emmiesa\flowercore\menus\punishmenthistory\PunishHistoryMenu.class
 me\emmiesa\flowercore\profile\PlayerManager.class
 me\emmiesa\flowercore\tags\TagsManager.class
+me\emmiesa\flowercore\menus\punishmenthistory\button\PunishHistoryButton.class
 me\emmiesa\flowercore\api\FlowerCoreAPI.class
 me\emmiesa\flowercore\commands\admin\tags\subcommands\TagListCommand.class
 me\emmiesa\flowercore\commands\admin\essential\ForceFlyCommand.class
@@ -165,7 +166,6 @@ me\emmiesa\flowercore\FlowerCore.class
 me\emmiesa\flowercore\menus\grant\GrantMenu.class
 me\emmiesa\flowercore\commands\admin\rank\subcommands\RankSetStaffCommand.class
 me\emmiesa\flowercore\commands\admin\punishments\BanCommand.class
-me\emmiesa\flowercore\menus\punishmenthistory\PunishhistoryMenu.class
 me\emmiesa\flowercore\commands\admin\tags\TagCommand.class
 me\emmiesa\flowercore\menus\news\button\NewsButton.class
 me\emmiesa\flowercore\commands\admin\teleport\TeleportAllCommand.class
