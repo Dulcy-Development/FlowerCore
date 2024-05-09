@@ -22,7 +22,7 @@ public class RankCommand extends BaseCommand {
     public List<String> rankCompleter(CommandArgs args) {
         List<String> commands = new ArrayList<>();
         if (args.length() == 1) {
-            if (args.getPlayer().hasPermission("flowercore.admin")) {
+            if (args.getPlayer().hasPermission("flower.ranks.developer")) {
                 commands.add("create");
                 commands.add("delete");
                 commands.add("save");
@@ -42,7 +42,7 @@ public class RankCommand extends BaseCommand {
         return commands;
     }
 
-    @Command(name = "rank", permission = "flowercore.staff")
+    @Command(name = "rank", permission = "flower.ranks.developer")
 
     @Override
     public void onCommand(CommandArgs args) {
@@ -52,7 +52,7 @@ public class RankCommand extends BaseCommand {
         player.sendMessage(CC.translate("&b&lRank Creation Help:"));
         player.sendMessage(CC.translate(" &f● &b/rank create &8<&7name&8> &8| &7Create a rank"));
         player.sendMessage(CC.translate(" &f● &b/rank delete &8<&7name&8> &8| &7Delete a Rank"));
-        player.sendMessage(CC.translate(" &f● &b/rank save&8| &7Save ranks to config."));
+        player.sendMessage(CC.translate(" &f● &b/rank save &8| &7Save ranks to config."));
         player.sendMessage(CC.translate(" &f● &b/rank list &8| &7See all ranks."));
         player.sendMessage(" ");
         player.sendMessage(CC.translate("&b&lRank Customization Help:"));

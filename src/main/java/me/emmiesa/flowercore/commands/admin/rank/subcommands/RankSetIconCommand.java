@@ -18,7 +18,7 @@ import org.bukkit.entity.Player;
 
 public class RankSetIconCommand extends BaseCommand {
 
-    @Command(name = "rank.seticon", aliases = {"setrankicon"}, permission = "flowercore.staff")
+    @Command(name = "rank.seticon", aliases = {"setrankicon"}, permission = "flower.ranks.developer")
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
 

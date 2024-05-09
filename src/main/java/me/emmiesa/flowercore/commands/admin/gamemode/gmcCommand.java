@@ -19,7 +19,7 @@ import java.util.UUID;
 
 public class gmcCommand extends BaseCommand {
 
-    @Command(name = "gmc", aliases = {"gm.c", "creative", "gamemode.c", "gamemode.1", "gamemode.creative", "gm.1", "gm1", "gm.creative"}, permission = "flowercore.staff")
+    @Command(name = "gmc", aliases = {"gm.c", "creative", "gamemode.c", "gamemode.1", "gamemode.creative", "gm.1", "gm1", "gm.creative"}, permission = "flower.command.gamemodecreative")
     public void onCommand(CommandArgs args) {
         if (args.length() > 0) {
             String targetName = args.getArgs(0);

@@ -20,7 +20,7 @@ import static com.mongodb.client.model.Filters.eq;
 public class AltsCommand extends BaseCommand {
 
     @Override
-    @Command(name = "alts", permission = "flowercore.staff")
+    @Command(name = "alts", permission = "flower.command.alts")
     public void onCommand(CommandArgs command) {
         CommandSender sender = command.getSender();
 

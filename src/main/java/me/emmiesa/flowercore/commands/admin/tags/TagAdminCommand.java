@@ -21,22 +21,20 @@ public class TagAdminCommand extends BaseCommand {
     @Completer(name = "tagadmin")
     public List<String> tagCompleter(CommandArgs args) {
         List<String> commands = new ArrayList<>();
-        if (args.length() == 1) {
-            if (args.getPlayer().hasPermission("flowercore.admin")) {
-                commands.add("create");
-                commands.add("delete");
-                commands.add("save");
-                commands.add("list");
+        if (args.length() == 1 && args.getPlayer().hasPermission("flower.tags.developer")) {
+            commands.add("create");
+            commands.add("delete");
+            commands.add("save");
+            commands.add("list");
 
-                commands.add("settag");
-                commands.add("seticon");
-                commands.add("setdisplayname");
-            }
+            commands.add("settag");
+            commands.add("seticon");
+            commands.add("setdisplayname");
         }
         return commands;
     }
 
-    @Command(name = "tagadmin", permission = "flowercore.staff")
+    @Command(name = "tagadmin", permission = "flower.tags.developer")
 
     @Override
     public void onCommand(CommandArgs args) {

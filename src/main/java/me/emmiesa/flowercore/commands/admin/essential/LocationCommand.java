@@ -17,7 +17,7 @@ import org.bukkit.entity.Player;
 
 public class LocationCommand extends BaseCommand {
 
-    @Command(name = "location", permission = "flowercore.command.location", aliases = {"loc", "whereami"})
+    @Command(name = "location", permission = "flower.command.location", aliases = {"loc", "whereami"})
     @Override
     public void onCommand(CommandArgs cmd) {
         Player player = cmd.getPlayer();

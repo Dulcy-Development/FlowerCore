@@ -21,7 +21,7 @@ import java.util.UUID;
 
 public class SetRankCommand extends BaseCommand {
     @Override
-    @Command(name = "setrank", permission = "flowercore.staff", inGameOnly = false)
+    @Command(name = "setrank", permission = "flower.ranks.developer", inGameOnly = false)
     public void onCommand(CommandArgs command) {
         CommandSender sender = command.getSender();
         String[] args = command.getArgs();

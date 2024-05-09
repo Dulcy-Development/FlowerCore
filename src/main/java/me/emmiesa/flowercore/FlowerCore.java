@@ -223,6 +223,7 @@ public class FlowerCore extends JavaPlugin {
         new TeleportAllCommand();
         new TeleportHereCommand();
         new TeleportSpawnCommand();
+        new PunishHistoryCommand();
         new TrollEverybodyCommand();
         new TeleportPositionCommand();
 

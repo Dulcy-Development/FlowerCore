@@ -15,7 +15,7 @@ import org.bukkit.entity.Player;
 
 public class FeedCommand extends BaseCommand {
 
-    @Command(name = "feed", aliases = "sethungerfull", permission = "flowercore.command.feed")
+    @Command(name = "feed", aliases = "sethungerfull", permission = "flower.command.feed")
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
 

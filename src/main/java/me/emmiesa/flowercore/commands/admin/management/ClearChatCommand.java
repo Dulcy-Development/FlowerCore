@@ -20,7 +20,7 @@ public class ClearChatCommand extends BaseCommand {
 
     private final FlowerCore plugin = FlowerCore.getInstance();
 
-    @Command(name = "clearchat", aliases = {"chatclear"}, permission = "flower.command.staff", inGameOnly = false)
+    @Command(name = "clearchat", aliases = {"chatclear"}, permission = "flower.command.clearchat", inGameOnly = false)
     public void onCommand(CommandArgs args) {
         CommandSender sender = args.getSender();
         //

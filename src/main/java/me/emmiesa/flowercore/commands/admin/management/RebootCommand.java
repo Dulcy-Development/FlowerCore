@@ -21,7 +21,7 @@ public class RebootCommand extends BaseCommand {
     private BukkitRunnable countdownTask;
 
     @Override
-    @Command(name = "reboot", permission = "flowercore.owner", inGameOnly = false)
+    @Command(name = "reboot", permission = "flower.command.reboot", inGameOnly = false)
     public void onCommand(CommandArgs command) {
         if (command.getArgs().length == 1 && command.getArgs(0).equalsIgnoreCase("cancel")) {
             cancelReboot(command);

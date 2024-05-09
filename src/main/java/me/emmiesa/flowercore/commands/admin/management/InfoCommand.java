@@ -25,7 +25,7 @@ import static com.mongodb.client.model.Filters.eq;
 
 public class InfoCommand extends BaseCommand {
     @Override
-    @Command(name = "info", aliases = {"playerinfo"}, permission = "flowercore.staff", inGameOnly = false)
+    @Command(name = "info", aliases = {"playerinfo"}, permission = "flower.command.info", inGameOnly = false)
     public void onCommand(CommandArgs command) {
         CommandSender sender = command.getSender();
 

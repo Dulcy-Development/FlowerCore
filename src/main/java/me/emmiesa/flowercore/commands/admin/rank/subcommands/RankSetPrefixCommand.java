@@ -17,7 +17,7 @@ import org.bukkit.entity.Player;
 
 public class RankSetPrefixCommand extends BaseCommand {
 
-    @Command(name = "rank.setprefix", aliases = "setrankprefix", permission = "flowercore.staff")
+    @Command(name = "rank.setprefix", aliases = "setrankprefix", permission = "flower.ranks.developer")
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
 

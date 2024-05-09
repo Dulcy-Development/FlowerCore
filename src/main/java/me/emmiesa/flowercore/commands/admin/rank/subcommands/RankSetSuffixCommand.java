@@ -17,7 +17,7 @@ import org.bukkit.entity.Player;
 
 public class RankSetSuffixCommand extends BaseCommand {
 
-    @Command(name = "rank.setsuffix", aliases = {"setranksuffix"}, permission = "flowercore.staff")
+    @Command(name = "rank.setsuffix", aliases = {"setranksuffix"}, permission = "flower.ranks.developer")
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
 

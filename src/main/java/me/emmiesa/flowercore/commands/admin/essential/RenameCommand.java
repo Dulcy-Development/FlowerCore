@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 
 public class RenameCommand extends BaseCommand {
     @Override
-    @Command(name = "rename", permission = "flowercore.staff")
+    @Command(name = "rename", permission = "flower.command.rename-item")
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
 

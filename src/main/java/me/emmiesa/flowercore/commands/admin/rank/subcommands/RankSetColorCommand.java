@@ -16,7 +16,7 @@ import org.bukkit.entity.Player;
 
 public class RankSetColorCommand extends BaseCommand {
 
-    @Command(name = "rank.setcolor", aliases = "setrankcolor", permission = "flowercore.staff")
+    @Command(name = "rank.setcolor", aliases = "setrankcolor", permission = "flower.ranks.developer")
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
 

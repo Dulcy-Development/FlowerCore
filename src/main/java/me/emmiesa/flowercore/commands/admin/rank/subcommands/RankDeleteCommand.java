@@ -16,7 +16,7 @@ import org.bukkit.entity.Player;
 
 public class RankDeleteCommand extends BaseCommand {
     @Override
-    @Command(name = "rank.delete", permission = "flowercore.staff")
+    @Command(name = "rank.delete", permission = "flower.ranks.developer")
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         String[] args = command.getArgs();

@@ -17,7 +17,7 @@ import org.bukkit.entity.Player;
 
 public class GrantCommand extends BaseCommand {
 
-    @Command(name = "grant", permission = "flowercore.staff")
+    @Command(name = "grant", permission = "flower.ranks.developer")
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
         if (args.getArgs().length == 0) {

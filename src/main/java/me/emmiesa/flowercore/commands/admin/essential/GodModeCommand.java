@@ -29,7 +29,7 @@ public class GodModeCommand extends BaseCommand implements Listener {
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
     }
 
-    @Command(name = "godmode", aliases = {"god", "togglegodmode"}, permission = "flowercore.command.god")
+    @Command(name = "godmode", aliases = {"god", "togglegodmode"}, permission = "flower.command.godmode")
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
 

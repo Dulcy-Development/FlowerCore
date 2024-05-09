@@ -24,7 +24,7 @@ public class SpeedCommand extends BaseCommand {
     @Completer(name = "speed")
     public List<String> speedCompleter(CommandArgs args) {
         List<String> commands = new ArrayList<>();
-        if (args.length() == 1) {
+        if (args.getPlayer().hasPermission("flower.command.speed") && args.length() == 1) {
             commands.add("fly");
             commands.add("walk");
             commands.add("reset");

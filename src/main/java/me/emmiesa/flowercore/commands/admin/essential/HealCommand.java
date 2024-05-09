@@ -15,7 +15,7 @@ import org.bukkit.entity.Player;
 
 public class HealCommand extends BaseCommand {
 
-    @Command(name = "heal", aliases = "sethealthfull", permission = "flowercore.command.heal")
+    @Command(name = "heal", aliases = "sethealthfull", permission = "flower.command.heal")
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
 

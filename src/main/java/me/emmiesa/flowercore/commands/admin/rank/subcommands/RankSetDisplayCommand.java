@@ -16,7 +16,7 @@ import org.bukkit.entity.Player;
 
 public class RankSetDisplayCommand extends BaseCommand {
 
-    @Command(name = "rank.setdisplay", aliases = {"setrankdisplayname", "rank.setdisplayname"}, permission = "flowercore.staff")
+    @Command(name = "rank.setdisplay", aliases = {"setrankdisplayname", "rank.setdisplayname"}, permission = "flower.ranks.developer")
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
 

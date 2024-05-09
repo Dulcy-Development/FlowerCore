@@ -16,7 +16,7 @@ import org.bukkit.entity.Player;
 
 public class TagSettagCommand extends BaseCommand {
     @Override
-    @Command(name = "tagadmin.settag", permission = "flowercore.staff")
+    @Command(name = "tagadmin.settag", permission = "flower.tags.developer")
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         String[] args = command.getArgs();

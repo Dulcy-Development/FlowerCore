@@ -16,7 +16,7 @@ import org.bukkit.entity.Player;
 
 public class TagSetDisplayCommand extends BaseCommand {
     @Override
-    @Command(name = "tagadmin.setdisplayname", aliases = "tag.setdisplay")
+    @Command(name = "tagadmin.setdisplayname", aliases = "tag.setdisplay", permission = "flower.tags.developer")
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         String[] args = command.getArgs();

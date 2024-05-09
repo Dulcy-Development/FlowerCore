@@ -26,7 +26,7 @@ public class gmaCommand extends BaseCommand {
     public List<String> gmCompleter(CommandArgs args) {
         List<String> commands = new ArrayList<>();
         if (args.length() == 1) {
-            if (args.getPlayer().hasPermission("flowercore.staff")) {
+            if (args.getPlayer().hasPermission("flower.command.gamemodeadventure")) {
                 commands.add("creative");
                 commands.add("survival");
                 commands.add("adventure");
@@ -36,7 +36,7 @@ public class gmaCommand extends BaseCommand {
         return commands;
     }
 
-    @Command(name = "gma", aliases = {"gm.a", "adventure", "gamemode.a", "gamemode.2", "gamemode.adventure", "gm.2", "gm2", "gm.adventure"}, permission = "flowercore.staff")
+    @Command(name = "gma", aliases = {"gm.a", "adventure", "gamemode.a", "gamemode.2", "gamemode.adventure", "gm.2", "gm2", "gm.adventure"}, permission = "flower.command.gamemodeadventure")
     public void onCommand(CommandArgs args) {
         if (args.length() > 0) {
             String targetName = args.getArgs(0);

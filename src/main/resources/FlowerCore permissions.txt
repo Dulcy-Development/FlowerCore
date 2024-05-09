@@ -1,0 +1,61 @@
+FlowerCore Permissions - version 1.0-SNAPSHOT
+
+Commands:
+ Essential:
+ - Clear: flower.commands.clear
+ - Craft: flower.command.craft
+ - Feed: flower.command.feed
+ - Fly: flower.command.fly
+ - ForceFly: flower.command.forcefly
+ - GodMode: flower.command.godmode
+ - Heal: flower.command.heal
+ - Location: flower.command.location
+ - More: flower.command.more
+ - Rename: flower.command.rename-item
+ - Speed: flower.command.speed
+ - Sudo: flower.command.sudo
+
+ Gamemodes:
+ - Gamemode Adventure: flower.command.gamemodeadventure
+ - Gamemode Creative: flower.command.gamemodecreative
+ - Gamemode Survival: flower.command.gamemodesurvival
+ - Gamemode Spectator: flower.command.gamemodespectator
+
+ Management:
+ - Alert: flower.command.alert
+ - Alts: flower.command.alert
+ - Broadcast: flower.command.broadcast
+ - ClearChat: flower.command.clearchat
+ - Info: flower.command.info
+ - Reboot: flower.command.reboot
+
+ Punishments:
+  Pardon:
+   - Un-ban: flower.punishment.unban
+   - Un-blacklist: flower.punishment.unblacklist
+   - un-mute: flower.punishment.unmute
+  Punish:
+   - Ban: flower.punishment.ban
+   - Blacklist: flower.punishment.blacklist
+   - IP-Ban: -
+   - IP-Blacklist: -
+   - Kick: flower.punishment.kick
+   - Mute: flower.punishment.mute
+
+ Ranks: (Create, Delete, ect...)
+ - flower.ranks.developer
+
+ Server:
+ - Instance: flower.command.instance
+
+ Spawn:
+ - setjoinlocation: flower.command.setjoinlocation
+ - tpspawn / tplobby: flower.command.tplobby
+
+ Tags: (Create, Delete, ect...)
+ - flower.tags.developer
+
+ Donator:
+ - Announce: donator.announce (To bypass the cooldown: donator.announce.bypasscooldown)
+
+

@@ -19,7 +19,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class TeleportSpawnCommand extends BaseCommand {
 
-    @Command(name = "teleportspawn", permission = "flowercore.staff", aliases = {"tpspawn", "tpjoinlocation", "tplobby"})
+    @Command(name = "teleportspawn", permission = "flower.command.tplobby", aliases = {"tpspawn", "tpjoinlocation", "tplobby"})
     @Override
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();

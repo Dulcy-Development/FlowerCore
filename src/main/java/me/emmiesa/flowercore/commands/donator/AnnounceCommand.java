@@ -21,7 +21,7 @@ import java.util.UUID;
 
 public class AnnounceCommand extends BaseCommand {
 
-    @Command(name = "announce", permission = "flowercore.command.announce")
+    @Command(name = "announce", permission = "donator.announce")
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
         UUID playerUUID = player.getUniqueId();
@@ -31,7 +31,7 @@ public class AnnounceCommand extends BaseCommand {
             return;
         }
 
-        if (!player.hasPermission("flowercore.bypass.cooldown")) {
+        if (!player.hasPermission("donator.announce.bypasscooldown")) {
             if (FlowerCore.getInstance().getAnnounceCooldown() != null && !FlowerCore.getInstance().getAnnounceCooldown().hasExpired()) {
                 player.sendMessage(CC.translate("&cYou must wait " + FlowerCore.getInstance().getAnnounceCooldown().getMiliSecondsLeft() + " seconds since the game has already been announced."));
                 return;

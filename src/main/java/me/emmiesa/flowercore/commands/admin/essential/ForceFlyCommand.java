@@ -15,7 +15,7 @@ import org.bukkit.entity.Player;
 
 public class ForceFlyCommand extends BaseCommand {
 
-    @Command(name = "forcefly", permission = "flowercore.command.forcefly")
+    @Command(name = "forcefly", permission = "flower.command.forcefly")
     @Override
     public void onCommand(CommandArgs cmd) {
         Player player = cmd.getPlayer();

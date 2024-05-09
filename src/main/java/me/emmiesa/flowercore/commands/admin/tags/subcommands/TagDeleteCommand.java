@@ -16,7 +16,7 @@ import org.bukkit.entity.Player;
 
 public class TagDeleteCommand extends BaseCommand {
     @Override
-    @Command(name = "tagadmin.delete", permission = "flowercore.staff")
+    @Command(name = "tagadmin.delete", permission = "flower.tags.developer")
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         String[] args = command.getArgs();

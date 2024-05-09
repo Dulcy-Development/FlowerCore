@@ -19,7 +19,7 @@ import java.util.List;
 
 public class RankAddPermissionsCommand extends BaseCommand {
 
-    @Command(name = "rank.addpermissions", aliases = {"addrankperms", "rank.addperm"}, permission = "flowercore.staff")
+    @Command(name = "rank.addpermissions", aliases = {"addrankperms", "rank.addperm"}, permission = "flower.ranks.developer")
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
 

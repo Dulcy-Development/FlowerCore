@@ -20,7 +20,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class SetJoinLocation extends BaseCommand {
 
-    @Command(name = "setjoinlocation", permission = "flowercore.command.tphere", aliases = "setspawnlocation")
+    @Command(name = "setjoinlocation", permission = "flower.command.setjoinlocation", aliases = "setspawnlocation")
     @Override
     public void onCommand(CommandArgs cmd) {
         Player player = (Player) cmd.getSender();

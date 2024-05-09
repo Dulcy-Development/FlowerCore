@@ -17,7 +17,7 @@ import org.bukkit.entity.Player;
 
 public class RankSetPriorityCommand extends BaseCommand {
 
-    @Command(name = "rank.setpriority", aliases = {"setrankpriority", "setrankprio"}, permission = "flowercore.staff")
+    @Command(name = "rank.setpriority", aliases = {"setrankpriority", "setrankprio"}, permission = "flower.ranks.developer")
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
 

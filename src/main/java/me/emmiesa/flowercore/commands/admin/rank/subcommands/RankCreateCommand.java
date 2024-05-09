@@ -20,7 +20,7 @@ import java.util.List;
 
 public class RankCreateCommand extends BaseCommand {
 
-    @Command(name = "rank.create", aliases = "createrank", permission = "flowercore.staff")
+    @Command(name = "rank.create", aliases = "createrank", permission = "flower.ranks.developer")
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
 

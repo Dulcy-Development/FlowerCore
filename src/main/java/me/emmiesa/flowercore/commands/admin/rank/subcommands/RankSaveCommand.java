@@ -16,7 +16,7 @@ import org.bukkit.entity.Player;
 
 public class RankSaveCommand extends BaseCommand {
 
-    @Command(name = "rank.save", aliases = {"saveranks"}, permission = "flowercore.staff")
+    @Command(name = "rank.save", aliases = {"saveranks"}, permission = "flower.ranks.developer")
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();
         player.sendMessage(CC.translate(Locale.RANK_SAVING));

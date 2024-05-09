@@ -17,7 +17,7 @@ import org.bukkit.entity.Player;
 
 public class SudoCommand extends BaseCommand {
     @Override
-    @Command(name = "sudo", permission = "flowercore.command.sudo", aliases = {"forcetosay"}, inGameOnly = false)
+    @Command(name = "sudo", permission = "flower.command.sudo", aliases = {"forcetosay"}, inGameOnly = false)
     public void onCommand(CommandArgs command) {
         CommandSender sender = command.getSender();
 

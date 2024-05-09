@@ -15,7 +15,7 @@ import org.bukkit.entity.Player;
 
 public class TagSaveCommand extends BaseCommand {
     @Override
-    @Command(name = "tagadmin.save", permission = "flowercore.staff")
+    @Command(name = "tagadmin.save", permission = "flower.tags.developer")
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         player.sendMessage(CC.translate("saving tag"));

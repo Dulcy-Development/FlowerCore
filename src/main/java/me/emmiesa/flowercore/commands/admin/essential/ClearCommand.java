@@ -19,7 +19,7 @@ import org.bukkit.inventory.PlayerInventory;
 public class ClearCommand extends BaseCommand {
 
     @Override
-    @Command(name = "clear", permission = "flowercore.staff")
+    @Command(name = "clear", permission = "flower.command.clear")
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
 
