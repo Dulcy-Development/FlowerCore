@@ -2,6 +2,7 @@ package me.emmiesa.flowercore.commands.admin.punishments.pardon;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.profile.Profile;
+import me.emmiesa.flowercore.punishments.Punishment;
 import me.emmiesa.flowercore.punishments.PunishmentType;
 import me.emmiesa.flowercore.utils.Utils;
 import me.emmiesa.flowercore.utils.chat.CC;
@@ -48,14 +49,24 @@ public class UnblacklistCommand extends BaseCommand {
 
             Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.un-blacklisted").replace("%pardoner%", sender.getName()).replace("%target%", onlinePlayer.getDisplayName())));
             Utils.broadcastMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.un-blacklisted").replace("%pardoner%", sender.getName()).replace("%target%", onlinePlayer.getDisplayName())));
-            FlowerCore.getInstance().getPlayerManager().removePunishment(playerUUID, PunishmentType.BLACKLIST, onlinePlayer.getDisplayName());
+
+            for (Punishment punishment : profile.getPunishments()) {
+                if (punishment.isActive() && punishment.getType().equals(PunishmentType.BLACKLIST)) {
+                    punishment.setActive(false);
+                }
+            }
             FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
         } else {
             UUID playerUUID = targetPlayer.getUniqueId();
 
             Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.un-blacklisted").replace("%pardoner%", sender.getName()).replace("%target%", targetPlayer.getName())));
             Utils.broadcastMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.un-blacklisted").replace("%pardoner%", sender.getName()).replace("%target%", targetPlayer.getName())));
-            FlowerCore.getInstance().getPlayerManager().removePunishment(playerUUID, PunishmentType.BLACKLIST, targetPlayer.getName());
+
+            for (Punishment punishment : profile.getPunishments()) {
+                if (punishment.isActive() && punishment.getType().equals(PunishmentType.BLACKLIST)) {
+                    punishment.setActive(false);
+                }
+            }
             FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
         }
     }

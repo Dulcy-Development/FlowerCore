@@ -2,6 +2,7 @@ package me.emmiesa.flowercore.commands.admin.punishments.pardon;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.profile.Profile;
+import me.emmiesa.flowercore.punishments.Punishment;
 import me.emmiesa.flowercore.punishments.PunishmentType;
 import me.emmiesa.flowercore.utils.Utils;
 import me.emmiesa.flowercore.utils.chat.CC;
@@ -47,13 +48,23 @@ public class UnbanCommand extends BaseCommand {
             UUID playerUUID = onlinePlayer.getUniqueId();
             Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.un-banned").replace("%pardoner%", sender.getName()).replace("%target%", onlinePlayer.getDisplayName())));
             Utils.broadcastMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.un-banned").replace("%pardoner%", sender.getName()).replace("%target%", onlinePlayer.getDisplayName())));
-            FlowerCore.getInstance().getPlayerManager().removePunishment(playerUUID, PunishmentType.BAN, onlinePlayer.getDisplayName());
+
+            for (Punishment punishment : profile.getPunishments()) {
+                if (punishment.isActive() && punishment.getType().equals(PunishmentType.BAN)) {
+                    punishment.setActive(false);
+                }
+            }
             FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
         } else {
             UUID playerUUID = targetPlayer.getUniqueId();
             Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.un-banned").replace("%pardoner%", sender.getName()).replace("%target%", targetPlayer.getName())));
             Utils.broadcastMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.un-banned").replace("%pardoner%", sender.getName()).replace("%target%", targetPlayer.getName())));
-            FlowerCore.getInstance().getPlayerManager().removePunishment(playerUUID, PunishmentType.BAN, targetPlayer.getName());
+
+            for (Punishment punishment : profile.getPunishments()) {
+                if (punishment.isActive() && punishment.getType().equals(PunishmentType.BAN)) {
+                    punishment.setActive(false);
+                }
+            }
             FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
         }
     }

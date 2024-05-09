@@ -2,6 +2,7 @@ package me.emmiesa.flowercore.commands.admin.punishments.pardon;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.profile.Profile;
+import me.emmiesa.flowercore.punishments.Punishment;
 import me.emmiesa.flowercore.punishments.PunishmentType;
 import me.emmiesa.flowercore.utils.Utils;
 import me.emmiesa.flowercore.utils.chat.CC;
@@ -11,7 +12,6 @@ import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
@@ -44,16 +44,23 @@ public class UnMuteCommand extends BaseCommand {
 
         if (targetPlayer.isOnline()) {
             UUID playerUUID = targetPlayer.getUniqueId();
-            Player onlinePlayer = targetPlayer.getPlayer();
             Utils.broadcastMessage("&c" + targetPlayer.getName() + " &fwas unmuted by &c" + sender.getName());
 
-            FlowerCore.getInstance().getPlayerManager().removePunishment(playerUUID, PunishmentType.MUTE, onlinePlayer.getDisplayName());
+            for (Punishment punishment : profile.getPunishments()) {
+                if (punishment.isActive() && punishment.getType().equals(PunishmentType.MUTE)) {
+                    punishment.setActive(false);
+                }
+            }
             FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
         } else {
             UUID playerUUID = targetPlayer.getUniqueId();
             Utils.broadcastMessage("&c" + targetPlayer.getName() + " &fwas unmuted by &c" + sender.getName());
 
-            FlowerCore.getInstance().getPlayerManager().removePunishment(playerUUID, PunishmentType.MUTE, targetPlayer.getName());
+            for (Punishment punishment : profile.getPunishments()) {
+                if (punishment.isActive() && punishment.getType().equals(PunishmentType.MUTE)) {
+                    punishment.setActive(false);
+                }
+            }
             FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
         }
     }
