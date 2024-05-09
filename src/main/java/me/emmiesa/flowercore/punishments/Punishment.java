@@ -46,6 +46,9 @@ public class Punishment {
     @SerializedName("duration")
     private String duration;
 
+    @SerializedName("active")
+    private boolean active;
+
     public Punishment(String name, UUID bannedUUID, String by, PunishmentType type, String reason) {
         this.name = name;
         this.by = by;
