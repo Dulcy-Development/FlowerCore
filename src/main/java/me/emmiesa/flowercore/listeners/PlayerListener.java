@@ -62,11 +62,11 @@ public class PlayerListener implements Listener {
         }
 
         for (Punishment punishment : punishments) {
-            if (punishment != null && (punishment.getType().equals(PunishmentType.BAN))) {
+            if (punishment.isActive() && (punishment.getType().equals(PunishmentType.BAN))) {
                 String sendBanPunishMessage = banPunishMessage(punishment);
                 event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_BANNED, sendBanPunishMessage);
                 return;
-            } else if (punishment != null && (punishment.getType().equals(PunishmentType.BLACKLIST))) {
+            } else if (punishment.isActive() && (punishment.getType().equals(PunishmentType.BLACKLIST))) {
                 String sendBlacklistPunishMessage = blacklistPunishMessage(punishment);
                 event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_BANNED, sendBlacklistPunishMessage);
                 return;
