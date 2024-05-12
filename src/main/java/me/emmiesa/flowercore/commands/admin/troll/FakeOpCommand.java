@@ -33,14 +33,14 @@ public class FakeOpCommand extends BaseCommand {
 
         if (sender instanceof Player) {
             senderName = sender.getName();
-            targetPlayer.sendMessage(CC.translate("&7&o[" + senderName + "&7&o: Opped " + targetPlayer.getName() + "&7&o]"));
         } else {
             senderName = "Server";
-            targetPlayer.sendMessage(CC.translate("&7&o[" + senderName + "&7&o: Opped " + targetPlayer.getName() + "&7&o]"));
         }
 
-        /*for (Player onlinePlayers : Bukkit.getOnlinePlayers()) {
+        targetPlayer.sendMessage(CC.translate("&7&o[" + senderName + "&7&o: Opped " + targetPlayer.getName() + "&7&o]"));
+
+        for (Player onlinePlayers : Bukkit.getOnlinePlayers()) {
             onlinePlayers.sendMessage(CC.translate("&7&o[" + senderName + "&7&o: Opped " + targetPlayer.getName() + "&7&o]"));
-        }*/
+        }
     }
 }
