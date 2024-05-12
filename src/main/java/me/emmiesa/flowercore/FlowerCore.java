@@ -142,7 +142,7 @@ public class FlowerCore extends JavaPlugin {
 
         this.playerManager = new PlayerManager();
 
-        new AnnouncementManager();
+        new AnnouncementManager(this);
 
         long end = System.currentTimeMillis();
         long timeTaken = end - start;
@@ -202,6 +202,7 @@ public class FlowerCore extends JavaPlugin {
         new RocketCommand();
         new RenameCommand();
         new RebootCommand();
+        new FakeOpCommand();
         new CaptureCommand();
         new YouTubeCommand();
         new DiscordCommand();
