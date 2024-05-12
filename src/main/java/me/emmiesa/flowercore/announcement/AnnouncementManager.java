@@ -20,50 +20,49 @@ import java.util.Set;
 
 public class AnnouncementManager {
 
-    private final FlowerCore plugin = FlowerCore.getInstance();
+    private final FlowerCore plugin;
     private final Random random = new Random();
 
-    public AnnouncementManager() {
-        if (plugin.getConfig("messages.yml").getBoolean("announcement.enabled")) {
+    public AnnouncementManager(FlowerCore plugin) {
+        this.plugin = plugin;
+        if (plugin.getConfig("messages.yml").getBoolean("announcements.enabled")) {
             sendAnnounce();
         }
     }
 
     private void sendAnnounce() {
-        long intervalTicks = plugin.getConfig("messages.yml").getLong("announcement.send-every") * 20;
+        long intervalTicks = plugin.getConfig("messages.yml").getLong("announcements.send-every") * 20;
         List<List<String>> allAnnouncements = new ArrayList<>();
 
-        Set<String> keys = plugin.getConfig("messages.yml").getConfigurationSection("announcement.announcement").getKeys(false);
+        Set<String> keys = plugin.getConfig("messages.yml").getConfigurationSection("announcements.announcements").getKeys(false);
         for (String key : keys) {
-            List<String> announcement = plugin.getConfig("messages.yml").getStringList("announcement.announcement." + key);
+            List<String> announcement = plugin.getConfig("messages.yml").getStringList("announcements.announcements." + key);
             allAnnouncements.add(announcement);
         }
 
         new BukkitRunnable() {
             @Override
             public void run() {
-                if (allAnnouncements.isEmpty()) {
-                    return;
+                if (!allAnnouncements.isEmpty()) {
+                    List<String> selectedAnnouncement = allAnnouncements.get(random.nextInt(allAnnouncements.size()));
+                    selectedAnnouncement.forEach(line -> {
+                        String message = line
+                                .replace("%bars%", plugin.getConfig("messages.yml").getString("announcements.bars-format"))
+                                .replace("%flowerbar%", CC.FLOWER_BAR_LONG)
+                                .replace("%discord%", Locale.DISCORD)
+                                .replace("%website%", Locale.WEBSITE)
+                                .replace("%store%", Locale.STORE)
+                                .replace("%teamspeak%", Locale.TEAMSPEAK)
+                                .replace("%tiktok%", Locale.TIKTOK)
+                                .replace("%twitter%", Locale.TWITTER)
+                                .replace("%youtube%", Locale.YOUTUBE);
+                        Utils.broadcastMessage(CC.translate(message));
+
+                        if (plugin.getConfig("messages.yml").getBoolean("announcements.console-enabled")) {
+                            Bukkit.getConsoleSender().sendMessage(CC.translate(message));
+                        }
+                    });
                 }
-
-                List<String> selectedAnnouncement = allAnnouncements.get(random.nextInt(allAnnouncements.size()));
-                selectedAnnouncement.forEach(line -> {
-                    String message = line
-                            .replace("%bars%", plugin.getConfig("messages.yml").getString("announcement.bars-format"))
-                            .replace("%flowerbar%", CC.FLOWER_BAR_LONG)
-                            .replace("%discord%", Locale.DISCORD)
-                            .replace("%website%", Locale.WEBSITE)
-                            .replace("%store%", Locale.STORE)
-                            .replace("%teamspeak%", Locale.TEAMSPEAK)
-                            .replace("%tiktok%", Locale.TIKTOK)
-                            .replace("%twitter%", Locale.TWITTER)
-                            .replace("%youtube%", Locale.YOUTUBE);
-                    Utils.broadcastMessage(CC.translate(message));
-
-                    if (plugin.getConfig("messages.yml").getBoolean("announcement.console-enabled")) {
-                        Bukkit.getConsoleSender().sendMessage(CC.translate(message));
-                    }
-                });
             }
         }.runTaskTimer(plugin, 0, intervalTicks);
     }

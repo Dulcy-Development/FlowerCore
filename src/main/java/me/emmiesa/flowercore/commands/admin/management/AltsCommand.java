@@ -31,7 +31,7 @@ public class AltsCommand extends BaseCommand {
 
         String targetPlayerName = command.getArgs(0);
 
-        Document targetPlayerDoc = PlayerUtil.getPlayerDocument(sender, targetPlayerName);
+        Document targetPlayerDoc = PlayerUtil.getPlayerDocument(targetPlayerName);
         if (targetPlayerDoc == null) {
             sender.sendMessage(CC.translate("&4" + targetPlayerName + " &cis invalid."));
             return;

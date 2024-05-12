@@ -34,7 +34,7 @@ public class PlayerUtil {
         return playerDocument.getString("currentIpAddress");
     }
 
-    public static Document getPlayerDocument(CommandSender sender, String playerName) {
+    public static Document getPlayerDocument(String playerName) {
         MongoCollection<Document> collection = FlowerCore.getInstance().getMongoManager().getCollection();
         return collection.find(eq("username", playerName)).first();
     }
