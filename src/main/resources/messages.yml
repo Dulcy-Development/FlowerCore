@@ -13,8 +13,8 @@ reload:
     - "&8&m-----------------------------------------------------"
     - " &7[&cWARNING&7] &fReloading the configuration files..."
     - "&r"
-    - " &8[&bMenus folder, Commands.yml, Database.yml"
-    - " &bMessages.yml, Ranks.yml, &bSettings.yml&8]"
+    - " &8[&bMenus folder, Database.yml, Messages.yml"
+    - " &bRanks.yml, &bSettings.yml, Tags.yml&8]"
     - "&8&m-----------------------------------------------------"
     - "&r"
   finished:
@@ -312,12 +312,12 @@ on-leave:
     staff:
       left-the-game: "&3[&bS&3] &r%prefix%%player% &bhas left &3%server%&b."
 
-announcements:
+tips:
   enabled: true
   console-enabled: false #Decides if the announcement should be sent to the console aswell.
   send-every: 120
   bars-format: "&7&m------------------------------"
-  announcements:
+  tips:
     # Available Placeholders:
     # - %discord%, %twitter%, %tiktok%, %youtube%, %teamspeak%, %store%, %website% - taken from "socials" strings above!
     # - %bars% - taken from the "bars-format" string!

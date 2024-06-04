@@ -2,65 +2,72 @@ package me.emmiesa.flowercore;
 
 import lombok.Getter;
 import lombok.Setter;
-import me.emmiesa.flowercore.announcement.AnnouncementManager;
-import me.emmiesa.flowercore.commands.FlowerCoreCommand;
-import me.emmiesa.flowercore.commands.admin.essential.*;
-import me.emmiesa.flowercore.commands.admin.gamemode.gmaCommand;
-import me.emmiesa.flowercore.commands.admin.gamemode.gmcCommand;
-import me.emmiesa.flowercore.commands.admin.gamemode.gmsCommand;
-import me.emmiesa.flowercore.commands.admin.gamemode.gmspCommand;
-import me.emmiesa.flowercore.commands.admin.management.*;
-import me.emmiesa.flowercore.commands.admin.punishments.BanCommand;
-import me.emmiesa.flowercore.commands.admin.punishments.BlacklistCommand;
-import me.emmiesa.flowercore.commands.admin.punishments.KickCommand;
-import me.emmiesa.flowercore.commands.admin.punishments.MuteCommand;
-import me.emmiesa.flowercore.commands.admin.punishments.pardon.UnMuteCommand;
-import me.emmiesa.flowercore.commands.admin.punishments.pardon.UnbanCommand;
-import me.emmiesa.flowercore.commands.admin.punishments.pardon.UnblacklistCommand;
-import me.emmiesa.flowercore.commands.admin.rank.GrantCommand;
-import me.emmiesa.flowercore.commands.admin.rank.RankCommand;
-import me.emmiesa.flowercore.commands.admin.rank.SetRankCommand;
-import me.emmiesa.flowercore.commands.admin.rank.SetRankPurchasedCommand;
-import me.emmiesa.flowercore.commands.admin.rank.subcommands.*;
-import me.emmiesa.flowercore.commands.admin.server.InstanceCommand;
-import me.emmiesa.flowercore.commands.admin.spawn.SetJoinLocation;
-import me.emmiesa.flowercore.commands.admin.spawn.TeleportSpawnCommand;
-import me.emmiesa.flowercore.commands.admin.tags.TagAdminCommand;
-import me.emmiesa.flowercore.commands.admin.tags.TagCommand;
-import me.emmiesa.flowercore.commands.admin.tags.subcommands.*;
-import me.emmiesa.flowercore.commands.admin.teleport.*;
-import me.emmiesa.flowercore.commands.admin.troll.*;
-import me.emmiesa.flowercore.commands.donator.AnnounceCommand;
-import me.emmiesa.flowercore.commands.global.conversation.MessageCommand;
-import me.emmiesa.flowercore.commands.global.conversation.ReplyCommand;
-import me.emmiesa.flowercore.commands.global.menus.NewsCommand;
-import me.emmiesa.flowercore.commands.global.menus.SettingsCommand;
-import me.emmiesa.flowercore.commands.global.server.JoinCommand;
-import me.emmiesa.flowercore.commands.global.server.PingCommand;
-import me.emmiesa.flowercore.commands.global.socials.*;
-import me.emmiesa.flowercore.commands.global.toggle.ToggleGlobalChatCommand;
-import me.emmiesa.flowercore.commands.global.toggle.TogglePrivateMessageSounds;
-import me.emmiesa.flowercore.commands.global.toggle.TogglePrivateMessagesCommand;
-import me.emmiesa.flowercore.commands.global.worldtime.DayCommand;
-import me.emmiesa.flowercore.commands.global.worldtime.NightCommand;
-import me.emmiesa.flowercore.commands.global.worldtime.SunsetCommand;
-import me.emmiesa.flowercore.database.mongo.MongoManager;
-import me.emmiesa.flowercore.handler.ConfigHandler;
-import me.emmiesa.flowercore.handler.ConversationHandler;
-import me.emmiesa.flowercore.listeners.ChatListener;
-import me.emmiesa.flowercore.listeners.CommandListener;
-import me.emmiesa.flowercore.listeners.PlayerListener;
+import me.emmiesa.flowercore.chat.ChatRepository;
+import me.emmiesa.flowercore.chat.command.ClearChatCommand;
+import me.emmiesa.flowercore.chat.command.MuteChatCommand;
+import me.emmiesa.flowercore.chat.command.UnMuteChatCommand;
+import me.emmiesa.flowercore.command.FlowerCoreCommand;
+import me.emmiesa.flowercore.command.admin.essential.*;
+import me.emmiesa.flowercore.command.admin.gamemode.gmaCommand;
+import me.emmiesa.flowercore.command.admin.gamemode.gmcCommand;
+import me.emmiesa.flowercore.command.admin.gamemode.gmsCommand;
+import me.emmiesa.flowercore.command.admin.gamemode.gmspCommand;
+import me.emmiesa.flowercore.command.admin.management.*;
+import me.emmiesa.flowercore.command.admin.server.InstanceCommand;
+import me.emmiesa.flowercore.command.admin.teleport.*;
+import me.emmiesa.flowercore.command.admin.troll.*;
+import me.emmiesa.flowercore.command.donator.AnnounceCommand;
+import me.emmiesa.flowercore.command.global.server.JoinCommand;
+import me.emmiesa.flowercore.command.global.server.PingCommand;
+import me.emmiesa.flowercore.command.global.worldtime.DayCommand;
+import me.emmiesa.flowercore.command.global.worldtime.NightCommand;
+import me.emmiesa.flowercore.command.global.worldtime.SunsetCommand;
+import me.emmiesa.flowercore.config.ConfigHandler;
+import me.emmiesa.flowercore.conversation.ConversationHandler;
+import me.emmiesa.flowercore.conversation.command.MessageCommand;
+import me.emmiesa.flowercore.conversation.command.ReplyCommand;
+import me.emmiesa.flowercore.database.MongoManager;
+import me.emmiesa.flowercore.grant.GrantHandler;
+import me.emmiesa.flowercore.grant.command.GrantCommand;
+import me.emmiesa.flowercore.grant.command.GrantsCommand;
+import me.emmiesa.flowercore.chat.listener.ChatListener;
+import me.emmiesa.flowercore.listener.CommandListener;
+import me.emmiesa.flowercore.news.command.NewsCommand;
 import me.emmiesa.flowercore.placeholder.Placeholder;
-import me.emmiesa.flowercore.profile.PlayerManager;
-import me.emmiesa.flowercore.ranks.RanksManager;
-import me.emmiesa.flowercore.tags.TagsManager;
+import me.emmiesa.flowercore.profile.ProfileManager;
+import me.emmiesa.flowercore.profile.listener.ProfileListener;
+import me.emmiesa.flowercore.punishment.command.PunishHistoryCommand;
+import me.emmiesa.flowercore.punishment.command.punish.BanCommand;
+import me.emmiesa.flowercore.punishment.command.punish.BlacklistCommand;
+import me.emmiesa.flowercore.punishment.command.punish.KickCommand;
+import me.emmiesa.flowercore.punishment.command.punish.MuteCommand;
+import me.emmiesa.flowercore.punishment.command.pardon.UnMuteCommand;
+import me.emmiesa.flowercore.punishment.command.pardon.UnbanCommand;
+import me.emmiesa.flowercore.punishment.command.pardon.UnblacklistCommand;
+import me.emmiesa.flowercore.rank.RanksManager;
+import me.emmiesa.flowercore.rank.command.RankCommand;
+import me.emmiesa.flowercore.rank.command.SetRankCommand;
+import me.emmiesa.flowercore.rank.command.SetRankPurchasedCommand;
+import me.emmiesa.flowercore.rank.command.impl.*;
+import me.emmiesa.flowercore.settings.command.SettingsCommand;
+import me.emmiesa.flowercore.settings.command.toggle.ToggleGlobalChatCommand;
+import me.emmiesa.flowercore.settings.command.toggle.TogglePrivateMessageSounds;
+import me.emmiesa.flowercore.settings.command.toggle.TogglePrivateMessagesCommand;
+import me.emmiesa.flowercore.socials.command.*;
+import me.emmiesa.flowercore.spawn.SpawnHandler;
+import me.emmiesa.flowercore.spawn.command.SetJoinLocation;
+import me.emmiesa.flowercore.spawn.command.TeleportSpawnCommand;
+import me.emmiesa.flowercore.tag.TagsManager;
+import me.emmiesa.flowercore.tag.command.TagAdminCommand;
+import me.emmiesa.flowercore.tag.command.TagCommand;
+import me.emmiesa.flowercore.tag.command.impl.*;
+import me.emmiesa.flowercore.tips.TipsHandler;
 import me.emmiesa.flowercore.utils.Cooldown;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.CommandFramework;
 import me.emmiesa.flowercore.utils.menu.MenuListener;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -73,15 +80,21 @@ public class FlowerCore extends JavaPlugin {
 
     @Getter
     private static FlowerCore instance;
-    private Cooldown announceCooldown;
-    private CommandFramework framework;
+
     private ConversationHandler conversationHandler;
+    private CommandFramework commandFramework;
+    private ProfileManager profileManager;
     private ConfigHandler configHandler;
     private MongoManager mongoManager;
     private RanksManager ranksManager;
+    private GrantHandler grantHandler;
+    private SpawnHandler spawnHandler;
+    private ChatRepository chatRepository;
     private TagsManager tagsManager;
-    private PlayerManager playerManager;
+    private TipsHandler tipsHandler;
     private Location spawnLocation;
+    private Cooldown cooldown;
+
     private String prefix = "§f[§bFlowerCore§f]§r ";
 
     @Override
@@ -95,7 +108,6 @@ public class FlowerCore extends JavaPlugin {
         registerHandlers();
         registerListeners();
         registerCommands();
-        loadSpawnLocation();
 
         long end = System.currentTimeMillis();
         long timeTaken = end - start;
@@ -124,7 +136,7 @@ public class FlowerCore extends JavaPlugin {
         long start = System.currentTimeMillis();
         configHandler = new ConfigHandler();
 
-        framework = new CommandFramework();
+        commandFramework = new CommandFramework();
 
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
             Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Successfully registered PlaceholderAPI expansion."));
@@ -140,9 +152,13 @@ public class FlowerCore extends JavaPlugin {
         this.mongoManager = new MongoManager();
         this.mongoManager.initializeMongo();
 
-        this.playerManager = new PlayerManager();
+        this.profileManager = new ProfileManager();
+        this.tipsHandler = new TipsHandler();
 
-        new AnnouncementManager(this);
+        this.spawnHandler = new SpawnHandler();
+        this.spawnHandler.loadSpawnLocation();
+
+        this.chatRepository = new ChatRepository(false);
 
         long end = System.currentTimeMillis();
         long timeTaken = end - start;
@@ -152,6 +168,7 @@ public class FlowerCore extends JavaPlugin {
     private void registerHandlers() {
         long start = System.currentTimeMillis();
         conversationHandler = new ConversationHandler();
+        grantHandler = new GrantHandler();
 
         long end = System.currentTimeMillis();
         long timeTaken = end - start;
@@ -162,7 +179,7 @@ public class FlowerCore extends JavaPlugin {
         long start = System.currentTimeMillis();
 
         getServer().getPluginManager().registerEvents(new MenuListener(), this);
-        getServer().getPluginManager().registerEvents(new PlayerListener(), this);
+        getServer().getPluginManager().registerEvents(new ProfileListener(), this);
         getServer().getPluginManager().registerEvents(new ChatListener(), this);
         getServer().getPluginManager().registerEvents(new CommandListener(), this);
         getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
@@ -217,7 +234,6 @@ public class FlowerCore extends JavaPlugin {
         new SetJoinLocation();
         new LocationCommand();
         new BroadcastCommand();
-        new ClearChatCommand();
         new TeamSpeakCommand();
         new TeleportUpCommand();
         new TrollSilentCommand();
@@ -227,6 +243,10 @@ public class FlowerCore extends JavaPlugin {
         new PunishHistoryCommand();
         new TrollEverybodyCommand();
         new TeleportPositionCommand();
+
+        new ClearChatCommand();
+        new MuteChatCommand();
+        new UnMuteChatCommand();
 
         new TagCommand();
         new TagListCommand();
@@ -239,6 +259,7 @@ public class FlowerCore extends JavaPlugin {
 
         new RankCommand();
         new GrantCommand();
+        new GrantsCommand();
         new SetRankCommand();
         new RankListCommand();
         new RankSaveCommand();
@@ -280,37 +301,6 @@ public class FlowerCore extends JavaPlugin {
         long timeTaken = end - start;
 
         Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Registered all commands in " + timeTaken + "ms."));
-    }
-
-    private void loadSpawnLocation() {
-        Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "&fSpawn location has been loaded."));
-        FileConfiguration config = configHandler.getConfigByName("settings.yml");
-        boolean enableSpawnTeleport = config.getBoolean("on-join.teleport.enabled");
-
-        if (enableSpawnTeleport) {
-            World world = Bukkit.getWorld(config.getString("on-join.teleport.location.world"));
-            double x = config.getDouble("on-join.teleport.location.x");
-            double y = config.getDouble("on-join.teleport.location.y");
-            double z = config.getDouble("on-join.teleport.location.z");
-            float yaw = (float) config.getDouble("on-join.teleport.location.yaw");
-            float pitch = (float) config.getDouble("on-join.teleport.location.pitch");
-
-            spawnLocation = new Location(world, x, y, z, yaw, pitch);
-        }
-    }
-
-    public void setSpawnLocation(Location location) {
-        this.spawnLocation = location;
-        FileConfiguration config = configHandler.getConfigByName("settings.yml");
-
-        config.set("on-join.teleport.location.world", location.getWorld().getName());
-        config.set("on-join.teleport.location.x", location.getX());
-        config.set("on-join.teleport.location.y", location.getY());
-        config.set("on-join.teleport.location.z", location.getZ());
-        config.set("on-join.teleport.location.yaw", location.getYaw());
-        config.set("on-join.teleport.location.pitch", location.getPitch());
-
-        configHandler.saveConfig(configHandler.getConfigFileByName("settings.yml"), config);
     }
 
     public FileConfiguration getConfig(String fileName) {

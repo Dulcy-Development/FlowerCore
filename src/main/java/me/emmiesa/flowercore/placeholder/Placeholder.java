@@ -11,12 +11,9 @@ import java.util.UUID;
 /**
  * Created by Emmy
  * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * Date: 04/02/2024 - 13:55
  */
-
 public class Placeholder extends PlaceholderExpansion {
-
-    //private final FlowerCore plugin = FlowerCore.getInstance();
 
     @Override
     public @NotNull String getIdentifier() {
@@ -38,13 +35,13 @@ public class Placeholder extends PlaceholderExpansion {
         UUID playerUUID = player.getUniqueId();
         switch (params) {
             case "rank":
-                return FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getDisplayName();
+                return FlowerCore.getInstance().getProfileManager().getRank(playerUUID).getDisplayName();
             case "rank_raw":
-                return FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getName();
+                return FlowerCore.getInstance().getProfileManager().getRank(playerUUID).getName();
             case "bar":
                 return CC.FLOWER_BAR;
             case "is_staff":
-                if (FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).isStaff()) {
+                if (FlowerCore.getInstance().getProfileManager().getRank(playerUUID).isStaff()) {
                     return CC.translate(FlowerCore.getInstance().getConfig("settings.yml").getString("placeholders.flower_is_staff.true"));
                 } else {
                     return CC.translate(FlowerCore.getInstance().getConfig("settings.yml").getString("placeholders.flower_is_staff.false"));

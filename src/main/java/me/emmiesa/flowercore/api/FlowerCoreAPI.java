@@ -2,8 +2,8 @@ package me.emmiesa.flowercore.api;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.profile.Profile;
-import me.emmiesa.flowercore.ranks.Rank;
-import me.emmiesa.flowercore.tags.Tag;
+import me.emmiesa.flowercore.rank.Rank;
+import me.emmiesa.flowercore.tag.Tag;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -14,7 +14,6 @@ import java.util.UUID;
  * Project: FlowerCore
  * Date: 23/04/2024 - 08:30
  */
-
 public class FlowerCoreAPI {
     private static final FlowerCore INSTANCE = FlowerCore.getInstance();
 
@@ -29,7 +28,7 @@ public class FlowerCoreAPI {
             return null;
         }
 
-        return INSTANCE.getPlayerManager().getProfileByUsername(player.getName());
+        return INSTANCE.getProfileManager().getProfileByUsername(player.getName());
     }
 
     /**
@@ -43,7 +42,7 @@ public class FlowerCoreAPI {
             return null;
         }
 
-        return INSTANCE.getPlayerManager().getProfileByUsername(username);
+        return INSTANCE.getProfileManager().getProfileByUsername(username);
     }
 
     /**
@@ -56,7 +55,7 @@ public class FlowerCoreAPI {
         if (Bukkit.getPlayer(uuid) == null) {
             return null;
         }
-        return INSTANCE.getPlayerManager().getProfile(uuid);
+        return INSTANCE.getProfileManager().getProfile(uuid);
     }
 
     /**
@@ -97,7 +96,7 @@ public class FlowerCoreAPI {
      * @return the display name
      */
     public static String getPlayerDisplayName(Profile profile, UUID uuid) {
-        return INSTANCE.getPlayerManager().getRank(profile.getUuid()).getColor() + INSTANCE.getPlayerManager().getProfile(uuid).getUsername();
+        return INSTANCE.getProfileManager().getRank(profile.getUuid()).getColor() + INSTANCE.getProfileManager().getProfile(uuid).getUsername();
     }
 
     /**
@@ -107,7 +106,7 @@ public class FlowerCoreAPI {
      * @return the prefix
      */
     public static String getPlayerPrefix(UUID uuid) {
-        return INSTANCE.getPlayerManager().getRank(uuid).getPrefix();
+        return INSTANCE.getProfileManager().getRank(uuid).getPrefix();
     }
 
     /**
@@ -117,7 +116,7 @@ public class FlowerCoreAPI {
      * @return the rank
      */
     public static String getPlayerRank(UUID uuid) {
-        return INSTANCE.getPlayerManager().getRank(uuid).getDisplayName();
+        return INSTANCE.getProfileManager().getRank(uuid).getDisplayName();
     }
 
     /**
@@ -127,7 +126,7 @@ public class FlowerCoreAPI {
      * @return the name of the rank
      */
     public static String getPlayerRankName(UUID uuid) {
-        return INSTANCE.getPlayerManager().getRank(uuid).getName();
+        return INSTANCE.getProfileManager().getRank(uuid).getName();
     }
 
     /**
@@ -137,7 +136,7 @@ public class FlowerCoreAPI {
      * @return the tag
      */
     public static String getPlayerTag(UUID uuid) {
-        return INSTANCE.getPlayerManager().getTag(uuid).getDisplayName();
+        return INSTANCE.getProfileManager().getTag(uuid).getDisplayName();
     }
 
     /**
@@ -147,6 +146,6 @@ public class FlowerCoreAPI {
      * @return the name of the tag
      */
     public static String getPlayerTagName(UUID uuid) {
-        return INSTANCE.getPlayerManager().getTag(uuid).getName();
+        return INSTANCE.getProfileManager().getTag(uuid).getName();
     }
 }
