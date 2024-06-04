@@ -83,8 +83,7 @@
             <groupId>org.papermc</groupId>
             <artifactId>spigot</artifactId>
             <version>1.8.8-R0.1-SNAPSHOT</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/spigot-1.8.8-R0.1-SNAPSHOT.jar</systemPath>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
