@@ -11,13 +11,12 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class AlertCommand extends BaseCommand {
-
+    @Override
     @Command(name = "alert", inGameOnly = false, permission = "flower.command.alert", aliases = "serveralert")
     public void onCommand(CommandArgs args) {
         CommandSender sender = args.getSender();

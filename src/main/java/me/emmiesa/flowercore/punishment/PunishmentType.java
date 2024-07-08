@@ -1,11 +1,10 @@
 package me.emmiesa.flowercore.punishment;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public enum PunishmentType {
     KICK,
     WARN,

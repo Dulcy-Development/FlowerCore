@@ -9,16 +9,15 @@ import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.command.CommandSender;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class YouTubeCommand extends BaseCommand {
-
+    @Override
     @Command(name = "youtube", inGameOnly = false)
-    public void onCommand(CommandArgs args) {
-        CommandSender sender = args.getSender();
+    public void onCommand(CommandArgs command) {
+        CommandSender sender = command.getSender();
         String commandName = "discord";
 
         boolean enableCommand = FlowerCore.getInstance().getConfig("messages.yml").getBoolean("socials." + commandName + ".enabled", true);

@@ -8,9 +8,9 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.util.Date;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 03/06/2024 - 21:24
+ * @author Emmy
+ * @project FlowerCore
+ * @date 03/06/2024 - 21:24
  */
 @Getter
 @Setter

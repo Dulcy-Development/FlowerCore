@@ -2,7 +2,6 @@ package me.emmiesa.flowercore.news.menu;
 
 import me.clip.placeholderapi.PlaceholderAPI;
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.news.menu.button.NewsButton;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.menu.Button;
 import me.emmiesa.flowercore.utils.menu.Menu;
@@ -19,11 +18,10 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * Created by Emmy
- * Project: FlowerHub
- * GitHub: https://github.com/Emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class NewsMenu extends Menu {
 
 	private final RefillGlassButton refillGlassButton;

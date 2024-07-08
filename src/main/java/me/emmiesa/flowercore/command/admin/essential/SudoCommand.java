@@ -10,11 +10,10 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class SudoCommand extends BaseCommand {
     @Override
     @Command(name = "sudo", permission = "flower.command.sudo", aliases = {"forcetosay"}, inGameOnly = false)

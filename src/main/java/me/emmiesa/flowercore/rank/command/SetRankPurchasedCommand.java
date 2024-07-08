@@ -15,11 +15,10 @@ import org.bukkit.entity.Player;
 import java.util.UUID;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 07/05/2024 - 21:32
+ * @author Emmy
+ * @project FlowerCore
+ * @date 07/05/2024 - 21:32
  */
-
 public class SetRankPurchasedCommand extends BaseCommand {
         @Override
         @Command(name = "setrankpurchased", permission = "flower.ranks.developer", inGameOnly = false)
@@ -41,15 +40,15 @@ public class SetRankPurchasedCommand extends BaseCommand {
                 return;
             }
 
-            Rank rank = FlowerCore.getInstance().getRanksManager().getRank(rankName);
+            Rank rank = FlowerCore.getInstance().getRankRepository().getRank(rankName);
             if (rank == null) {
                 sender.sendMessage(CC.translate("&cThat Rank does not exist!"));
                 return;
             }
 
             UUID targetUUID = targetPlayer.getUniqueId();
-            FlowerCore.getInstance().getProfileManager().getProfile(targetUUID).setRank(rank);
-            Utils.broadcastMessage(CC.translate("&7[&4Alert&7] &r" + FlowerCore.getInstance().getProfileManager().getProfile(targetUUID).getRank().getColor() + targetName + " &bhas purchased the &r" + rank.getColor() + rankName + " &brank!"));
-            Bukkit.getConsoleSender().sendMessage(CC.translate("&7[&4Alert&7] &r" + FlowerCore.getInstance().getProfileManager().getProfile(targetUUID).getRank().getColor() + targetName + " &bhas purchased the &r" + rank.getColor() + rankName + " &brank!"));
+            FlowerCore.getInstance().getProfileRepository().getProfile(targetUUID).setRank(rank);
+            Utils.broadcastMessage(CC.translate("&7[&4Alert&7] &r" + FlowerCore.getInstance().getProfileRepository().getProfile(targetUUID).getRank().getColor() + targetName + " &bhas purchased the &r" + rank.getColor() + rankName + " &brank!"));
+            Bukkit.getConsoleSender().sendMessage(CC.translate("&7[&4Alert&7] &r" + FlowerCore.getInstance().getProfileRepository().getProfile(targetUUID).getRank().getColor() + targetName + " &bhas purchased the &r" + rank.getColor() + rankName + " &brank!"));
         }
     }

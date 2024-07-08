@@ -1,4 +1,4 @@
-package me.emmiesa.flowercore.grant.menu.grantconfirm.button;
+package me.emmiesa.flowercore.grant.menu.grantconfirm;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.rank.Rank;
@@ -17,11 +17,10 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class GrantConfirmButton extends Button {
     private final UUID playerToGrantUUID;
     private final Rank rank;
@@ -31,6 +30,17 @@ public class GrantConfirmButton extends Button {
     private final boolean isConfirmButton;
     private final String playerName;
 
+    /**
+     * Constructor for the GrantConfirmButton
+     *
+     * @param playerName the name of the player
+     * @param playerToGrantUUID the UUID of the player to grant
+     * @param rank the rank to grant
+     * @param material the material of the button
+     * @param name the name of the button
+     * @param lore the lore of the button
+     * @param isConfirmButton if the button is a confirm button
+     */
     public GrantConfirmButton(String playerName, UUID playerToGrantUUID, Rank rank, Material material, String name, List<String> lore, boolean isConfirmButton) {
         this.playerToGrantUUID = playerToGrantUUID;
         this.playerName = playerName;
@@ -56,19 +66,19 @@ public class GrantConfirmButton extends Button {
         UUID playerUUID = player.getUniqueId();
         UUID playerToGrantUUID = Bukkit.getPlayerExact(playerName).getUniqueId();
         if (isConfirmButton) {
-            FlowerCore.getInstance().getProfileManager().setRank(playerToGrantUUID, rank);
+            FlowerCore.getInstance().getProfileRepository().setRank(playerToGrantUUID, rank);
             Player targetPlayer = Bukkit.getServer().getPlayer(playerToGrantUUID);
-            FlowerCore.getInstance().getMongoManager().saveProfile(playerToGrantUUID);
+            FlowerCore.getInstance().getMongoService().saveProfile(playerToGrantUUID);
             if (targetPlayer != null) {
                 player.sendMessage(CC.translate("&aYou have successfully granted " + playerName + " &athe " + rank.getDisplayName() + " &arank!"));
-                targetPlayer.sendMessage(CC.translate("&aYour rank has been set to " + rank.getDisplayName() + " &aby " + FlowerCore.getInstance().getProfileManager().getRank(playerUUID).getPrefix() + player.getDisplayName() + "&a."));
+                targetPlayer.sendMessage(CC.translate("&aYour rank has been set to " + rank.getDisplayName() + " &aby " + FlowerCore.getInstance().getProfileRepository().getRank(playerUUID).getPrefix() + player.getDisplayName() + "&a."));
                 Button.playSuccess(player);
                 player.closeInventory();
 
                 if (FlowerCore.getInstance().getConfig("settings.yml").getBoolean("grant-settings.broadcast.enabled")) {
                     List<String> messages = FlowerCore.getInstance().getConfig("settings.yml").getStringList("grant-settings.broadcast.message");
 
-                    String grantedBy = FlowerCore.getInstance().getProfileManager().getRank(playerUUID).getPrefix() + player.getDisplayName();
+                    String grantedBy = FlowerCore.getInstance().getProfileRepository().getRank(playerUUID).getPrefix() + player.getDisplayName();
                     String grantedPlayer = playerName;
                     String rankDisplayName = rank.getDisplayName();
 

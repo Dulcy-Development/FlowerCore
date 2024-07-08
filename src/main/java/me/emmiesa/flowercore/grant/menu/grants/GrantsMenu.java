@@ -11,15 +11,21 @@ import java.util.Map;
 import java.util.UUID;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 03/06/2024 - 20:33
+ * @author Emmy
+ * @project FlowerCore
+ * @date 03/06/2024 - 20:33
  */
 public class GrantsMenu extends PaginatedMenu {
 
     private final String playerName;
     private final UUID targetUUID;
 
+    /**
+     * Constructor for the GrantsMenu
+     *
+     * @param playerName the name of the player
+     * @param targetUUID the UUID of the player
+     */
     public GrantsMenu(String playerName, UUID targetUUID) {
         this.playerName = playerName;
         this.targetUUID = targetUUID;
@@ -36,7 +42,7 @@ public class GrantsMenu extends PaginatedMenu {
 
         int slot = 0;
 
-        for (Grant grant : FlowerCore.getInstance().getProfileManager().getProfile(targetUUID).getGrants()) {
+        for (Grant grant : FlowerCore.getInstance().getProfileRepository().getProfile(targetUUID).getGrants()) {
             buttons.put(slot++, new GrantsButton(grant, playerName, targetUUID));
         }
 

@@ -10,30 +10,36 @@ import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.entity.Player;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class RankSetPriorityCommand extends BaseCommand {
-
+    @Override
     @Command(name = "rank.setpriority", aliases = {"setrankpriority", "setrankprio"}, permission = "flower.ranks.developer")
-    public void onCommand(CommandArgs args) {
-        Player player = args.getPlayer();
+    public void onCommand(CommandArgs command) {
+        Player player = command.getPlayer();
 
-        if (args.length() < 2) {
+        if (command.length() < 2) {
             player.sendMessage(CC.translate("&cUsage: /rank setPriority (rank-name) (priority)"));
             return;
         }
 
-        String rankName = args.getArgs(0);
-        int priority = Integer.parseInt(args.getArgs(1));
+        String rankName = command.getArgs(0);
+        int priority = Integer.parseInt(command.getArgs(1));
 
         setPriority(player, rankName, priority);
     }
 
+    /**
+     * Sets the priority of a rank
+     *
+     * @param player   the player executing the command
+     * @param rankName the name of the rank
+     * @param priority the priority to set
+     */
     public void setPriority(Player player, String rankName, int priority) {
-        Rank rank = FlowerCore.getInstance().getRanksManager().getRank(rankName);
+        Rank rank = FlowerCore.getInstance().getRankRepository().getRank(rankName);
 
         if (rank == null) {
             player.sendMessage(CC.translate(Locale.RANK_NOT_FOUND).replace("%rank%", rankName));

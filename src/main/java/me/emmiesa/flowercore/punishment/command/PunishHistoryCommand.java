@@ -10,22 +10,21 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 09/05/2024 - 19:14
+ * @author Emmy
+ * @project FlowerCore
+ * @date 09/05/2024 - 19:14
  */
-
 public class PunishHistoryCommand extends BaseCommand {
     @Override
     @Command(name = "punishhistory", aliases = "punishi", permission = "flower")
-    public void onCommand(CommandArgs args) {
-        Player player = args.getPlayer();
-        if (args.getArgs().length == 0) {
+    public void onCommand(CommandArgs command) {
+        Player player = command.getPlayer();
+        if (command.getArgs().length == 0) {
             player.sendMessage(ChatColor.RED + "Usage: /punishhistory (player)");
             return;
         }
 
-        String playerName = args.getArgs(0);
+        String playerName = command.getArgs(0);
         Player target = Bukkit.getPlayerExact(playerName);
         if (target == null) {
             player.sendMessage(CC.translate("&cNo player matching &4" + playerName + " &cis connected to this server."));

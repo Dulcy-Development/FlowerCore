@@ -6,15 +6,14 @@ import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.command.CommandSender;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 28/04/2024 - 17:38
+ * @author Emmy
+ * @project FlowerCore
+ * @date 28/04/2024 - 17:38
  */
-
 public class IPBlacklistCommand extends BaseCommand {
 
     @Command(name = "blacklist-ip", aliases = {"ipblacklist"}, permission = "flower.punishment.ipblacklist", inGameOnly = false)
-    public void onCommand(CommandArgs args) {
-        CommandSender sender = args.getSender();
+    public void onCommand(CommandArgs command) {
+        CommandSender sender = command.getSender();
     }
 }

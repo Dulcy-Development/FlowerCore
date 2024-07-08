@@ -10,11 +10,10 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 12/05/2024 - 09:28
+ * @author Emmy
+ * @project FlowerCore
+ * @date 12/05/2024 - 09:28
  */
-
 public class FakeOpCommand extends BaseCommand {
     @Override
     @Command(name = "fakeop", permission = "flower.command.fakeop", inGameOnly = false)

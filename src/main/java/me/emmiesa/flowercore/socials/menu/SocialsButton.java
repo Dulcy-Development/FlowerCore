@@ -6,9 +6,9 @@ import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 04/06/2024 - 20:53
+ * @author Emmy
+ * @project FlowerCore
+ * @date 04/06/2024 - 20:53
  */
 public class SocialsButton extends Button {
     @Override

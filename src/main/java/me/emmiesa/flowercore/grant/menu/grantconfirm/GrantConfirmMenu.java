@@ -1,7 +1,6 @@
 package me.emmiesa.flowercore.grant.menu.grantconfirm;
 
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.grant.menu.grantconfirm.button.GrantConfirmButton;
 import me.emmiesa.flowercore.rank.Rank;
 import me.emmiesa.flowercore.utils.menu.Button;
 import me.emmiesa.flowercore.utils.menu.Menu;
@@ -13,17 +12,23 @@ import org.bukkit.entity.Player;
 import java.util.*;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class GrantConfirmMenu extends Menu {
     private final UUID playerToGrantUUID;
     private final Rank rank;
     private final String playerName;
     private final RefillGlassButton refillGlassButton;
 
+    /**
+     * Constructor for the GrantConfirmMenu
+     *
+     * @param playerToGrantUUID the UUID of the player to grant
+     * @param rank the rank to grant
+     * @param playerName the name of the player
+     */
     public GrantConfirmMenu(UUID playerToGrantUUID, Rank rank, String playerName) {
         this.playerToGrantUUID = playerToGrantUUID;
         this.rank = rank;
@@ -45,8 +50,8 @@ public class GrantConfirmMenu extends Menu {
         String confirmMaterialStr = config.getString("confirm-button.material", "DIAMOND_BLOCK");
         Material confirmMaterial = Material.matchMaterial(confirmMaterialStr);
         List<String> confirmLore = config.getStringList("confirm-button.lore");
-        String staff = FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/grant-confirm.yml").getString("confirm-button.placeholder.staff");
-        String nonStaff = FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/grant-confirm.yml").getString("confirm-button.placeholder.non-staff");
+        String staff = FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/grant-confirm.yml").getString("confirm-button.papi.staff");
+        String nonStaff = FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/grant-confirm.yml").getString("confirm-button.papi.non-staff");
         confirmLore.replaceAll(line -> line.replace("{player_name}", playerName).replace("{rank}", rank.getDisplayName()).replace("{rank-type}", rank.isStaff() ? staff : nonStaff));
 
         String cancelTitle = config.getString("cancel-button.title", "&c&lCancel");

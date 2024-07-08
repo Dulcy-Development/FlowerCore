@@ -13,17 +13,15 @@ import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class SetJoinLocation extends BaseCommand {
-
-    @Command(name = "setjoinlocation", permission = "flower.command.setjoinlocation", aliases = "setspawnlocation")
     @Override
-    public void onCommand(CommandArgs cmd) {
-        Player player = (Player) cmd.getSender();
+    @Command(name = "setjoinlocation", permission = "flower.command.setjoinlocation", aliases = "setspawnlocation")
+    public void onCommand(CommandArgs command) {
+        Player player = (Player) command.getSender();
         Location loc = player.getLocation();
         FlowerCore.getInstance().getSpawnHandler().setSpawnLocation(loc);
 

@@ -11,9 +11,9 @@ import net.md_5.bungee.api.chat.HoverEvent.Action;
 import org.bukkit.entity.Player;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 21/03/2024 - 21:28
+ * @author Emmy
+ * @project FlowerCore
+ * @date 21/03/2024 - 21:28
  */
 
 public class Clickable {

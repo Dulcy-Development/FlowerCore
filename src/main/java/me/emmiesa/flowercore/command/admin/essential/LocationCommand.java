@@ -10,15 +10,13 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class LocationCommand extends BaseCommand {
-
-    @Command(name = "location", permission = "flower.command.location", aliases = {"loc", "whereami"})
     @Override
+    @Command(name = "location", permission = "flower.command.location", aliases = {"loc", "whereami"})
     public void onCommand(CommandArgs cmd) {
         Player player = cmd.getPlayer();
         Location loc = player.getLocation();

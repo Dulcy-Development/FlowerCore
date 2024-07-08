@@ -14,12 +14,10 @@ import java.util.List;
 
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
- *
- * @author Elb1to
- * @since 11/11/2023
+ * @author Emmy
+ * @project FlowerCore
+ * @date 11/11/2023
+ * @credit Elb1to
  */
 @AllArgsConstructor
 public class SettingsButton extends Button {

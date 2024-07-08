@@ -4,11 +4,10 @@ import me.emmiesa.flowercore.FlowerCore;
 import org.bukkit.configuration.file.FileConfiguration;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class Locale {
     private static final FileConfiguration messagesConfig = FlowerCore.getInstance().getConfigHandler().getConfigByName("messages.yml");
     private static final FileConfiguration settingsConfig = FlowerCore.getInstance().getConfigHandler().getConfigByName("settings.yml");

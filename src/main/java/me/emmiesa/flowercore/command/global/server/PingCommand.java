@@ -11,16 +11,15 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class PingCommand extends BaseCommand {
-
+    @Override
     @Command(name = "ping")
-    public void onCommand(CommandArgs args) {
-        Player player = args.getPlayer();
+    public void onCommand(CommandArgs command) {
+        Player player = command.getPlayer();
 
         final boolean enablePing = FlowerCore.getInstance().getConfig("messages.yml").getBoolean("ping.enabled");
 
@@ -36,9 +35,9 @@ public class PingCommand extends BaseCommand {
             return;
         }
 
-        String[] arguments = args.getArgs();
+        String[] arguments = command.getArgs();
 
-        if (args.getLabel().equalsIgnoreCase("ping")) {
+        if (command.getLabel().equalsIgnoreCase("ping")) {
             if (arguments.length == 0) {
                 int ping = getPing(player);
                 String pingMessage = getConfigMessage("ping.ping_self")

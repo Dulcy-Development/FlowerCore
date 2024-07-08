@@ -3,7 +3,6 @@ package me.emmiesa.flowercore.rank.command;
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.grant.Grant;
 import me.emmiesa.flowercore.locale.Locale;
-import me.emmiesa.flowercore.profile.Profile;
 import me.emmiesa.flowercore.rank.Rank;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.command.BaseCommand;
@@ -17,11 +16,10 @@ import java.util.Date;
 import java.util.UUID;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 07/05/2024 - 20:40
+ * @author Emmy
+ * @project FlowerCore
+ * @date 07/05/2024 - 20:40
  */
-
 public class SetRankCommand extends BaseCommand {
     @Override
     @Command(name = "setrank", permission = "flower.ranks.developer", inGameOnly = false)
@@ -45,7 +43,7 @@ public class SetRankCommand extends BaseCommand {
             return;
         }
 
-        Rank rank = FlowerCore.getInstance().getRanksManager().getRank(rankName);
+        Rank rank = FlowerCore.getInstance().getRankRepository().getRank(rankName);
         if (rank == null) {
             sender.sendMessage(CC.translate("&cThat Rank does not exist!"));
             return;
@@ -55,13 +53,13 @@ public class SetRankCommand extends BaseCommand {
         date.setTime(System.currentTimeMillis());
 
         Grant grant = new Grant(date, null, duration, sender.getName(), reason, null, rank.getName(), null,true, Locale.SERVER_NAME);
-        FlowerCore.getInstance().getProfileManager().addGrant(targetPlayer.getUniqueId(), grant);
+        FlowerCore.getInstance().getProfileRepository().addGrant(targetPlayer.getUniqueId(), grant);
 
         UUID targetUUID = targetPlayer.getUniqueId();
-        FlowerCore.getInstance().getProfileManager().getProfile(targetUUID).setRank(rank);
-        FlowerCore.getInstance().getMongoManager().saveProfile(targetUUID);
+        FlowerCore.getInstance().getProfileRepository().getProfile(targetUUID).setRank(rank);
+        FlowerCore.getInstance().getMongoService().saveProfile(targetUUID);
 
-        String grantedBy = sender instanceof Player ? FlowerCore.getInstance().getProfileManager().getProfile(((Player) sender).getUniqueId()).getRank().getColor() + sender.getName() : "&fCONSOLE";
+        String grantedBy = sender instanceof Player ? FlowerCore.getInstance().getProfileRepository().getProfile(((Player) sender).getUniqueId()).getRank().getColor() + sender.getName() : "&fCONSOLE";
         sender.sendMessage(CC.translate("&aYou have successfully granted " + targetName + " &athe " + rank.getDisplayName() + " &arank!"));
         targetPlayer.sendMessage(CC.translate("&aYour rank has been set to " + rank.getDisplayName() + " &aby &f" + grantedBy + "&a."));
     }

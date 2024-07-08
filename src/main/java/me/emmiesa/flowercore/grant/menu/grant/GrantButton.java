@@ -16,11 +16,10 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 @AllArgsConstructor
 public class GrantButton extends Button {
     private final Rank rank;
@@ -61,8 +60,8 @@ public class GrantButton extends Button {
         line = line.replace("{staff_rank}", rank.isStaff() ? "Yes" : "No");
         line = line.replace("{default_rank}", rank.isDefaultRank() ? "Yes" : "No");
         line = line.replace("{player_name}", playerName);
-        line = line.replace("{player_color}", FlowerCore.getInstance().getProfileManager().getPlayerRankColor(playerToGrantUUID));
-        line = line.replace("{current_rank}", FlowerCore.getInstance().getProfileManager().getRank(playerToGrantUUID).getDisplayName());
+        line = line.replace("{player_color}", FlowerCore.getInstance().getProfileRepository().getPlayerRankColor(playerToGrantUUID));
+        line = line.replace("{current_rank}", FlowerCore.getInstance().getProfileRepository().getRank(playerToGrantUUID).getDisplayName());
         return line;
     }
 }

@@ -4,9 +4,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 28/04/2024 - 20:25
+ * @author Emmy
+ * @project FlowerCore
+ * @date 28/04/2024 - 20:25
  */
 
 public class OfflinePlayerUtil {

@@ -11,15 +11,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class GrantMenu extends PaginatedMenu {
 
     private final String playerName;
 
+    /**
+     * Constructor
+     *
+     * @param playerName the name of the player
+     */
     public GrantMenu(String playerName) {
         this.playerName = playerName;
     }
@@ -33,7 +37,7 @@ public class GrantMenu extends PaginatedMenu {
     public Map<Integer, Button> getAllPagesButtons(Player player) {
         Map<Integer, Button> buttons = new HashMap<>();
 
-        for (Rank rank : FlowerCore.getInstance().getRanksManager().getRanks()) {
+        for (Rank rank : FlowerCore.getInstance().getRankRepository().getRanks()) {
             buttons.put(buttons.size(), new GrantButton(rank, playerName));
         }
 

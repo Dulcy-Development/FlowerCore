@@ -12,13 +12,12 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class BroadcastCommand extends BaseCommand {
-
+    @Override
     @Command(name = "broadcast", inGameOnly = false, permission = "flower.command.broadcast")
     public void onCommand(CommandArgs args) {
         CommandSender sender = args.getSender();

@@ -12,23 +12,22 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class KickCommand extends BaseCommand {
     @Override
     @Command(name = "kick", permission = "flower.punishment.kick")
-    public void onCommand(CommandArgs args) {
+    public void onCommand(CommandArgs command) {
 
         String defaultReason = FlowerCore.getInstance().getConfig("settings.yml").getString("punishments.default-reason.kick");
 
-        String target = args.getArgs(0);
-        String reason = args.length() > 1 ? args.getArgs(1) : defaultReason;
-        boolean silent = args.length() > 2 && args.getArgs(2).equalsIgnoreCase("-s");
+        String target = command.getArgs(0);
+        String reason = command.length() > 1 ? command.getArgs(1) : defaultReason;
+        boolean silent = command.length() > 2 && command.getArgs(2).equalsIgnoreCase("-s");
 
-        Player kickedBy = args.getPlayer();
+        Player kickedBy = command.getPlayer();
 
         Player targetPlayer = FlowerCore.getInstance().getServer().getPlayer(target);
 

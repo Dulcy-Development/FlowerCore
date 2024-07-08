@@ -1,4 +1,4 @@
-package me.emmiesa.flowercore.tag.menu.button;
+package me.emmiesa.flowercore.tag.menu;
 
 import lombok.AllArgsConstructor;
 import me.emmiesa.flowercore.FlowerCore;
@@ -15,11 +15,10 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 @AllArgsConstructor
 public class TagsButton extends Button {
     private final Tag tag;
@@ -49,22 +48,22 @@ public class TagsButton extends Button {
         }
 
         if (clickType == ClickType.RIGHT) {
-            FlowerCore.getInstance().getProfileManager().resetTag(playerUUID);
-            FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
+            FlowerCore.getInstance().getProfileRepository().resetTag(playerUUID);
+            FlowerCore.getInstance().getMongoService().saveProfile(playerUUID);
             player.sendMessage(CC.translate("&aYour tag has been reset."));
             player.closeInventory();
             return;
         }
 
-        boolean hasTagSelected = FlowerCore.getInstance().getProfileManager().getTag(playerUUID) != null && FlowerCore.getInstance().getProfileManager().getTag(playerUUID).equals(tag);
+        boolean hasTagSelected = FlowerCore.getInstance().getProfileRepository().getTag(playerUUID) != null && FlowerCore.getInstance().getProfileRepository().getTag(playerUUID).equals(tag);
 
         if (hasTagSelected) {
             player.sendMessage(CC.translate("&cYou have already selected that tag!"));
             return;
         }
 
-        FlowerCore.getInstance().getProfileManager().setTag(playerUUID, tag);
-        FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
+        FlowerCore.getInstance().getProfileRepository().setTag(playerUUID, tag);
+        FlowerCore.getInstance().getMongoService().saveProfile(playerUUID);
         player.sendMessage(CC.translate("&aYou've selected the " + tag.getColor() + tag.getName() + " &atag!"));
         player.closeInventory();
     }
@@ -76,9 +75,9 @@ public class TagsButton extends Button {
         line = line.replace("{tag_color}", tag.getColor());
         line = line.replace("{tag_name}", tag.getName());
         line = line.replace("{player_name}", playerName);
-        line = line.replace("{prefix}", FlowerCore.getInstance().getProfileManager().getRank(playerUUID).getPrefix());
-        line = line.replace("{player_color}", FlowerCore.getInstance().getProfileManager().getPlayerRankColor(playerUUID));
-        boolean hasTagSelected = FlowerCore.getInstance().getProfileManager().getTag(playerUUID) != null && FlowerCore.getInstance().getProfileManager().getTag(playerUUID).equals(tag);
+        line = line.replace("{prefix}", FlowerCore.getInstance().getProfileRepository().getRank(playerUUID).getPrefix());
+        line = line.replace("{player_color}", FlowerCore.getInstance().getProfileRepository().getPlayerRankColor(playerUUID));
+        boolean hasTagSelected = FlowerCore.getInstance().getProfileRepository().getTag(playerUUID) != null && FlowerCore.getInstance().getProfileRepository().getTag(playerUUID).equals(tag);
 
         if (hasTagSelected) {
             line = line.replace("{permission-status}", FlowerCore.getInstance().getConfigHandler().getConfigByName("menus/tag-selector.yml").getString("permission-lore.already-selected")

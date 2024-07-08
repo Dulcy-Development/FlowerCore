@@ -13,17 +13,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 30/03/2024 - 16:56
+ * @author Emmy
+ * @project FlowerCore
+ * @date 30/03/2024 - 16:56
  */
-
 @Getter
 @Setter
-public class TagsManager {
+public class TagRepository {
     private final List<Tag> tags = new ArrayList<>();
     private final FlowerCore plugin = FlowerCore.getInstance();
 
+    /**
+     * Load the tags from the tags.yml file
+     */
     public void loadConfig() {
         FileConfiguration config = plugin.getConfigHandler().getConfigByName("tags.yml");
         if (config == null || config.getConfigurationSection("tags") == null) {
@@ -43,6 +45,12 @@ public class TagsManager {
         }
     }
 
+    /**
+     * Get a tag by name
+     *
+     * @param name Name of the tag
+     * @return Tag
+     */
     public Tag getTag(String name) {
         return tags.stream()
                 .filter(tag -> tag.getName().equalsIgnoreCase(name))
@@ -50,6 +58,11 @@ public class TagsManager {
                 .orElse(null);
     }
 
+    /**
+     * Remove a tag from the tags.yml file and from memory
+     *
+     * @param tagName Name of the tag
+     */
     public void removeTag(String tagName) {
         Tag tag = getTag(tagName);
 
@@ -69,10 +82,18 @@ public class TagsManager {
         FlowerCore.getInstance().getConfigHandler().saveConfig(file, config);
     }
 
+    /**
+     * Save the tags to the tags.yml file
+     */
     public void saveToFile() {
         tags.forEach(this::saveTag);
     }
 
+    /**
+     * Save a tag to the tags.yml file
+     *
+     * @param tag Tag to save
+     */
     public void saveTag(Tag tag) {
         FileConfiguration config = plugin.getConfigHandler().getConfigByName("tags.yml");
         String key = "tags." + tag.getName();

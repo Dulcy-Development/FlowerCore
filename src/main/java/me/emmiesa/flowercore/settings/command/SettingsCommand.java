@@ -7,16 +7,15 @@ import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.entity.Player;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class SettingsCommand extends BaseCommand {
-
+    @Override
     @Command(name = "settings", aliases = {"playeroptions"})
-    public void onCommand(CommandArgs args) {
-        Player player = args.getPlayer();
+    public void onCommand(CommandArgs command) {
+        Player player = command.getPlayer();
         new SettingsMenu().openMenu(player);
     }
 }

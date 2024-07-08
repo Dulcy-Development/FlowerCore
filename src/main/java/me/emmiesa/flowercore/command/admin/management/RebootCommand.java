@@ -11,11 +11,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 11/04/2024 - 22:35
+ * @author Emmy
+ * @project FlowerCore
+ * @date 11/04/2024 - 22:35
  */
-
 public class RebootCommand extends BaseCommand {
     private boolean rebootInProgress = false;
     private BukkitRunnable countdownTask;
@@ -30,6 +29,11 @@ public class RebootCommand extends BaseCommand {
         }
     }
 
+    /**
+     * Initiates a server reboot.
+     *
+     * @param command The command arguments.
+     */
     private void initiateReboot(CommandArgs command) {
         if (rebootInProgress) {
             command.getSender().sendMessage(CC.translate("&cA reboot is already in progress."));
@@ -92,6 +96,11 @@ public class RebootCommand extends BaseCommand {
         countdownTask.runTaskTimer(FlowerCore.getInstance(), 0L, 20L);
     }
 
+    /**
+     * Cancels a server reboot.
+     *
+     * @param command The command arguments.
+     */
     private void cancelReboot(CommandArgs command) {
         if (!rebootInProgress || countdownTask == null) {
             command.getSender().sendMessage(CC.translate("&cThere is no reboot progress to cancel."));

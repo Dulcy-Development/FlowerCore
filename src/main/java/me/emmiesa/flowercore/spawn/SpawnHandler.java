@@ -1,7 +1,6 @@
 package me.emmiesa.flowercore.spawn;
 
 import lombok.Getter;
-import lombok.Setter;
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.utils.chat.CC;
 import org.bukkit.Bukkit;
@@ -10,15 +9,18 @@ import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 04/06/2024 - 20:14
+ * @author Emmy
+ * @project FlowerCore
+ * @date 04/06/2024 - 20:14
  */
 @Getter
 public class SpawnHandler {
 
     private Location spawnLocation;
 
+    /**
+     * Load the spawn location from the settings.yml file
+     */
     public void loadSpawnLocation() {
         Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getPrefix() + "&fSpawn location has been loaded."));
         FileConfiguration config = FlowerCore.getInstance().getConfigHandler().getConfigByName("settings.yml");
@@ -37,6 +39,11 @@ public class SpawnHandler {
         spawnLocation = new Location(world, x, y, z, yaw, pitch);
     }
 
+    /**
+     * Set the spawn location
+     *
+     * @param location Location to set
+     */
     public void setSpawnLocation(Location location) {
         this.spawnLocation = location;
         FileConfiguration config = FlowerCore.getInstance().getConfigHandler().getConfigByName("settings.yml");

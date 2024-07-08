@@ -10,19 +10,11 @@ import org.bukkit.entity.Player;
 import java.util.UUID;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class ReplyCommand extends BaseCommand {
-
-    /*
-     *
-     * This needs to be re-done. It is basic as +as#dv+!
-     *
-     */
-
     @Override
     @Command(name = "reply", aliases = {"r"})
     public void onCommand(CommandArgs command) {

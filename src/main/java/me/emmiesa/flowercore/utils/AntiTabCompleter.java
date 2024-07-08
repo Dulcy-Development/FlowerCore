@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 20/03/2024 - 23:13
+ * @author Emmy
+ * @project FlowerCore
+ * @date 20/03/2024 - 23:13
  */
 
 public class AntiTabCompleter implements TabCompleter {

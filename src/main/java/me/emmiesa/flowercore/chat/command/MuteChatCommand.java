@@ -9,9 +9,9 @@ import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.command.CommandSender;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 04/06/2024 - 20:28
+ * @author Emmy
+ * @project FlowerCore
+ * @date 04/06/2024 - 20:28
  */
 public class MuteChatCommand extends BaseCommand {
     @Override

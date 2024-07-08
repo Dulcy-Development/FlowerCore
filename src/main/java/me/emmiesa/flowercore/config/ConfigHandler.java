@@ -11,11 +11,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 @Getter
 public class ConfigHandler {
 
@@ -23,16 +22,25 @@ public class ConfigHandler {
     private final Map<String, File> configFiles = new HashMap<>();
     private final Map<String, FileConfiguration> fileConfigurations = new HashMap<>();
 
+    /**
+     * The names of the config files
+     */
     private final String[] configFileNames = {
             "settings.yml", "messages.yml", "database.yml", "ranks.yml", "tags.yml", "menus/news.yml", "menus/grant.yml", "menus/grant-confirm.yml", "menus/tag-selector.yml"
     };
 
+    /**
+     * Constructor
+     */
     public ConfigHandler() {
         for (String fileName : configFileNames) {
             loadConfig(fileName);
         }
     }
 
+    /**
+     * Reload all configs
+     */
     public void reloadConfigs() {
         for (String fileName : configFileNames) {
             loadConfig(fileName);

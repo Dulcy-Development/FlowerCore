@@ -10,15 +10,13 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class TeleportPositionCommand extends BaseCommand {
-    @Command(name = "teleportposition", permission = "flowercore.command.tppos", aliases = {"tp-pos", "tppos"})
-
     @Override
+    @Command(name = "teleportposition", permission = "flowercore.command.tppos", aliases = {"tp-pos", "tppos"})
     public void onCommand(CommandArgs cmd) {
         Player player = cmd.getPlayer();
         String[] args = cmd.getArgs();

@@ -10,9 +10,9 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 24/03/2024 - 12:17
+ * @author Emmy
+ * @project FlowerCore
+ * @date 24/03/2024 - 12:17
  */
 
 public class BungeeUtil {

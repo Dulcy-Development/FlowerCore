@@ -1,9 +1,9 @@
 package me.emmiesa.flowercore.utils.pagination;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 01/04/2024 - 00:12
+ * @author Emmy
+ * @project FlowerCore
+ * @date 01/04/2024 - 00:12
  */
 
 import org.bukkit.ChatColor;

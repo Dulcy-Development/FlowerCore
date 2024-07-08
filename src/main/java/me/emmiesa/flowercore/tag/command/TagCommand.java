@@ -7,11 +7,10 @@ import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.entity.Player;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 30/03/2024 - 18:37
+ * @author Emmy
+ * @project FlowerCore
+ * @date 30/03/2024 - 18:37
  */
-
 public class TagCommand extends BaseCommand {
     @Override
     @Command(name = "tag")

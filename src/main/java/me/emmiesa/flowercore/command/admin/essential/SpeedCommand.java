@@ -13,14 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
- * Credit: Zoom core
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class SpeedCommand extends BaseCommand {
-
     @Completer(name = "speed")
     public List<String> speedCompleter(CommandArgs args) {
         List<String> commands = new ArrayList<>();
@@ -32,9 +29,8 @@ public class SpeedCommand extends BaseCommand {
         return commands;
     }
 
-    @Command(name = "speed", permission = "flower.command.speed")
-
     @Override
+    @Command(name = "speed", permission = "flower.command.speed")
     public void onCommand(CommandArgs cmd) {
         Player player = cmd.getPlayer();
         String[] args = cmd.getArgs();

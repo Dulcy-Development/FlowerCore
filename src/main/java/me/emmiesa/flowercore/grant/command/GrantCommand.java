@@ -10,22 +10,21 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class GrantCommand extends BaseCommand {
-
+    @Override
     @Command(name = "grant", permission = "flower.ranks.developer")
-    public void onCommand(CommandArgs args) {
-        Player player = args.getPlayer();
-        if (args.getArgs().length == 0) {
+    public void onCommand(CommandArgs command) {
+        Player player = command.getPlayer();
+        if (command.getArgs().length == 0) {
             player.sendMessage(ChatColor.RED + "Usage: /grant (player)");
             return;
         }
 
-        String playerName = args.getArgs(0);
+        String playerName = command.getArgs(0);
         Player target = Bukkit.getPlayerExact(playerName);
         if (target == null) {
             player.sendMessage(CC.translate("&cNo player matching &4" + playerName + " &cis connected to this server."));

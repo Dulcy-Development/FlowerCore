@@ -13,9 +13,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
 
 public class CC {

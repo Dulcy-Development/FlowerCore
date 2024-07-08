@@ -10,9 +10,9 @@ import org.bukkit.entity.Player;
 import java.util.UUID;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 23/04/2024 - 08:30
+ * @author Emmy
+ * @project FlowerCore
+ * @date 23/04/2024 - 08:30
  */
 public class FlowerCoreAPI {
     private static final FlowerCore INSTANCE = FlowerCore.getInstance();
@@ -28,7 +28,7 @@ public class FlowerCoreAPI {
             return null;
         }
 
-        return INSTANCE.getProfileManager().getProfileByUsername(player.getName());
+        return INSTANCE.getProfileRepository().getProfileByUsername(player.getName());
     }
 
     /**
@@ -42,7 +42,7 @@ public class FlowerCoreAPI {
             return null;
         }
 
-        return INSTANCE.getProfileManager().getProfileByUsername(username);
+        return INSTANCE.getProfileRepository().getProfileByUsername(username);
     }
 
     /**
@@ -55,7 +55,7 @@ public class FlowerCoreAPI {
         if (Bukkit.getPlayer(uuid) == null) {
             return null;
         }
-        return INSTANCE.getProfileManager().getProfile(uuid);
+        return INSTANCE.getProfileRepository().getProfile(uuid);
     }
 
     /**
@@ -65,7 +65,7 @@ public class FlowerCoreAPI {
      * @return the rank
      */
     public static Rank getRankByName(String name) {
-        return INSTANCE.getRanksManager().getRank(name);
+        return INSTANCE.getRankRepository().getRank(name);
     }
 
     /**
@@ -75,7 +75,7 @@ public class FlowerCoreAPI {
      * @return the tag
      */
     public static Tag getTagByName(String name) {
-        return INSTANCE.getTagsManager().getTag(name);
+        return INSTANCE.getTagRepository().getTag(name);
     }
 
     /**
@@ -85,7 +85,7 @@ public class FlowerCoreAPI {
      * @return if the rank is the default rank
      */
     public static boolean isDefaultRank(Rank rank) {
-        return rank.getName().equalsIgnoreCase(FlowerCore.getInstance().getRanksManager().getDefaultRank().getName());
+        return rank.getName().equalsIgnoreCase(FlowerCore.getInstance().getRankRepository().getDefaultRank().getName());
     }
 
     /**
@@ -96,7 +96,7 @@ public class FlowerCoreAPI {
      * @return the display name
      */
     public static String getPlayerDisplayName(Profile profile, UUID uuid) {
-        return INSTANCE.getProfileManager().getRank(profile.getUuid()).getColor() + INSTANCE.getProfileManager().getProfile(uuid).getUsername();
+        return INSTANCE.getProfileRepository().getRank(profile.getUuid()).getColor() + INSTANCE.getProfileRepository().getProfile(uuid).getUsername();
     }
 
     /**
@@ -106,7 +106,7 @@ public class FlowerCoreAPI {
      * @return the prefix
      */
     public static String getPlayerPrefix(UUID uuid) {
-        return INSTANCE.getProfileManager().getRank(uuid).getPrefix();
+        return INSTANCE.getProfileRepository().getRank(uuid).getPrefix();
     }
 
     /**
@@ -116,7 +116,7 @@ public class FlowerCoreAPI {
      * @return the rank
      */
     public static String getPlayerRank(UUID uuid) {
-        return INSTANCE.getProfileManager().getRank(uuid).getDisplayName();
+        return INSTANCE.getProfileRepository().getRank(uuid).getDisplayName();
     }
 
     /**
@@ -126,7 +126,7 @@ public class FlowerCoreAPI {
      * @return the name of the rank
      */
     public static String getPlayerRankName(UUID uuid) {
-        return INSTANCE.getProfileManager().getRank(uuid).getName();
+        return INSTANCE.getProfileRepository().getRank(uuid).getName();
     }
 
     /**
@@ -136,7 +136,7 @@ public class FlowerCoreAPI {
      * @return the tag
      */
     public static String getPlayerTag(UUID uuid) {
-        return INSTANCE.getProfileManager().getTag(uuid).getDisplayName();
+        return INSTANCE.getProfileRepository().getTag(uuid).getDisplayName();
     }
 
     /**
@@ -146,6 +146,6 @@ public class FlowerCoreAPI {
      * @return the name of the tag
      */
     public static String getPlayerTagName(UUID uuid) {
-        return INSTANCE.getProfileManager().getTag(uuid).getName();
+        return INSTANCE.getProfileRepository().getTag(uuid).getName();
     }
 }

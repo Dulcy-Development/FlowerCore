@@ -10,11 +10,10 @@ import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import java.util.List;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class CommandListener implements Listener {
 
     @EventHandler

@@ -9,16 +9,15 @@ import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.command.CommandSender;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class DiscordCommand extends BaseCommand {
-
+    @Override
     @Command(name = "discord", inGameOnly = false)
-    public void onCommand(CommandArgs args) {
-        CommandSender sender = args.getSender();
+    public void onCommand(CommandArgs command) {
+        CommandSender sender = command.getSender();
         String commandName = "discord";
 
         boolean enableCommand = FlowerCore.getInstance().getConfig("messages.yml").getBoolean("socials." + commandName + ".enabled", true);
@@ -41,7 +40,7 @@ public class DiscordCommand extends BaseCommand {
         //        CommandSender sender = args.getSender();
         //
         //        if (!FlowerCore.getInstance().getConfig("messages.yml").getBoolean("socials.discord.enabled")) {
-        //            sender.sendMessage(CC.translate(FlowerCore.getInstance().getConfig().getString("socials.discord.disabled_message").replace("%link%", FlowerCore.getInstance().getConfig("messages.yml").getString("socials.discord.placeholder-format"))));
+        //            sender.sendMessage(CC.translate(FlowerCore.getInstance().getConfig().getString("socials.discord.disabled_message").replace("%link%", FlowerCore.getInstance().getConfig("messages.yml").getString("socials.discord.papi-format"))));
         //        } else {
         //            sender.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("socials.discord.enabled_message").replace("%discord%", Locale.DISCORD)));
         //        }

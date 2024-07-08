@@ -16,11 +16,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class GodModeCommand extends BaseCommand implements Listener {
 
     private final Set<Player> godModePlayers = new HashSet<>();
@@ -29,6 +28,7 @@ public class GodModeCommand extends BaseCommand implements Listener {
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
     }
 
+    @Override
     @Command(name = "godmode", aliases = {"god", "togglegodmode"}, permission = "flower.command.godmode")
     public void onCommand(CommandArgs args) {
         Player player = args.getPlayer();

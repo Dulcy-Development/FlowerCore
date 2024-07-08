@@ -14,15 +14,12 @@ import java.lang.reflect.Method;
 import java.util.List;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class TrollEverybodyCommand extends BaseCommand {
-
-    private final FlowerCore plugin = FlowerCore.getInstance();
-
+    @Override
     @Command(name = "trolleverybody", aliases = "trollall", inGameOnly = false, permission = "flowercore.command.trolleverybody")
     public void onCommand(CommandArgs args) {
         CommandSender sender = args.getSender();
@@ -31,7 +28,7 @@ public class TrollEverybodyCommand extends BaseCommand {
         }
 
         try {
-            String path = plugin.getServer().getClass().getPackage().getName();
+            String path = FlowerCore.getInstance().getServer().getClass().getPackage().getName();
             String version = path.substring(path.lastIndexOf(".") + 1);
 
             Class<?> craftPlayer = Class.forName("org.bukkit.craftbukkit." + version + ".entity.CraftPlayer");
@@ -52,7 +49,7 @@ public class TrollEverybodyCommand extends BaseCommand {
             ex.printStackTrace();
         }
 
-        List<String> targetMessages = plugin.getConfig("messages.yml").getStringList("troll-everybody.target-message");
+        List<String> targetMessages = FlowerCore.getInstance().getConfig("messages.yml").getStringList("troll-everybody.target-message");
         for (Player target : Bukkit.getOnlinePlayers()) {
             for (String message : targetMessages) {
                 target.sendMessage(CC.translate(message).replace("%troller%", sender.getName()));
@@ -60,6 +57,6 @@ public class TrollEverybodyCommand extends BaseCommand {
             }
         }
 
-        sender.sendMessage(CC.translate(plugin.getConfig("messages.yml").getString("troll-everybody.trolled")));
+        sender.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("troll-everybody.trolled")));
     }
 }

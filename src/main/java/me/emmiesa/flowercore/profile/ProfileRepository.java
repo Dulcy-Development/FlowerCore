@@ -23,18 +23,17 @@ import java.util.concurrent.ConcurrentHashMap;
 import static com.mongodb.client.model.Filters.eq;
 
 /**
- * Created by lrxh
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project  FlowerCore
+ * @date -
  */
-
 @Getter
-public class ProfileManager {
+public class ProfileRepository {
     private final FlowerCore plugin = FlowerCore.getInstance();
     private final Map<UUID, Profile> profiles = new ConcurrentHashMap<>();
 
     public void setupPlayer(UUID playerUUID) {
-        getPlugin().getMongoManager().initializeProfile(playerUUID);
+        getPlugin().getMongoService().initializeProfile(playerUUID);
         addPermissions(playerUUID);
     }
 
@@ -156,9 +155,9 @@ public class ProfileManager {
         if (Bukkit.getPlayer(playerUUID) != null) {
             return getProfiles().get(playerUUID).getRank();
         } else {
-            Document doc = FlowerCore.getInstance().getMongoManager().getCollection().find(eq("UUID", playerUUID.toString())).first();
+            Document doc = FlowerCore.getInstance().getMongoService().getCollection().find(eq("UUID", playerUUID.toString())).first();
             if (doc != null) {
-                return FlowerCore.getInstance().getRanksManager().getRank(doc.getString("rank"));
+                return FlowerCore.getInstance().getRankRepository().getRank(doc.getString("rank"));
             } else {
                 return null;
             }
@@ -169,9 +168,9 @@ public class ProfileManager {
         if (Bukkit.getPlayer(playerUUID) != null) {
             return getProfiles().get(playerUUID).getTag();
         } else {
-            Document doc = FlowerCore.getInstance().getMongoManager().getCollection().find(eq("UUID", playerUUID.toString())).first();
+            Document doc = FlowerCore.getInstance().getMongoService().getCollection().find(eq("UUID", playerUUID.toString())).first();
             if (doc != null) {
-                return FlowerCore.getInstance().getTagsManager().getTag(doc.getString("tag"));
+                return FlowerCore.getInstance().getTagRepository().getTag(doc.getString("tag"));
             } else {
                 return null;
             }
@@ -205,7 +204,7 @@ public class ProfileManager {
             }
         }
 
-        Rank rank = plugin.getProfileManager().getRank(playerUUID);
+        Rank rank = plugin.getProfileRepository().getRank(playerUUID);
         if (rank != null && rank.getPermissions() != null) {
             for (String permission : rank.getPermissions()) {
                 attachment.setPermission(permission, true);

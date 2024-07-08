@@ -13,18 +13,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by lrxh
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project  FlowerCore
+ * @date -
  */
-
 @Getter
 @Setter
-public class RanksManager {
+public class RankRepository {
     private final List<Rank> ranks = new ArrayList<>();
     private final FlowerCore plugin = FlowerCore.getInstance();
     private Rank defaultRank;
 
+    /**
+     * Load ranks from the ranks.yml file and add them to memory.
+     */
     public void loadConfig() {
         FileConfiguration config = plugin.getConfig("ranks.yml");
         if (config.getConfigurationSection("ranks") == null) {
@@ -54,6 +56,12 @@ public class RanksManager {
         }
     }
 
+    /**
+     * Get a rank by its name.
+     *
+     * @param name the name of the rank.
+     * @return the rank if found, otherwise null.
+     */
     public Rank getRank(String name) {
         return ranks.stream()
                 .filter(rank -> rank.getName().equalsIgnoreCase(name))
@@ -61,10 +69,18 @@ public class RanksManager {
                 .orElse(null);
     }
 
+    /**
+     * Save all ranks to the ranks.yml file.
+     */
     public void saveToFile() {
         ranks.forEach(this::saveRank);
     }
 
+    /**
+     * Save a rank to the ranks.yml file.
+     *
+     * @param rank the rank to save.
+     */
     public void saveRank(Rank rank) {
         FileConfiguration config = getPlugin().getConfigHandler().getConfigByName("ranks.yml");
         String key = "ranks." + rank.getName();
@@ -82,6 +98,11 @@ public class RanksManager {
         getPlugin().getConfigHandler().saveConfig(getPlugin().getConfigHandler().getConfigFileByName("ranks.yml"), config);
     }
 
+    /**
+     * Remove a rank from the ranks.yml file and memory.
+     *
+     * @param rankName the name of the rank to remove.
+     */
     public void removeRank(String rankName) {
         Rank rank = getRank(rankName);
 

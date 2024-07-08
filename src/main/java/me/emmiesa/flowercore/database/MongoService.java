@@ -23,15 +23,18 @@ import static com.mongodb.client.model.Filters.eq;
 /**
  * Created by lrxh_
  * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @date -
  */
 
 @Getter
-public class MongoManager {
+public class MongoService {
 
     private MongoClient mongoClient;
     private MongoCollection<Document> collection;
 
+    /**
+     * Initialize the mongo client
+     */
     public void initializeMongo() {
         String URI = FlowerCore.getInstance().getConfig("database.yml").getString("database.uri");
         this.mongoClient = MongoClients.create(URI);
@@ -72,7 +75,7 @@ public class MongoManager {
             PlayerSettings playerSettings = new PlayerSettings(globalChatEnabled, privateMessagesEnabled, soundsEnabled);
             profile = createProfile(playerUUID, doc, playerSettings);
         }
-        FlowerCore.getInstance().getProfileManager().addRank(profile);
+        FlowerCore.getInstance().getProfileRepository().addRank(profile);
     }
 
     /**
@@ -85,7 +88,7 @@ public class MongoManager {
     private Profile createDefaultProfile(UUID playerUUID, PlayerSettings playerSettings) {
         return Profile.builder()
                 .uuid(playerUUID)
-                .rank(FlowerCore.getInstance().getRanksManager().getDefaultRank())
+                .rank(FlowerCore.getInstance().getRankRepository().getDefaultRank())
                 .tag(null)
                 .playerSettings(playerSettings)
                 .build();
@@ -102,14 +105,17 @@ public class MongoManager {
     private Profile createProfile(UUID playerUUID, Document doc, PlayerSettings playerSettings) {
         return Profile.builder()
                 .uuid(playerUUID)
-                .rank(FlowerCore.getInstance().getRanksManager().getRank(doc.getString("rank")))
+                .rank(FlowerCore.getInstance().getRankRepository().getRank(doc.getString("rank")))
                 .punishments(PunishmentSerializer.deserialize(doc.getList("punishments", String.class)))
                 .grants(GrantSerializer.deserialize(doc.getList("grants", String.class)))
                 .playerSettings(playerSettings)
-                .tag(FlowerCore.getInstance().getTagsManager().getTag(doc.getString("tag")))
+                .tag(FlowerCore.getInstance().getTagRepository().getTag(doc.getString("tag")))
                 .build();
     }
 
+    /**
+     * Save all player data
+     */
     public void saveAllPlayerData() {
         for (Player player : Bukkit.getOnlinePlayers()) {
             saveProfile(player.getUniqueId());
@@ -136,7 +142,7 @@ public class MongoManager {
      * @param playerUUID the UUID of the player
      */
     public void saveProfile(UUID playerUUID) {
-        Profile profile = FlowerCore.getInstance().getProfileManager().getProfiles().get(playerUUID);
+        Profile profile = FlowerCore.getInstance().getProfileRepository().getProfiles().get(playerUUID);
 
         if (profile != null) {
             Document profileDoc = createDocument(playerUUID, profile);
@@ -156,7 +162,7 @@ public class MongoManager {
         PlayerSettings playerSettings = profile.getPlayerSettings();
         long firstJoined = System.currentTimeMillis();
 
-        Document getDoc = FlowerCore.getInstance().getMongoManager().getCollection().find(eq("UUID", playerUUID.toString())).first();
+        Document getDoc = FlowerCore.getInstance().getMongoService().getCollection().find(eq("UUID", playerUUID.toString())).first();
         firstJoined = (getDoc != null) ? getDoc.getLong("firstjoined") : firstJoined;
 
         long lastOnline = 0;
@@ -199,6 +205,9 @@ public class MongoManager {
         return database.listCollectionNames().into(new ArrayList<>()).contains(collectionName);
     }
 
+    /**
+     * Close the mongo client
+     */
     public void close() {
         if (getMongoClient() != null) {
             getMongoClient().close();

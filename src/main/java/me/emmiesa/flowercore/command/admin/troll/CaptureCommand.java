@@ -12,12 +12,12 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class CaptureCommand extends BaseCommand {
+    @Override
     @Command(name = "capture", aliases = "jail", permission = "flowercore.command.capture")
     public void onCommand(CommandArgs args) {
         CommandSender sender = args.getSender();

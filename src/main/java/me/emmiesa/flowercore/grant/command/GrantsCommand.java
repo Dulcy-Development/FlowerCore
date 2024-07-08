@@ -12,9 +12,9 @@ import org.bukkit.entity.Player;
 import java.util.UUID;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 03/06/2024 - 20:38
+ * @author Emmy
+ * @project FlowerCore
+ * @date 03/06/2024 - 20:38
  */
 public class GrantsCommand extends BaseCommand {
     @Override

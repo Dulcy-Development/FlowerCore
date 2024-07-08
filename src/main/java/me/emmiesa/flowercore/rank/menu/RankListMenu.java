@@ -1,7 +1,6 @@
 package me.emmiesa.flowercore.rank.menu;
 
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.rank.menu.button.RankListButton;
 import me.emmiesa.flowercore.rank.Rank;
 import me.emmiesa.flowercore.utils.menu.Button;
 import me.emmiesa.flowercore.utils.pagination.PaginatedMenu;
@@ -11,11 +10,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class RankListMenu extends PaginatedMenu {
 
     @Override
@@ -29,7 +27,7 @@ public class RankListMenu extends PaginatedMenu {
 
         int slot = 0;
 
-        for (Rank rank : FlowerCore.getInstance().getRanksManager().getRanks()) {
+        for (Rank rank : FlowerCore.getInstance().getRankRepository().getRanks()) {
             buttons.put(slot, new RankListButton(rank));
             slot++;
         }

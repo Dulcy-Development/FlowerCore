@@ -11,29 +11,34 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class RankSetIconCommand extends BaseCommand {
-
+    @Override
     @Command(name = "rank.seticon", aliases = {"setrankicon"}, permission = "flower.ranks.developer")
-    public void onCommand(CommandArgs args) {
-        Player player = args.getPlayer();
+    public void onCommand(CommandArgs command) {
+        Player player = command.getPlayer();
 
-        if (args.length() < 1) {
+        if (command.length() < 1) {
             player.sendMessage(CC.translate("&cUsage: /rank setIcon (rank-name)"));
             return;
         }
 
-        String rankName = args.getArgs(0);
+        String rankName = command.getArgs(0);
 
         setMaterial(player, rankName);
     }
 
+    /**
+     * Sets the material of a rank
+     *
+     * @param player   the player executing the command
+     * @param rankName the name of the rank
+     */
     public void setMaterial(Player player, String rankName) {
-        Rank rank = FlowerCore.getInstance().getRanksManager().getRank(rankName);
+        Rank rank = FlowerCore.getInstance().getRankRepository().getRank(rankName);
 
         if (rank == null) {
             player.sendMessage(CC.translate(Locale.RANK_NOT_FOUND).replace("%rank%", rankName));

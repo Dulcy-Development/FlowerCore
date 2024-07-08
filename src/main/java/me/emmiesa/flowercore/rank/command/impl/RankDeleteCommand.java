@@ -9,11 +9,10 @@ import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.entity.Player;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 06/05/2024 - 18:49
+ * @author Emmy
+ * @project FlowerCore
+ * @date 06/05/2024 - 18:49
  */
-
 public class RankDeleteCommand extends BaseCommand {
     @Override
     @Command(name = "rank.delete", permission = "flower.ranks.developer")
@@ -27,16 +26,16 @@ public class RankDeleteCommand extends BaseCommand {
         }
 
         String rankName = args[0];
-        Rank rank = FlowerCore.getInstance().getRanksManager().getRank(rankName);
+        Rank rank = FlowerCore.getInstance().getRankRepository().getRank(rankName);
 
         if (rank == null) {
             player.sendMessage(CC.translate(FlowerCore.getInstance().getConfigHandler().getConfigByName("messages.yml").getString("rank.deleted")
-                    .replace("%rank%", FlowerCore.getInstance().getRanksManager().getRank(rankName).getColor() + rankName))
+                    .replace("%rank%", FlowerCore.getInstance().getRankRepository().getRank(rankName).getColor() + rankName))
             );
             return;
         }
 
-        FlowerCore.getInstance().getRanksManager().removeRank(rankName);
+        FlowerCore.getInstance().getRankRepository().removeRank(rankName);
         player.sendMessage(CC.translate("&cDeleted the Rank!"));
     }
 }

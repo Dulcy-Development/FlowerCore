@@ -13,11 +13,10 @@ import org.bukkit.entity.Player;
 import java.util.List;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class TagListCommand extends BaseCommand {
     @Override
     @Command(name = "tagadmin.list", permission = "flower.tags.developer")
@@ -27,7 +26,7 @@ public class TagListCommand extends BaseCommand {
     }
 
     public void sendAsMessage(Player player) {
-        List<Tag> tags = FlowerCore.getInstance().getTagsManager().getTags();
+        List<Tag> tags = FlowerCore.getInstance().getTagRepository().getTags();
 
         int maxLength = tags.stream()
                 .mapToInt(tag -> ChatColor.stripColor(tag.getDisplayName()).length())

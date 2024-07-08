@@ -13,19 +13,18 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class TagCreateCommand extends BaseCommand {
     @Override
     @Command(name = "tagadmin.create", permission = "flower.tags.developer")
-    public void onCommand(CommandArgs args) {
-        Player player = args.getPlayer();
+    public void onCommand(CommandArgs command) {
+        Player player = command.getPlayer();
 
-        if (args.length() > 0) {
-            create(player, args.getArgs(0));
+        if (command.length() > 0) {
+            create(player, command.getArgs(0));
         } else {
             player.sendMessage(CC.translate("&cUsage: /tag create (tag-name)"));
         }
@@ -35,7 +34,7 @@ public class TagCreateCommand extends BaseCommand {
         List<String> permissions = Collections.singletonList("none");
         Tag tag = new Tag(tagName, "&7", Material.NAME_TAG, "&b");
 
-        FlowerCore.getInstance().getTagsManager().getTags().add(tag);
+        FlowerCore.getInstance().getTagRepository().getTags().add(tag);
 
         player.sendMessage(CC.translate("tag created"));
         //player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.created")).replace("%rank%", tagName));

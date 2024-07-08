@@ -13,21 +13,27 @@ import java.util.Random;
 import java.util.Set;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 04/06/2024 - 19:55
+ * @author Emmy
+ * @project FlowerCore
+ * @date 04/06/2024 - 19:55
  */
 public class TipsHandler {
 
     private final FlowerCore plugin = FlowerCore.getInstance();
     private final Random random = new Random();
 
+    /**
+     * Constructor for the TipsHandler
+     */
     public TipsHandler() {
         if (plugin.getConfig("messages.yml").getBoolean("tips.enabled")) {
             sendTips();
         }
     }
 
+    /**
+     * Sends tips to the server by running a BukkitRunnable
+     */
     private void sendTips() {
         long intervalTicks = plugin.getConfig("messages.yml").getLong("tips.send-every") * 20;
         List<List<String>> tips = new ArrayList<>();

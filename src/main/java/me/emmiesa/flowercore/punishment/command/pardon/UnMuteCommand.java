@@ -16,26 +16,25 @@ import org.bukkit.command.CommandSender;
 import java.util.UUID;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 28/04/2024 - 18:00
+ * @author Emmy
+ * @project FlowerCore
+ * @date 28/04/2024 - 18:00
  */
-
 public class UnMuteCommand extends BaseCommand {
     @Override
     @Command(name = "unmute", permission = "flower.punishment.unmute")
-    public void onCommand(CommandArgs args) {
-        CommandSender sender = args.getSender();
+    public void onCommand(CommandArgs command) {
+        CommandSender sender = command.getSender();
 
-        if (args.length() < 1) {
+        if (command.length() < 1) {
             sender.sendMessage(CC.translate("&cUsage: /unmute (player)"));
             return;
         }
 
-        String playerName = args.getArgs()[0];
+        String playerName = command.getArgs()[0];
         OfflinePlayer targetPlayer = offlinePlayerName(playerName); //To not make it "deprecated". Kept default in UnBlacklist command
 
-        Profile profile = FlowerCore.getInstance().getProfileManager().getProfile(targetPlayer.getUniqueId());
+        Profile profile = FlowerCore.getInstance().getProfileRepository().getProfile(targetPlayer.getUniqueId());
 
         if (profile == null) {
             sender.sendMessage(CC.translate("&4" + playerName + " &chas never joined this server before."));
@@ -58,7 +57,7 @@ public class UnMuteCommand extends BaseCommand {
                     punishment.setActive(false);
                 }
             }
-            FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
+            FlowerCore.getInstance().getMongoService().saveProfile(playerUUID);
         } else {
             UUID playerUUID = targetPlayer.getUniqueId();
             Utils.broadcastMessage("&c" + targetPlayer.getName() + " &fwas unmuted by &c" + sender.getName());
@@ -68,7 +67,7 @@ public class UnMuteCommand extends BaseCommand {
                     punishment.setActive(false);
                 }
             }
-            FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
+            FlowerCore.getInstance().getMongoService().saveProfile(playerUUID);
         }
     }
 

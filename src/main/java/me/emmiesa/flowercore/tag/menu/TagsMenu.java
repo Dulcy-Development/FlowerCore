@@ -1,7 +1,6 @@
 package me.emmiesa.flowercore.tag.menu;
 
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.tag.menu.button.TagsButton;
 import me.emmiesa.flowercore.tag.Tag;
 import me.emmiesa.flowercore.utils.menu.Button;
 import me.emmiesa.flowercore.utils.pagination.PaginatedMenu;
@@ -12,15 +11,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class TagsMenu extends PaginatedMenu {
 
     private final String playerName;
 
+    /**
+     * Constructor
+     *
+     * @param playerName Name of the player
+     */
     public TagsMenu(String playerName) {
         this.playerName = playerName;
     }
@@ -34,7 +37,7 @@ public class TagsMenu extends PaginatedMenu {
     public Map<Integer, Button> getAllPagesButtons(Player player) {
         Map<Integer, Button> buttons = new HashMap<>();
 
-        for (Tag tag : FlowerCore.getInstance().getTagsManager().getTags()) {
+        for (Tag tag : FlowerCore.getInstance().getTagRepository().getTags()) {
             buttons.put(buttons.size(), new TagsButton(tag, playerName));
         }
 

@@ -8,9 +8,9 @@ import java.util.Collections;
 import java.util.Map;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 04/06/2024 - 20:53
+ * @author Emmy
+ * @project FlowerCore
+ * @date 04/06/2024 - 20:53
  */
 public class SocialsMenu extends Menu {
     @Override

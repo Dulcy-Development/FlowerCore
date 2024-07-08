@@ -14,11 +14,10 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Created by lrxh
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project  FlowerCore
+ * @date -
  */
-
 @Getter
 @Setter
 @Builder

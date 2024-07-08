@@ -16,9 +16,9 @@ import java.lang.String;
 import java.util.UUID;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date 01/03/2024 - 12:26
  */
 public class ChatListener implements Listener {
 
@@ -29,7 +29,7 @@ public class ChatListener implements Listener {
         Player player = event.getPlayer();
         UUID playerUUID = player.getUniqueId();
 
-        Profile profile = plugin.getProfileManager().getProfile(playerUUID);
+        Profile profile = plugin.getProfileRepository().getProfile(playerUUID);
         List<Punishment> punishments = profile.getPunishments();
         if (punishments == null) {
             return;
@@ -49,7 +49,7 @@ public class ChatListener implements Listener {
             }
         }
 
-        if (!plugin.getProfileManager().getProfile(playerUUID).getPlayerSettings().isGlobalChatEnabled()) {
+        if (!plugin.getProfileRepository().getProfile(playerUUID).getPlayerSettings().isGlobalChatEnabled()) {
             player.sendMessage(CC.translate("&cYou've disabled global chat!"));
             event.getRecipients().remove(event.getPlayer());
             event.setCancelled(true);
@@ -57,10 +57,10 @@ public class ChatListener implements Listener {
         }
 
         boolean translate = player.hasPermission("flowercore.staff");
-        String prefix = CC.translate(plugin.getProfileManager().getRank(playerUUID).getPrefix());
-        String suffix = CC.translate(plugin.getProfileManager().getRank(playerUUID).getSuffix());
+        String prefix = CC.translate(plugin.getProfileRepository().getRank(playerUUID).getPrefix());
+        String suffix = CC.translate(plugin.getProfileRepository().getRank(playerUUID).getSuffix());
 
-        Tag tag = plugin.getProfileManager().getTag(playerUUID);
+        Tag tag = plugin.getProfileRepository().getTag(playerUUID);
         String tagPlaceholder = (tag != null) ? CC.translate(tag.getDisplayName()) : "";
 
         String message = translate ? CC.translate(event.getMessage()) : event.getMessage();

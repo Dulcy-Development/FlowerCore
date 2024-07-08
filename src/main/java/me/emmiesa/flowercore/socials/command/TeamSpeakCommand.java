@@ -9,13 +9,12 @@ import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.command.CommandSender;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class TeamSpeakCommand extends BaseCommand {
-
+    @Override
     @Command(name = "teamspeak", aliases = {"ts"}, inGameOnly = false)
     public void onCommand(CommandArgs args) {
         CommandSender sender = args.getSender();

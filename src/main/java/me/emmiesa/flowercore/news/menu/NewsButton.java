@@ -1,4 +1,4 @@
-package me.emmiesa.flowercore.news.menu.button;
+package me.emmiesa.flowercore.news.menu;
 
 import me.emmiesa.flowercore.utils.item.ItemBuilder;
 import me.emmiesa.flowercore.utils.menu.Button;
@@ -11,11 +11,10 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.List;
 
 /**
- * Created by Emmy
- * Project: FlowerHub
- * GitHub: https://github.com/Emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class NewsButton extends Button {
 
 	private Material material;
@@ -24,6 +23,15 @@ public class NewsButton extends Button {
 	private List<String> lore;
 	private String command;
 
+	/**
+	 * Constructor for the NewsButton
+	 *
+	 * @param material the material of the button
+	 * @param data the data of the button
+	 * @param displayName the display name of the button
+	 * @param lore the lore of the button
+	 * @param command the command to execute
+	 */
 	public NewsButton(Material material, short data, String displayName, List<String> lore, String command) {
 		this.material = material;
 		this.data = data;

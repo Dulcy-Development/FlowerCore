@@ -15,34 +15,33 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class BanCommand extends BaseCommand {
 
     @Command(name = "ban", permission = "flower.punishment.ban", inGameOnly = false)
-    public void onCommand(CommandArgs args) {
-        CommandSender sender = args.getSender();
+    public void onCommand(CommandArgs command) {
+        CommandSender sender = command.getSender();
 
-        if (args.length() < 1) {
+        if (command.length() < 1) {
             sender.sendMessage(CC.translate("&cUsage: /ban (player) (reason) (duration) [-s]"));
             return;
         }
 
         String defaultReason = FlowerCore.getInstance().getConfig("settings.yml").getString("punishments.default-reason.ban");
 
-        String targetName = args.getArgs(0);
-        String reason = args.length() > 1 ? args.getArgs(1) : defaultReason;
-        String duration = args.length() > 2 ? args.getArgs(2) : "permanent";
-        boolean silent = args.length() > 3 && args.getArgs(3).equalsIgnoreCase("-s");
+        String targetName = command.getArgs(0);
+        String reason = command.length() > 1 ? command.getArgs(1) : defaultReason;
+        String duration = command.length() > 2 ? command.getArgs(2) : "permanent";
+        boolean silent = command.length() > 3 && command.getArgs(3).equalsIgnoreCase("-s");
 
         OfflinePlayer targetPlayerOffline = Bukkit.getOfflinePlayer(targetName);
         Player targetPlayer = Bukkit.getPlayer(targetName);
         String bannedByName = sender instanceof Player ? ((Player) sender).getName() : "CONSOLE";
 
-        Profile profile = FlowerCore.getInstance().getProfileManager().getProfile(targetPlayerOffline.getUniqueId());
+        Profile profile = FlowerCore.getInstance().getProfileRepository().getProfile(targetPlayerOffline.getUniqueId());
 
         /*for (Punishment punishment : profile.getPunishments()) {
             if (punishment.isActive() && punishment.getType().equals(PunishmentType.BAN)) {
@@ -52,7 +51,7 @@ public class BanCommand extends BaseCommand {
         }*/
 
         Punishment punishment = new Punishment(targetPlayerOffline.getName(), targetPlayerOffline.getUniqueId(), bannedByName, PunishmentType.BAN, reason, targetPlayer != null ? targetPlayer.getAddress().getAddress().getHostAddress() : "null", false, duration, true);
-        FlowerCore.getInstance().getProfileManager().addPunishment(targetPlayerOffline.getUniqueId(), punishment);
+        FlowerCore.getInstance().getProfileRepository().addPunishment(targetPlayerOffline.getUniqueId(), punishment);
 
         if (silent) {
             for (Player player : Bukkit.getOnlinePlayers()) {

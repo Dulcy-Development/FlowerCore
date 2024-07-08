@@ -9,13 +9,12 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class TeleportCommand extends BaseCommand {
-
+    @Override
     @Command(name = "teleport", permission = "flowercore.command.teleport", aliases = {"tp", "tpto", "teleportto"})
     public void onCommand(CommandArgs cmd) {
         Player player = cmd.getPlayer();

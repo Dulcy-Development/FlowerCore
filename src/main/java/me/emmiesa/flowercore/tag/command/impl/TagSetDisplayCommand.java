@@ -9,11 +9,10 @@ import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.entity.Player;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class TagSetDisplayCommand extends BaseCommand {
     @Override
     @Command(name = "tagadmin.setdisplayname", aliases = "tag.setdisplay", permission = "flower.tags.developer")
@@ -29,12 +28,12 @@ public class TagSetDisplayCommand extends BaseCommand {
         String tagName = args[0];
         String displayName = args[1];
 
-        Tag tag = FlowerCore.getInstance().getTagsManager().getTag(tagName);
+        Tag tag = FlowerCore.getInstance().getTagRepository().getTag(tagName);
         if (tag == null) {
             player.sendMessage(CC.translate("&cThat Tag does not exist"));
             return;
         }
 
-        FlowerCore.getInstance().getTagsManager().getTag(tagName).setDisplayName(displayName);
+        FlowerCore.getInstance().getTagRepository().getTag(tagName).setDisplayName(displayName);
     }
 }

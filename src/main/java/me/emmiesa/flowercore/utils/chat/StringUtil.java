@@ -3,7 +3,7 @@ package me.emmiesa.flowercore.utils.chat;
 /**
  * Created by somebody unknown
  * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @date -
  */
 
 public class StringUtil {

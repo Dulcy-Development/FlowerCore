@@ -9,19 +9,11 @@ import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.entity.Player;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class MessageCommand extends BaseCommand {
-
-    /*
-     *
-     * This needs to be re-done. It is basic as +as#dv+!
-     *
-     */
-
     @Override
     @Command(name = "message", aliases = {"msg", "tell", "whisper"})
     public void onCommand(CommandArgs command) {

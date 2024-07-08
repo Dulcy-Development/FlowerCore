@@ -12,17 +12,15 @@ import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class TeleportSpawnCommand extends BaseCommand {
-
-    @Command(name = "teleportspawn", permission = "flower.command.tplobby", aliases = {"tpspawn", "tpjoinlocation", "tplobby"})
     @Override
-    public void onCommand(CommandArgs args) {
-        Player player = args.getPlayer();
+    @Command(name = "teleportspawn", permission = "flower.command.tplobby", aliases = {"tpspawn", "tpjoinlocation", "tplobby"})
+    public void onCommand(CommandArgs command) {
+        Player player = command.getPlayer();
 
         if (FlowerCore.getInstance().getConfig("settings.yml").getBoolean("on-join.teleport.enabled")) {
             player.teleport(FlowerCore.getInstance().getSpawnHandler().getSpawnLocation());

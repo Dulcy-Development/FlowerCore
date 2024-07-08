@@ -12,13 +12,12 @@ import org.bukkit.entity.Player;
 import java.util.UUID;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class gmcCommand extends BaseCommand {
-
+    @Override
     @Command(name = "gmc", aliases = {"gm.c", "creative", "gamemode.c", "gamemode.1", "gamemode.creative", "gm.1", "gm1", "gm.creative"}, permission = "flower.command.gamemodecreative")
     public void onCommand(CommandArgs args) {
         if (args.length() > 0) {
@@ -36,9 +35,9 @@ public class gmcCommand extends BaseCommand {
             if (target.getGameMode().equals(GameMode.CREATIVE)) {
                 args.getPlayer().sendMessage(CC.translate("&c" + target.getName() + " is already in Creative mode."));
             } else {
-                args.getPlayer().sendMessage(CC.translate("&bYou've set &r" + FlowerCore.getInstance().getProfileManager().getRank(targetUUID).getPrefix() + target.getName() + "&b's gamemode to &3creative&b."));
+                args.getPlayer().sendMessage(CC.translate("&bYou've set &r" + FlowerCore.getInstance().getProfileRepository().getRank(targetUUID).getPrefix() + target.getName() + "&b's gamemode to &3creative&b."));
                 target.setGameMode(GameMode.CREATIVE);
-                target.sendMessage(CC.translate("&bYour gamemode has been set to &3creative &bby &r" + FlowerCore.getInstance().getProfileManager().getRank(playerUUID).getPrefix() + args.getPlayer().getName() + " &b."));
+                target.sendMessage(CC.translate("&bYour gamemode has been set to &3creative &bby &r" + FlowerCore.getInstance().getProfileRepository().getRank(playerUUID).getPrefix() + args.getPlayer().getName() + " &b."));
                 for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
                     if (onlinePlayer.hasPermission("flowercore.staff")) {
                         onlinePlayer.sendMessage(CC.translate("&7&o(" + args.getPlayer().getDisplayName() + "&7&o: Set " + target.getDisplayName() + "&7&o's gamemode creative)")/*.replace("%prefix%", FlowerCore.getInstance().getPlayerManager().getRank(playerUUID).getPrefix())))*/);

@@ -12,11 +12,10 @@ import org.bukkit.entity.Player;
 import java.util.UUID;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 02/04/2024 - 14:08
+ * @author Emmy
+ * @project FlowerCore
+ * @date 02/04/2024 - 14:08
  */
-
 public class TogglePrivateMessageSounds extends BaseCommand {
     @Override
     @Command(name = "tpms", aliases = {"toggleprivatemessagesounds"})
@@ -24,11 +23,11 @@ public class TogglePrivateMessageSounds extends BaseCommand {
         Player player = command.getPlayer();
         UUID playerUUID = player.getUniqueId();
 
-        Profile profile = FlowerCore.getInstance().getProfileManager().getProfile(playerUUID);
+        Profile profile = FlowerCore.getInstance().getProfileRepository().getProfile(playerUUID);
         PlayerSettings playerSettings = profile.getPlayerSettings();
 
         playerSettings.setMessageSoundsEnabled(!playerSettings.isMessageSoundsEnabled());
-        FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
+        FlowerCore.getInstance().getMongoService().saveProfile(playerUUID);
 
         String context = playerSettings.isMessageSoundsEnabled() ? CC.translate("&aenabled") : CC.translate("&cdisabled");
         player.sendMessage(CC.translate("&bYou've {context} &byour message sounds.").replace("{context}", context));

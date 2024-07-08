@@ -14,16 +14,15 @@ import org.bukkit.entity.Player;
 import java.util.List;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class RankListCommand extends BaseCommand {
-
+    @Override
     @Command(name = "rank.list", aliases = {"ranklist", "listranks"}, permission = "flower.ranks.developer")
-    public void onCommand(CommandArgs args) {
-        Player player = args.getPlayer();
+    public void onCommand(CommandArgs command) {
+        Player player = command.getPlayer();
 
         if (FlowerCore.getInstance().getConfig("settings.yml").getBoolean("rank-settings.list.send-as-message")) {
             sendAsMessage(player);
@@ -33,12 +32,22 @@ public class RankListCommand extends BaseCommand {
         }
     }
 
-    public void openListMenu(Player player) {
+    /**
+     * Opens the rank list menu
+     *
+     * @param player the player executing the command
+     */
+    private void openListMenu(Player player) {
         new RankListMenu().openMenu(player);
     }
 
-    public void sendAsMessage(Player player) {
-        List<Rank> ranks = FlowerCore.getInstance().getRanksManager().getRanks();
+    /**
+     * Sends the rank list as a message
+     *
+     * @param player the player executing the command
+     */
+    private void sendAsMessage(Player player) {
+        List<Rank> ranks = FlowerCore.getInstance().getRankRepository().getRanks();
 
         int maxLength = ranks.stream()
                 .mapToInt(rank -> ChatColor.stripColor(rank.getDisplayName()).length())

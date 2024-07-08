@@ -13,17 +13,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 24/03/2024 - 12:16
+ * @author Emmy
+ * @project FlowerCore
+ * @date 24/03/2024 - 12:16
  */
-
 public class JoinCommand extends BaseCommand {
 
     @Completer(name = "join", aliases = "joinserver")
-    public List<String> joinCompleter(CommandArgs args) {
+    public List<String> joinCompleter(CommandArgs command) {
         List<String> commands = new ArrayList<>();
-        if (args.getPlayer().hasPermission("flowercore.staff")) {
+        if (command.getPlayer().hasPermission("flowercore.staff")) {
             commands.addAll(FlowerCore.getInstance().getConfig("settings.yml").getStringList("bungee-servers"));
         }
 

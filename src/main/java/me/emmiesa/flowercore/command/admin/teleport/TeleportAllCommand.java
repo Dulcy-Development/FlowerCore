@@ -10,11 +10,10 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class TeleportAllCommand extends BaseCommand {
     @Override
     @Command(name = "teleportall", permission = "flower.cmd.tpall", aliases = {"tp-all", "tpall", "tpeverybody"})

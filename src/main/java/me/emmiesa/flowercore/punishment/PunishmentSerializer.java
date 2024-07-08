@@ -9,18 +9,23 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Created by lrxh
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
- * Recode: Remi
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
+ * @recode Remi
  */
-
 @UtilityClass
 public class PunishmentSerializer {
 
     private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-    public static List<String> serialize(List<Punishment> punishments) {
+    /**
+     * Serialize a list of punishments
+     *
+     * @param punishments List of punishments
+     * @return Serialized list of punishments
+     */
+    public List<String> serialize(List<Punishment> punishments) {
         if (punishments == null || punishments.isEmpty()) {
             return Collections.emptyList();
         }
@@ -32,7 +37,13 @@ public class PunishmentSerializer {
         return serialized;
     }
 
-    public static List<Punishment> deserialize(List<String> serialized) {
+    /**
+     * Deserialize a list of punishments
+     *
+     * @param serialized Serialized list of punishments
+     * @return List of punishments
+     */
+    public List<Punishment> deserialize(List<String> serialized) {
         if (serialized == null || serialized.isEmpty() || serialized.get(0).isEmpty()) {
             return Collections.emptyList();
         }
@@ -44,11 +55,23 @@ public class PunishmentSerializer {
         return punishments;
     }
 
-    private static String serializePunishment(Punishment punishment) {
+    /**
+     * Serialize a punishment
+     *
+     * @param punishment Punishment
+     * @return Serialized punishment
+     */
+    private String serializePunishment(Punishment punishment) {
         return gson.toJson(punishment);
     }
 
-    private static Punishment deserializePunishment(String serialized) {
+    /**
+     * Deserialize a punishment
+     *
+     * @param serialized Serialized punishment
+     * @return Punishment
+     */
+    private Punishment deserializePunishment(String serialized) {
         return gson.fromJson(serialized, Punishment.class);
     }
 }

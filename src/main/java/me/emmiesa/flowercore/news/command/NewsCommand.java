@@ -7,12 +7,10 @@ import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.entity.Player;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 20/03/2024 - 20:08
- * GitHub: https://github.com/Emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date 20/03/2024 - 20:08
  */
-
 public class NewsCommand extends BaseCommand {
     @Override
     @Command(name = "news", aliases = {"changelog"})

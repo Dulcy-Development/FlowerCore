@@ -8,17 +8,15 @@ import org.bukkit.Material;
 import java.util.List;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 @Getter
 @Setter
 @AllArgsConstructor
 public class Rank {
     private String name;
-
     private String displayName;
     private Material icon;
     private String prefix;

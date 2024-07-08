@@ -11,18 +11,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class RankCommand extends BaseCommand {
-
     @Completer(name = "rank")
-    public List<String> rankCompleter(CommandArgs args) {
+    public List<String> rankCompleter(CommandArgs command) {
         List<String> commands = new ArrayList<>();
-        if (args.length() == 1) {
-            if (args.getPlayer().hasPermission("flower.ranks.developer")) {
+        if (command.length() == 1) {
+            if (command.getPlayer().hasPermission("flower.ranks.developer")) {
                 commands.add("create");
                 commands.add("delete");
                 commands.add("save");
@@ -42,11 +40,10 @@ public class RankCommand extends BaseCommand {
         return commands;
     }
 
-    @Command(name = "rank", permission = "flower.ranks.developer")
-
     @Override
-    public void onCommand(CommandArgs args) {
-        Player player = args.getPlayer();
+    @Command(name = "rank", permission = "flower.ranks.developer")
+    public void onCommand(CommandArgs command) {
+        Player player = command.getPlayer();
         player.sendMessage(" ");
         player.sendMessage(CC.FLOWER_BAR_LONG);
         player.sendMessage(CC.translate("&b&lRank Creation Help:"));

@@ -22,11 +22,10 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class ProfileListener implements Listener {
 
     private final FlowerCore plugin = FlowerCore.getInstance();
@@ -35,15 +34,15 @@ public class ProfileListener implements Listener {
     public void onLogin(AsyncPlayerPreLoginEvent event) {
         UUID playerUUID = event.getUniqueId();
 
-        if (plugin.getProfileManager() == null) {
+        if (plugin.getProfileRepository() == null) {
             event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_OTHER, "§cError: Player manager not available.");
             return;
         }
 
-        Profile profile = plugin.getProfileManager().getProfile(playerUUID);
+        Profile profile = plugin.getProfileRepository().getProfile(playerUUID);
         if (profile == null) {
-            plugin.getProfileManager().setupPlayer(playerUUID);
-            profile = plugin.getProfileManager().getProfile(playerUUID);
+            plugin.getProfileRepository().setupPlayer(playerUUID);
+            profile = plugin.getProfileRepository().getProfile(playerUUID);
 
             if (profile == null) {
                 event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_OTHER, "§cCould not load your profile. Please try to rejoin.");
@@ -51,7 +50,7 @@ public class ProfileListener implements Listener {
             }
         }
 
-        if (plugin.getRanksManager().getDefaultRank() == null) {
+        if (plugin.getRankRepository().getDefaultRank() == null) {
             event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_OTHER, "§cError: Default rank not set.");
             return;
         }
@@ -84,29 +83,29 @@ public class ProfileListener implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onJoin(PlayerJoinEvent event) {
-        Player joinedPlayer = event.getPlayer();
-        UUID playerUUID = joinedPlayer.getUniqueId();
+        Player player = event.getPlayer();
+        UUID playerUUID = player.getUniqueId();
 
-        if (FlowerCore.getInstance().getRanksManager().getDefaultRank() == null) {
-            joinedPlayer.sendMessage(Locale.RANK_NOT_SET);
+        if (FlowerCore.getInstance().getRankRepository().getDefaultRank() == null) {
+            player.sendMessage(Locale.RANK_NOT_SET);
         }
-        plugin.getProfileManager().addPermissions(playerUUID);
-        plugin.getMongoManager().initializeProfile(playerUUID);
+        plugin.getProfileRepository().addPermissions(playerUUID);
+        plugin.getMongoService().initializeProfile(playerUUID);
 
         if (FlowerCore.getInstance().getConfig("settings.yml").getBoolean("on-join.play-sound.enabled")) {
             String sound = FlowerCore.getInstance().getConfig("settings.yml").getString("on-join.play-sound.sound");
-            joinedPlayer.playSound(joinedPlayer.getLocation(), Sound.valueOf(sound), 1.0F, 1.0F);
+            player.playSound(player.getLocation(), Sound.valueOf(sound), 1.0F, 1.0F);
         }
 
         if (plugin.getConfig("settings.yml").getBoolean("on-join.clear-chat.enabled")) {
             int linesToClear = plugin.getConfig("settings.yml").getInt("on-join.clear-chat.lines");
             for (int i = 0; i < linesToClear; i++) {
-                joinedPlayer.sendMessage(plugin.getConfig("settings.yml").getString("on-join.clear-chat.text"));
+                player.sendMessage(plugin.getConfig("settings.yml").getString("on-join.clear-chat.text"));
             }
         }
 
-        joinedPlayer.setFlySpeed(1 * 0.1F);
-        joinedPlayer.setWalkSpeed(2 * 0.1F);
+        player.setFlySpeed(1 * 0.1F);
+        player.setWalkSpeed(2 * 0.1F);
 
         Location spawnLocation = plugin.getSpawnLocation();
         if (spawnLocation != null) {
@@ -114,19 +113,19 @@ public class ProfileListener implements Listener {
         }
 
         if (plugin.getConfig("messages.yml").getBoolean("on-join.title-sender.enabled")) {
-            String mainTitle = FlowerCore.getInstance().getConfig("messages.yml").getString("on-join.title-sender.main-title").replace("%player%", joinedPlayer.getName());
-            String subTitle = FlowerCore.getInstance().getConfig("messages.yml").getString("on-join.title-sender.sub-title").replace("%player%", FlowerCore.getInstance().getProfileManager().getPlayerRankColor(joinedPlayer.getUniqueId()) + joinedPlayer.getName());
+            String mainTitle = FlowerCore.getInstance().getConfig("messages.yml").getString("on-join.title-sender.main-title").replace("%player%", player.getName());
+            String subTitle = FlowerCore.getInstance().getConfig("messages.yml").getString("on-join.title-sender.sub-title").replace("%player%", FlowerCore.getInstance().getProfileRepository().getPlayerRankColor(player.getUniqueId()) + player.getName());
 
-            joinedPlayer.sendTitle(CC.translate(mainTitle), CC.translate(subTitle));
+            player.sendTitle(CC.translate(mainTitle), CC.translate(subTitle));
         }
 
         if (plugin.getConfig("messages.yml").getBoolean("on-join.messages.welcome-message.enabled", true)) {
             List<String> welcomeMessages = plugin.getConfig("messages.yml").getStringList("on-join.messages.welcome-message.message");
-            sendWelcomeMessages(joinedPlayer, welcomeMessages);
+            sendWelcomeMessages(player, welcomeMessages);
         }
 
         if (plugin.getConfig("settings.yml").getBoolean("on-join.clear-inventory")) {
-            joinedPlayer.getInventory().clear();
+            player.getInventory().clear();
         }
 
         if (plugin.getConfig("settings.yml").getBoolean("on-join.set-gamemode.enabled", true)) {
@@ -134,16 +133,16 @@ public class ProfileListener implements Listener {
             if (gameMode != null) {
                 switch (gameMode.toUpperCase()) {
                     case "SURVIVAL":
-                        joinedPlayer.setGameMode(GameMode.SURVIVAL);
+                        player.setGameMode(GameMode.SURVIVAL);
                         break;
                     case "CREATIVE":
-                        joinedPlayer.setGameMode(GameMode.CREATIVE);
+                        player.setGameMode(GameMode.CREATIVE);
                         break;
                     case "ADVENTURE":
-                        joinedPlayer.setGameMode(GameMode.ADVENTURE);
+                        player.setGameMode(GameMode.ADVENTURE);
                         break;
                     case "SPECTATOR":
-                        joinedPlayer.setGameMode(GameMode.SPECTATOR);
+                        player.setGameMode(GameMode.SPECTATOR);
                         break;
                     default:
                         break;
@@ -157,25 +156,25 @@ public class ProfileListener implements Listener {
         if (joinMessage == null || server == null) {
             Bukkit.getConsoleSender().sendMessage(CC.translate("&4Warning: Join message or server name is null."));
         } else {
-            for (Player player : Bukkit.getOnlinePlayers()) {
-                if (player.hasPermission("flowercore.staff") && joinedPlayer.hasPermission("flowercore.staff")) {
-                    player.sendMessage(CC.translate(joinMessage.replace("%prefix%", plugin.getProfileManager().getRank(playerUUID).getPrefix()).replace("%player%", joinedPlayer.getDisplayName()).replace("%server%", server)/*.replace("%bars%", plugin.getConfig("messages.yml").getString("on-join.messages.bars-format"))*/));
-                    Bukkit.getConsoleSender().sendMessage(CC.translate(joinMessage.replace("%prefix%", plugin.getProfileManager().getRank(playerUUID).getPrefix()).replace("%player%", joinedPlayer.getDisplayName()).replace("%server%", server)));
+            for (Player onlinePlayers : Bukkit.getOnlinePlayers()) {
+                if (onlinePlayers.hasPermission("flowercore.staff") && onlinePlayers.hasPermission("flowercore.staff")) {
+                    onlinePlayers.sendMessage(CC.translate(joinMessage.replace("%prefix%", plugin.getProfileRepository().getRank(playerUUID).getPrefix()).replace("%player%", onlinePlayers.getDisplayName()).replace("%server%", server)/*.replace("%bars%", plugin.getConfig("messages.yml").getString("on-join.messages.bars-format"))*/));
+                    Bukkit.getConsoleSender().sendMessage(CC.translate(joinMessage.replace("%prefix%", plugin.getProfileRepository().getRank(playerUUID).getPrefix()).replace("%player%", onlinePlayers.getDisplayName()).replace("%server%", server)));
                 }
             }
         }
 
-        if (joinedPlayer.hasPermission("flowercore.donator.joinmessage")) {
+        if (player.hasPermission("flowercore.donator.joinmessage")) {
             if (plugin.getConfig("messages.yml").getBoolean("on-join.messages.donator.enabled")) {
-                Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("on-join.messages.donator.joined-the-game").replace("%prefix%", FlowerCore.getInstance().getProfileManager().getRank(playerUUID).getPrefix()).replace("%player%", joinedPlayer.getName())));
-                event.setJoinMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("on-join.messages.donator.joined-the-game").replace("%prefix%", FlowerCore.getInstance().getProfileManager().getRank(playerUUID).getPrefix()).replace("%player%", joinedPlayer.getName())));
+                Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("on-join.messages.donator.joined-the-game").replace("%prefix%", FlowerCore.getInstance().getProfileRepository().getRank(playerUUID).getPrefix()).replace("%player%", player.getName())));
+                event.setJoinMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("on-join.messages.donator.joined-the-game").replace("%prefix%", FlowerCore.getInstance().getProfileRepository().getRank(playerUUID).getPrefix()).replace("%player%", player.getName())));
             } else {
                 event.setJoinMessage(null);
-                Bukkit.getConsoleSender().sendMessage(CC.translate("&6[Player Join-logs] " + joinedPlayer.getName() + " joined. &8(" + joinedPlayer.getUniqueId() + "&8)"));
+                Bukkit.getConsoleSender().sendMessage(CC.translate("&6[Player Join-logs] " + player.getName() + " joined. &8(" + player.getUniqueId() + "&8)"));
             }
         } else {
             event.setJoinMessage(null);
-            Bukkit.getConsoleSender().sendMessage(CC.translate("&6[Player Join-logs] " + joinedPlayer.getName() + " joined. &8(" + joinedPlayer.getUniqueId() + "&8)"));
+            Bukkit.getConsoleSender().sendMessage(CC.translate("&6[Player Join-logs] " + player.getName() + " joined. &8(" + player.getUniqueId() + "&8)"));
         }
     }
 
@@ -192,15 +191,15 @@ public class ProfileListener implements Listener {
         } else {
             for (Player player : Bukkit.getOnlinePlayers()) {
                 if (player.hasPermission("flowercore.staff") && disconnectedPlayer.hasPermission("flowercore.staff")) {
-                    player.sendMessage(CC.translate(leaveMessage.replace("%prefix%", plugin.getProfileManager().getRank(playerUUID).getPrefix()).replace("%player%", disconnectedPlayer.getDisplayName()).replace("%server%", server)/*.replace("%bars%", plugin.getConfig("messages.yml").getString("on-join.messages.bars-format"))*/));
-                    Bukkit.getConsoleSender().sendMessage(CC.translate(leaveMessage.replace("%prefix%", plugin.getProfileManager().getRank(playerUUID).getPrefix()).replace("%player%", disconnectedPlayer.getDisplayName()).replace("%server%", server)/*.replace("%bars%", plugin.getConfig("messages.yml").getString("on-join.messages.bars-format"))*/));
+                    player.sendMessage(CC.translate(leaveMessage.replace("%prefix%", plugin.getProfileRepository().getRank(playerUUID).getPrefix()).replace("%player%", disconnectedPlayer.getDisplayName()).replace("%server%", server)/*.replace("%bars%", plugin.getConfig("messages.yml").getString("on-join.messages.bars-format"))*/));
+                    Bukkit.getConsoleSender().sendMessage(CC.translate(leaveMessage.replace("%prefix%", plugin.getProfileRepository().getRank(playerUUID).getPrefix()).replace("%player%", disconnectedPlayer.getDisplayName()).replace("%server%", server)/*.replace("%bars%", plugin.getConfig("messages.yml").getString("on-join.messages.bars-format"))*/));
                 }
             }
         }
         if (disconnectedPlayer.hasPermission("flowercore.donator.joinmessage")) {
             if (plugin.getConfig("messages.yml").getBoolean("on-leave.messages.donator.enabled")) {
-                Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("on-leave.messages.donator.left-the-game").replace("%prefix%", FlowerCore.getInstance().getProfileManager().getRank(playerUUID).getPrefix()).replace("%player%", disconnectedPlayer.getName())));
-                event.setQuitMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("on-leave.messages.donator.left-the-game").replace("%prefix%", FlowerCore.getInstance().getProfileManager().getRank(playerUUID).getPrefix()).replace("%player%", disconnectedPlayer.getName())));
+                Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("on-leave.messages.donator.left-the-game").replace("%prefix%", FlowerCore.getInstance().getProfileRepository().getRank(playerUUID).getPrefix()).replace("%player%", disconnectedPlayer.getName())));
+                event.setQuitMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("on-leave.messages.donator.left-the-game").replace("%prefix%", FlowerCore.getInstance().getProfileRepository().getRank(playerUUID).getPrefix()).replace("%player%", disconnectedPlayer.getName())));
             } else {
                 event.setQuitMessage(null);
                 Bukkit.getConsoleSender().sendMessage(CC.translate("&8[Player Leave-logs] " + disconnectedPlayer.getName() + " left. &8(" + disconnectedPlayer.getUniqueId() + "&8)"));
@@ -210,7 +209,7 @@ public class ProfileListener implements Listener {
             Bukkit.getConsoleSender().sendMessage(CC.translate("&8[Player Leave-logs] " + disconnectedPlayer.getName() + " left. &8(" + disconnectedPlayer.getUniqueId() + "&8)"));
         }
 
-        FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
+        FlowerCore.getInstance().getMongoService().saveProfile(playerUUID);
     }
 
     private void sendWelcomeMessages(Player player, List<String> messages) {
@@ -243,6 +242,6 @@ public class ProfileListener implements Listener {
                 .replace("%twitter%", twitter)
                 .replace("%youtube%", youtube)
                 .replace("%flowerbar%", CC.FLOWER_BAR_LONG)
-                .replace("%rank%", plugin.getProfileManager().getRank(playerUUID).getDisplayName());
+                .replace("%rank%", plugin.getProfileRepository().getRank(playerUUID).getDisplayName());
     }
 }

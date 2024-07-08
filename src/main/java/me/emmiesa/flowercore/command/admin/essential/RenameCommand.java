@@ -14,11 +14,10 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class RenameCommand extends BaseCommand {
     @Override
     @Command(name = "rename", permission = "flower.command.rename-item")

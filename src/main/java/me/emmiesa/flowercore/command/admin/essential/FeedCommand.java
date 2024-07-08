@@ -8,27 +8,26 @@ import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.entity.Player;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class FeedCommand extends BaseCommand {
-
+    @Override
     @Command(name = "feed", aliases = "sethungerfull", permission = "flower.command.feed")
-    public void onCommand(CommandArgs args) {
-        Player player = args.getPlayer();
+    public void onCommand(CommandArgs command) {
+        Player player = command.getPlayer();
 
-        if (args.length() == 0) {
+        if (command.length() == 0) {
             healPlayer(player);
             player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("feed.fed")));
-        } else if (args.length() == 1) {
-            Player targetPlayer = player.getServer().getPlayer(args.getArgs()[0]); //Bukkit.getPlayer(command.getArgs()[0]);
+        } else if (command.length() == 1) {
+            Player targetPlayer = player.getServer().getPlayer(command.getArgs()[0]); //Bukkit.getPlayer(command.getArgs()[0]);
             if (targetPlayer != null && targetPlayer.isOnline()) {
                 healPlayer(targetPlayer);
                 player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("feed.target-fed").replace("%target%", targetPlayer.getName())));
             } else {
-                player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("feed.target-not-found").replace("%target%", args.getArgs()[0])));
+                player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("feed.target-not-found").replace("%target%", command.getArgs()[0])));
             }
         } else {
             player.sendMessage(CC.translate("&cUsage: /feed (player)"));

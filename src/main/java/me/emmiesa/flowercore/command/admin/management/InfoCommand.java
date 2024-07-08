@@ -18,11 +18,10 @@ import java.util.UUID;
 import static com.mongodb.client.model.Filters.eq;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 02/04/2024 - 14:40
+ * @author Emmy
+ * @project FlowerCore
+ * @date 02/04/2024 - 14:40
  */
-
 public class InfoCommand extends BaseCommand {
     @Override
     @Command(name = "info", aliases = {"playerinfo"}, permission = "flower.command.info", inGameOnly = false)
@@ -39,7 +38,7 @@ public class InfoCommand extends BaseCommand {
 
         UUID playerUUID = offlinePlayer.getUniqueId();
 
-        Document doc = FlowerCore.getInstance().getMongoManager().getCollection().find(eq("UUID", playerUUID.toString())).first();
+        Document doc = FlowerCore.getInstance().getMongoService().getCollection().find(eq("UUID", playerUUID.toString())).first();
         if (doc == null) {
             sender.sendMessage(CC.translate(" "));
             sender.sendMessage(CC.translate("&cPlayer profile document for &4" + target + " &cnot found."));
@@ -64,11 +63,11 @@ public class InfoCommand extends BaseCommand {
         }
 
         sender.sendMessage(CC.translate(""));
-        sender.sendMessage(CC.translate("&bPlayer Information for " + FlowerCore.getInstance().getProfileManager().getRank(playerUUID).getColor() + target + "&b:"));
+        sender.sendMessage(CC.translate("&bPlayer Information for " + FlowerCore.getInstance().getProfileRepository().getRank(playerUUID).getColor() + target + "&b:"));
         sender.sendMessage(CC.translate(" &f► First Joined: &b" + firstJoinedDate));
         sender.sendMessage(CC.translate(" &f► Last Seen: &b" + lastSeenDate));
-        sender.sendMessage(CC.translate(" &f► Rank: &b" + FlowerCore.getInstance().getProfileManager().getRank(playerUUID).getDisplayName()));
-        sender.sendMessage(CC.translate(" &f► Tag: &b" + (FlowerCore.getInstance().getProfileManager().getTag(playerUUID) != null ? FlowerCore.getInstance().getProfileManager().getTag(playerUUID).getColor() + FlowerCore.getInstance().getProfileManager().getTag(playerUUID).getName() : "&cNone")));
+        sender.sendMessage(CC.translate(" &f► Rank: &b" + FlowerCore.getInstance().getProfileRepository().getRank(playerUUID).getDisplayName()));
+        sender.sendMessage(CC.translate(" &f► Tag: &b" + (FlowerCore.getInstance().getProfileRepository().getTag(playerUUID) != null ? FlowerCore.getInstance().getProfileRepository().getTag(playerUUID).getColor() + FlowerCore.getInstance().getProfileRepository().getTag(playerUUID).getName() : "&cNone")));
         sender.sendMessage(CC.translate(" &7► UUID: &8" + offlinePlayer.getUniqueId()));
         sender.sendMessage(CC.translate(""));
     }

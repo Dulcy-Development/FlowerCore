@@ -26,15 +26,15 @@ import me.emmiesa.flowercore.config.ConfigHandler;
 import me.emmiesa.flowercore.conversation.ConversationHandler;
 import me.emmiesa.flowercore.conversation.command.MessageCommand;
 import me.emmiesa.flowercore.conversation.command.ReplyCommand;
-import me.emmiesa.flowercore.database.MongoManager;
+import me.emmiesa.flowercore.database.MongoService;
 import me.emmiesa.flowercore.grant.GrantHandler;
 import me.emmiesa.flowercore.grant.command.GrantCommand;
 import me.emmiesa.flowercore.grant.command.GrantsCommand;
 import me.emmiesa.flowercore.chat.listener.ChatListener;
 import me.emmiesa.flowercore.listener.CommandListener;
 import me.emmiesa.flowercore.news.command.NewsCommand;
-import me.emmiesa.flowercore.placeholder.Placeholder;
-import me.emmiesa.flowercore.profile.ProfileManager;
+import me.emmiesa.flowercore.papi.PlaceholderAPI;
+import me.emmiesa.flowercore.profile.ProfileRepository;
 import me.emmiesa.flowercore.profile.listener.ProfileListener;
 import me.emmiesa.flowercore.punishment.command.PunishHistoryCommand;
 import me.emmiesa.flowercore.punishment.command.punish.BanCommand;
@@ -44,7 +44,7 @@ import me.emmiesa.flowercore.punishment.command.punish.MuteCommand;
 import me.emmiesa.flowercore.punishment.command.pardon.UnMuteCommand;
 import me.emmiesa.flowercore.punishment.command.pardon.UnbanCommand;
 import me.emmiesa.flowercore.punishment.command.pardon.UnblacklistCommand;
-import me.emmiesa.flowercore.rank.RanksManager;
+import me.emmiesa.flowercore.rank.RankRepository;
 import me.emmiesa.flowercore.rank.command.RankCommand;
 import me.emmiesa.flowercore.rank.command.SetRankCommand;
 import me.emmiesa.flowercore.rank.command.SetRankPurchasedCommand;
@@ -57,7 +57,7 @@ import me.emmiesa.flowercore.socials.command.*;
 import me.emmiesa.flowercore.spawn.SpawnHandler;
 import me.emmiesa.flowercore.spawn.command.SetJoinLocation;
 import me.emmiesa.flowercore.spawn.command.TeleportSpawnCommand;
-import me.emmiesa.flowercore.tag.TagsManager;
+import me.emmiesa.flowercore.tag.TagRepository;
 import me.emmiesa.flowercore.tag.command.TagAdminCommand;
 import me.emmiesa.flowercore.tag.command.TagCommand;
 import me.emmiesa.flowercore.tag.command.impl.*;
@@ -82,15 +82,15 @@ public class FlowerCore extends JavaPlugin {
     private static FlowerCore instance;
 
     private ConversationHandler conversationHandler;
+    private ProfileRepository profileRepository;
     private CommandFramework commandFramework;
-    private ProfileManager profileManager;
+    private RankRepository rankRepository;
+    private ChatRepository chatRepository;
+    private TagRepository tagRepository;
     private ConfigHandler configHandler;
-    private MongoManager mongoManager;
-    private RanksManager ranksManager;
+    private MongoService mongoService;
     private GrantHandler grantHandler;
     private SpawnHandler spawnHandler;
-    private ChatRepository chatRepository;
-    private TagsManager tagsManager;
     private TipsHandler tipsHandler;
     private Location spawnLocation;
     private Cooldown cooldown;
@@ -118,9 +118,9 @@ public class FlowerCore extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        ranksManager.saveToFile();
-        mongoManager.saveAllPlayerData();
-        mongoManager.close();
+        rankRepository.saveToFile();
+        mongoService.saveAllPlayerData();
+        mongoService.close();
         CC.off();
     }
 
@@ -140,19 +140,19 @@ public class FlowerCore extends JavaPlugin {
 
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
             Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Successfully registered PlaceholderAPI expansion."));
-            new Placeholder().register();
+            new PlaceholderAPI().register();
         }
 
-        this.tagsManager = new TagsManager();
-        this.tagsManager.loadConfig();
+        this.tagRepository = new TagRepository();
+        this.tagRepository.loadConfig();
 
-        this.ranksManager = new RanksManager();
-        this.ranksManager.loadConfig();
+        this.rankRepository = new RankRepository();
+        this.rankRepository.loadConfig();
 
-        this.mongoManager = new MongoManager();
-        this.mongoManager.initializeMongo();
+        this.mongoService = new MongoService();
+        this.mongoService.initializeMongo();
 
-        this.profileManager = new ProfileManager();
+        this.profileRepository = new ProfileRepository();
         this.tipsHandler = new TipsHandler();
 
         this.spawnHandler = new SpawnHandler();

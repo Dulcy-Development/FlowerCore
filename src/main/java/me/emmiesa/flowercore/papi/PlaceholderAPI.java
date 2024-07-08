@@ -1,4 +1,4 @@
-package me.emmiesa.flowercore.placeholder;
+package me.emmiesa.flowercore.papi;
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import me.emmiesa.flowercore.FlowerCore;
@@ -9,11 +9,11 @@ import org.jetbrains.annotations.NotNull;
 import java.util.UUID;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 04/02/2024 - 13:55
+ * @author Emmy
+ * @project FlowerCore
+ * @date 04/02/2024 - 13:55
  */
-public class Placeholder extends PlaceholderExpansion {
+public class PlaceholderAPI extends PlaceholderExpansion {
 
     @Override
     public @NotNull String getIdentifier() {
@@ -35,13 +35,13 @@ public class Placeholder extends PlaceholderExpansion {
         UUID playerUUID = player.getUniqueId();
         switch (params) {
             case "rank":
-                return FlowerCore.getInstance().getProfileManager().getRank(playerUUID).getDisplayName();
+                return FlowerCore.getInstance().getProfileRepository().getRank(playerUUID).getDisplayName();
             case "rank_raw":
-                return FlowerCore.getInstance().getProfileManager().getRank(playerUUID).getName();
+                return FlowerCore.getInstance().getProfileRepository().getRank(playerUUID).getName();
             case "bar":
                 return CC.FLOWER_BAR;
             case "is_staff":
-                if (FlowerCore.getInstance().getProfileManager().getRank(playerUUID).isStaff()) {
+                if (FlowerCore.getInstance().getProfileRepository().getRank(playerUUID).isStaff()) {
                     return CC.translate(FlowerCore.getInstance().getConfig("settings.yml").getString("placeholders.flower_is_staff.true"));
                 } else {
                     return CC.translate(FlowerCore.getInstance().getConfig("settings.yml").getString("placeholders.flower_is_staff.false"));

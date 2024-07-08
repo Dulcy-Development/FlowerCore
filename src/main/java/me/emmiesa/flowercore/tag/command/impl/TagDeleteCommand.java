@@ -9,11 +9,10 @@ import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.entity.Player;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class TagDeleteCommand extends BaseCommand {
     @Override
     @Command(name = "tagadmin.delete", permission = "flower.tags.developer")
@@ -27,14 +26,14 @@ public class TagDeleteCommand extends BaseCommand {
         }
 
         String tagName = args[0];
-        Tag tag = FlowerCore.getInstance().getTagsManager().getTag(tagName);
+        Tag tag = FlowerCore.getInstance().getTagRepository().getTag(tagName);
 
         if (tag == null) {
             player.sendMessage(CC.translate("&cThat tag does not exist!"));
             return;
         }
 
-        FlowerCore.getInstance().getTagsManager().removeTag(tagName);
+        FlowerCore.getInstance().getTagRepository().removeTag(tagName);
         player.sendMessage(CC.translate("&aSuccessfully deleted the &b" + tagName + " &atag!"));
     }
 }

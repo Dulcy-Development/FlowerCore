@@ -11,13 +11,11 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class ClearCommand extends BaseCommand {
-
     @Override
     @Command(name = "clear", permission = "flower.command.clear")
     public void onCommand(CommandArgs command) {
@@ -47,11 +45,11 @@ public class ClearCommand extends BaseCommand {
             targetPlayer.getInventory().clear();
             player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("clear.cleared-by"))
                     .replace("%player%", targetPlayer.getDisplayName())
-                    .replace("%player-color%", CC.translate(FlowerCore.getInstance().getProfileManager().getRank(player.getUniqueId()).getColor())));
+                    .replace("%player-color%", CC.translate(FlowerCore.getInstance().getProfileRepository().getRank(player.getUniqueId()).getColor())));
 
             player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("clear.target-cleared"))
                     .replace("%target%", targetPlayer.getDisplayName())
-                    .replace("%target-color%", CC.translate(FlowerCore.getInstance().getProfileManager().getRank(targetPlayer.getUniqueId()).getColor())));
+                    .replace("%target-color%", CC.translate(FlowerCore.getInstance().getProfileRepository().getRank(targetPlayer.getUniqueId()).getColor())));
         }
     }
 

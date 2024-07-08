@@ -6,11 +6,10 @@ import lombok.Setter;
 import org.bukkit.Material;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 30/03/2024 - 16:55
+ * @author Emmy
+ * @project FlowerCore
+ * @date 30/03/2024 - 16:55
  */
-
 @Getter
 @Setter
 @AllArgsConstructor

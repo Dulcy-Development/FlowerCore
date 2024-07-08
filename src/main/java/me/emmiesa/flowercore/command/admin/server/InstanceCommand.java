@@ -15,13 +15,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class InstanceCommand extends BaseCommand {
-
+    @Override
     @Command(name = "instance", aliases = "serverdetails", permission = "flower.command.instance", inGameOnly = false)
     public void onCommand(CommandArgs command) {
         CommandSender sender = command.getSender();

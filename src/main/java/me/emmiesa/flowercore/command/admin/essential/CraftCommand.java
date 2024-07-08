@@ -6,15 +6,13 @@ import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.entity.Player;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class CraftCommand extends BaseCommand {
-    @Command(name = "craft", aliases = "opencraftingmenu", permission = "flower.command.craft")
-
     @Override
+    @Command(name = "craft", aliases = "opencraftingmenu", permission = "flower.command.craft")
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         player.openWorkbench(player.getLocation(), true);

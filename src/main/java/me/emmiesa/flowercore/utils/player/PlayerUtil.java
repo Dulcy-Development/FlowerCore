@@ -5,7 +5,6 @@ import me.emmiesa.flowercore.FlowerCore;
 import org.bson.Document;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -15,9 +14,9 @@ import java.util.UUID;
 import static com.mongodb.client.model.Filters.eq;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 02/04/2024 - 14:48
+ * @author Emmy
+ * @project FlowerCore
+ * @date 02/04/2024 - 14:48
  */
 
 public class PlayerUtil {
@@ -35,12 +34,12 @@ public class PlayerUtil {
     }
 
     public static Document getPlayerDocument(String playerName) {
-        MongoCollection<Document> collection = FlowerCore.getInstance().getMongoManager().getCollection();
+        MongoCollection<Document> collection = FlowerCore.getInstance().getMongoService().getCollection();
         return collection.find(eq("username", playerName)).first();
     }
 
     public static UUID getPlayerUUIDFromDocument(String playerName) {
-        MongoCollection<Document> collection = FlowerCore.getInstance().getMongoManager().getCollection();
+        MongoCollection<Document> collection = FlowerCore.getInstance().getMongoService().getCollection();
         Document playerDoc = collection.find(eq("username", playerName)).first();
         return playerDoc != null ? UUID.fromString(playerDoc.getString("UUID")) : null;
     }

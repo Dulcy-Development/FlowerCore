@@ -14,12 +14,12 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class RocketCommand extends BaseCommand {
+    @Override
     @Command(name = "rocket", inGameOnly = false, permission = "flowercore.command.rocket")
     public void onCommand(CommandArgs args) {
         CommandSender sender = args.getSender();

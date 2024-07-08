@@ -12,11 +12,10 @@ import org.bukkit.entity.Player;
 import java.util.UUID;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 12/03/2024 - 17:10
+ * @author Emmy
+ * @project FlowerCore
+ * @date 12/03/2024 - 17:10
  */
-
 public class ToggleGlobalChatCommand extends BaseCommand {
     @Override
     @Command(name = "tgc", aliases = "toggleglobalchat")
@@ -24,11 +23,11 @@ public class ToggleGlobalChatCommand extends BaseCommand {
         Player player = command.getPlayer();
         UUID playerUUID = player.getUniqueId();
 
-        Profile profile = FlowerCore.getInstance().getProfileManager().getProfile(playerUUID);
+        Profile profile = FlowerCore.getInstance().getProfileRepository().getProfile(playerUUID);
         PlayerSettings playerSettings = profile.getPlayerSettings();
 
         playerSettings.setGlobalChatEnabled(!playerSettings.isGlobalChatEnabled());
-        FlowerCore.getInstance().getMongoManager().saveProfile(playerUUID);
+        FlowerCore.getInstance().getMongoService().saveProfile(playerUUID);
 
         String context = playerSettings.isGlobalChatEnabled() ? CC.translate("&aenabled") : CC.translate("&cdisabled");
         player.sendMessage(CC.translate("&bYou've {context} your global chat.").replace("{context}", context));

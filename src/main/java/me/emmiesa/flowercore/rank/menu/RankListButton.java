@@ -1,4 +1,4 @@
-package me.emmiesa.flowercore.rank.menu.button;
+package me.emmiesa.flowercore.rank.menu;
 
 import lombok.AllArgsConstructor;
 import me.emmiesa.flowercore.rank.Rank;
@@ -13,11 +13,10 @@ import org.bukkit.inventory.ItemStack;
 import java.util.Arrays;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 @AllArgsConstructor
 public class RankListButton extends Button {
 

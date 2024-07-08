@@ -9,9 +9,9 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 03/06/2024 - 19:44
+ * @author Emmy
+ * @project FlowerCore
+ * @date 03/06/2024 - 19:44
  */
 @UtilityClass
 public class GrantSerializer {

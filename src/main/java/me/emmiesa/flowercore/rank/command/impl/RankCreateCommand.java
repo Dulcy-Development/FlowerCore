@@ -13,29 +13,35 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
 
 public class RankCreateCommand extends BaseCommand {
-
+    @Override
     @Command(name = "rank.create", aliases = "createrank", permission = "flower.ranks.developer")
-    public void onCommand(CommandArgs args) {
-        Player player = args.getPlayer();
+    public void onCommand(CommandArgs command) {
+        Player player = command.getPlayer();
 
-        if (args.length() > 0) {
-            create(player, args.getArgs(0));
+        if (command.length() > 0) {
+            create(player, command.getArgs(0));
         } else {
             player.sendMessage(CC.translate("&cUsage: /rank create (rank-name)"));
         }
     }
 
+    /**
+     * Creates a rank
+     *
+     * @param player   the player executing the command
+     * @param rankName the name of the rank
+     */
     public void create(Player player, String rankName) {
         List<String> permissions = Collections.singletonList("none");
         Rank rank = new Rank(rankName, "&7" + rankName, Material.IRON_INGOT, "&7" + rankName, "&7", "&7", 0, false, false, permissions);
 
-        FlowerCore.getInstance().getRanksManager().getRanks().add(rank);
+        FlowerCore.getInstance().getRankRepository().getRanks().add(rank);
 
         player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("rank.created")).replace("%rank%", rankName));
 

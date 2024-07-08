@@ -11,11 +11,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class SettingsMenu extends Menu {
 
     private final RefillGlassButton refillGlassButton;

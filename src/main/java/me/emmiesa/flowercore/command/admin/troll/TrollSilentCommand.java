@@ -12,15 +12,12 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class TrollSilentCommand extends BaseCommand {
-
-    private final FlowerCore plugin = FlowerCore.getInstance();
-
+    @Override
     @Command(name = "trollsilent", aliases = "silenttroll", inGameOnly = false, permission = "flowercore.command.troll")
     public void onCommand(CommandArgs args) {
         CommandSender sender = args.getSender();
@@ -29,15 +26,15 @@ public class TrollSilentCommand extends BaseCommand {
             return;
         }
 
-        Player target = plugin.getServer().getPlayer(args.getArgs(0));
+        Player target = FlowerCore.getInstance().getServer().getPlayer(args.getArgs(0));
 
         if (target == null || !target.isOnline()) {
-            sender.sendMessage(CC.translate(plugin.getConfig("messages.yml").getString("troll.not-online")).replace("%target%", args.getArgs(0)));
+            sender.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("troll.not-online")).replace("%target%", args.getArgs(0)));
             return;
         }
 
         try {
-            String path = plugin.getServer().getClass().getPackage().getName();
+            String path = FlowerCore.getInstance().getServer().getClass().getPackage().getName();
             String version = path.substring(path.lastIndexOf(".") + 1);
 
             Class<?> craftPlayer = Class.forName("org.bukkit.craftbukkit." + version + ".entity.CraftPlayer");
@@ -55,6 +52,6 @@ public class TrollSilentCommand extends BaseCommand {
             ex.printStackTrace();
         }
 
-        sender.sendMessage(CC.translate(plugin.getConfig("messages.yml").getString("troll.trolled-silent")).replace("%player%", target.getName()));
+        sender.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("troll.trolled-silent")).replace("%player%", target.getName()));
     }
 }

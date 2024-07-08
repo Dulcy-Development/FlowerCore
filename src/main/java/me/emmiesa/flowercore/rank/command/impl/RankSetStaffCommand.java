@@ -10,30 +10,36 @@ import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.entity.Player;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class RankSetStaffCommand extends BaseCommand {
-
+    @Override
     @Command(name = "rank.setstaff", aliases = {"setrankstaff"}, permission = "flower.ranks.developer")
-    public void onCommand(CommandArgs args) {
-        Player player = args.getPlayer();
+    public void onCommand(CommandArgs command) {
+        Player player = command.getPlayer();
 
-        if (args.length() < 2) {
+        if (command.length() < 2) {
             player.sendMessage(CC.translate("&cUsage: /rank setStaff (rank-name) (true/false)"));
             return;
         }
 
-        String rankName = args.getArgs(0);
-        boolean state = Boolean.parseBoolean(args.getArgs(1));
+        String rankName = command.getArgs(0);
+        boolean state = Boolean.parseBoolean(command.getArgs(1));
 
         setStaff(player, rankName, state);
     }
 
+    /**
+     * Sets the staff status of a rank
+     *
+     * @param player   the player executing the command
+     * @param rankName the name of the rank
+     * @param state    the state of the staff status
+     */
     public void setStaff(Player player, String rankName, boolean state) {
-        Rank rank = FlowerCore.getInstance().getRanksManager().getRank(rankName);
+        Rank rank = FlowerCore.getInstance().getRankRepository().getRank(rankName);
 
         if (rank == null) {
             player.sendMessage(CC.translate(Locale.RANK_NOT_FOUND).replace("%rank%", rankName));

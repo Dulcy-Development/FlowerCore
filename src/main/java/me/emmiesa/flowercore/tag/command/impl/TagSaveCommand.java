@@ -8,18 +8,17 @@ import me.emmiesa.flowercore.utils.command.CommandArgs;
 import org.bukkit.entity.Player;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class TagSaveCommand extends BaseCommand {
     @Override
     @Command(name = "tagadmin.save", permission = "flower.tags.developer")
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         player.sendMessage(CC.translate("saving tag"));
-        FlowerCore.getInstance().getTagsManager().saveToFile();
+        FlowerCore.getInstance().getTagRepository().saveToFile();
         player.sendMessage(CC.translate("saved tag"));
     }
 }

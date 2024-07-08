@@ -12,12 +12,12 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class TrapCommand extends BaseCommand {
+    @Override
     @Command(name = "trap", inGameOnly = false, permission = "flowercore.command.trap")
     public void onCommand(CommandArgs args) {
         CommandSender sender = args.getSender();

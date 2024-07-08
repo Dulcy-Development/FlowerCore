@@ -6,9 +6,9 @@ import lombok.Setter;
 import java.util.Date;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 25/05/2024 - 22:10
+ * @author Emmy
+ * @project FlowerCore
+ * @date 25/05/2024 - 22:10
  */
 @Getter
 @Setter

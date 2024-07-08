@@ -1,7 +1,6 @@
 package me.emmiesa.flowercore.punishment.menu;
 
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.punishment.menu.button.PunishHistoryButton;
 import me.emmiesa.flowercore.punishment.Punishment;
 import me.emmiesa.flowercore.utils.menu.Button;
 import me.emmiesa.flowercore.utils.pagination.PaginatedMenu;
@@ -11,11 +10,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 09/05/2024 - 21:54
+ * @author Emmy
+ * @project FlowerCore
+ * @date 09/05/2024 - 21:54
  */
-
 public class PunishHistoryMenu extends PaginatedMenu {
     private final String playerName;
 
@@ -33,7 +31,7 @@ public class PunishHistoryMenu extends PaginatedMenu {
 
         int slot = 0;
 
-        for (Punishment punishment : FlowerCore.getInstance().getProfileManager().getProfile(player.getUniqueId()).getPunishments()) {
+        for (Punishment punishment : FlowerCore.getInstance().getProfileRepository().getProfile(player.getUniqueId()).getPunishments()) {
             buttons.put(slot, new PunishHistoryButton(punishment));
             slot++;
         }

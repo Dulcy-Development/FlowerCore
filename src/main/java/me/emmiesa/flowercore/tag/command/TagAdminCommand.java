@@ -11,17 +11,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class TagAdminCommand extends BaseCommand {
-
     @Completer(name = "tagadmin")
-    public List<String> tagCompleter(CommandArgs args) {
+    public List<String> tagCompleter(CommandArgs command) {
         List<String> commands = new ArrayList<>();
-        if (args.length() == 1 && args.getPlayer().hasPermission("flower.tags.developer")) {
+        if (command.length() == 1 && command.getPlayer().hasPermission("flower.tags.developer")) {
             commands.add("create");
             commands.add("delete");
             commands.add("save");
@@ -34,11 +32,10 @@ public class TagAdminCommand extends BaseCommand {
         return commands;
     }
 
-    @Command(name = "tagadmin", permission = "flower.tags.developer")
-
     @Override
-    public void onCommand(CommandArgs args) {
-        Player player = args.getPlayer();
+    @Command(name = "tagadmin", permission = "flower.tags.developer")
+    public void onCommand(CommandArgs command) {
+        Player player = command.getPlayer();
         player.sendMessage(" ");
         player.sendMessage(CC.FLOWER_BAR_LONG);
         player.sendMessage(CC.translate("&b&lTag Creation Help:"));

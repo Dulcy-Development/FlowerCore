@@ -1,4 +1,4 @@
-package me.emmiesa.flowercore.punishment.menu.button;
+package me.emmiesa.flowercore.punishment.menu;
 
 import lombok.AllArgsConstructor;
 import me.emmiesa.flowercore.punishment.Punishment;
@@ -15,11 +15,10 @@ import java.util.Arrays;
 
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 09/05/2024 - 22:01
+ * @author Emmy
+ * @project FlowerCore
+ * @date 09/05/2024 - 22:01
  */
-
 @AllArgsConstructor
 public class PunishHistoryButton extends Button {
 

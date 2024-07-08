@@ -13,15 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class FlowerCoreCommand extends BaseCommand {
-
-    private final FlowerCore plugin = FlowerCore.getInstance();
-
     @Completer(name = "flower", aliases = {"flowercore", "core"})
     public List<String> flowerCompleter(CommandArgs args) {
         List<String> command = new ArrayList<>();
@@ -33,6 +29,7 @@ public class FlowerCoreCommand extends BaseCommand {
         return command;
     }
 
+    @Override
     @Command(name = "flowercore", aliases = {"flower", "core"}, inGameOnly = false)
     public void onCommand(CommandArgs args) {
         CommandSender sender = args.getSender();
@@ -41,11 +38,11 @@ public class FlowerCoreCommand extends BaseCommand {
             sender.sendMessage(" ");
             sender.sendMessage(CC.FLOWER_BAR);
             sender.sendMessage(CC.translate("  &b&l   FlowerCore"));
-            sender.sendMessage(CC.translate("      &f┃ Author: &b" + plugin.getDescription().getAuthors().get(0)));
-            sender.sendMessage(CC.translate("      &f┃ Version: &b" + plugin.getDescription().getVersion()));
+            sender.sendMessage(CC.translate("      &f┃ Author: &b" + FlowerCore.getInstance().getDescription().getAuthors().get(0)));
+            sender.sendMessage(CC.translate("      &f┃ Version: &b" + FlowerCore.getInstance().getDescription().getVersion()));
             sender.sendMessage(CC.translate(" "));
             sender.sendMessage(CC.translate("  &b&l   Description:"));
-            sender.sendMessage(CC.translate("      &f┃ " + plugin.getDescription().getDescription()));
+            sender.sendMessage(CC.translate("      &f┃ " + FlowerCore.getInstance().getDescription().getDescription()));
             sender.sendMessage(CC.FLOWER_BAR);
             sender.sendMessage(" ");
         } else if (args.length() >= 1) {
@@ -62,7 +59,7 @@ public class FlowerCoreCommand extends BaseCommand {
 
             long start = System.currentTimeMillis();
 
-            for (String message : plugin.getConfig("messages.yml").getStringList("reload.reloading")) {
+            for (String message : FlowerCore.getInstance().getConfig("messages.yml").getStringList("reload.reloading")) {
                 sender.sendMessage(CC.translate(message));
             }
 
@@ -71,7 +68,7 @@ public class FlowerCoreCommand extends BaseCommand {
             long end = System.currentTimeMillis();
             long timeTaken = end - start;
 
-            for (String message : plugin.getConfig("messages.yml").getStringList("reload.finished")) {
+            for (String message : FlowerCore.getInstance().getConfig("messages.yml").getStringList("reload.finished")) {
                 sender.sendMessage(CC.translate(message.replace("%timetaken%", String.valueOf(timeTaken))));
             }
         }

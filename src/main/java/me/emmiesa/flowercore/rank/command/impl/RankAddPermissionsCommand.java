@@ -12,30 +12,36 @@ import org.bukkit.entity.Player;
 import java.util.List;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Discord: dsc.gg/emmiesa
+ * @author Emmy
+ * @project FlowerCore
+ * @date -
  */
-
 public class RankAddPermissionsCommand extends BaseCommand {
-
+    @Override
     @Command(name = "rank.addpermissions", aliases = {"addrankperms", "rank.addperm"}, permission = "flower.ranks.developer")
-    public void onCommand(CommandArgs args) {
-        Player player = args.getPlayer();
+    public void onCommand(CommandArgs command) {
+        Player player = command.getPlayer();
 
-        if (args.length() < 2) {
+        if (command.length() < 2) {
             player.sendMessage(CC.translate("&cUsage: /rank addpermissions (rank-name) (permission)"));
             return;
         }
 
-        String rankName = args.getArgs(0);
-        String permission = args.getArgs(1);
+        String rankName = command.getArgs(0);
+        String permission = command.getArgs(1);
 
         addPermission(player, rankName, permission);
     }
 
+    /**
+     * Adds a permission to a rank
+     *
+     * @param player     the player executing the command
+     * @param rankName   the name of the rank
+     * @param permission the permission to add
+     */
     public void addPermission(Player player, String rankName, String permission) {
-        Rank rank = FlowerCore.getInstance().getRanksManager().getRank(rankName);
+        Rank rank = FlowerCore.getInstance().getRankRepository().getRank(rankName);
 
         if (rank == null) {
             player.sendMessage(CC.translate(Locale.RANK_NOT_FOUND).replace("%rank%", rankName));

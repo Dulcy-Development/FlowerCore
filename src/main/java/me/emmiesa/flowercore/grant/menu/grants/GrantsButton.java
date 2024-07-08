@@ -15,9 +15,9 @@ import org.bukkit.inventory.ItemStack;
 import java.util.UUID;
 
 /**
- * Created by Emmy
- * Project: FlowerCore
- * Date: 03/06/2024 - 20:34
+ * @author Emmy
+ * @project FlowerCore
+ * @date 03/06/2024 - 20:34
  */
 @AllArgsConstructor
 public class GrantsButton extends Button {
@@ -28,7 +28,7 @@ public class GrantsButton extends Button {
 
     @Override
     public ItemStack getButtonItem(Player player) {
-        Rank rank = FlowerCore.getInstance().getRanksManager().getRank(grant.getRank());
+        Rank rank = FlowerCore.getInstance().getRankRepository().getRank(grant.getRank());
         if (FlowerCore.getInstance().getGrantHandler().isGrantExpired(grant)) {
             return new ItemBuilder(Material.BARRIER)
                     .name(rank.getColor() + grant.getRank())
