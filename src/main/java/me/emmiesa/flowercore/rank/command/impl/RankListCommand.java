@@ -5,9 +5,9 @@ import me.emmiesa.flowercore.rank.menu.RankListMenu;
 import me.emmiesa.flowercore.rank.Rank;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.chat.StringUtil;
-import me.emmiesa.flowercore.utils.command.BaseCommand;
-import me.emmiesa.flowercore.utils.command.Command;
-import me.emmiesa.flowercore.utils.command.CommandArgs;
+import me.emmiesa.flowercore.api.command.BaseCommand;
+import me.emmiesa.flowercore.api.command.annotation.Command;
+import me.emmiesa.flowercore.api.command.CommandArgs;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 

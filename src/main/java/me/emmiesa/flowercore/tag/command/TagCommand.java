@@ -1,9 +1,9 @@
 package me.emmiesa.flowercore.tag.command;
 
 import me.emmiesa.flowercore.tag.menu.TagsMenu;
-import me.emmiesa.flowercore.utils.command.BaseCommand;
-import me.emmiesa.flowercore.utils.command.Command;
-import me.emmiesa.flowercore.utils.command.CommandArgs;
+import me.emmiesa.flowercore.api.command.BaseCommand;
+import me.emmiesa.flowercore.api.command.annotation.Command;
+import me.emmiesa.flowercore.api.command.CommandArgs;
 import org.bukkit.entity.Player;
 
 /**

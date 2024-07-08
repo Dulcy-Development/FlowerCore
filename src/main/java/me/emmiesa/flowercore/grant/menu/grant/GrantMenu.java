@@ -2,8 +2,8 @@ package me.emmiesa.flowercore.grant.menu.grant;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.rank.Rank;
-import me.emmiesa.flowercore.utils.menu.Button;
-import me.emmiesa.flowercore.utils.pagination.PaginatedMenu;
+import me.emmiesa.flowercore.api.menu.Button;
+import me.emmiesa.flowercore.api.menu.pagination.PaginatedMenu;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 

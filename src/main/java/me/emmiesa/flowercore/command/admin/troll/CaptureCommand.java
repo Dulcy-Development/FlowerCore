@@ -1,9 +1,9 @@
 package me.emmiesa.flowercore.command.admin.troll;
 
 import me.emmiesa.flowercore.utils.chat.CC;
-import me.emmiesa.flowercore.utils.command.BaseCommand;
-import me.emmiesa.flowercore.utils.command.Command;
-import me.emmiesa.flowercore.utils.command.CommandArgs;
+import me.emmiesa.flowercore.api.command.BaseCommand;
+import me.emmiesa.flowercore.api.command.annotation.Command;
+import me.emmiesa.flowercore.api.command.CommandArgs;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;

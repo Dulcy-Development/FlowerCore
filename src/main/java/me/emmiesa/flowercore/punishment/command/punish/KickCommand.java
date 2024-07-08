@@ -5,9 +5,9 @@ import me.emmiesa.flowercore.punishment.Punishment;
 import me.emmiesa.flowercore.punishment.PunishmentType;
 import me.emmiesa.flowercore.utils.Utils;
 import me.emmiesa.flowercore.utils.chat.CC;
-import me.emmiesa.flowercore.utils.command.BaseCommand;
-import me.emmiesa.flowercore.utils.command.Command;
-import me.emmiesa.flowercore.utils.command.CommandArgs;
+import me.emmiesa.flowercore.api.command.BaseCommand;
+import me.emmiesa.flowercore.api.command.annotation.Command;
+import me.emmiesa.flowercore.api.command.CommandArgs;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 

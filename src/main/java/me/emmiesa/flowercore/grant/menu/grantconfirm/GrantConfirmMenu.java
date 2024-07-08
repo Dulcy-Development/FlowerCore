@@ -2,9 +2,9 @@ package me.emmiesa.flowercore.grant.menu.grantconfirm;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.rank.Rank;
-import me.emmiesa.flowercore.utils.menu.Button;
-import me.emmiesa.flowercore.utils.menu.Menu;
-import me.emmiesa.flowercore.utils.menu.button.RefillGlassButton;
+import me.emmiesa.flowercore.api.menu.Button;
+import me.emmiesa.flowercore.api.menu.Menu;
+import me.emmiesa.flowercore.api.menu.button.RefillGlassButton;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;

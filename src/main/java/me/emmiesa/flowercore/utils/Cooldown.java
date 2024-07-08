@@ -6,9 +6,10 @@ import lombok.Setter;
 import java.text.DecimalFormat;
 
 /**
- * FrozedUHCMeetup
+ * @author FCD
+ * @project FrozedUHCMeetup
+ * @since -
  */
-
 @Getter
 @Setter
 public class Cooldown {
@@ -47,11 +48,36 @@ public class Cooldown {
     }
 
     public String getTimeLeft() {
-        return Utils.formatTime(getSecondsLeft());
+        return formatTime(getSecondsLeft());
     }
 
     public void cancelCountdown() {
         this.expire = 0;
+    }
+
+    public static String formatTime(int timer) {
+        int hours = timer / 3600;
+        int secondsLeft = timer - hours * 3600;
+        int minutes = secondsLeft / 60;
+        int seconds = secondsLeft - minutes * 60;
+
+        String formattedTime = "";
+
+        if (hours > 0) {
+            if (hours < 10)
+                formattedTime += "0";
+            formattedTime += hours + ":";
+        }
+
+        if (minutes < 10)
+            formattedTime += "0";
+        formattedTime += minutes + ":";
+
+        if (seconds < 10)
+            formattedTime += "0";
+        formattedTime += seconds;
+
+        return formattedTime;
     }
 }
 

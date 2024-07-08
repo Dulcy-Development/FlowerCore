@@ -1,21 +1,15 @@
 package me.emmiesa.flowercore.utils.chat;
 
+import lombok.experimental.UtilityClass;
+
 /**
- * Created by somebody unknown
- * Project: FlowerCore
- * @date -
+ * @author Emmy
+ * @project FlowerCore
+ * @date 08/07/2024 - 23:12
  */
-
+@UtilityClass
 public class StringUtil {
-    public static String repeat(char character, int count) {
-        StringBuilder result = new StringBuilder();
-        for (int i = 0; i < count; i++) {
-            result.append(character);
-        }
-        return result.toString();
-    }
-
-    public static String padRight(String s, int n) {
+    public String padRight(String s, int n) {
         return String.format("%-" + n + "s", s);
     }
 }

@@ -1,11 +1,12 @@
 package me.emmiesa.flowercore.command.donator;
 
 import me.emmiesa.flowercore.FlowerCore;
+import me.emmiesa.flowercore.utils.bungee.AnnounceUtil;
 import me.emmiesa.flowercore.utils.Utils;
 import me.emmiesa.flowercore.utils.chat.CC;
-import me.emmiesa.flowercore.utils.command.BaseCommand;
-import me.emmiesa.flowercore.utils.command.Command;
-import me.emmiesa.flowercore.utils.command.CommandArgs;
+import me.emmiesa.flowercore.api.command.BaseCommand;
+import me.emmiesa.flowercore.api.command.annotation.Command;
+import me.emmiesa.flowercore.api.command.CommandArgs;
 import me.emmiesa.flowercore.utils.Cooldown;
 import org.bukkit.entity.Player;
 
@@ -49,7 +50,7 @@ public class AnnounceCommand extends BaseCommand {
             Utils.broadcastMessage(format);
         } else {
             player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("settings.yml").getString("announce.announced-message")));
-            Utils.sendGlobalClickableMessage(player, format, cmd);
+            AnnounceUtil.sendGlobalClickableMessage(player, format, cmd);
         }
 
         FlowerCore.getInstance().setCooldown(new Cooldown(FlowerCore.getInstance().getConfig("settings.yml").getInt("announce.cooldown")));

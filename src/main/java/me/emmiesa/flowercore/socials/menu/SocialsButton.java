@@ -1,6 +1,6 @@
 package me.emmiesa.flowercore.socials.menu;
 
-import me.emmiesa.flowercore.utils.menu.Button;
+import me.emmiesa.flowercore.api.menu.Button;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;

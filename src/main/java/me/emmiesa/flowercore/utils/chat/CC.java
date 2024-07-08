@@ -1,5 +1,6 @@
 package me.emmiesa.flowercore.utils.chat;
 
+import lombok.experimental.UtilityClass;
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.locale.Locale;
 import org.bukkit.Bukkit;
@@ -8,125 +9,83 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 /**
  * @author Emmy
  * @project FlowerCore
- * @date -
+ * @date 08/07/2024 - 23:10
  */
-
+@UtilityClass
 public class CC {
 
-    public static final String BLUE;
-    public static final String AQUA;
-    public static final String YELLOW;
-    public static final String RED;
-    public static final String GRAY;
-    public static final String GOLD;
-    public static final String GREEN;
-    public static final String WHITE;
-    public static final String BLACK;
-    public static final String BOLD;
-    public static final String ITALIC;
-    public static final String UNDER_LINE;
-    public static final String STRIKE_THROUGH;
-    public static final String RESET;
-    public static final String MAGIC;
-    public static final String DARK_BLUE;
-    public static final String DARK_AQUA;
-    public static final String DARK_GRAY;
-    public static final String DARK_GREEN;
-    public static final String DARK_PURPLE;
-    public static final String DARK_RED;
-    public static final String PINK;
-    public static final String MENU_BAR;
-    public static final String CHAT_BAR;
-    public static final String SB_BAR;
-    public static final String TAB_BAR;
-    public static final String FLOWER_BAR;
-    public static final String FLOWER_BAR_LONG;
-    public static final String FLOWER_BAR_VERY_LONG;
-    public static final String FLOWER_BAR_LONG_RED;
-    private static final Map<String, ChatColor> MAP;
+    public String MENU_BAR = ChatColor.DARK_GRAY.toString() + ChatColor.STRIKETHROUGH + "------------------------";
+    public String FLOWER_BAR = translate("&b&lೋღ&b&l&m«-------&f&l&m-------&b&l&m-------»&r&b&lღೋ");
+    public String FLOWER_BAR_LONG = translate("&b&lೋღ&b&l&m«-------&f&l&m-----------------&b&l&m-------»&r&b&lღೋ");
+    public String FLOWER_BAR_LONG_RED = translate("&4&lೋღ&4&l&m«-------&f&l&m-----------------&4&l&m-------»&r&4&lღೋ");
 
-    static {
-        MAP = new HashMap<>();
-        MAP.put("pink", ChatColor.LIGHT_PURPLE);
-        MAP.put("orange", ChatColor.GOLD);
-        MAP.put("purple", ChatColor.DARK_PURPLE);
-
-        for (ChatColor chatColor : ChatColor.values()) {
-            MAP.put(chatColor.name().toLowerCase().replace("_", ""), chatColor);
-        }
-
-        BLUE = ChatColor.BLUE.toString();
-        AQUA = ChatColor.AQUA.toString();
-        YELLOW = ChatColor.YELLOW.toString();
-        RED = ChatColor.RED.toString();
-        GRAY = ChatColor.GRAY.toString();
-        GOLD = ChatColor.GOLD.toString();
-        GREEN = ChatColor.GREEN.toString();
-        WHITE = ChatColor.WHITE.toString();
-        BLACK = ChatColor.BLACK.toString();
-        BOLD = ChatColor.BOLD.toString();
-        ITALIC = ChatColor.ITALIC.toString();
-        UNDER_LINE = ChatColor.UNDERLINE.toString();
-        STRIKE_THROUGH = ChatColor.STRIKETHROUGH.toString();
-        RESET = ChatColor.RESET.toString();
-        MAGIC = ChatColor.MAGIC.toString();
-        DARK_BLUE = ChatColor.DARK_BLUE.toString();
-        DARK_AQUA = ChatColor.DARK_AQUA.toString();
-        DARK_GRAY = ChatColor.DARK_GRAY.toString();
-        DARK_GREEN = ChatColor.DARK_GREEN.toString();
-        DARK_PURPLE = ChatColor.DARK_PURPLE.toString();
-        DARK_RED = ChatColor.DARK_RED.toString();
-        PINK = ChatColor.LIGHT_PURPLE.toString();
-        MENU_BAR = ChatColor.DARK_GRAY.toString() + ChatColor.STRIKETHROUGH + "------------------------";
-        CHAT_BAR = ChatColor.GRAY.toString() + ChatColor.STRIKETHROUGH + "------------------------------------------------";
-        SB_BAR = ChatColor.GRAY.toString() + ChatColor.STRIKETHROUGH + "----------------------";
-        TAB_BAR = ChatColor.GRAY.toString() + ChatColor.STRIKETHROUGH + "-----------------";
-
-        FLOWER_BAR = translate("&b&lೋღ&b&l&m«-------&f&l&m-------&b&l&m-------»&r&b&lღೋ");
-        FLOWER_BAR_LONG = translate("&b&lೋღ&b&l&m«-------&f&l&m-----------------&b&l&m-------»&r&b&lღೋ");
-        FLOWER_BAR_VERY_LONG = translate("&b&lೋღ&b&l&m«-------&f&l&m----------------------------&b&l&m-------»&r&b&lღೋ");
-
-        FLOWER_BAR_LONG_RED = translate("&4&lೋღ&4&l&m«-------&f&l&m-----------------&4&l&m-------»&r&4&lღೋ");
-    }
-
-    public static void sendError(String message) {
+    /**
+     * Send an error message to the console.
+     *
+     * @param message The message to send.
+     */
+    public void sendError(String message) {
         Bukkit.getServer().getConsoleSender().sendMessage(CC.translate("[CC Util sendError] &c" + message + "!"));  //In Player Manager class!
     }
 
-    public static String translate(String in) {
-        return ChatColor.translateAlternateColorCodes('&', in);
+    /**
+     * Translate a string to a colored string.
+     *
+     * @param message The string to translate.
+     * @return The translated string.
+     */
+    public static String translate(String message) {
+        return ChatColor.translateAlternateColorCodes('&', message);
     }
 
-    public static List<String> translate(List<String> lines) {
-        List<String> toReturn = new ArrayList<>();
+    /**
+     * Translate a list of strings to a colored list of strings.
+     *
+     * @param message The list of strings to translate.
+     * @return The translated list of strings.
+     */
+    public List<String> translate(List<String> message) {
+        List<String> list = new ArrayList<>();
 
-        for (String line : lines) {
-            toReturn.add(ChatColor.translateAlternateColorCodes('&', line));
+        for (String line : message) {
+            list.add(ChatColor.translateAlternateColorCodes('&', line));
         }
 
-        return toReturn;
+        return list;
     }
 
-    public static List<String> translate(String[] lines) {
-        List<String> toReturn = new ArrayList<>();
+    /**
+     * Translate an array of strings to a colored list of strings.
+     *
+     * @param message The array of strings to translate.
+     * @return The translated list of strings.
+     */
+    public List<String> translate(String[] message) {
+        List<String> list = new ArrayList<>();
 
-        for (String line : lines) {
+        for (String line : message) {
             if (line != null) {
-                toReturn.add(ChatColor.translateAlternateColorCodes('&', line));
+                list.add(ChatColor.translateAlternateColorCodes('&', line));
             }
         }
 
-        return toReturn;
+        return list;
     }
 
-    public static void listRanks(CommandSender sender) {
+    /**
+     * Broadcast a message to all players.
+     *
+     * @param message The message to send.
+     */
+    public void broadcast(String message) {
+        Bukkit.broadcastMessage(translate(message));
+    }
+
+    public void listRanks(CommandSender sender) {
         sender.sendMessage(" ");
         sender.sendMessage(CC.translate("&fAll registered FlowerCore rank:"));
         FileConfiguration ranksConfig = FlowerCore.getInstance().getConfig("ranks.yml");
@@ -136,7 +95,7 @@ public class CC {
         }
     }
 
-    public static void listTags(CommandSender sender) {
+    public void listTags(CommandSender sender) {
         sender.sendMessage(" ");
         sender.sendMessage(CC.translate("&fAll registered FlowerCore tags:"));
         FileConfiguration tagsConfig = FlowerCore.getInstance().getConfig("tags.yml");
@@ -146,7 +105,7 @@ public class CC {
         }
     }
 
-    public static void listRanks() {
+    public void listRanks() {
         Bukkit.getConsoleSender().sendMessage(" ");
         Bukkit.getConsoleSender().sendMessage(CC.translate("&fAll registered FlowerCore rank:"));
         FileConfiguration ranksConfig = FlowerCore.getInstance().getConfig("ranks.yml");
@@ -156,7 +115,7 @@ public class CC {
         }
     }
 
-    public static void listTags() {
+    public void listTags() {
         Bukkit.getConsoleSender().sendMessage(" ");
         Bukkit.getConsoleSender().sendMessage(CC.translate("&fAll registered FlowerCore tags:"));
         FileConfiguration tagsConfig = FlowerCore.getInstance().getConfig("tags.yml");
@@ -166,7 +125,7 @@ public class CC {
         }
     }
 
-    public static void connect() {
+    public void connect() {
         Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getPrefix() + "&fConnecting to Mongo Database..."));
         Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getPrefix() + " &fMongo Database"));
         Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getPrefix() + "  &f> Host: &f" + FlowerCore.getInstance().getConfig("database.yml").getString("database.uri")));
@@ -174,7 +133,7 @@ public class CC {
         Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getPrefix() + "&fSuccessfully connected to Mongo Database!"));
     }
 
-    public static void sendCustomFont() {
+    public void sendCustomFont() {
         Bukkit.getConsoleSender().sendMessage(CC.translate(""));
         Bukkit.getConsoleSender().sendMessage(CC.translate("&b  ______ _                        "));
         Bukkit.getConsoleSender().sendMessage(CC.translate("&b |  ____| |                       "));
@@ -185,7 +144,7 @@ public class CC {
         Bukkit.getConsoleSender().sendMessage(CC.translate(""));
     }
 
-    public static void on(long timeTaken) {
+    public void on(long timeTaken) {
         Bukkit.getConsoleSender().sendMessage(" ");
         Bukkit.getConsoleSender().sendMessage(CC.translate("&8&m-----------------------------------------------"));
         Bukkit.getConsoleSender().sendMessage(CC.translate(" &f| Plugin: &b" + FlowerCore.getInstance().getDescription().getName()));
@@ -206,7 +165,7 @@ public class CC {
         Bukkit.getConsoleSender().sendMessage(" ");
     }
 
-    public static void off() {
+    public void off() {
         Bukkit.getConsoleSender().sendMessage(" ");
         Bukkit.getConsoleSender().sendMessage(CC.translate("&8[&bFlowerCore&8] &fDisabled &bFlowerCore&f!"));
         Bukkit.getConsoleSender().sendMessage(" ");

@@ -3,10 +3,10 @@ package me.emmiesa.flowercore.command;
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.locale.Locale;
 import me.emmiesa.flowercore.utils.chat.CC;
-import me.emmiesa.flowercore.utils.command.BaseCommand;
-import me.emmiesa.flowercore.utils.command.Command;
-import me.emmiesa.flowercore.utils.command.CommandArgs;
-import me.emmiesa.flowercore.utils.command.Completer;
+import me.emmiesa.flowercore.api.command.BaseCommand;
+import me.emmiesa.flowercore.api.command.annotation.Command;
+import me.emmiesa.flowercore.api.command.CommandArgs;
+import me.emmiesa.flowercore.api.command.annotation.Completer;
 import org.bukkit.command.CommandSender;
 
 import java.util.ArrayList;

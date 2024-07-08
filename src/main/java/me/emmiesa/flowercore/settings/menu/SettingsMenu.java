@@ -1,8 +1,8 @@
 package me.emmiesa.flowercore.settings.menu;
 
-import me.emmiesa.flowercore.utils.menu.Button;
-import me.emmiesa.flowercore.utils.menu.Menu;
-import me.emmiesa.flowercore.utils.menu.button.RefillGlassButton;
+import me.emmiesa.flowercore.api.menu.Button;
+import me.emmiesa.flowercore.api.menu.Menu;
+import me.emmiesa.flowercore.api.menu.button.RefillGlassButton;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 

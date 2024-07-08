@@ -2,8 +2,8 @@ package me.emmiesa.flowercore.punishment.menu;
 
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.punishment.Punishment;
-import me.emmiesa.flowercore.utils.menu.Button;
-import me.emmiesa.flowercore.utils.pagination.PaginatedMenu;
+import me.emmiesa.flowercore.api.menu.Button;
+import me.emmiesa.flowercore.api.menu.pagination.PaginatedMenu;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;

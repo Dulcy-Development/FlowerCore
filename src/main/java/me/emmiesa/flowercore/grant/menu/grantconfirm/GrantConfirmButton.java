@@ -5,7 +5,7 @@ import me.emmiesa.flowercore.rank.Rank;
 import me.emmiesa.flowercore.utils.Utils;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.item.ItemBuilder;
-import me.emmiesa.flowercore.utils.menu.Button;
+import me.emmiesa.flowercore.api.menu.Button;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

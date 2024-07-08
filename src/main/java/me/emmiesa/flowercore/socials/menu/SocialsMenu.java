@@ -1,7 +1,7 @@
 package me.emmiesa.flowercore.socials.menu;
 
-import me.emmiesa.flowercore.utils.menu.Button;
-import me.emmiesa.flowercore.utils.menu.Menu;
+import me.emmiesa.flowercore.api.menu.Button;
+import me.emmiesa.flowercore.api.menu.Menu;
 import org.bukkit.entity.Player;
 
 import java.util.Collections;

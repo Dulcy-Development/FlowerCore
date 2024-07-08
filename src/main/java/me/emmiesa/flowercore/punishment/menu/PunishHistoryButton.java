@@ -5,7 +5,7 @@ import me.emmiesa.flowercore.punishment.Punishment;
 import me.emmiesa.flowercore.punishment.PunishmentType;
 import me.emmiesa.flowercore.utils.chat.CC;
 import me.emmiesa.flowercore.utils.item.ItemBuilder;
-import me.emmiesa.flowercore.utils.menu.Button;
+import me.emmiesa.flowercore.api.menu.Button;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;

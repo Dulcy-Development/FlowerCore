@@ -3,11 +3,11 @@ package me.emmiesa.flowercore.command.admin.management;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.utils.player.PlayerUtil;
+import me.emmiesa.flowercore.utils.DocumentUtils;
 import me.emmiesa.flowercore.utils.chat.CC;
-import me.emmiesa.flowercore.utils.command.BaseCommand;
-import me.emmiesa.flowercore.utils.command.Command;
-import me.emmiesa.flowercore.utils.command.CommandArgs;
+import me.emmiesa.flowercore.api.command.BaseCommand;
+import me.emmiesa.flowercore.api.command.annotation.Command;
+import me.emmiesa.flowercore.api.command.CommandArgs;
 import org.bson.Document;
 import org.bukkit.command.CommandSender;
 
@@ -34,14 +34,14 @@ public class AltsCommand extends BaseCommand {
 
         String targetPlayerName = command.getArgs(0);
 
-        Document targetPlayerDoc = PlayerUtil.getPlayerDocument(targetPlayerName);
+        Document targetPlayerDoc = DocumentUtils.getPlayerDocument(targetPlayerName);
         if (targetPlayerDoc == null) {
             sender.sendMessage(CC.translate("&4" + targetPlayerName + " &cis invalid."));
             return;
         }
 
-        String targetPlayerIpAddress = PlayerUtil.getPlayerIpAddressFromDocument(targetPlayerDoc);
-        UUID targetPlayerUUID = PlayerUtil.getPlayerUUIDFromDocument(targetPlayerName);
+        String targetPlayerIpAddress = DocumentUtils.getPlayerIpAddressFromDocument(targetPlayerDoc);
+        UUID targetPlayerUUID = DocumentUtils.getPlayerUUIDFromDocument(targetPlayerName);
 
         MongoCollection<Document> collection = FlowerCore.getInstance().getMongoService().getCollection();
         FindIterable<Document> documents = collection.find(eq("currentIpAddress", targetPlayerIpAddress));
