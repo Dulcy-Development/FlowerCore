@@ -38,7 +38,7 @@ public class CC {
      * @param message The string to translate.
      * @return The translated string.
      */
-    public static String translate(String message) {
+    public String translate(String message) {
         return ChatColor.translateAlternateColorCodes('&', message);
     }
 
