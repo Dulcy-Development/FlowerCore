@@ -227,7 +227,6 @@ public class FlowerCore extends JavaPlugin {
         new TwitterCommand();
         new WebsiteCommand();
         new SettingsCommand();
-        new ForceFlyCommand();
         new AnnounceCommand();
         new InstanceCommand();
         new TeleportCommand();
