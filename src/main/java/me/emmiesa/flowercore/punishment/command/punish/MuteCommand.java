@@ -1,14 +1,13 @@
 package me.emmiesa.flowercore.punishment.command.punish;
 
 import me.emmiesa.flowercore.FlowerCore;
-import me.emmiesa.flowercore.profile.Profile;
+import me.emmiesa.flowercore.api.command.BaseCommand;
+import me.emmiesa.flowercore.api.command.CommandArgs;
+import me.emmiesa.flowercore.api.command.annotation.Command;
 import me.emmiesa.flowercore.punishment.Punishment;
 import me.emmiesa.flowercore.punishment.PunishmentType;
 import me.emmiesa.flowercore.utils.Utils;
 import me.emmiesa.flowercore.utils.chat.CC;
-import me.emmiesa.flowercore.api.command.BaseCommand;
-import me.emmiesa.flowercore.api.command.annotation.Command;
-import me.emmiesa.flowercore.api.command.CommandArgs;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandSender;
@@ -24,8 +23,9 @@ public class MuteCommand extends BaseCommand {
     @Command(name = "mute", permission = "flower.punishment.mute")
     public void onCommand(CommandArgs command) {
         CommandSender sender = command.getSender();
+        String[] args = command.getArgs();
 
-        if (command.length() < 1) {
+        if (args.length < 1) {
             sender.sendMessage(CC.translate("&cUsage: /mute (player) (reason) (duration) [-s]"));
             return;
         }
@@ -39,29 +39,19 @@ public class MuteCommand extends BaseCommand {
 
         OfflinePlayer targetPlayerOffline = Bukkit.getOfflinePlayer(targetName);
         Player targetPlayer = Bukkit.getPlayer(targetName);
-        String mutedByName = sender instanceof Player ? ((Player) sender).getName() : "CONSOLE";
 
-        Profile profile = FlowerCore.getInstance().getProfileRepository().getProfile(targetPlayerOffline.getUniqueId());
-
-        /*for (Punishment punishment : profile.getPunishments()) {
-            if (punishment.isActive() && punishment.getType().equals(PunishmentType.MUTE)) {
-                sender.sendMessage(CC.translate("&4" + targetName + " &cis already muted!"));
-                return;
-            }
-        }*/
-
-        Punishment punishment = new Punishment(targetPlayerOffline.getName(), targetPlayerOffline.getUniqueId(), mutedByName, PunishmentType.MUTE, reason, targetPlayer != null ? targetPlayer.getAddress().getAddress().getHostAddress() : "null", false, duration, true);
+        Punishment punishment = new Punishment(targetPlayerOffline.getName(), targetPlayerOffline.getUniqueId(), sender.getName(), PunishmentType.MUTE, reason, targetPlayer != null ? targetPlayer.getAddress().getAddress().getHostAddress() : "null", false, duration, true);
         FlowerCore.getInstance().getProfileRepository().addPunishment(targetPlayerOffline.getUniqueId(), punishment);
 
         if (silent) {
             for (Player player : Bukkit.getOnlinePlayers()) {
                 if (player.hasPermission("flowercore.staff")) {
-                    player.sendMessage(CC.translate("&7[SILENT] &c" + targetName + " &fhas been muted by &c" + mutedByName));
+                    player.sendMessage(CC.translate("&7[SILENT] &c" + targetName + " &fhas been muted by &c" + sender.getName()));
                 }
             }
         } else {
-            Bukkit.getConsoleSender().sendMessage(CC.translate("&c" + targetName + " &fhas been muted by &c" + mutedByName));
-            Utils.broadcastMessage(CC.translate("&c" + targetName + " &fhas been muted by &c" + mutedByName));
+            Bukkit.getConsoleSender().sendMessage(CC.translate("&c" + targetName + " &fhas been muted by &c" + sender.getName()));
+            Utils.broadcastMessage(CC.translate("&c" + targetName + " &fhas been muted by &c" + sender.getName()));
         }
     }
 }

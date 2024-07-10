@@ -39,7 +39,6 @@ public class BlacklistCommand extends BaseCommand {
 
         OfflinePlayer targetPlayerOffline = Bukkit.getOfflinePlayer(targetName);
         Player targetPlayer = Bukkit.getPlayer(targetName);
-        String bannedByName = sender instanceof Player ? ((Player) sender).getName() : "CONSOLE";
 
         Profile profile = FlowerCore.getInstance().getProfileRepository().getProfile(targetPlayerOffline.getUniqueId());
 
@@ -50,22 +49,22 @@ public class BlacklistCommand extends BaseCommand {
             }
         }*/
 
-        Punishment punishment = new Punishment(targetPlayerOffline.getName(), targetPlayerOffline.getUniqueId(), bannedByName, PunishmentType.BLACKLIST, reason, targetPlayer != null ? targetPlayer.getAddress().getAddress().getHostAddress() : "null", false, duration, true);
+        Punishment punishment = new Punishment(targetPlayerOffline.getName(), targetPlayerOffline.getUniqueId(), sender.getName(), PunishmentType.BLACKLIST, reason, targetPlayer != null ? targetPlayer.getAddress().getAddress().getHostAddress() : "null", false, duration, true);
         FlowerCore.getInstance().getProfileRepository().addPunishment(targetPlayerOffline.getUniqueId(), punishment);
 
         if (silent) {
             for (Player player : Bukkit.getOnlinePlayers()) {
                 if (player.hasPermission("flowercore.staff")) {
-                    player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.blacklisted-silent").replace("%punisher%", bannedByName).replace("%target%", targetName).replace("%reason%", reason)));
+                    player.sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.blacklisted-silent").replace("%punisher%", sender.getName()).replace("%target%", targetName).replace("%reason%", reason)));
                 }
             }
         } else {
-            Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.blacklisted").replace("%punisher%", bannedByName).replace("%target%", targetName).replace("%reason%", reason)));
-            Utils.broadcastMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.blacklisted").replace("%punisher%", bannedByName).replace("%target%", targetName).replace("%reason%", reason)));
+            Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.blacklisted").replace("%punisher%", sender.getName()).replace("%target%", targetName).replace("%reason%", reason)));
+            Utils.broadcastMessage(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punish-broadcasts.blacklisted").replace("%punisher%", sender.getName()).replace("%target%", targetName).replace("%reason%", reason)));
         }
 
         if (targetPlayer != null) {
-            targetPlayer.kickPlayer(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punishments.blacklist").replace("%punisher%", bannedByName).replace("%reason%", reason)));
+            targetPlayer.kickPlayer(CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punishments.blacklist").replace("%punisher%", sender.getName()).replace("%reason%", reason)));
         }
     }
 }

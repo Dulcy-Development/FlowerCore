@@ -30,7 +30,7 @@ public class PunishHistoryButton extends Button {
                 .name("&c&l" + punishment.getType().toString()).
                 lore(Arrays.asList(
                 CC.FLOWER_BAR_LONG_RED,
-                "     &f┃ IP: &c" + punishment.getPunishedIP(),
+                "     &f┃ IP: &c" + punishment.getIpAddress(),
                 "     &f┃ By: &c" + punishment.getBy(),
                 "     &f┃ Reason: &c" + punishment.getReason(),
                 "     &f┃ Duration: &c" + punishment.getDuration(),

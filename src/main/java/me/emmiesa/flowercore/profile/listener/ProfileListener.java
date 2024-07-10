@@ -74,11 +74,11 @@ public class ProfileListener implements Listener {
     }
 
     private String banPunishMessage(Punishment punishment) {
-        return CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punishments.ban").replace("%punisher%", punishment.getByString()).replace("%reason%", punishment.getReason()));
+        return CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punishments.ban").replace("%punisher%", punishment.getBy()).replace("%reason%", punishment.getReason()));
     }
 
     private String blacklistPunishMessage(Punishment punishment) {
-        return CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punishments.blacklist").replace("%punisher%", punishment.getByString()).replace("%reason%", punishment.getReason()));
+        return CC.translate(FlowerCore.getInstance().getConfig("messages.yml").getString("punishments.blacklist").replace("%punisher%", punishment.getBy()).replace("%reason%", punishment.getReason()));
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)

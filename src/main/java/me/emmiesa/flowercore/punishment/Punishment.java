@@ -9,10 +9,9 @@ import lombok.Setter;
 import java.util.UUID;
 
 /**
- * @author Emmy
+ * @authors Emmy, Remi
  * @project FlowerCore
- * @date -
- * @recode Remi
+ * @date 10/07/2024 - 21:54
  */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,11 +22,11 @@ public class Punishment {
     @SerializedName("name")
     private String name;
 
-    @SerializedName("bannedUUID")
-    private UUID bannedUUID;
+    @SerializedName("UUID")
+    private UUID UUID;
 
     @SerializedName("by")
-    private Object by;
+    private String by;
 
     @SerializedName("type")
     private PunishmentType type;
@@ -35,8 +34,8 @@ public class Punishment {
     @SerializedName("reason")
     private String reason;
 
-    @SerializedName("punishedIP")
-    private String punishedIP;
+    @SerializedName("ipAddress")
+    private String ipAddress;
 
     @SerializedName("ip")
     private boolean ip;
@@ -51,33 +50,17 @@ public class Punishment {
      * Constructor for a punishment
      *
      * @param name     Name of the punishment
-     * @param bannedUUID UUID of the banned player
+     * @param UUID UUID of the banned player
      * @param by       Punishment issuer
      * @param type     Punishment type
      * @param reason   Punishment reason
      */
-    public Punishment(String name, UUID bannedUUID, String by, PunishmentType type, String reason) {
+    public Punishment(String name, UUID UUID, String by, PunishmentType type, String reason) {
         this.name = name;
         this.by = by;
         this.type = type;
         this.reason = reason;
     }
 
-    /**
-     * Get the UUID of the punishment issuer
-     *
-     * @return UUID of the punishment issuer
-     */
-    public UUID getByUUID() {
-        return by instanceof UUID ? (UUID) by : null;
-    }
 
-    /**
-     * Get the string of the punishment issuer
-     *
-     * @return String of the punishment issuer
-     */
-    public String getByString() {
-        return by instanceof UUID ? ((UUID) by).toString() : (String) by;
-    }
 }

@@ -108,6 +108,7 @@ public class FlowerCore extends JavaPlugin {
         registerHandlers();
         registerListeners();
         registerCommands();
+        registerPlaceholders();
 
         long end = System.currentTimeMillis();
         long timeTaken = end - start;
@@ -138,21 +139,18 @@ public class FlowerCore extends JavaPlugin {
 
         commandFramework = new CommandFramework();
 
-        if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
-            Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Successfully registered PlaceholderAPI expansion."));
-            new PlaceholderAPI().register();
-        }
-
         this.tagRepository = new TagRepository();
         this.tagRepository.loadConfig();
 
         this.rankRepository = new RankRepository();
-        this.rankRepository.loadConfig();
+        this.rankRepository.loadRanks();
 
         this.mongoService = new MongoService();
         this.mongoService.initializeMongo();
 
         this.profileRepository = new ProfileRepository();
+        this.profileRepository.loadAllProfiles();
+
         this.tipsHandler = new TipsHandler();
 
         this.spawnHandler = new SpawnHandler();
@@ -300,6 +298,13 @@ public class FlowerCore extends JavaPlugin {
         long timeTaken = end - start;
 
         Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Registered all commands in " + timeTaken + "ms."));
+    }
+
+    private void registerPlaceholders() {
+        if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
+            Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Successfully registered PlaceholderAPI expansion."));
+            new PlaceholderAPI().register();
+        }
     }
 
     public FileConfiguration getConfig(String fileName) {

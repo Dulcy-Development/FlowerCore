@@ -1,6 +1,7 @@
 package me.emmiesa.flowercore.profile;
 
 
+import jdk.jfr.internal.Logger;
 import lombok.Getter;
 import me.emmiesa.flowercore.FlowerCore;
 import me.emmiesa.flowercore.grant.Grant;
@@ -11,14 +12,13 @@ import me.emmiesa.flowercore.tag.Tag;
 import me.emmiesa.flowercore.utils.Utils;
 import org.bson.Document;
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.PermissionAttachment;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
 
 import static com.mongodb.client.model.Filters.eq;
 
@@ -151,6 +151,31 @@ public class ProfileRepository {
         }
     }
 
+    /**
+     * [EXPERIMENTAL | NOT TESTED]
+     * Deletes all punishments from the player's profile
+     *
+     * @param playerUUID player's UUID
+     */
+    public void resetPunishments(UUID playerUUID) {
+        Profile profile = profiles.get(playerUUID);
+        if (profile == null) {
+            Utils.broadcastMessage("Profile for UUID " + playerUUID + " not found.");
+            return;
+        }
+        List<Punishment> punishments = profile.getPunishments();
+        if (punishments != null) {
+            punishments.clear();
+            profile.setPunishments(punishments);
+        }
+    }
+
+    /**
+     * Returns the player's rank
+     *
+     * @param playerUUID player's UUID
+     * @return player's rank
+     */
     public Rank getRank(UUID playerUUID) {
         if (Bukkit.getPlayer(playerUUID) != null) {
             return getProfiles().get(playerUUID).getRank();
@@ -164,6 +189,12 @@ public class ProfileRepository {
         }
     }
 
+    /**
+     * Returns the player's tag
+     *
+     * @param playerUUID player's UUID
+     * @return player's tag
+     */
     public Tag getTag(UUID playerUUID) {
         if (Bukkit.getPlayer(playerUUID) != null) {
             return getProfiles().get(playerUUID).getTag();
@@ -177,6 +208,12 @@ public class ProfileRepository {
         }
     }
 
+    /**
+     * Returns the player's rank prefix (by getting it from the config file)
+     *
+     * @param playerUUID player's UUID
+     * @return player's rank prefix
+     */
     public String getPlayerRankColor(UUID playerUUID) {
         Rank rank = getRank(playerUUID);
         if (rank != null) {
@@ -189,6 +226,11 @@ public class ProfileRepository {
     }
 
 
+    /**
+     * Adds default permissions to the player
+     *
+     * @param playerUUID player's UUID
+     */
     public void addPermissions(UUID playerUUID) {
         Player player = Bukkit.getPlayer(playerUUID);
 
@@ -211,5 +253,18 @@ public class ProfileRepository {
             }
         }
     }
-}
 
+    /**
+     * Lists all profiles, initializes them and if they don't exist, creates new ones
+     */
+    public void loadAllProfiles() {
+        List<OfflinePlayer> sortedPlayers = Arrays.stream(Bukkit.getOfflinePlayers())
+                .sorted(Comparator.comparing(OfflinePlayer::getName))
+                .collect(Collectors.toList());
+
+        for (OfflinePlayer player : sortedPlayers) {
+            FlowerCore.getInstance().getMongoService().initializeProfile(player.getUniqueId());
+            Bukkit.getConsoleSender().sendMessage("Loaded profile for " + player.getName());
+        }
+    }
+}

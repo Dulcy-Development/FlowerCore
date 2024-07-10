@@ -41,7 +41,7 @@ public class ChatListener implements Listener {
                     player.sendMessage(CC.translate(message)
                             .replace("%duration%", punishment.getDuration())
                             .replace("%reason%", punishment.getReason())
-                            .replace("%muted-by%", punishment.getByString())
+                            .replace("%muted-by%", punishment.getBy())
                     );
                 }
                 event.setCancelled(true);

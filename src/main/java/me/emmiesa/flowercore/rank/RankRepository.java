@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  * @author Emmy
- * @project  FlowerCore
+ * @project FlowerCore
  * @date -
  */
 @Getter
@@ -27,7 +27,7 @@ public class RankRepository {
     /**
      * Load ranks from the ranks.yml file and add them to memory.
      */
-    public void loadConfig() {
+    public void loadRanks() {
         FileConfiguration config = plugin.getConfig("ranks.yml");
         if (config.getConfigurationSection("ranks") == null) {
             return;
