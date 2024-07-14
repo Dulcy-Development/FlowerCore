@@ -1,4 +1,4 @@
-# FlowerCore-Recode
+# FlowerCore
 
 FlowerCore is a plugin I made with friends whilst learning java. This was meant to be a private server core at first, then I wanted to start selling it. I eventually ended up open sourcing it. If you fork and improve this, it could be useful for your future server.
 
