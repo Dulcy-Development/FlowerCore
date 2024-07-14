@@ -51,9 +51,16 @@ By using FlowerCore, you agree on:
 
 For issues, use [GitHub Issues](https://github.com/Emmiesa/FlowerCore-Recode/issues) or join my [Discord Server](https://dsc.gg/dulcy).
 
+## Credit
+
+Some of the essential commands or methods are from open source projects such as Zoom by Frozed Club
+And obviously, not all utils are written by myself. 
+
 ## Special thanks
 
 Thanks to all contributors who made this with me.
+- [Remi](https://github.com/Devuxious)
+- [lrxh](https://github.com/Devlrxxh)
 
 ---
 
