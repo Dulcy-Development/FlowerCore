@@ -1,6 +1,8 @@
-package me.emmy.core.api.menu;
+package me.emmy.core.api.menu.listener;
 
 import me.emmy.core.FlowerCore;
+import me.emmy.core.api.menu.Button;
+import me.emmy.core.api.menu.Menu;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

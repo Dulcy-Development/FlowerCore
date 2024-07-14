@@ -3,7 +3,7 @@ package me.emmy.core;
 import lombok.Getter;
 import lombok.Setter;
 import me.emmy.core.api.command.CommandFramework;
-import me.emmy.core.api.menu.MenuListener;
+import me.emmy.core.api.menu.listener.MenuListener;
 import me.emmy.core.chat.ChatRepository;
 import me.emmy.core.chat.listener.ChatListener;
 import me.emmy.core.config.ConfigHandler;
@@ -39,20 +39,20 @@ public class FlowerCore extends JavaPlugin {
     @Getter
     private static FlowerCore instance;
 
-    private GodModeMemory godModeMemory;
-    private ChatRepository chatRepository;
-    private ProfileRepository profileRepository;
-    private GrantHandler grantHandler;
-    private CommandFramework commandFramework;
-    private SpawnHandler spawnHandler;
     private ConversationHandler conversationHandler;
+    private ProfileRepository profileRepository;
+    private CommandFramework commandFramework;
+    private ChatRepository chatRepository;
+    private RankRepository rankRepository;
+    private GodModeMemory godModeMemory;
     private TagRepository tagRepository;
     private ConfigHandler configHandler;
+    private GrantHandler grantHandler;
+    private SpawnHandler spawnHandler;
     private MongoService mongoService;
-    private RankRepository rankRepository;
     private TipsHandler tipsHandler;
-    private Cooldown cooldown;
     private Location spawnLocation;
+    private Cooldown cooldown;
 
     private String prefix = "§f[§bFlowerCore§f]§r ";
 
@@ -63,9 +63,7 @@ public class FlowerCore extends JavaPlugin {
         long start = System.currentTimeMillis();
 
         checkDescription();
-        registerHandlers();
-        registerRepositories();
-        registerServices();
+        registerManagers();
         registerListeners();
         registerCommands();
         registerChannels();
@@ -94,15 +92,31 @@ public class FlowerCore extends JavaPlugin {
         }
     }
 
-    private void registerHandlers() {
+    private void registerManagers() {
         long start = System.currentTimeMillis();
 
-        configHandler = new ConfigHandler();
+        this.configHandler = new ConfigHandler();
+
+        this.commandFramework = new CommandFramework();
+
+        this.tagRepository = new TagRepository();
+        this.tagRepository.loadConfig();
+
+        this.rankRepository = new RankRepository();
+        this.rankRepository.loadRanks();
+
+        this.mongoService = new MongoService();
+        this.mongoService.initializeMongo();
+
+        this.profileRepository = new ProfileRepository();
+        this.profileRepository.loadAllProfiles();
+
+        this.grantHandler = new GrantHandler();
+
+        this.chatRepository = new ChatRepository(false);
 
         this.spawnHandler = new SpawnHandler();
         this.spawnHandler.loadSpawnLocation();
-
-        this.grantHandler = new GrantHandler();
 
         this.tipsHandler = new TipsHandler();
 
@@ -112,49 +126,18 @@ public class FlowerCore extends JavaPlugin {
 
         long end = System.currentTimeMillis();
         long timeTaken = end - start;
-        Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Registered all handlers in " + timeTaken + "ms."));
-    }
 
-    private void registerRepositories() {
-        long start = System.currentTimeMillis();
-
-        this.profileRepository = new ProfileRepository();
-
-        this.rankRepository = new RankRepository();
-        this.rankRepository.loadRanks();
-
-        this.tagRepository = new TagRepository();
-        this.tagRepository.loadConfig();
-
-        this.chatRepository = new ChatRepository(false);
-
-        long end = System.currentTimeMillis();
-        long timeTaken = end - start;
-        Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Registered all repositories in " + timeTaken + "ms."));
-    }
-
-    private void registerServices() {
-        long start = System.currentTimeMillis();
-
-        this.mongoService = new MongoService();
-        this.mongoService.initializeMongo();
-        this.mongoService.loadAllProfiles();
-
-        long end = System.currentTimeMillis();
-        long timeTaken = end - start;
-        Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Registered all services in " + timeTaken + "ms."));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Registered all managers in " + timeTaken + "ms."));
     }
 
     private void registerListeners() {
         long start = System.currentTimeMillis();
 
-        Arrays.asList(
-                new ProfileListener(),
-                new ChatListener(),
-                new CommandListener(),
-                new MenuListener(),
-                new GodModeListener()
-        ).forEach(listener -> Bukkit.getPluginManager().registerEvents(listener, this));
+        Bukkit.getPluginManager().registerEvents(new CommandListener(), this);
+        Bukkit.getPluginManager().registerEvents(new MenuListener(), this);
+        Bukkit.getPluginManager().registerEvents(new ProfileListener(), this);
+        Bukkit.getPluginManager().registerEvents(new ChatListener(), this);
+        Bukkit.getPluginManager().registerEvents(new GodModeListener(), this);
 
         long end = System.currentTimeMillis();
         long timeTaken = end - start;
@@ -165,7 +148,6 @@ public class FlowerCore extends JavaPlugin {
     private void registerCommands() {
         long start = System.currentTimeMillis();
 
-        commandFramework = new CommandFramework();
         commandFramework.registerCommandsInPackage("me.emmy.core").forEach(command ->
                 Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Registered command: " + command.getName()))
         );

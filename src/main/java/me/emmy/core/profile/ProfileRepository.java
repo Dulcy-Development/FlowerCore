@@ -252,4 +252,18 @@ public class ProfileRepository {
             }
         }
     }
+
+    /**
+     * Load all profiles
+     */
+    public void loadAllProfiles() {
+        List<OfflinePlayer> sortedPlayers = Arrays.stream(Bukkit.getOfflinePlayers())
+                .sorted(Comparator.comparing(OfflinePlayer::getName))
+                .collect(Collectors.toList());
+
+        for (OfflinePlayer player : sortedPlayers) {
+            FlowerCore.getInstance().getMongoService().initializeProfile(player.getUniqueId());
+            Bukkit.getConsoleSender().sendMessage("Loaded profile for " + player.getName());
+        }
+    }
 }

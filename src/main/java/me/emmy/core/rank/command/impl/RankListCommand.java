@@ -24,10 +24,11 @@ public class RankListCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
 
-        if (FlowerCore.getInstance().getConfigHandler().getConfig("settings.yml").getBoolean("rank-setting.list.send-as-message")) {
+        if (FlowerCore.getInstance().getConfigHandler().getConfig("settings.yml").getBoolean("rank-settings.list.send-as-message")) {
             sendAsMessage(player);
-        }
-        if (FlowerCore.getInstance().getConfigHandler().getConfig("settings.yml").getBoolean("rank-setting.list.open-menu")) {
+        } else if (FlowerCore.getInstance().getConfigHandler().getConfig("settings.yml").getBoolean("rank-settings.list.open-menu")) {
+            openListMenu(player);
+        } else {
             openListMenu(player);
         }
     }

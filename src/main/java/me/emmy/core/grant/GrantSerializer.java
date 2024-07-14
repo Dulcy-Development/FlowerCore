@@ -24,7 +24,7 @@ public class GrantSerializer {
      * @param grants the list of grants
      * @return the serialized list of grants
      */
-    public static List<String> serialize(List<Grant> grants) {
+    public List<String> serialize(List<Grant> grants) {
         if (grants == null || grants.isEmpty()) {
             return Collections.emptyList();
         }
@@ -42,7 +42,7 @@ public class GrantSerializer {
      * @param serialized the serialized list of grants
      * @return the deserialized list of grants
      */
-    public static List<Grant> deserialize(List<String> serialized) {
+    public List<Grant> deserialize(List<String> serialized) {
         if (serialized == null || serialized.isEmpty() || serialized.get(0).isEmpty()) {
             return Collections.emptyList();
         }
@@ -60,7 +60,7 @@ public class GrantSerializer {
      * @param grant the grant
      * @return the serialized grant
      */
-    private static String serializeGrant(Grant grant) {
+    private String serializeGrant(Grant grant) {
         return gson.toJson(grant);
     }
 
@@ -70,7 +70,7 @@ public class GrantSerializer {
      * @param serialized the serialized grant
      * @return the deserialized grant
      */
-    private static Grant deserializeGrant(String serialized) {
+    private Grant deserializeGrant(String serialized) {
         return gson.fromJson(serialized, Grant.class);
     }
 }

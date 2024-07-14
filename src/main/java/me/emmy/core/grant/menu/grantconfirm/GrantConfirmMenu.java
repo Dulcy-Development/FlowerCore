@@ -50,8 +50,8 @@ public class GrantConfirmMenu extends Menu {
         String confirmMaterialStr = config.getString("confirm-button.material", "DIAMOND_BLOCK");
         Material confirmMaterial = Material.matchMaterial(confirmMaterialStr);
         List<String> confirmLore = config.getStringList("confirm-button.lore");
-        String staff = FlowerCore.getInstance().getConfigHandler().getConfig("menus/grant-confirm.yml").getString("confirm-button.papi.staff");
-        String nonStaff = FlowerCore.getInstance().getConfigHandler().getConfig("menus/grant-confirm.yml").getString("confirm-button.papi.non-staff");
+        String staff = FlowerCore.getInstance().getConfigHandler().getConfig("menus/grant-confirm.yml").getString("confirm-button.placeholder.staff");
+        String nonStaff = FlowerCore.getInstance().getConfigHandler().getConfig("menus/grant-confirm.yml").getString("confirm-button.placeholder.non-staff");
         confirmLore.replaceAll(line -> line.replace("{player_name}", playerName).replace("{rank}", rank.getDisplayName()).replace("{rank-type}", rank.isStaff() ? staff : nonStaff));
 
         String cancelTitle = config.getString("cancel-button.title", "&c&lCancel");

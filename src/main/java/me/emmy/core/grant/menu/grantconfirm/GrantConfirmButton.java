@@ -75,8 +75,8 @@ public class GrantConfirmButton extends Button {
                 Button.playSuccess(player);
                 player.closeInventory();
 
-                if (FlowerCore.getInstance().getConfigHandler().getConfig("settings.yml").getBoolean("grant-setting.broadcast.enabled")) {
-                    List<String> messages = FlowerCore.getInstance().getConfigHandler().getConfig("settings.yml").getStringList("grant-setting.broadcast.message");
+                if (FlowerCore.getInstance().getConfigHandler().getConfig("settings.yml").getBoolean("grant-settings.broadcast.enabled")) {
+                    List<String> messages = FlowerCore.getInstance().getConfigHandler().getConfig("settings.yml").getStringList("grant-settings.broadcast.message");
 
                     String grantedBy = FlowerCore.getInstance().getProfileRepository().getRank(playerUUID).getPrefix() + player.getDisplayName();
                     String grantedPlayer = playerName;
