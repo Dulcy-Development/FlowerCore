@@ -1,6 +1,6 @@
 name: FlowerCore
 version: '${project.version}'
-main: me.emmiesa.flowercore.FlowerCore
+main: me.emmy.core.FlowerCore
 authors: ["Emmy", "Remi"]
 description: '${project.description}'
 website: https://dsg.gg/dulcy

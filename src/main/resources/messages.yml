@@ -101,8 +101,11 @@ more-command:
   no-item-held: "&cYou need to be holding an item!"
 
 god-mode:
-  enabled: "&aYou've enabled god-mode."
-  disabled: "&cYou've disabled god-mode."
+  enabled: "&aEnabled your god-mode."
+  disabled: "&cDisabled your god-mode."
+  target:
+    enabled: "&aYou've enabled god-mode for &b%player%&a."
+    disabled: "&cYou've disabled god-mode for &b%player%&a."
 
 speed-set:
   fly: "&aYou've set your &bflying &aspeed to &b%value%&a."
@@ -172,8 +175,6 @@ instance-command:
   seperator-format: "&f, &b" #The seperator format of the %plugins-name% and %ops-name% papi.
   lines:
     - " "
-    - "&b&l&m-------&f&l&m-----------------------------&b&l&m-------»&r&b&l>"
-    - " "
     - "&b&lServer Details:"
     - " &fVersion: &b%version%"
     - " &fBukkit Server name: &b%bukkit-server-name%"
@@ -187,8 +188,6 @@ instance-command:
     - " "
     - "&fInstalled Plugins: &f(&b%plugins%&f)"
     - " &f- &b%plugins-name%"
-    - " "
-    - "&b&l&m-------&f&l&m-----------------------------&b&l&m-------»&r&b&l>"
     - " "
 
 ping:

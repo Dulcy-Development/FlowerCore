@@ -119,7 +119,7 @@ version-command:
   message:
     - "&cYou don't have permission to execute this command!"
     #- "&fHey &b%player%&f,"
-    #- "&fThis server is running &b&l%spigot% &fusing Emmy's awesome core plugin which is called &b&lFlowerCore&r!"
+    #- "&fThis server is running &b&l%spigot% &fusing Emmy's awesome flowercore plugin which is called &b&lFlowerCore&r!"
     #- " &8- &7%version%"
     #- ""
 
