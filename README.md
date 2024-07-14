@@ -53,7 +53,7 @@ For issues, use [GitHub Issues](https://github.com/Emmiesa/FlowerCore-Recode/iss
 
 ## Credit
 
-Some of the essential commands or methods are from open source projects such as Zoom by Frozed Club
+Some of the essential commands or methods are from open source projects such as Zoom by Frozed Club.
 And obviously, not all utils are written by myself. 
 
 ## Special thanks
