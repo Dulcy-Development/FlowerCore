@@ -17,7 +17,7 @@ FlowerCore is a plugin I made with friends whilst learning java. This was meant 
 
 1. **Download**: Get the latest release from the [Releases](https://github.com/Emmiesa/FlowerCore-Recode/releases) page.
 2. **Place**: Move the downloaded `.jar` file into your server's `plugins` directory.
-3. **Configure**: Adjust settings in the `plugins/FlowerCore-Recode` directory to suit your server's needs.
+3. **Configure**: Adjust settings in the `plugins/FlowerCore` directory to suit your server's needs.
 4. **Launch**: Start or restart your Minecraft server.
 
 ## Configuration
@@ -38,7 +38,7 @@ FlowerCore is a plugin I made with friends whilst learning java. This was meant 
 
 ## License
 
-FlowerCore-Recode is licensed under the [MIT License](LICENSE).
+FlowerCore is licensed under the [MIT License](LICENSE).
 
 ## Terms of Service
 
