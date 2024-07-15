@@ -2,6 +2,7 @@ package me.emmy.core;
 
 import lombok.Getter;
 import lombok.Setter;
+
 import me.emmy.core.api.command.CommandFramework;
 import me.emmy.core.api.menu.listener.MenuListener;
 import me.emmy.core.chat.ChatRepository;
@@ -23,15 +24,23 @@ import me.emmy.core.tip.TipsHandler;
 import me.emmy.core.utils.Cooldown;
 import me.emmy.core.utils.chat.CC;
 import me.emmy.core.utils.chat.Logger;
+
 import org.bukkit.Bukkit;
-import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
-import java.util.Arrays;
 
+/**
+ * Dulcy Development @ 2023 - 2024
+ *
+ * @author Emmy
+ * @project FlowerCore
+ * @date 24/12/2023 - 10:13
+ * @credit <a href="https://github.com/Devuxious">Remi</a>, <a href="https://github.com/Devlrxxh">lrxh</a>, <a href="https://github.com/FrozedClubDevelopment">FCD</a>
+ * @link <a href="https://github.com/Dulcy-Development">Dulcy Development</a>
+ */
 @Getter
 @Setter
 public class FlowerCore extends JavaPlugin {
@@ -51,7 +60,6 @@ public class FlowerCore extends JavaPlugin {
     private SpawnHandler spawnHandler;
     private MongoService mongoService;
     private TipsHandler tipsHandler;
-    private Location spawnLocation;
     private Cooldown cooldown;
 
     private String prefix = "§f[§bFlowerCore§f]§r ";

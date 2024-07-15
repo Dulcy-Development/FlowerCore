@@ -107,9 +107,11 @@ public class ProfileListener implements Listener {
         player.setFlySpeed(1 * 0.1F);
         player.setWalkSpeed(2 * 0.1F);
 
-        Location spawnLocation = plugin.getSpawnLocation();
-        if (spawnLocation != null) {
-            event.getPlayer().teleport(spawnLocation);
+        if (plugin.getConfig("settings.yml").getBoolean("on-join.teleport.enabled")) {
+            Location spawnLocation = plugin.getSpawnHandler().getSpawnLocation();
+            if (spawnLocation != null) {
+                player.teleport(spawnLocation);
+            }
         }
 
         if (plugin.getConfig("messages.yml").getBoolean("on-join.title-sender.enabled")) {
