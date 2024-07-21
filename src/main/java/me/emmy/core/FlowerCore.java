@@ -3,6 +3,7 @@ package me.emmy.core;
 import lombok.Getter;
 import lombok.Setter;
 
+import me.emmy.core.api.command.BaseCommand;
 import me.emmy.core.api.command.CommandFramework;
 import me.emmy.core.api.menu.listener.MenuListener;
 import me.emmy.core.chat.ChatRepository;
@@ -31,6 +32,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
+import java.util.Set;
 
 /**
  * Dulcy Development @ 2023 - 2024
@@ -72,8 +74,8 @@ public class FlowerCore extends JavaPlugin {
 
         checkDescription();
         registerManagers();
-        registerListeners();
         registerCommands();
+        registerListeners();
         registerChannels();
         registerPapiExpansion();
 
@@ -156,9 +158,7 @@ public class FlowerCore extends JavaPlugin {
     private void registerCommands() {
         long start = System.currentTimeMillis();
 
-        commandFramework.registerCommandsInPackage("me.emmy.core").forEach(command ->
-                Bukkit.getConsoleSender().sendMessage(CC.translate(prefix + "Registered command: " + command.getName()))
-        );
+        commandFramework.registerCommandsInPackage("me.emmy.core");
 
         long end = System.currentTimeMillis();
         long timeTaken = end - start;

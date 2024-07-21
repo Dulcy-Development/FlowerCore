@@ -3,6 +3,6 @@ version: '${project.version}'
 main: me.emmy.core.FlowerCore
 authors: ["Emmy", "Remi"]
 description: '${project.description}'
-website: https://dsg.gg/dulcy
+website: '${project.url}'
 softdepend:
   - PlaceholderAPI

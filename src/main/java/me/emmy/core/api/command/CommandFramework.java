@@ -233,7 +233,7 @@ public class CommandFramework implements CommandExecutor {
         ConfigurationBuilder config = new ConfigurationBuilder()
                 .setUrls(ClasspathHelper.forPackage(packageName))
                 .setScanners(new SubTypesScanner(false))
-                .filterInputsBy(new FilterBuilder().excludePackage("dev.revere.delta.api"));
+                .filterInputsBy(new FilterBuilder().excludePackage("me.emmy.core.api"));
 
         Reflections reflections = new Reflections(config);
         Set<Class<? extends BaseCommand>> commandClasses = reflections.getSubTypesOf(BaseCommand.class);

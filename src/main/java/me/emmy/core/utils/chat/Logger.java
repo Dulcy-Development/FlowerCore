@@ -22,6 +22,6 @@ public class Logger {
         long start = System.currentTimeMillis();
         runnable.run();
         long end = System.currentTimeMillis();
-        Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getPrefix() + "&fSuccessfully loaded &d" + taskName + " &fin &d" + (end - start) + "ms&f."));
+        Bukkit.getConsoleSender().sendMessage(CC.translate(FlowerCore.getInstance().getPrefix() + "&fSuccessfully loaded &b" + taskName + " &fin &b" + (end - start) + "ms&f."));
     }
 }
