@@ -44,7 +44,7 @@ FlowerCore is licensed under the [MIT License](LICENSE).
 
 By using FlowerCore, you agree on:
 - Always crediting the original authors, no matter what you do.
-- Giving me, [Emmy](https://github.com/Emmiesa) access to the forked source/repository in case if you resell it and letting me know before you do so.
+- Giving me, [Emmy](https://github.com/hmEmmy) access to the forked source/repository in case if you resell it and letting me know before you do so.
 - Not reselling this if I don't want you to.
 
 ## Support
